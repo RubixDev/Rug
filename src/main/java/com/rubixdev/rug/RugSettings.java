@@ -62,6 +62,6 @@ public class RugSettings
 
     @Rule(
             desc = "Allows Zombified Piglins to spawn inside Nether Portals",
-            category = {FEATURE, SURVIVAL, RUG})
+            category = {SURVIVAL, RUG})
     public static boolean zombifiedPiglinsSpawningInPortals = true;
 }
