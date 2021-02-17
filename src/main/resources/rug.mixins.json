@@ -1,9 +1,11 @@
 {
   "required": true,
-  "package": "com.rubixdev.carpet.addon.mixins",
+  "package": "com.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "CarpetServerMixin"
+    "CarpetServerMixin",
+    "FallingBlockEntityMixin",
+    "NetherPortalBlockMixin"
   ],
   "client": [
   ],

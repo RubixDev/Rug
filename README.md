@@ -1,4 +1,4 @@
-# Carpet Addon Mod Template
+# Rug Mod for Fabric
 
 ## License
 

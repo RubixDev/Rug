@@ -1,4 +1,4 @@
-package com.rubixdev.carpet.addon;
+package com.rubixdev.rug;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
@@ -7,27 +7,27 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class CarpetAddonServer implements CarpetExtension {
+public class RugServer implements CarpetExtension {
     @Override
     public String version()
     {
-        return "modid";
+        return "rug";
     }
 
     public static void noop() {}
 
     static
     {
-        CarpetServer.manageExtension(new CarpetAddonServer());
+        CarpetServer.manageExtension(new RugServer());
         // temporary until CM proper runs tiny bit later
-        //CarpetServer.settingsManager.parseSettingsClass(CarpetAddonSettings.class);
+        //CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
     }
 
     @Override
     public void onGameStarted()
     {
         // let's /carpet handle our few simple settings
-        CarpetServer.settingsManager.parseSettingsClass(CarpetAddonSettings.class);
+        CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
 
         // set-up a snooper to observe how rules are changing in carpet
         CarpetServer.settingsManager.addRuleObserver( (serverCommandSource, currentRuleState, originalUserTest) ->
