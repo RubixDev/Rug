@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "modid",
+  "version": "1.0.0",
+
+  "name": "Carpet Addon",
+  "description": "A template for a carpet extension Mod",
+  "authors": [
+    "RubixDev"
+  ],
+  "contact": {
+    "homepage": "https://github.com/RubixDev/CarpetAddonTemplate",
+    "sources": "https://github.com/RubixDev/CarpetAddonTemplate"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "carpet": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  },
+  "custom": {
+    "modmenu:parent": "carpet"
+  }
+}

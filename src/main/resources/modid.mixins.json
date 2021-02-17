@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.rubixdev.carpet.addon.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "CarpetServerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
