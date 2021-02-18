@@ -69,4 +69,9 @@ public class RugSettings
             desc = "Reverts the fishing loot to how it was before 1.16",
             category = {SURVIVAL, RUG})
     public static boolean oldFishingLoot = false;
+
+    @Rule(
+            desc = "Prevents Creepers from destroying blocks",
+            category = {SURVIVAL, RUG})
+    public static boolean noCreeperGriefing = false;
 }

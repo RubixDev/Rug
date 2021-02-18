@@ -6,7 +6,8 @@
     "CarpetServerMixin",
     "FallingBlockEntityMixin",
     "NetherPortalBlockMixin",
-    "FishingBobberEntityMixin"
+    "FishingBobberEntityMixin",
+    "CreeperEntityMixin"
   ],
   "client": [
   ],
