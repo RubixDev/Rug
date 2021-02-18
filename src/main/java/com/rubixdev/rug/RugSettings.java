@@ -79,4 +79,9 @@ public class RugSettings
             desc = "Prevents Endermen from picking up and placing blocks",
             category = {SURVIVAL, RUG})
     public static boolean noEndermanGriefing = false;
+
+    @Rule(
+            desc = "Prevents Ghasts from destroying blocks",
+            category = {SURVIVAL, RUG})
+    public static boolean noGhastGriefing = false;
 }
