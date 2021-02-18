@@ -4,12 +4,13 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CarpetServerMixin",
-    "FallingBlockEntityMixin",
-    "NetherPortalBlockMixin",
-    "FishingBobberEntityMixin",
     "CreeperEntityMixin",
     "EndermanEntityMixin",
-    "GhastEntityMixin"
+    "FallingBlockEntityMixin",
+    "FishingBobberEntityMixin",
+    "GhastEntityMixin",
+    "NetherPortalBlockMixin",
+    "ServerPlayerEntityMixin"
   ],
   "client": [
   ],

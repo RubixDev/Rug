@@ -84,4 +84,9 @@ public class RugSettings
             desc = "Prevents Ghasts from destroying blocks",
             category = {SURVIVAL, RUG})
     public static boolean noGhastGriefing = false;
+
+    @Rule(
+            desc = "Players drop their head when killed by a player",
+            category = {FEATURE, SURVIVAL, RUG})
+    public static boolean playerHeadDrops = false;
 }
