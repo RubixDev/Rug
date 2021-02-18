@@ -64,4 +64,9 @@ public class RugSettings
             desc = "Allows Zombified Piglins to spawn inside Nether Portals",
             category = {SURVIVAL, RUG})
     public static boolean zombifiedPiglinsSpawningInPortals = true;
+
+    @Rule(
+            desc = "Reverts the fishing loot to how it was before 1.16",
+            category = {SURVIVAL, RUG})
+    public static boolean oldFishingLoot = false;
 }
