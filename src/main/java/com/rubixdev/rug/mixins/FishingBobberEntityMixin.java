@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FishingBobberEntity.class)
 public class FishingBobberEntityMixin {
-    @Inject(method = "isOpenOrWaterAround", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "isOpenOrWaterAround", at = @At("HEAD"), cancellable = true)
     private void injectIsOpenOrWaterAround(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (RugSettings.oldFishingLoot) {
             cir.setReturnValue(true);
