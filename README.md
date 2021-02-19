@@ -34,6 +34,9 @@ Categories: `SURVIVAL, RUG`
 ### playerHeadDrops
 Players drop their head when killed by a player  
 Categories: `FEATURE, SURVIVAL, RUG`
+### silenceMobs
+Mobs named with 'silence_me' stop making noise  
+Categories: `FEATURE, SURVIVAL, RUG`
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed  
 Categories: `FEATURE, SURVIVAL, RUG`

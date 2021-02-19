@@ -113,4 +113,9 @@ public class RugSettings
             strict = false,
             validate = validatorstrictShulkerShells.class)
     public static int strictShulkerShells = 0;
+
+    @Rule(
+            desc = "Mobs named with 'silence_me' stop making noise",
+            category = {FEATURE, SURVIVAL, RUG})
+    public static boolean silenceMobs = false;
 }

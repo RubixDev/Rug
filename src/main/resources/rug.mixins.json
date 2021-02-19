@@ -12,7 +12,8 @@
     "GhastEntityMixin",
     "NetherPortalBlockMixin",
     "ServerPlayerEntityMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "NameTagItemMixin"
   ],
   "client": [
   ],
