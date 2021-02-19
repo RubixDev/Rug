@@ -40,6 +40,9 @@ Categories: `FEATURE, SURVIVAL, RUG`
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed  
 Categories: `FEATURE, SURVIVAL, RUG`
+### zeroTickPlants
+Brings back the ability to force grow certain plants using 0-ticks  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
 ### zombifiedPiglinsSpawningInPortals
 Allows Zombified Piglins to spawn inside Nether Portals  
 Categories: `SURVIVAL, RUG`

@@ -3,17 +3,22 @@
   "package": "com.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbstractPlantStemBlockMixin",
+    "BambooBlockMixin",
+    "CactusBlockMixin",
     "CarpetServerMixin",
+    "ChorusFlowerBlockMixin",
     "CreeperEntityMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "FallingBlockEntityMixin",
     "FishingBobberEntityMixin",
     "GhastEntityMixin",
+    "LivingEntityMixin",
+    "NameTagItemMixin",
     "NetherPortalBlockMixin",
     "ServerPlayerEntityMixin",
-    "LivingEntityMixin",
-    "NameTagItemMixin"
+    "SugarCaneBlockMixin"
   ],
   "client": [
   ],

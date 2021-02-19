@@ -118,4 +118,9 @@ public class RugSettings
             desc = "Mobs named with 'silence_me' stop making noise",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean silenceMobs = false;
+
+    @Rule(
+            desc = "Brings back the ability to force grow certain plants using 0-ticks ",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean zeroTickPlants = false;
 }
