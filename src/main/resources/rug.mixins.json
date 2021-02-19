@@ -11,7 +11,8 @@
     "FishingBobberEntityMixin",
     "GhastEntityMixin",
     "NetherPortalBlockMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "LivingEntityMixin"
   ],
   "client": [
   ],

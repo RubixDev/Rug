@@ -94,4 +94,23 @@ public class RugSettings
             desc = "Makes the Ender Dragon drop an Elytra everytime he's killed",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean dragonDropsElytra = false;
+
+    public static class validatorstrictShulkerShells extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
+            return newValue >= 0 && newValue <= 4 ? newValue : null;
+        }
+
+        @Override
+        public String description() {return "You must choose a value from 0 to 4";}
+    }
+
+    @Rule(
+            desc = "Shulkers always drop a given amount of shulker shells when killed",
+            category = {FEATURE, SURVIVAL, RUG},
+            options = {"0", "1", "2"},
+            strict = false,
+            validate = validatorstrictShulkerShells.class)
+    public static int strictShulkerShells = 0;
 }
