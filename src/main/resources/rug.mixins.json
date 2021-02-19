@@ -5,6 +5,7 @@
   "mixins": [
     "CarpetServerMixin",
     "CreeperEntityMixin",
+    "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "FallingBlockEntityMixin",
     "FishingBobberEntityMixin",
