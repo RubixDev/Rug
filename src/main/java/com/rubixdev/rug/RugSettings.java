@@ -91,7 +91,7 @@ public class RugSettings
     public static boolean playerHeadDrops = false;
 
     @Rule(
-            desc = "Makes the Ender Dragon drop an Elytra everytime he's killed",
+            desc = "Ender Dragon drops an Elytra when killed",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean dragonDropsElytra = false;
 

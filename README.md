@@ -17,7 +17,7 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 Categories: `FEATURE, EXPERIMENTAL, SURVIVAL, RUG`  
 From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 ### dragonDropsElytra
-Makes the Ender Dragon drop an Elytra everytime he's killed  
+Ender Dragon drops an Elytra when killed  
 Categories: `FEATURE, SURVIVAL, RUG`
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks  
