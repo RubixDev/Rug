@@ -18,7 +18,8 @@ Categories: `FEATURE, EXPERIMENTAL, SURVIVAL, RUG`
 From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 ### dragonDropsElytra
 Ender Dragon drops an Elytra when killed  
-Categories: `FEATURE, SURVIVAL, RUG`
+Categories: `FEATURE, SURVIVAL, RUG`  
+Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks  
 Categories: `SURVIVAL, RUG`
@@ -33,13 +34,16 @@ Reverts the fishing loot to how it was before 1.16
 Categories: `SURVIVAL, RUG`
 ### playerHeadDrops
 Players drop their head when killed by a player  
-Categories: `FEATURE, SURVIVAL, RUG`
+Categories: `FEATURE, SURVIVAL, RUG`  
+Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 ### silenceMobs
 Mobs named with 'silence_me' stop making noise  
-Categories: `FEATURE, SURVIVAL, RUG`
+Categories: `FEATURE, SURVIVAL, RUG`  
+Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed  
-Categories: `FEATURE, SURVIVAL, RUG`
+Categories: `FEATURE, SURVIVAL, RUG`  
+Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks  
 Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
