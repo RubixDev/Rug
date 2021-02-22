@@ -126,4 +126,9 @@ public class RugSettings
             desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean concreteConvertOnCauldron = false;
+
+    @Rule(
+            desc = "Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process",
+            category = {EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG})
+    public static boolean dispensersCureVillagers = false;
 }
