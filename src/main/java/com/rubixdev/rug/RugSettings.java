@@ -5,9 +5,7 @@ import carpet.settings.Rule;
 import carpet.settings.Validator;
 import net.minecraft.server.command.ServerCommandSource;
 
-import static carpet.settings.RuleCategory.EXPERIMENTAL;
-import static carpet.settings.RuleCategory.FEATURE;
-import static carpet.settings.RuleCategory.SURVIVAL;
+import static carpet.settings.RuleCategory.*;
 
 // BUGFIX
 // COMMAND
@@ -120,7 +118,12 @@ public class RugSettings
     public static boolean silenceMobs = false;
 
     @Rule(
-            desc = "Brings back the ability to force grow certain plants using 0-ticks ",
+            desc = "Brings back the ability to force grow certain plants using 0-ticks",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean zeroTickPlants = false;
+
+    @Rule(
+            desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
+            category = {FEATURE, SURVIVAL, RUG})
+    public static boolean concreteConvertOnCauldron = false;
 }

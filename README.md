@@ -16,6 +16,9 @@ From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 Custom amount of ice crushed by falling anvils make one packed ice.  
 Categories: `FEATURE, EXPERIMENTAL, SURVIVAL, RUG`  
 From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+### concreteConvertOnCauldron
+Concrete powder converts to concrete blocks when on top of a filled cauldron  
+Categories: `FEATURE, SURVIVAL, RUG`
 ### dragonDropsElytra
 Ender Dragon drops an Elytra when killed  
 Categories: `FEATURE, SURVIVAL, RUG`  

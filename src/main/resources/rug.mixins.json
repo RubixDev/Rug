@@ -8,6 +8,7 @@
     "CactusBlockMixin",
     "CarpetServerMixin",
     "ChorusFlowerBlockMixin",
+    "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
