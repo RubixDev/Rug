@@ -120,7 +120,12 @@ public class RugSettings
     public static boolean silenceMobs = false;
 
     @Rule(
-            desc = "Brings back the ability to force grow certain plants using 0-ticks ",
+            desc = "Brings back the ability to force grow certain plants using 0-ticks",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean zeroTickPlants = false;
+
+    @Rule(
+            desc = "Makes shulkers behave like in the current 1.17 snapshots",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean newShulkerBehavior = false;
 }
