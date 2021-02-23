@@ -126,6 +126,7 @@ public class RugSettings
 
     @Rule(
             desc = "Makes shulkers behave like in the current 1.17 snapshots",
+            extra = "Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean newShulkerBehavior = false;
 }

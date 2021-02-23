@@ -20,6 +20,10 @@ From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 Ender Dragon drops an Elytra when killed  
 Categories: `FEATURE, SURVIVAL, RUG`  
 Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+### newShulkerBehavior
+Makes shulkers behave like in the current 1.17 snapshots  
+Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks  
 Categories: `SURVIVAL, RUG`

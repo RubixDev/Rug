@@ -1,14 +1,19 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.ShulkerEntity;
 import net.minecraft.util.DyeColor;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -53,7 +58,8 @@ public abstract class ShulkerEntityMixin extends LivingEntity {
                 ShulkerEntity shulkerEntity = EntityType.SHULKER.create(this.world);
                 DyeColor dyeColor = this.getColor();
                 if (dyeColor != null) {
-                    shulkerEntity.setColor(dyeColor);
+                    assert shulkerEntity != null;
+                    setColor(shulkerEntity, dyeColor);
                 }
 
                 assert shulkerEntity != null;
@@ -63,7 +69,11 @@ public abstract class ShulkerEntityMixin extends LivingEntity {
         }
     }
 
-    private void setColor(DyeColor color) {
-        this.dataTracker.set(COLOR, (byte)color.getId());
+    private void setColor(ShulkerEntity shulkerEntity, DyeColor color) {
+        DataTracker dataTracker = shulkerEntity.getDataTracker();
+        TrackedData<Byte> COLOR = ShulkerEntityAccessorMixin.getColorTrackerKey();
+        byte colorId = (byte) (color != null ? color.getId() : 16);
+
+        dataTracker.set(COLOR, colorId);
     }
 }
