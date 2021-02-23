@@ -1,7 +1,7 @@
 # Rug Mod for Fabric
 
 ## Description
-Extension Mod for gnembon's fabric-carpet with some more features
+Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 
 ## Implemented Rules
 ### anvilledBlueIce
@@ -16,6 +16,13 @@ From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 Custom amount of ice crushed by falling anvils make one packed ice.  
 Categories: `FEATURE, EXPERIMENTAL, SURVIVAL, RUG`  
 From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+### concreteConvertOnCauldron
+Concrete powder converts to concrete blocks when on top of a filled cauldron  
+Categories: `FEATURE, SURVIVAL, RUG`
+### dispensersCureVillagers
+Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process  
+Note: Villagers cured with dispenser have no curing player associated, so they will not lower their trades.  
+Categories: `EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG`
 ### dragonDropsElytra
 Ender Dragon drops an Elytra when killed  
 Categories: `FEATURE, SURVIVAL, RUG`  

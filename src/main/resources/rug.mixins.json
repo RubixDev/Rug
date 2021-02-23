@@ -8,7 +8,9 @@
     "CactusBlockMixin",
     "CarpetServerMixin",
     "ChorusFlowerBlockMixin",
+    "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
+    "DispenserBlockMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "FallingBlockEntityMixin",
@@ -20,7 +22,9 @@
     "ServerPlayerEntityMixin",
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
-    "SugarCaneBlockMixin"
+    "SugarCaneBlockMixin",
+    "SugarCaneBlockMixin",
+    "ZombieVillagerEntityMixin"
   ],
   "client": [
   ],

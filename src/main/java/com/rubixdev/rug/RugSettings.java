@@ -5,9 +5,7 @@ import carpet.settings.Rule;
 import carpet.settings.Validator;
 import net.minecraft.server.command.ServerCommandSource;
 
-import static carpet.settings.RuleCategory.EXPERIMENTAL;
-import static carpet.settings.RuleCategory.FEATURE;
-import static carpet.settings.RuleCategory.SURVIVAL;
+import static carpet.settings.RuleCategory.*;
 
 // BUGFIX
 // COMMAND
@@ -95,7 +93,7 @@ public class RugSettings
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean dragonDropsElytra = false;
 
-    public static class validatorstrictShulkerShells extends Validator<Integer> {
+    public static class validatorStrictShulkerShells extends Validator<Integer> {
 
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
@@ -111,7 +109,7 @@ public class RugSettings
             category = {FEATURE, SURVIVAL, RUG},
             options = {"0", "1", "2"},
             strict = false,
-            validate = validatorstrictShulkerShells.class)
+            validate = validatorStrictShulkerShells.class)
     public static int strictShulkerShells = 0;
 
     @Rule(
@@ -129,4 +127,15 @@ public class RugSettings
             extra = "Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean newShulkerBehavior = false;
+  
+    @Rule(
+            desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
+            category = {FEATURE, SURVIVAL, RUG})
+    public static boolean concreteConvertOnCauldron = false;
+
+    @Rule(
+            desc = "Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process",
+            extra = "Note: Villagers cured with dispenser have no curing player associated, so they will not lower their trades.",
+            category = {EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG})
+    public static boolean dispensersCureVillagers = false;
 }
