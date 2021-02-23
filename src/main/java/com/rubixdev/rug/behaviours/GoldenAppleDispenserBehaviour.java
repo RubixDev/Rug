@@ -1,6 +1,6 @@
 package com.rubixdev.rug.behaviours;
 
-import com.rubixdev.rug.mixins.ZombieVillagerEntityMixin;
+import com.rubixdev.rug.mixins.ZombieVillagerEntityInvokerMixin;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
 import net.minecraft.entity.effect.StatusEffects;
@@ -32,7 +32,7 @@ public class GoldenAppleDispenserBehaviour extends FallibleItemDispenserBehavior
 
         for (ZombieVillagerEntity zombieVillagerEntity : list) {
             if (!zombieVillagerEntity.isConverting() && zombieVillagerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
-                ((ZombieVillagerEntityMixin) zombieVillagerEntity).invokeSetConverting(null, zombieVillagerEntity.getRandom().nextInt(2401) + 3600);
+                ((ZombieVillagerEntityInvokerMixin) zombieVillagerEntity).invokeSetConverting(null, zombieVillagerEntity.getRandom().nextInt(2401) + 3600);
                 return true;
             }
         }

@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import java.util.UUID;
 
 @Mixin(ZombieVillagerEntity.class)
-public interface ZombieVillagerEntityMixin {
+public interface ZombieVillagerEntityInvokerMixin {
     @Invoker("setConverting")
     void invokeSetConverting(UUID uuid, int delay);
 }

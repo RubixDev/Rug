@@ -24,7 +24,7 @@
     "ShulkerEntityMixin",
     "SugarCaneBlockMixin",
     "SugarCaneBlockMixin",
-    "ZombieVillagerEntityMixin"
+    "ZombieVillagerEntityInvokerMixin"
   ],
   "client": [
   ],
