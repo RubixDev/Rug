@@ -20,7 +20,8 @@
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
     "ServerPlayerEntityMixin",
-    "SugarCaneBlockMixin"
+    "SugarCaneBlockMixin",
+    "ZombieVillagerEntityMixin"
   ],
   "client": [
   ],

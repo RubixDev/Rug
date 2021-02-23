@@ -1,6 +1,6 @@
 package com.rubixdev.rug.mixins;
 
-import com.rubixdev.rug.GoldenAppleDispenserBehaviour;
+import com.rubixdev.rug.behaviours.GoldenAppleDispenserBehaviour;
 import com.rubixdev.rug.RugSettings;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;
