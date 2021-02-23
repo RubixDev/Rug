@@ -93,7 +93,7 @@ public class RugSettings
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean dragonDropsElytra = false;
 
-    public static class validatorstrictShulkerShells extends Validator<Integer> {
+    public static class validatorStrictShulkerShells extends Validator<Integer> {
 
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
@@ -109,7 +109,7 @@ public class RugSettings
             category = {FEATURE, SURVIVAL, RUG},
             options = {"0", "1", "2"},
             strict = false,
-            validate = validatorstrictShulkerShells.class)
+            validate = validatorStrictShulkerShells.class)
     public static int strictShulkerShells = 0;
 
     @Rule(
@@ -129,6 +129,7 @@ public class RugSettings
 
     @Rule(
             desc = "Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process",
+            extra = "Note: Villagers cured with dispenser have no curing player associated, so they will not lower their trades.",
             category = {EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG})
     public static boolean dispensersCureVillagers = false;
 }
