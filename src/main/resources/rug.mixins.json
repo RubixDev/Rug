@@ -23,7 +23,6 @@
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
     "SugarCaneBlockMixin",
-    "SugarCaneBlockMixin",
     "ZombieVillagerEntityInvokerMixin"
   ],
   "client": [

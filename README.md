@@ -27,6 +27,14 @@ Categories: `EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG`
 Ender Dragon drops an Elytra when killed  
 Categories: `FEATURE, SURVIVAL, RUG`  
 Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+### easyHarvesting
+Right clicking on fully grown crops harvests and immediately replants it  
+Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
+### easyHarvestingRequireHoe
+The easyHarvesting feature requires the player to hold a hoe in his main hand  
+Note: Requires easyHarvesting to enabled  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
 Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  

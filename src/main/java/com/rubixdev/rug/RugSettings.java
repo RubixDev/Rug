@@ -138,4 +138,16 @@ public class RugSettings
             extra = "Note: Villagers cured with dispenser have no curing player associated, so they will not lower their trades.",
             category = {EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG})
     public static boolean dispensersCureVillagers = false;
+
+    @Rule(
+            desc = "Right clicking on fully grown crops harvests and immediately replants it",
+            extra = "Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean easyHarvesting = false;
+
+    @Rule(
+            desc = "The easyHarvesting feature requires the player to hold a hoe in his main hand",
+            extra = "Requires easyHarvesting to enabled",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean easyHarvestingRequireHoe = true;
 }
