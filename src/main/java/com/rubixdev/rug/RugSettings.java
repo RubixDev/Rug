@@ -123,6 +123,12 @@ public class RugSettings
     public static boolean zeroTickPlants = false;
 
     @Rule(
+            desc = "Makes shulkers behave like in the current 1.17 snapshots",
+            extra = "Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean newShulkerBehavior = false;
+  
+    @Rule(
             desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean concreteConvertOnCauldron = false;

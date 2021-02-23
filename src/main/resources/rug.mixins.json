@@ -20,6 +20,9 @@
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
     "ServerPlayerEntityMixin",
+    "ShulkerEntityAccessorMixin",
+    "ShulkerEntityMixin",
+    "SugarCaneBlockMixin",
     "SugarCaneBlockMixin",
     "ZombieVillagerEntityMixin"
   ],
