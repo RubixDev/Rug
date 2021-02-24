@@ -30,10 +30,6 @@ public abstract class ShulkerEntityMixin extends LivingEntity {
 
     @Shadow protected abstract boolean tryTeleport();
 
-    @Shadow @Nullable public abstract DyeColor getColor();
-
-    @Shadow @Final protected static TrackedData<Byte> COLOR;
-
     protected ShulkerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -56,13 +52,12 @@ public abstract class ShulkerEntityMixin extends LivingEntity {
             float f = (float)(i - 1) / 5.0F;
             if (this.world.random.nextFloat() >= f) {
                 ShulkerEntity shulkerEntity = EntityType.SHULKER.create(this.world);
-                DyeColor dyeColor = this.getColor();
+                assert shulkerEntity != null;
+                DyeColor dyeColor = getColor(shulkerEntity);
                 if (dyeColor != null) {
-                    assert shulkerEntity != null;
                     setColor(shulkerEntity, dyeColor);
                 }
 
-                assert shulkerEntity != null;
                 shulkerEntity.refreshPositionAfterTeleport(vec3d);
                 this.world.spawnEntity(shulkerEntity);
             }
@@ -75,5 +70,16 @@ public abstract class ShulkerEntityMixin extends LivingEntity {
         byte colorId = (byte) (color != null ? color.getId() : 16);
 
         dataTracker.set(COLOR, colorId);
+    }
+
+    private static DyeColor getColor(ShulkerEntity shulkerEntity) {
+        DataTracker dataTracker = shulkerEntity.getDataTracker();
+        TrackedData<Byte> COLOR = ShulkerEntityAccessorMixin.getColorTrackerKey();
+        Byte colorId = dataTracker.get(COLOR);
+
+        if(colorId >= 0 && colorId <= 15) {
+            return DyeColor.byId(colorId);
+        }
+        return null;
     }
 }
