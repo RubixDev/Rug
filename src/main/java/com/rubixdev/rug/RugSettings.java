@@ -150,4 +150,9 @@ public class RugSettings
             extra = "Requires easyHarvesting to enabled",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean easyHarvestingRequireHoe = true;
+
+    @Rule(
+            desc = "Makes Netherite Scraps edible, because, let's be honest, it kinda looks like chocolate",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean edibleNetheriteScraps = false;
 }
