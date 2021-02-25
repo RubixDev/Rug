@@ -161,4 +161,10 @@ public class RugSettings
             desc = "Players do not lose any hunger like in peaceful mode",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean peacefulHunger = false;
+
+    @Rule(
+            desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
+            extra = "Recommended to use with peacefulHunger",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean foodInstantHeal = false;
 }

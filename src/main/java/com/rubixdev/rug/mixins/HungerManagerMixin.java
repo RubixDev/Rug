@@ -3,6 +3,7 @@ package com.rubixdev.rug.mixins;
 import com.rubixdev.rug.RugSettings;
 import jdk.internal.org.objectweb.asm.Opcodes;
 import net.minecraft.entity.player.HungerManager;
+import net.minecraft.world.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -13,6 +14,15 @@ public class HungerManagerMixin {
     private void onUpdate(HungerManager hungerManager, int value) {
         if (!RugSettings.peacefulHunger) {
             hungerManager.setFoodLevel(value);
+        }
+    }
+
+    @Redirect(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+    private boolean onUpdate(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
+        if (RugSettings.foodInstantHeal) {
+            return false;
+        } else {
+            return gameRules.getBoolean(rule);
         }
     }
 }
