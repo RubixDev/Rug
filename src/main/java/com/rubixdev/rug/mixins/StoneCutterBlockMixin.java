@@ -17,8 +17,8 @@ public class StoneCutterBlockMixin extends Block {
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (RugSettings.stonecuttersDealDamage > 0) {
-            entity.damage(DamageSource.GENERIC, RugSettings.stonecuttersDealDamage);
+        if (RugSettings.stonecutterDamage > 0) {
+            entity.damage(DamageSource.GENERIC, RugSettings.stonecutterDamage);
         }
     }
 }

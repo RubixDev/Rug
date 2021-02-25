@@ -173,7 +173,7 @@ public class RugSettings
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean lilyPadsOnCauldron = false;
 
-    public static class validatorStonecuttersDealDamage extends Validator<Integer> {
+    public static class validatorStonecutterDamage extends Validator<Integer> {
 
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
@@ -185,12 +185,12 @@ public class RugSettings
     }
 
     @Rule(
-            desc = "Stonecutters deal damage when stepping on them",
+            desc = "How much damage Stonecutters deal when stepping on them",
             options = {"0", "3", "4", "5"},
             strict = false,
-            validate = validatorStonecuttersDealDamage.class,
+            validate = validatorStonecutterDamage.class,
             category = {BUGFIX, SURVIVAL, RUG})
-    public static int stonecuttersDealDamage = 0;
+    public static int stonecutterDamage = 0;
 
     public static class validatorEnderPearlDamage extends Validator<Integer> {
 
@@ -204,7 +204,7 @@ public class RugSettings
     }
 
     @Rule(
-            desc = "Ender Pearls deal damage when thrown",
+            desc = "Amount of damage dealt by Ender Pearls",
             options = {"0", "2", "3", "5"},
             strict = false,
             validate = validatorEnderPearlDamage.class,
