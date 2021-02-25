@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "rug",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
 
   "name": "Rug",
   "description": "Extension Mod for gnembon's fabric-carpet with some more features",
