@@ -167,4 +167,9 @@ public class RugSettings
             extra = "Recommended to use with peacefulHunger",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean foodInstantHeal = false;
+
+    @Rule(
+            desc = "Lily Pads can be placed on Cauldrons",
+            category = {FEATURE, SURVIVAL, RUG})
+    public static boolean lilyPadsOnCauldron = false;
 }

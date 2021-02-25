@@ -5,8 +5,10 @@
   "mixins": [
     "AbstractPlantStemBlockMixin",
     "BambooBlockMixin",
+    "BlockItemMixin",
     "CactusBlockMixin",
     "CarpetServerMixin",
+    "CauldronBlockMixin",
     "ChorusFlowerBlockMixin",
     "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
@@ -19,6 +21,7 @@
     "HungerManagerMixin",
     "ItemMixin",
     "ItemsMixin",
+    "LilyPadBlockMixin",
     "LivingEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
