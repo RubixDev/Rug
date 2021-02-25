@@ -29,6 +29,7 @@
     "ServerPlayerEntityMixin",
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
+    "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
     "ZombieVillagerEntityInvokerMixin"
   ],

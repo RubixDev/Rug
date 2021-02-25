@@ -172,4 +172,23 @@ public class RugSettings
             desc = "Lily Pads can be placed on Cauldrons",
             category = {FEATURE, SURVIVAL, RUG})
     public static boolean lilyPadsOnCauldron = false;
+
+    public static class validatorStonecuttersDealDamage extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
+            return newValue >= 0 && newValue <= 10 ? newValue : null;
+        }
+
+        @Override
+        public String description() {return "You must choose a value from 0 to 10";}
+    }
+
+    @Rule(
+            desc = "Stonecutters deal damage when stepping on them",
+            options = {"0", "3", "4", "5"},
+            strict = false,
+            validate = validatorStonecuttersDealDamage.class,
+            category = {BUGFIX, SURVIVAL, RUG})
+    public static int stonecuttersDealDamage = 0;
 }
