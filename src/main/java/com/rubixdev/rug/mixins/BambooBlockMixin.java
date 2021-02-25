@@ -30,6 +30,7 @@ public abstract class BambooBlockMixin extends Block {
 
     /**
      * @author RubixDev
+     * @reason Add Zero Tick Farms
      */
     @Overwrite
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {

@@ -1,9 +1,9 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
-import jdk.internal.org.objectweb.asm.Opcodes;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.world.GameRules;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
