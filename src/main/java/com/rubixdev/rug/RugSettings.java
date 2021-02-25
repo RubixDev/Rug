@@ -210,4 +210,10 @@ public class RugSettings
             validate = validatorEnderPearlDamage.class,
             category = {FEATURE, SURVIVAL, RUG})
     public static int enderPearlDamage = 5;
+
+    @Rule(
+            desc = "Slime Balls are edible and give Jump Boost and Slowness",
+            extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
+    public static boolean edibleSlimeBalls = false;
 }

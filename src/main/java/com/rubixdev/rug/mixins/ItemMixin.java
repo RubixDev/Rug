@@ -20,6 +20,8 @@ public class ItemMixin {
         ItemStack stack = user.getStackInHand(hand);
         if (stack.getItem() == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps) {
             cir.setReturnValue(TypedActionResult.pass(stack));
+        } else if (stack.getItem() == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls) {
+            cir.setReturnValue(TypedActionResult.pass(stack));
         }
     }
 }
