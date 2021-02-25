@@ -49,6 +49,24 @@ Makes Netherite Scraps edible, because, let's be honest, it kinda looks like cho
 Note: Works server side only, but eating animation is only rendered if the mod is on the client too  
 Categories: `EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG`
 
+### edibleSlimeBalls
+Slime Balls are edible and give Jump Boost and Slowness  
+Note: Works server side only, but eating animation is only rendered if the mod is on the client too  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG`
+
+### enderPearlDamage
+Amount of damage dealt by Ender Pearls  
+Categories: `FEATURE, SURVIVAL, RUG`
+
+### foodInstantHeal
+Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off  
+Note: Recommended to use with peacefulHunger  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
+
+### lilyPadsOnCauldron
+Lily Pads can be placed on Cauldrons  
+Categories: `FEATURE, SURVIVAL, RUG`
+
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
 Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  
@@ -70,6 +88,10 @@ Categories: `SURVIVAL, RUG`
 Reverts the fishing loot to how it was before 1.16  
 Categories: `SURVIVAL, RUG`
 
+### peacefulHunger
+Players do not lose any hunger like in peaceful mode  
+Categories: `EXPERIMENTAL, FEATURE, SURVIVAL, RUG`
+
 ### playerHeadDrops
 Players drop their head when killed by a player  
 Categories: `FEATURE, SURVIVAL, RUG`  
@@ -79,6 +101,10 @@ Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 Mobs named with 'silence_me' stop making noise  
 Categories: `FEATURE, SURVIVAL, RUG`  
 Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### stonecutterDamage
+How much damage Stonecutters deal when stepping on them  
+Categories: `BUGFIX, SURVIVAL, RUG`
 
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed  
