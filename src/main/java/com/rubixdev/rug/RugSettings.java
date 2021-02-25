@@ -191,4 +191,23 @@ public class RugSettings
             validate = validatorStonecuttersDealDamage.class,
             category = {BUGFIX, SURVIVAL, RUG})
     public static int stonecuttersDealDamage = 0;
+
+    public static class validatorEnderPearlDamage extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
+            return newValue >= 0 && newValue <= 10 ? newValue : null;
+        }
+
+        @Override
+        public String description() {return "You must choose a value from 0 to 10";}
+    }
+
+    @Rule(
+            desc = "Ender Pearls deal damage when thrown",
+            options = {"0", "2", "3", "5"},
+            strict = false,
+            validate = validatorEnderPearlDamage.class,
+            category = {FEATURE, SURVIVAL, RUG})
+    public static int enderPearlDamage = 5;
 }

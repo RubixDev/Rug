@@ -15,6 +15,7 @@
     "DispenserBlockMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
+    "EnderPearlEntityMixin",
     "FallingBlockEntityMixin",
     "FishingBobberEntityMixin",
     "GhastEntityMixin",
