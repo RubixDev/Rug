@@ -25,7 +25,7 @@ public abstract class ItemsMixin {
             );
         } else if (id.equals("slime_ball")) {
             cir.setReturnValue(
-                    register(new Identifier(id), new Item((new Item.Settings()).group(ItemGroup.MISC).food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.5F).alwaysEdible().snack().statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200, 1), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 160, 0), 0.98F).build())))
+                    register(new Identifier(id), new Item((new Item.Settings()).group(ItemGroup.MISC).food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.5F).alwaysEdible().snack().statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200, 2), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 160, 0), 0.98F).build())))
             );
         }
     }
