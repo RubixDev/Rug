@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StonecutterBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -17,7 +18,7 @@ public class StoneCutterBlockMixin extends Block {
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (RugSettings.stonecutterDamage > 0) {
+        if (RugSettings.stonecutterDamage > 0 && !(entity instanceof ItemEntity)) {
             entity.damage(DamageSource.GENERIC, RugSettings.stonecutterDamage);
         }
     }
