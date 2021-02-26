@@ -18,10 +18,21 @@ public class ItemMixin {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void onEatFood(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         ItemStack stack = user.getStackInHand(hand);
-        if (stack.getItem() == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps) {
+
+        Item item = stack.getItem();
+        if (
+                item == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps
+                        || item == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls
+                        || item == Items.GOLD_INGOT && !RugSettings.edibleGoldIngots
+        ) {
             cir.setReturnValue(TypedActionResult.pass(stack));
-        } else if (stack.getItem() == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls) {
-            cir.setReturnValue(TypedActionResult.pass(stack));
+        }
+    }
+
+    @Inject(method = "getMaxUseTime", at = @At(value = "RETURN", ordinal = 0), cancellable = true)
+    private void onGetMaxUseTime(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
+        if (stack.getItem() == Items.GOLD_INGOT && RugSettings.edibleGoldIngots) {
+            cir.setReturnValue(128);
         }
     }
 }

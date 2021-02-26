@@ -236,4 +236,10 @@ public class RugSettings
             options = {"0", "4.5", "5", "10"},
         category = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
     public static double reachDistance = 4.5;
+
+    @Rule(
+            desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
+            extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+            category = {EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG})
+    public static boolean edibleGoldIngots = false;
 }
