@@ -11,8 +11,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
 
@@ -28,15 +30,9 @@ public abstract class BambooBlockMixin extends Block {
         super(settings);
     }
 
-    /**
-     * @author RubixDev
-     * @reason Add Zero Tick Farms
-     */
-    @Overwrite
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!state.canPlaceAt(world, pos)) {
-            world.breakBlock(pos, true);
-        } else if (RugSettings.zeroTickPlants && state.get(STAGE) == 0) {
+    @Inject(method = "scheduledTick", at = @At("TAIL"))
+    private void onScheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
+        if (state.canPlaceAt(world, pos) && RugSettings.zeroTickPlants && state.get(STAGE) == 0) {
             if (random.nextInt(3) == 0 && world.isAir(pos.up()) && world.getBaseLightLevel(pos.up(), 0) >= 9) {
                 int i = this.countBambooBelow(world, pos) + 1;
                 if (i < 16) {

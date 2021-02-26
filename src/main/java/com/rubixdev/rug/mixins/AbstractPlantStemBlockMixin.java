@@ -27,9 +27,6 @@ public abstract class AbstractPlantStemBlockMixin extends AbstractPlantPartBlock
         super(settings, growthDirection, outlineShape, tickWater);
     }
 
-    /**
-     * @author RubixDev
-     */
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!state.canPlaceAt(world, pos)) {
             world.breakBlock(pos, true);
