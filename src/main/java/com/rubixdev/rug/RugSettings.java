@@ -216,4 +216,24 @@ public class RugSettings
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleSlimeBalls = false;
+
+    public static class validatorReachDistance extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0 && newValue <= 100 ? newValue : null;
+        }
+
+        @Override
+        public String description() {return "You must choose a value from 0 to 100";}
+    }
+
+    @Rule(
+            desc = "Reach in which you can place and break blocks. Value will be 0.5 higher in creative",
+            extra = "Mod needed on server and client for this feature to work",
+            strict = false,
+            validate = validatorReachDistance.class,
+            options = {"0", "4.5", "5", "10"},
+        category = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
+    public static double reachDistance = 4.5;
 }
