@@ -3,6 +3,7 @@
   "package": "com.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
     "AbstractPlantStemBlockMixin",
     "BambooBlockMixin",
     "BlockItemMixin",

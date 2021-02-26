@@ -242,4 +242,24 @@ public class RugSettings
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
             category = {EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleGoldIngots = false;
+
+    public static class validatorCactusFurnaceXP extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0 && newValue <= 1 ? newValue : null;
+        }
+
+        @Override
+        public String description() {return "You must choose a value from 0 to 1";}
+    }
+
+    @Rule(
+            desc = "Amount of XP a Cactus smelted in a furnace gives",
+            extra = "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
+            options = {"0.1", "0.2", "0.5", "1"},
+            strict = false,
+            validate = validatorCactusFurnaceXP.class,
+            category = {BUGFIX, SURVIVAL, RUG})
+    public static double cactusFurnaceXP = 1;
 }
