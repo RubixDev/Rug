@@ -152,7 +152,7 @@ public class RugSettings
     public static boolean easyHarvestingRequireHoe = true;
 
     @Rule(
-            desc = "Makes Netherite Scraps edible, because, let's be honest, it kinda looks like chocolate",
+            desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
             category = {EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleNetheriteScraps = false;
