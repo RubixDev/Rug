@@ -52,15 +52,6 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `SURVIVAL`, `RUG`
 
-### dispensersCureVillagers
-Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `DISPENSER`, `FEATURE`, `SURVIVAL`, `RUG`
-- Additional notes:
-  - Villagers cured with dispenser have no curing player associated, so they will not lower their trades.
-
 ### dragonDropsElytra
 Ender Dragon drops an Elytra when killed
 - Type: `boolean`

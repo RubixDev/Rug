@@ -134,12 +134,6 @@ public class RugSettings
     public static boolean concreteConvertOnCauldron = false;
 
     @Rule(
-            desc = "Powered dispensers pointing at zombie villagers with an active weakness effect start their curing process",
-            extra = "Note: Villagers cured with dispenser have no curing player associated, so they will not lower their trades.",
-            category = {EXPERIMENTAL, DISPENSER, FEATURE, SURVIVAL, RUG})
-    public static boolean dispensersCureVillagers = false;
-
-    @Rule(
             desc = "Right clicking on fully grown crops harvests and immediately replants it",
             extra = "Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
