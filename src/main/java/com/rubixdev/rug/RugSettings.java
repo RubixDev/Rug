@@ -164,7 +164,7 @@ public class RugSettings
 
     @Rule(
             desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
-            extra = "Recommended to use with peacefulHunger",
+            extra = "Recommended using with peacefulHunger",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean foodInstantHeal = false;
 
