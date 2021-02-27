@@ -147,7 +147,7 @@ public class RugSettings
 
     @Rule(
             desc = "The easyHarvesting feature requires the player to hold a hoe in his main hand",
-            extra = "Requires easyHarvesting to enabled",
+            extra = "Requires easyHarvesting to be enabled",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean easyHarvestingRequireHoe = true;
 
