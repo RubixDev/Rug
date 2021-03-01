@@ -39,6 +39,9 @@ public abstract class BlockMixin {
         if (block.is(Blocks.FARMLAND) && baseCondition && RugSettings.silkTouchFarmland) {
             dropStack(world, pos, new ItemStack(Items.FARMLAND));
             ci.cancel();
+        } else if (block.is(Blocks.GRASS_PATH) && baseCondition && RugSettings.silkTouchPathBlocks) {
+            dropStack(world, pos, new ItemStack(Items.GRASS_PATH));
+            ci.cancel();
         }
     }
 }

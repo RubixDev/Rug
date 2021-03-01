@@ -258,7 +258,12 @@ public class RugSettings
     public static double cactusFurnaceXP = 1;
 
     @Rule(
-            desc = "Mining Farmland with a Silk Touch tool will drop a Farmland Block",
+            desc = "Mining Farmland with a Silk Touch tool will drop itself",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean silkTouchFarmland = false;
+
+    @Rule(
+            desc = "Mining Path Blocks with a Silk Touch tool will drop itself",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean silkTouchPathBlocks = false;
 }
