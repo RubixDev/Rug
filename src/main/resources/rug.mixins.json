@@ -26,6 +26,7 @@
     "ItemsMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
+    "MobSpawnerBlockEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
     "PlayerEntityMixin",

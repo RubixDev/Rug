@@ -266,4 +266,9 @@ public class RugSettings
             desc = "Mining Path Blocks with a Silk Touch tool will drop itself",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean silkTouchPathBlocks = false;
+
+    @Rule(
+            desc = "Mining Spawners with a Silk Touch tool will drop itself",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean silkTouchSpawners = false;
 }

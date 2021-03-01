@@ -10,6 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -41,6 +42,16 @@ public abstract class BlockMixin {
             ci.cancel();
         } else if (block.is(Blocks.GRASS_PATH) && baseCondition && RugSettings.silkTouchPathBlocks) {
             dropStack(world, pos, new ItemStack(Items.GRASS_PATH));
+            ci.cancel();
+        } else if (block.is(Blocks.SPAWNER) && baseCondition && RugSettings.silkTouchSpawners) {
+            ItemStack newStack = new ItemStack(Items.SPAWNER);
+            CompoundTag tag = blockEntity.toTag(new CompoundTag());
+            tag.remove("id");
+            tag.remove("x");
+            tag.remove("y");
+            tag.remove("z");
+            newStack.putSubTag("BlockEntityTag", tag);
+            dropStack(world, pos, newStack);
             ci.cancel();
         }
     }
