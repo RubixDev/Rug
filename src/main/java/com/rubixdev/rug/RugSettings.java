@@ -273,7 +273,7 @@ public class RugSettings
     public static boolean silkTouchSpawners = false;
 
     @Rule(
-            desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance.",
+            desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance",
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleMagmaCream = false;
