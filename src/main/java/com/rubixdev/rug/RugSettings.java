@@ -271,4 +271,10 @@ public class RugSettings
             desc = "Mining Spawners with a Silk Touch tool will drop itself",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean silkTouchSpawners = false;
+
+    @Rule(
+            desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance.",
+            extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
+    public static boolean edibleMagmaCream = false;
 }

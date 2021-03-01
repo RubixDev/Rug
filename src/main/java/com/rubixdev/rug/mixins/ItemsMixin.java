@@ -35,6 +35,11 @@ public abstract class ItemsMixin {
                         register(new Identifier(id), new Item((new Item.Settings()).group(ItemGroup.MATERIALS).food((new FoodComponent.Builder()).hunger(1).saturationModifier(20F).statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 1), 1.0F).build())))
                 );
                 break;
+            case "magma_cream":
+                cir.setReturnValue(
+                        register(new Identifier(id), new Item((new Item.Settings()).group(ItemGroup.BREWING).food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.5F).alwaysEdible().snack().statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 0), 0.98F).build())))
+                );
+                break;
         }
     }
 }

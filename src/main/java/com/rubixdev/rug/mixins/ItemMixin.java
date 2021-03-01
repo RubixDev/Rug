@@ -24,6 +24,7 @@ public class ItemMixin {
                 item == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps
                         || item == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls
                         || item == Items.GOLD_INGOT && !RugSettings.edibleGoldIngots
+                        || item == Items.MAGMA_CREAM && !RugSettings.edibleMagmaCream
         ) {
             cir.setReturnValue(TypedActionResult.pass(stack));
         }
