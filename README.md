@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/github/license/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/issues?q=is%3Aissue+is%3Aclosed)
-[![CurseForge All Versions](https://cf.way2muchnoise.eu/versions/For%20MC_fabric-rug_all.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug)
-[![CurseForge Total Downloads](https://cf.way2muchnoise.eu/full_fabric-rug_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug)
+[![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug)
+[![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug)
 
 Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 
