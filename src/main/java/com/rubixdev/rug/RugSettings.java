@@ -256,4 +256,9 @@ public class RugSettings
             validate = validatorCactusFurnaceXP.class,
             category = {BUGFIX, SURVIVAL, RUG})
     public static double cactusFurnaceXP = 1;
+
+    @Rule(
+            desc = "Mining Farmland with a Silk Touch tool will drop a Farmland Block",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
+    public static boolean silkTouchFarmland = false;
 }
