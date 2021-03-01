@@ -3,6 +3,39 @@
 ## Description
 Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 
+## Index
+- [anvilledBlueIce](#anvilledblueice)
+- [anvilledIce](#anvilledice)
+- [anvilledPackedIce](#anvilledpackedice)
+- [cactusFurnaceXP](#cactusfurnacexp)
+- [concreteConvertOnCauldron](#concreteconvertoncauldron)
+- [dragonDropsElytra](#dragondropselytra)
+- [easyHarvesting](#easyharvesting)
+- [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
+- [edibleGoldIngots](#ediblegoldingots)
+- [edibleMagmaCream](#ediblemagmacream)
+- [edibleNetheriteScraps](#ediblenetheritescraps)
+- [edibleSlimeBalls](#edibleslimeballs)
+- [enderPearlDamage](#enderpearldamage)
+- [foodInstantHeal](#foodinstantheal)
+- [lilyPadsOnCauldron](#lilypadsoncauldron)
+- [newShulkerBehavior](#newshulkerbehavior)
+- [noCreeperGriefing](#nocreepergriefing)
+- [noEndermanGriefing](#noendermangriefing)
+- [noGhastGriefing](#noghastgriefing)
+- [oldFishingLoot](#oldfishingloot)
+- [peacefulHunger](#peacefulhunger)
+- [playerHeadDrops](#playerheaddrops)
+- [reachDistance](#reachdistance)
+- [silenceMobs](#silencemobs)
+- [silkTouchFarmland](#silktouchfarmland)
+- [silkTouchPathBlocks](#silktouchpathblocks)
+- [silkTouchSpawners](#silktouchspawners)
+- [stonecutterDamage](#stonecutterdamage)
+- [strictShulkerShells](#strictshulkershells)
+- [zeroTickPlants](#zerotickplants)
+- [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
+
 ## Implemented Rules
 
 ### anvilledBlueIce
@@ -36,13 +69,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
 ### cactusFurnaceXP
-Amount of XP a Cactus smelted in a furnace gives
+Amount of XP a Cactus smelted in a furnace gives  
+1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items
 - Type: `double`
 - Default value: `1`
 - Suggested options: `0.1`, `0.2`, `0.5`, `1`
 - Categories: `BUGFIX`, `SURVIVAL`, `RUG`
 - Additional notes:
-  - 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items
   - Value has to be between `0` and `1`
 
 ### concreteConvertOnCauldron
@@ -62,13 +95,12 @@ Ender Dragon drops an Elytra when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it
+Right clicking on fully grown crops harvests and immediately replants it  
+Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
-- Additional notes:
-  - Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 
 ### easyHarvestingRequireHoe
 The easyHarvesting feature requires the player to hold a hoe in his main hand
@@ -85,6 +117,15 @@ Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `BUGFIX`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Additional notes:
+  - Works server side only, but eating animation is only rendered if the mod is on the client too
+
+### edibleMagmaCream
+Magma Cream is edible and gives 10 seconds of Fire Resistance
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
 - Additional notes:
   - Works server side only, but eating animation is only rendered if the mod is on the client too
 
@@ -132,13 +173,12 @@ Lily Pads can be placed on Cauldrons
 - Categories: `FEATURE`, `SURVIVAL`, `RUG`
 
 ### newShulkerBehavior
-Makes shulkers behave like in the current 1.17 snapshots
+Makes shulkers behave like in the current 1.17 snapshots  
+Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
-- Additional notes:
-  - Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport
 
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks
@@ -202,6 +242,27 @@ Mobs named with 'silence_me' stop making noise
 - Categories: `FEATURE`, `SURVIVAL`, `RUG`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### silkTouchFarmland
+Mining Farmland with a Silk Touch tool will drop itself
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+
+### silkTouchPathBlocks
+Mining Path Blocks with a Silk Touch tool will drop itself
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+
+### silkTouchSpawners
+Mining Spawners with a Silk Touch tool will drop itself
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them
