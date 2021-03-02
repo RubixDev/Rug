@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.util.*;
 
@@ -91,10 +92,11 @@ public class RugServer implements CarpetExtension {
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
         this.minecraftServer = server;
-        registerDatapackRule("easyDispenserCrafting");
-        registerDatapackRule("easyBoneBlockCrafting");
-        registerDatapackRule("moreBarkCrafting");
-        registerDatapackRule("craftableNotchApple");
+        for (Field f : RugSettings.class.getDeclaredFields()) {
+            DatapackRule datapackRule = f.getAnnotation(DatapackRule.class);
+            if (datapackRule == null) continue;
+            registerDatapackRule(datapackRule.name().isEmpty() ? f.getName() : datapackRule.name());
+        }
         initializeDatapackRules();
     }
 
