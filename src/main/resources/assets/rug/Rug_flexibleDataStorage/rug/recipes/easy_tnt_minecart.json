@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#O#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_ingot"
+        },
+        "O": {
+            "item": "minecraft:tnt"
+        }
+    },
+    "result": {
+        "item": "minecraft:tnt_minecart",
+        "count": 1
+    },
+    "group": "minecart"
+}

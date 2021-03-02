@@ -3,7 +3,6 @@ package com.rubixdev.rug;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.script.bundled.BundledModule;
-import carpet.settings.ParsedRule;
 import com.google.common.collect.Lists;
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -38,10 +37,6 @@ public class RugServer implements CarpetExtension {
 
     public static void noop() {
     }
-
-    public static Map<String, String> datapackRules = new HashMap<>();
-
-    private MinecraftServer minecraftServer;
 
     static {
         CarpetServer.manageExtension(new RugServer());
@@ -91,13 +86,29 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
-        this.minecraftServer = server;
-        for (Field f : RugSettings.class.getDeclaredFields()) {
-            DatapackRule datapackRule = f.getAnnotation(DatapackRule.class);
-            if (datapackRule == null) continue;
-            registerDatapackRule(datapackRule.name().isEmpty() ? f.getName() : datapackRule.name());
+        String datapackPath = server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/Rug_flexibleData/";
+        try {
+            Files.createDirectories(new File(datapackPath + "data/rug", "recipes").toPath());
+            Files.createDirectories(new File(datapackPath + "data/minecraft", "recipes").toPath());
+            Files.copy(
+                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/pack.mcmeta")),
+                    new File(datapackPath, "pack.mcmeta").toPath()
+            );
+        } catch (IOException ignored) {
         }
-        initializeDatapackRules();
+
+        for (Field f : RugSettings.class.getDeclaredFields()) {
+            CraftingRule craftingRule = f.getAnnotation(CraftingRule.class);
+            if (craftingRule == null) continue;
+            registerCraftingRule(
+                    craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
+                    craftingRule.recipes(),
+                    craftingRule.recipeNamespace(),
+                    datapackPath + "data/",
+                    server
+            );
+        }
+        reload(server);
     }
 
     @Override
@@ -120,46 +131,45 @@ public class RugServer implements CarpetExtension {
         // will need that for client features
     }
 
-    public void initializeDatapackRules() {
-        ResourcePackManager resourcePackManager = this.minecraftServer.getCommandSource().getMinecraftServer().getDataPackManager();
-        resourcePackManager.scanPacks();
-        Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
-        datapackRules.forEach((ruleName, datapackName) -> {
-            ParsedRule<?> rule = CarpetServer.settingsManager.getRule(ruleName);
-            String enabledDataPack = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName)).getName();
-            if (rule.getBoolValue()) {
-                collection.add(enabledDataPack);
-            } else {
-                collection.remove(enabledDataPack);
+    public void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String datapackPath, MinecraftServer server) {
+        copyOrDeleteRecipes(CarpetServer.settingsManager.getRule(ruleName).getBoolValue(), recipes, recipeNamespace, datapackPath);
+
+        CarpetServer.settingsManager.addRuleObserver(((source, rule, s) -> {
+            if (rule.name.equals(ruleName)) {
+                copyOrDeleteRecipes(rule.getBoolValue(), recipes, recipeNamespace, datapackPath);
+                reload(server);
             }
-        });
-        ReloadCommand.method_29480(collection, this.minecraftServer.getCommandSource());
+        }));
     }
 
-    public void registerDatapackRule(String ruleName) {
-        String datapackName = "Rug_" + ruleName + ".zip";
-        copyDatapackFolder(datapackName);
-        datapackRules.put(ruleName, datapackName);
-        CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
-            if (rule.name.equals(ruleName)) {
-                if (rule.getBoolValue()) {
-                    this.minecraftServer.getCommandManager().execute(source, "/datapack enable \"file/" + datapackName + "\"");
-                } else {
-                    this.minecraftServer.getCommandManager().execute(source, "/datapack disable \"file/" + datapackName + "\"");
+    private void copyOrDeleteRecipes(boolean isEnabled, String[] recipes, String recipeNamespace, String datapackPath) {
+        if (isEnabled) {
+            for (String recipeName : recipes) {
+                try {
+                    Files.copy(
+                            Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/" + recipeNamespace + "/recipes/" + recipeName)),
+                            new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath()
+                    );
+                } catch (IOException ignored) {
                 }
             }
-        });
+        } else {
+            for (String recipeName : recipes) {
+                try {
+                    Files.deleteIfExists(new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath());
+                } catch (IOException ignored) {
+                }
+            }
+        }
     }
 
-    private void copyDatapackFolder(String datapackName) {
-        try {
-            String datapacks = this.minecraftServer.getSavePath(WorldSavePath.DATAPACKS).toString();
-            Files.copy(
-                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/datapacks/" + datapackName)),
-                    new File(datapacks, datapackName).toPath()
-            );
-        } catch (IOException ignored) {
-        }
+    private void reload(MinecraftServer server) {
+        ResourcePackManager resourcePackManager = server.getDataPackManager();
+        resourcePackManager.scanPacks();
+        Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
+        collection.add("Rug_flexibleData");
+
+        ReloadCommand.method_29480(collection, server.getCommandSource());
     }
 
     private static boolean isMature(BlockState state) {

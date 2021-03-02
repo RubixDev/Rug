@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:warped_stem"
+    }
+  },
+  "result": {
+    "item": "minecraft:warped_hyphae",
+    "count": 4
+  }
+}
