@@ -94,6 +94,7 @@ public class RugServer implements CarpetExtension {
         registerDatapackRule("easyDispenserCrafting");
         registerDatapackRule("easyBoneBlockCrafting");
         registerDatapackRule("moreBarkCrafting");
+        registerDatapackRule("craftableNotchApple");
         initializeDatapackRules();
     }
 

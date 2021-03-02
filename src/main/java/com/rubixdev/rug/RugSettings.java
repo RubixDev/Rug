@@ -296,4 +296,10 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean moreBarkCrafting = false;
+
+    @Rule(
+            desc = "Enchanted Golden Apples can be crafted with 8 Gold Blocks again",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean craftableNotchApple = false;
 }
