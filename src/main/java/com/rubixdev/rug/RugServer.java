@@ -93,6 +93,7 @@ public class RugServer implements CarpetExtension {
         this.minecraftServer = server;
         registerDatapackRule("easyDispenserCrafting");
         registerDatapackRule("easyBoneBlockCrafting");
+        registerDatapackRule("moreBarkCrafting");
         initializeDatapackRules();
     }
 
@@ -138,15 +139,11 @@ public class RugServer implements CarpetExtension {
         datapackRules.put(ruleName, datapackName);
         CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
             if (rule.name.equals(ruleName)) {
-                ResourcePackManager resourcePackManager = source.getMinecraftServer().getDataPackManager();
-                Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
-                String observedDatapackName = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName)).getName();
                 if (rule.getBoolValue()) {
-                    collection.add(observedDatapackName);
+                    this.minecraftServer.getCommandManager().execute(source, "/datapack enable \"file/" + datapackName + "\"");
                 } else {
-                    collection.remove(observedDatapackName);
+                    this.minecraftServer.getCommandManager().execute(source, "/datapack disable \"file/" + datapackName + "\"");
                 }
-                ReloadCommand.method_29480(collection, source);
             }
         });
     }

@@ -290,4 +290,10 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyBoneBlockCrafting = false;
+
+    @Rule(
+            desc = "Crafting Logs to Wood gives 4 instead of 3",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean moreBarkCrafting = false;
 }
