@@ -313,4 +313,11 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean unpackableQuartz = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "White Wool Blocks can be crafted into 4 String",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean unpackableWool = false;
 }
