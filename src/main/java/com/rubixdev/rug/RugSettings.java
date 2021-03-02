@@ -334,4 +334,11 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyRepeaterCrafting = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "Name Tags can be crafted with Paper and Iron",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean craftableNameTags = false;
 }
