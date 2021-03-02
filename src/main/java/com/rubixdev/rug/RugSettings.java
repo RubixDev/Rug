@@ -284,4 +284,10 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyDispenserCrafting = false;
+
+    @Rule(
+            desc = "Bone Blocks can be crafted out of Bones",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean easyBoneBlockCrafting = false;
 }

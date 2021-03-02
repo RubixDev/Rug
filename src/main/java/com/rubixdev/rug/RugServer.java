@@ -40,6 +40,8 @@ public class RugServer implements CarpetExtension {
 
     public static Map<String, String> datapackRules = new HashMap<>();
 
+    private MinecraftServer minecraftServer;
+
     static {
         CarpetServer.manageExtension(new RugServer());
     }
@@ -88,8 +90,10 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
-        registerDatapackRule(server, "easyDispenserCrafting");
-        initializeDatapackRules(server);
+        this.minecraftServer = server;
+        registerDatapackRule("easyDispenserCrafting");
+        registerDatapackRule("easyBoneBlockCrafting");
+        initializeDatapackRules();
     }
 
     @Override
@@ -112,8 +116,8 @@ public class RugServer implements CarpetExtension {
         // will need that for client features
     }
 
-    public void initializeDatapackRules(MinecraftServer server) {
-        ResourcePackManager resourcePackManager = server.getCommandSource().getMinecraftServer().getDataPackManager();
+    public void initializeDatapackRules() {
+        ResourcePackManager resourcePackManager = this.minecraftServer.getCommandSource().getMinecraftServer().getDataPackManager();
         resourcePackManager.scanPacks();
         Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
         datapackRules.forEach((ruleName, datapackName) -> {
@@ -125,12 +129,12 @@ public class RugServer implements CarpetExtension {
                 collection.remove(enabledDataPack);
             }
         });
-        ReloadCommand.method_29480(collection, server.getCommandSource());
+        ReloadCommand.method_29480(collection, this.minecraftServer.getCommandSource());
     }
 
-    public void registerDatapackRule(MinecraftServer server, String ruleName) {
+    public void registerDatapackRule(String ruleName) {
         String datapackName = "Rug_" + ruleName + ".zip";
-        copyDatapackFolder(server, datapackName);
+        copyDatapackFolder(datapackName);
         datapackRules.put(ruleName, datapackName);
         CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
             if (rule.name.equals(ruleName)) {
@@ -147,9 +151,9 @@ public class RugServer implements CarpetExtension {
         });
     }
 
-    private void copyDatapackFolder(MinecraftServer server, String datapackName) {
+    private void copyDatapackFolder(String datapackName) {
         try {
-            String datapacks = server.getSavePath(WorldSavePath.DATAPACKS).toString();
+            String datapacks = this.minecraftServer.getSavePath(WorldSavePath.DATAPACKS).toString();
             Files.copy(
                     Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/datapacks/" + datapackName)),
                     new File(datapacks, datapackName).toPath()
