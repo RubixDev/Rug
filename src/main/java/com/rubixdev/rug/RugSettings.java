@@ -341,4 +341,11 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean craftableNameTags = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean easyMinecartsCrafting = false;
 }
