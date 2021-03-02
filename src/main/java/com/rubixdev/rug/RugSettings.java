@@ -279,27 +279,38 @@ public class RugSettings
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleMagmaCream = false;
 
+    @DatapackRule
     @Rule(
             desc = "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyDispenserCrafting = false;
 
+    @DatapackRule
     @Rule(
             desc = "Bone Blocks can be crafted out of Bones",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyBoneBlockCrafting = false;
 
+    @DatapackRule
     @Rule(
             desc = "Crafting Logs to Wood gives 4 instead of 3",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean moreBarkCrafting = false;
 
+    @DatapackRule
     @Rule(
             desc = "Enchanted Golden Apples can be crafted with 8 Gold Blocks again",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean craftableNotchApple = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "Quartz Blocks can be crafted into 4 Quartz",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean unpackableQuartz = false;
 }
