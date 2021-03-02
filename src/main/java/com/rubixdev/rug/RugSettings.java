@@ -320,4 +320,11 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean unpackableWool = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "Nether Wart Blocks can be crafted into 9 Nether Warts",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean unpackableNetherWart = false;
 }
