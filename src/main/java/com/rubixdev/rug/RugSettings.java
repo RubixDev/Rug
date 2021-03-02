@@ -327,4 +327,11 @@ public class RugSettings
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
     public static boolean unpackableNetherWart = false;
+
+    @DatapackRule
+    @Rule(
+            desc = "Repeaters can be crafted with the raw materials for Redstone Torches",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean easyRepeaterCrafting = false;
 }
