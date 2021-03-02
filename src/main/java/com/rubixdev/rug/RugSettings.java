@@ -22,6 +22,7 @@ import static carpet.settings.RuleCategory.*;
 public class RugSettings
 {
     public static final String RUG = "rug";
+    public static final String CRAFTING = "crafting";
 
     public static class validatorAnvilledIce extends Validator<Integer> {
 
@@ -277,4 +278,10 @@ public class RugSettings
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG})
     public static boolean edibleMagmaCream = false;
+
+    @Rule(
+            desc = "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG})
+    public static boolean easyDispenserRecipe = false;
 }
