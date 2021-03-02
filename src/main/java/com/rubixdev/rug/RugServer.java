@@ -88,7 +88,7 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
-        registerDatapackRule(server, "easyDispenserRecipe");
+        registerDatapackRule(server, "easyDispenserCrafting");
         initializeDatapackRules(server);
     }
 
@@ -118,7 +118,7 @@ public class RugServer implements CarpetExtension {
         Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
         datapackRules.forEach((ruleName, datapackName) -> {
             ParsedRule<?> rule = CarpetServer.settingsManager.getRule(ruleName);
-            String enabledDataPack = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName + ".zip")).getName();
+            String enabledDataPack = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName)).getName();
             if (rule.getBoolValue()) {
                 collection.add(enabledDataPack);
             } else {
@@ -129,14 +129,14 @@ public class RugServer implements CarpetExtension {
     }
 
     public void registerDatapackRule(MinecraftServer server, String ruleName) {
-        String datapackName = "Rug_" + ruleName;
+        String datapackName = "Rug_" + ruleName + ".zip";
         copyDatapackFolder(server, datapackName);
         datapackRules.put(ruleName, datapackName);
         CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
             if (rule.name.equals(ruleName)) {
                 ResourcePackManager resourcePackManager = source.getMinecraftServer().getDataPackManager();
                 Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
-                String observedDatapackName = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName + ".zip")).getName();
+                String observedDatapackName = Objects.requireNonNull(resourcePackManager.getProfile("file/" + datapackName)).getName();
                 if (rule.getBoolValue()) {
                     collection.add(observedDatapackName);
                 } else {
@@ -151,8 +151,8 @@ public class RugServer implements CarpetExtension {
         try {
             String datapacks = server.getSavePath(WorldSavePath.DATAPACKS).toString();
             Files.copy(
-                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/datapacks/" + datapackName + ".zip")),
-                    new File(datapacks, datapackName + ".zip").toPath()
+                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/datapacks/" + datapackName)),
+                    new File(datapacks, datapackName).toPath()
             );
         } catch (IOException ignored) {
         }

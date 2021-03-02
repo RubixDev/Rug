@@ -283,5 +283,5 @@ public class RugSettings
             desc = "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG})
-    public static boolean easyDispenserRecipe = false;
+    public static boolean easyDispenserCrafting = false;
 }
