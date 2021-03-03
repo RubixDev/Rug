@@ -8,6 +8,7 @@
     "BambooBlockMixin",
     "BlockItemMixin",
     "BlockMixin",
+    "BowItemMixin",
     "CactusBlockMixin",
     "CarpetServerMixin",
     "CauldronBlockMixin",

@@ -7,18 +7,6 @@ import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
-// BUGFIX
-// COMMAND
-// EXPERIMENTAL
-// FEATURE
-// CREATIVE
-// CLIENT
-// DISPENSER
-// OPTIMIZATION
-// SCARPET
-// SURVIVAL
-// TNT
-
 public class RugSettings {
     public static final String RUG = "rug";
     public static final String CRAFTING = "crafting";
@@ -689,4 +677,22 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyTrappedChestCrafting = false;
+
+    @Rule(
+            desc = "A Bow enchanted with Infinity needs the player to have an arrow in his inventory",
+            category = {EXPERIMENTAL, BUGFIX, SURVIVAL, RUG}
+    )
+    public static boolean infinityNeedsArrow = true;
 }
+
+// BUGFIX
+// COMMAND
+// EXPERIMENTAL
+// FEATURE
+// CREATIVE
+// CLIENT
+// DISPENSER
+// OPTIMIZATION
+// SCARPET
+// SURVIVAL
+// TNT
