@@ -669,4 +669,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static int unpackableIce = 0;
+
+    @CraftingRule(
+            recipes = {"cobweb.json"}
+    )
+    @Rule(
+            desc = "Cobwebs can be crafted out of 5 Strings in a cross pattern",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean craftableCobwebs = false;
 }
