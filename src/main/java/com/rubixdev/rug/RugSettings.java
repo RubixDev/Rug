@@ -529,4 +529,19 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyStickCrafting = false;
+
+    @CraftingRule(
+            recipes = {
+                    "bread.json",
+                    "paper.json",
+                    "shulker_box.json"
+            },
+            recipeNamespace = "minecraft"
+    )
+    @Rule(
+            desc = "Bread, Paper and Shulker Boxes can be crafted in a 2x2 field",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean shapelessCrafting = false;
 }
