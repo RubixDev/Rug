@@ -87,6 +87,7 @@ public class RugServer implements CarpetExtension {
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
         String datapackPath = server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/Rug_flexibleData/";
+        boolean isFirstLoad = !Files.isDirectory(new File(datapackPath).toPath());
         try {
             Files.createDirectories(new File(datapackPath + "data/rug/recipes").toPath());
             Files.createDirectories(new File(datapackPath + "data/rug/advancements").toPath());
@@ -119,6 +120,9 @@ public class RugServer implements CarpetExtension {
             );
         }
         reload(server);
+        if (isFirstLoad) {
+            server.getCommandManager().execute(server.getCommandSource(), "/datapack enable \"file/Rug_flexibleData\"");
+        }
     }
 
     private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String datapackPath, MinecraftServer server) {
