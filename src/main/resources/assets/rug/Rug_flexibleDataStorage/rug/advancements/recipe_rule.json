@@ -1,0 +1,13 @@
+{
+  "parent": "rug:root",
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "rewards": {
+    "recipes": [
+
+    ]
+  }
+}
