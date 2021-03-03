@@ -443,4 +443,47 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyMinecartsCrafting = false;
+
+    @CraftingRule(
+            recipes = {
+                    "easy_chest_acacia_log.json",
+                    "easy_chest_acacia_wood.json",
+                    "easy_chest_birch_log.json",
+                    "easy_chest_birch_wood.json",
+                    "easy_chest_crimson_hyphae.json",
+                    "easy_chest_crimson_stem.json",
+                    "easy_chest_dark_oak_log.json",
+                    "easy_chest_dark_oak_wood.json",
+                    "easy_chest_jungle_log.json",
+                    "easy_chest_jungle_wood.json",
+                    "easy_chest_oak_log.json",
+                    "easy_chest_oak_wood.json",
+                    "easy_chest_spruce_log.json",
+                    "easy_chest_spruce_wood.json",
+                    "easy_chest_stripped_acacia_log.json",
+                    "easy_chest_stripped_acacia_wood.json",
+                    "easy_chest_stripped_birch_log.json",
+                    "easy_chest_stripped_birch_wood.json",
+                    "easy_chest_stripped_crimson_hyphae.json",
+                    "easy_chest_stripped_crimson_stem.json",
+                    "easy_chest_stripped_dark_oak_log.json",
+                    "easy_chest_stripped_dark_oak_wood.json",
+                    "easy_chest_stripped_jungle_log.json",
+                    "easy_chest_stripped_jungle_wood.json",
+                    "easy_chest_stripped_oak_log.json",
+                    "easy_chest_stripped_oak_wood.json",
+                    "easy_chest_stripped_spruce_log.json",
+                    "easy_chest_stripped_spruce_wood.json",
+                    "easy_chest_stripped_warped_hyphae.json",
+                    "easy_chest_stripped_warped_stem.json",
+                    "easy_chest_warped_hyphae.json",
+                    "easy_chest_warped_stem.json"
+            }
+    )
+    @Rule(
+            desc = "Chests can be crafted out of logs",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean easyChestCrafting = false;
 }
