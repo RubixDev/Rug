@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:crimson_hyphae"
+        }
+    },
+    "result": {
+        "item": "minecraft:stick",
+        "count": 16
+    },
+    "group": "stick"
+}

@@ -486,4 +486,47 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyChestCrafting = false;
+
+    @CraftingRule(
+            recipes = {
+                    "easy_stick_acacia_log.json",
+                    "easy_stick_acacia_wood.json",
+                    "easy_stick_birch_log.json",
+                    "easy_stick_birch_wood.json",
+                    "easy_stick_crimson_hyphae.json",
+                    "easy_stick_crimson_stem.json",
+                    "easy_stick_dark_oak_log.json",
+                    "easy_stick_dark_oak_wood.json",
+                    "easy_stick_jungle_log.json",
+                    "easy_stick_jungle_wood.json",
+                    "easy_stick_oak_log.json",
+                    "easy_stick_oak_wood.json",
+                    "easy_stick_spruce_log.json",
+                    "easy_stick_spruce_wood.json",
+                    "easy_stick_stripped_acacia_log.json",
+                    "easy_stick_stripped_acacia_wood.json",
+                    "easy_stick_stripped_birch_log.json",
+                    "easy_stick_stripped_birch_wood.json",
+                    "easy_stick_stripped_crimson_hyphae.json",
+                    "easy_stick_stripped_crimson_stem.json",
+                    "easy_stick_stripped_dark_oak_log.json",
+                    "easy_stick_stripped_dark_oak_wood.json",
+                    "easy_stick_stripped_jungle_log.json",
+                    "easy_stick_stripped_jungle_wood.json",
+                    "easy_stick_stripped_oak_log.json",
+                    "easy_stick_stripped_oak_wood.json",
+                    "easy_stick_stripped_spruce_log.json",
+                    "easy_stick_stripped_spruce_wood.json",
+                    "easy_stick_stripped_warped_hyphae.json",
+                    "easy_stick_stripped_warped_stem.json",
+                    "easy_stick_warped_hyphae.json",
+                    "easy_stick_warped_stem.json"
+            }
+    )
+    @Rule(
+            desc = "Sticks can be crafted out of logs",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean easyStickCrafting = false;
 }
