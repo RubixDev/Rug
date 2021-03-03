@@ -683,6 +683,12 @@ public class RugSettings {
             category = {EXPERIMENTAL, BUGFIX, SURVIVAL, RUG}
     )
     public static boolean infinityNeedsArrow = true;
+
+    @Rule(
+            desc = "Repeaters on top of Redstone BLocks double their delay",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+    )
+    public static boolean longerRepeaters = false;
 }
 
 // BUGFIX
