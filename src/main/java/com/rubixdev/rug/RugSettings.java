@@ -544,4 +544,31 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean shapelessCrafting = false;
+
+    @CraftingRule(
+            recipes = {
+                    "yellow_stained_glass.json",
+                    "white_stained_glass.json",
+                    "red_stained_glass.json",
+                    "purple_stained_glass.json",
+                    "pink_stained_glass.json",
+                    "orange_stained_glass.json",
+                    "magenta_stained_glass.json",
+                    "lime_stained_glass.json",
+                    "light_gray_stained_glass.json",
+                    "light_blue_stained_glass.json",
+                    "green_stained_glass.json",
+                    "gray_stained_glass.json",
+                    "cyan_stained_glass.json",
+                    "brown_stained_glass.json",
+                    "blue_stained_glass.json",
+                    "black_stained_glass.json"
+            }
+    )
+    @Rule(
+            desc = "Concrete Powder can be smelted to Glass of the corresponding color",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean powderToGlassSmelting = false;
 }
