@@ -633,4 +633,33 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean universalDyeing = false;
+
+    public static class validatorUnpackables extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 0 && newValue <= 9 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 9";
+        }
+    }
+
+    @CraftingRule(
+            recipes = {
+                    "unpackable_blue_ice.json",
+                    "unpackable_packed_ice.json"
+            }
+    )
+    @Rule(
+            desc = "Blue Ice and Packed Ice can be crafted into the given amount of Packed Ice and Ice accordingly",
+            extra = "Expect a lag spike when changing the value",
+            options = {"0", "3", "4", "9"},
+            strict = false,
+            validate = validatorUnpackables.class,
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static int unpackableIce = 0;
 }
