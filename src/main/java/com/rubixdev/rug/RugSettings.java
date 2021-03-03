@@ -679,4 +679,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean craftableCobwebs = false;
+
+    @CraftingRule(
+            recipes = {"easy_trapped_chest_crafting.json"}
+    )
+    @Rule(
+            desc = "Trapped Chests can be crafted out of logs and a Tripwire Hook",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean easyTrappedChestCrafting = false;
 }
