@@ -1,0 +1,65 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:white_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:orange_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:magenta_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:light_blue_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:lime_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:pink_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:gray_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:light_gray_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:cyan_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:purple_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:blue_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:brown_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:green_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:red_stained_glass_pane"
+      },
+      {
+        "item": "minecraft:black_stained_glass_pane"
+      }
+    ],
+    "O": {
+      "item": "minecraft:yellow_dye"
+    }
+  },
+  "result": {
+    "item": "minecraft:yellow_stained_glass_pane",
+    "count": 8
+  },
+  "group": "universal_dyeing_stained_glass_pane"
+}
