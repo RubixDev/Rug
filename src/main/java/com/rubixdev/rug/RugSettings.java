@@ -383,31 +383,40 @@ public class RugSettings {
             recipes = {"unpackable_quartz.json"}
     )
     @Rule(
-            desc = "Quartz Blocks can be crafted into 4 Quartz",
+            desc = "Quartz Blocks can be crafted into set amount of Quartz",
             extra = "Expect a lag spike when changing the value",
+            options = {"0", "4"},
+            strict = false,
+            validate = validatorUnpackables.class,
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean unpackableQuartz = false;
+    public static int unpackableQuartz = 0;
 
     @CraftingRule(
             recipes = {"unpackable_wool.json"}
     )
     @Rule(
-            desc = "White Wool Blocks can be crafted into 4 String",
+            desc = "White Wool Blocks can be crafted into set amount of String",
             extra = "Expect a lag spike when changing the value",
+            options = {"0", "4"},
+            strict = false,
+            validate = validatorUnpackables.class,
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean unpackableWool = false;
+    public static int unpackableWool = 0;
 
     @CraftingRule(
             recipes = {"unpackable_nether_wart.json"}
     )
     @Rule(
-            desc = "Nether Wart Blocks can be crafted into 9 Nether Warts",
+            desc = "Nether Wart Blocks can be crafted into set amount of Nether Warts",
             extra = "Expect a lag spike when changing the value",
+            options = {"0", "9"},
+            strict = false,
+            validate = validatorUnpackables.class,
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean unpackableNetherWart = false;
+    public static int unpackableNetherWart = 0;
 
     @CraftingRule(
             recipes = {"easy_repeater.json"}
@@ -455,9 +464,7 @@ public class RugSettings {
     public static boolean easyChestCrafting = false;
 
     @CraftingRule(
-            recipes = {
-                    "easy_stick_crafting.json"
-            }
+            recipes = {"easy_stick_crafting.json"}
     )
     @Rule(
             desc = "Sticks can be crafted out of logs",
@@ -654,7 +661,7 @@ public class RugSettings {
             }
     )
     @Rule(
-            desc = "Blue Ice and Packed Ice can be crafted into the given amount of Packed Ice and Ice accordingly",
+            desc = "Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly",
             extra = "Expect a lag spike when changing the value",
             options = {"0", "3", "4", "9"},
             strict = false,
