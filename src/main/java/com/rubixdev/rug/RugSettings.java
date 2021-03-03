@@ -445,40 +445,7 @@ public class RugSettings {
     public static boolean easyMinecartsCrafting = false;
 
     @CraftingRule(
-            recipes = {
-                    "easy_chest_crafting_acacia_log.json",
-                    "easy_chest_crafting_acacia_wood.json",
-                    "easy_chest_crafting_birch_log.json",
-                    "easy_chest_crafting_birch_wood.json",
-                    "easy_chest_crafting_crimson_hyphae.json",
-                    "easy_chest_crafting_crimson_stem.json",
-                    "easy_chest_crafting_dark_oak_log.json",
-                    "easy_chest_crafting_dark_oak_wood.json",
-                    "easy_chest_crafting_jungle_log.json",
-                    "easy_chest_crafting_jungle_wood.json",
-                    "easy_chest_crafting_oak_log.json",
-                    "easy_chest_crafting_oak_wood.json",
-                    "easy_chest_crafting_spruce_log.json",
-                    "easy_chest_crafting_spruce_wood.json",
-                    "easy_chest_crafting_stripped_acacia_log.json",
-                    "easy_chest_crafting_stripped_acacia_wood.json",
-                    "easy_chest_crafting_stripped_birch_log.json",
-                    "easy_chest_crafting_stripped_birch_wood.json",
-                    "easy_chest_crafting_stripped_crimson_hyphae.json",
-                    "easy_chest_crafting_stripped_crimson_stem.json",
-                    "easy_chest_crafting_stripped_dark_oak_log.json",
-                    "easy_chest_crafting_stripped_dark_oak_wood.json",
-                    "easy_chest_crafting_stripped_jungle_log.json",
-                    "easy_chest_crafting_stripped_jungle_wood.json",
-                    "easy_chest_crafting_stripped_oak_log.json",
-                    "easy_chest_crafting_stripped_oak_wood.json",
-                    "easy_chest_crafting_stripped_spruce_log.json",
-                    "easy_chest_crafting_stripped_spruce_wood.json",
-                    "easy_chest_crafting_stripped_warped_hyphae.json",
-                    "easy_chest_crafting_stripped_warped_stem.json",
-                    "easy_chest_crafting_warped_hyphae.json",
-                    "easy_chest_crafting_warped_stem.json"
-            }
+            recipes = {"easy_chest_crafting.json"}
     )
     @Rule(
             desc = "Chests can be crafted out of logs",
@@ -489,38 +456,7 @@ public class RugSettings {
 
     @CraftingRule(
             recipes = {
-                    "easy_stick_acacia_log.json",
-                    "easy_stick_acacia_wood.json",
-                    "easy_stick_birch_log.json",
-                    "easy_stick_birch_wood.json",
-                    "easy_stick_crimson_hyphae.json",
-                    "easy_stick_crimson_stem.json",
-                    "easy_stick_dark_oak_log.json",
-                    "easy_stick_dark_oak_wood.json",
-                    "easy_stick_jungle_log.json",
-                    "easy_stick_jungle_wood.json",
-                    "easy_stick_oak_log.json",
-                    "easy_stick_oak_wood.json",
-                    "easy_stick_spruce_log.json",
-                    "easy_stick_spruce_wood.json",
-                    "easy_stick_stripped_acacia_log.json",
-                    "easy_stick_stripped_acacia_wood.json",
-                    "easy_stick_stripped_birch_log.json",
-                    "easy_stick_stripped_birch_wood.json",
-                    "easy_stick_stripped_crimson_hyphae.json",
-                    "easy_stick_stripped_crimson_stem.json",
-                    "easy_stick_stripped_dark_oak_log.json",
-                    "easy_stick_stripped_dark_oak_wood.json",
-                    "easy_stick_stripped_jungle_log.json",
-                    "easy_stick_stripped_jungle_wood.json",
-                    "easy_stick_stripped_oak_log.json",
-                    "easy_stick_stripped_oak_wood.json",
-                    "easy_stick_stripped_spruce_log.json",
-                    "easy_stick_stripped_spruce_wood.json",
-                    "easy_stick_stripped_warped_hyphae.json",
-                    "easy_stick_stripped_warped_stem.json",
-                    "easy_stick_warped_hyphae.json",
-                    "easy_stick_warped_stem.json"
+                    "easy_stick_crafting.json"
             }
     )
     @Rule(

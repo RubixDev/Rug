@@ -1,0 +1,111 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": [
+            {
+                "item": "minecraft:acacia_log"
+            },
+            {
+                "item": "minecraft:acacia_wood"
+            },
+            {
+                "item": "minecraft:birch_log"
+            },
+            {
+                "item": "minecraft:birch_wood"
+            },
+            {
+                "item": "minecraft:crimson_hyphae"
+            },
+            {
+                "item": "minecraft:crimson_stem"
+            },
+            {
+                "item": "minecraft:dark_oak_log"
+            },
+            {
+                "item": "minecraft:dark_oak_wood"
+            },
+            {
+                "item": "minecraft:jungle_log"
+            },
+            {
+                "item": "minecraft:jungle_wood"
+            },
+            {
+                "item": "minecraft:oak_log"
+            },
+            {
+                "item": "minecraft:oak_wood"
+            },
+            {
+                "item": "minecraft:spruce_log"
+            },
+            {
+                "item": "minecraft:spruce_wood"
+            },
+            {
+                "item": "minecraft:stripped_acacia_log"
+            },
+            {
+                "item": "minecraft:stripped_acacia_wood"
+            },
+            {
+                "item": "minecraft:stripped_birch_log"
+            },
+            {
+                "item": "minecraft:stripped_birch_wood"
+            },
+            {
+                "item": "minecraft:stripped_crimson_hyphae"
+            },
+            {
+                "item": "minecraft:stripped_crimson_stem"
+            },
+            {
+                "item": "minecraft:stripped_dark_oak_log"
+            },
+            {
+                "item": "minecraft:stripped_dark_oak_wood"
+            },
+            {
+                "item": "minecraft:stripped_jungle_log"
+            },
+            {
+                "item": "minecraft:stripped_jungle_wood"
+            },
+            {
+                "item": "minecraft:stripped_oak_log"
+            },
+            {
+                "item": "minecraft:stripped_oak_wood"
+            },
+            {
+                "item": "minecraft:stripped_spruce_log"
+            },
+            {
+                "item": "minecraft:stripped_spruce_wood"
+            },
+            {
+                "item": "minecraft:stripped_warped_hyphae"
+            },
+            {
+                "item": "minecraft:stripped_warped_stem"
+            },
+            {
+                "item": "minecraft:warped_hyphae"
+            },
+            {
+                "item": "minecraft:warped_stem"
+            }
+        ]
+    },
+    "result": {
+        "item": "minecraft:stick",
+        "count": 16
+    }
+}
