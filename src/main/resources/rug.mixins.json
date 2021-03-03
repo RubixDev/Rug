@@ -5,6 +5,7 @@
   "mixins": [
     "AbstractFurnaceBlockEntityMixin",
     "AbstractPlantStemBlockMixin",
+    "AbstractRedstoneGateBlockMixin",
     "BambooBlockMixin",
     "BlockItemMixin",
     "BlockMixin",
@@ -31,7 +32,7 @@
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
     "PlayerEntityMixin",
-    "AbstractRedstoneGateBlockMixin",
+    "RedstoneLampBlockMixin",
     "ServerPlayerEntityMixin",
     "ServerPlayerInteractionManagerMixin",
     "ServerPlayNetworkHandlerMixin",

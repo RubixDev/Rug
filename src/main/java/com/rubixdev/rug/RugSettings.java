@@ -27,7 +27,7 @@ public class RugSettings {
     @Rule(
             desc = "Custom amount of packed ice crushed by falling anvils make one blue ice.",
             options = {"0", "4", "9"},
-            category = {FEATURE, EXPERIMENTAL, SURVIVAL, RUG},
+            category = {FEATURE, EXPERIMENTAL, RUG},
             strict = false,
             validate = validatorAnvilledIce.class
     )
@@ -36,7 +36,7 @@ public class RugSettings {
     @Rule(
             desc = "Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.",
             options = {"0", "4", "9"},
-            category = {FEATURE, EXPERIMENTAL, SURVIVAL, RUG},
+            category = {FEATURE, EXPERIMENTAL, RUG},
             strict = false,
             validate = validatorAnvilledIce.class
     )
@@ -45,7 +45,7 @@ public class RugSettings {
     @Rule(
             desc = "Custom amount of ice crushed by falling anvils make one packed ice.",
             options = {"0", "4", "9"},
-            category = {FEATURE, EXPERIMENTAL, SURVIVAL, RUG},
+            category = {FEATURE, EXPERIMENTAL, RUG},
             strict = false,
             validate = validatorAnvilledIce.class
     )
@@ -123,20 +123,20 @@ public class RugSettings {
 
     @Rule(
             desc = "Brings back the ability to force grow certain plants using 0-ticks",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+            category = {EXPERIMENTAL, RUG}
     )
     public static boolean zeroTickPlants = false;
 
     @Rule(
             desc = "Makes shulkers behave like in the current 1.17 snapshots",
             extra = "Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+            category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static boolean newShulkerBehavior = false;
 
     @Rule(
             desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
-            category = {FEATURE, SURVIVAL, RUG}
+            category = {FEATURE, RUG}
     )
     public static boolean concreteConvertOnCauldron = false;
 
@@ -176,7 +176,7 @@ public class RugSettings {
 
     @Rule(
             desc = "Lily Pads can be placed on Cauldrons",
-            category = {FEATURE, SURVIVAL, RUG}
+            category = {FEATURE, RUG}
     )
     public static boolean lilyPadsOnCauldron = false;
 
@@ -686,9 +686,31 @@ public class RugSettings {
 
     @Rule(
             desc = "Repeaters on top of Redstone BLocks double their delay",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+            category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static boolean longerRepeaters = false;
+
+    public static class validatorRedstoneLampTurnOffDelay extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 0 && newValue <= 8 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 8";
+        }
+    }
+
+    @Rule(
+            desc = "Delay in game ticks for Redstone Lamps to turn off",
+            options = {"0", "4", "8"},
+            strict = false,
+            validate = validatorRedstoneLampTurnOffDelay.class,
+            category = {RUG}
+    )
+    public static int redstoneLampTurnOffDelay = 4;
 }
 
 // BUGFIX
