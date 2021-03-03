@@ -32,6 +32,7 @@ public class RugSettings {
             validate = validatorAnvilledIce.class
     )
     public static int anvilledBlueIce = 0;
+    // anvilledBlueIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
     @Rule(
             desc = "Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.",
@@ -41,6 +42,7 @@ public class RugSettings {
             validate = validatorAnvilledIce.class
     )
     public static int anvilledIce = 0;
+    // anvilledIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
     @Rule(
             desc = "Custom amount of ice crushed by falling anvils make one packed ice.",
@@ -50,6 +52,7 @@ public class RugSettings {
             validate = validatorAnvilledIce.class
     )
     public static int anvilledPackedIce = 0;
+    // anvilledPackedIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
     @Rule(
             desc = "Allows Zombified Piglins to spawn inside Nether Portals",
@@ -86,12 +89,14 @@ public class RugSettings {
             category = {FEATURE, SURVIVAL, RUG}
     )
     public static boolean playerHeadDrops = false;
+    // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
             desc = "Ender Dragon drops an Elytra when killed",
             category = {FEATURE, SURVIVAL, RUG}
     )
     public static boolean dragonDropsElytra = false;
+    // dragonDropsElytraAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
 
@@ -114,12 +119,14 @@ public class RugSettings {
             validate = validatorStrictShulkerShells.class
     )
     public static int strictShulkerShells = 0;
+    // strictShulkerShellsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
             desc = "Mobs named with 'silence_me' stop making noise",
             category = {FEATURE, SURVIVAL, RUG}
     )
     public static boolean silenceMobs = false;
+    // silenceMobsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
             desc = "Brings back the ability to force grow certain plants using 0-ticks",
@@ -166,6 +173,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean peacefulHunger = false;
+    // peacefulHungerAdditional: Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
     @Rule(
             desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
@@ -173,6 +181,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean foodInstantHeal = false;
+    // foodInstantHealAdditional: Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
     @Rule(
             desc = "Lily Pads can be placed on Cauldrons",
@@ -318,6 +327,7 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyDispenserCrafting = false;
+    // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
     @CraftingRule(
             recipes = {"easy_bone_block.json"}
@@ -475,6 +485,7 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean shapelessCrafting = false;
+    // shapelessCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
     @CraftingRule(
             recipes = {
@@ -502,6 +513,7 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean powderToGlassSmelting = false;
+    // powderToGlassSmeltingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
     @CraftingRule(
             recipes = {
@@ -628,6 +640,7 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean universalDyeing = false;
+    // universalDyeingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
     public static class validatorUnpackables extends Validator<Integer> {
 
