@@ -64,20 +64,46 @@ def read_rules() -> list:
 
 
 def write_file(rules: list):
-    with open('README-header.md', 'r') as header_file:
+    with open('markdown/README-header.md', 'r') as header_file:
         out = header_file.read()
+
+    all_categories = list(set([item for sublist in [rule.categories for rule in rules] for item in sublist]))
+    all_categories = [category for category in all_categories if category.upper() != 'RUG']
+    all_categories.sort()
+    out += f'## Lists of Categories\n'
+    for category in all_categories:
+        out += f'- [`{category}`](markdown/{category}_Category.md)\n'
+    out += '\n'
+
     rules.sort(key=lambda e: e.name)
 
-    out += f'## Index\n' \
-           f'Count: {len(rules)}\n'
-    for rule in rules:
-        out += f'- [{rule.name}](#{rule.name.lower()})\n'
-    out += '\n## Implemented Rules\n\n'
-    for rule in rules:
-        out += str(rule) + '\n\n'
+    out += list_rules(rules, 'Implemented Rules')
 
     with open('README.md', 'w') as readme_file:
         readme_file.write(out[:-1])
 
+    for category in all_categories:
+        rules_in_category = [rule for rule in rules if category in rule.categories]
+        rules_in_category.sort(key=lambda e: e.name)
+        out = f'# List of Rules in the {category} Category\n\n' \
+              f'For a list of all implemented Rules go [here](../README.md)\n'
+        out += list_rules(rules_in_category, f'Rules in {category} Category')
 
-write_file(read_rules())
+        with open(f'markdown/{category}_Category.md', 'w') as category_readme:
+            category_readme.write(out[:-1])
+
+
+def list_rules(rules: list, rule_headline: str) -> str:
+    out = f'## Index\n' \
+           f'Count: {len(rules)}\n'
+    for rule in rules:
+        out += f'- [{rule.name}](#{rule.name.lower()})\n'
+    out += f'\n## {rule_headline}\n\n'
+    for rule in rules:
+        out += str(rule) + '\n\n'
+
+    return out
+
+
+if __name__ == '__main__':
+    write_file(read_rules())
