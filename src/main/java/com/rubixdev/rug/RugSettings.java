@@ -164,7 +164,7 @@ public class RugSettings {
     @Rule(
             desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-            category = {EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleNetheriteScraps = false;
 
@@ -266,7 +266,7 @@ public class RugSettings {
     @Rule(
             desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
             extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-            category = {EXPERIMENTAL, BUGFIX, FEATURE, SURVIVAL, CLIENT, RUG}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleGoldIngots = false;
 
@@ -698,10 +698,11 @@ public class RugSettings {
     public static boolean infinityNeedsArrow = true;
 
     @Rule(
-            desc = "Repeaters on top of Redstone BLocks double their delay",
+            desc = "Repeaters on top of Redstone BLocks multiply their delay by set amount",
+            options = {"1", "2", "3", "4"},
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
-    public static boolean longerRepeaters = false;
+    public static int longerRepeaters = 1;
 
     public static class validatorRedstoneLampTurnOffDelay extends Validator<Integer> {
 

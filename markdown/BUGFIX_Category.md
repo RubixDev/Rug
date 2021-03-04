@@ -2,10 +2,8 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 5
+Count: 3
 - [cactusFurnaceXP](#cactusfurnacexp)
-- [edibleGoldIngots](#ediblegoldingots)
-- [edibleNetheriteScraps](#ediblenetheritescraps)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [stonecutterDamage](#stonecutterdamage)
 
@@ -20,22 +18,6 @@ Amount of XP a Cactus smelted in a furnace gives
 - Categories: `BUGFIX`, `SURVIVAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 1
-
-### edibleGoldIngots
-Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
-
-### edibleNetheriteScraps
-Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    

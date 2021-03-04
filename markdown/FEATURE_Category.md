@@ -97,7 +97,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance  
@@ -113,7 +113,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness  
