@@ -1,31 +1,9 @@
-# Rug Mod for Fabric
+# List of Rules in the SURVIVAL Category
 
-[![GitHub all releases](https://img.shields.io/github/downloads/RubixDev/fabric-rug/total)](https://github.com/RubixDev/fabric-rug/releases)
-[![GitHub release (latest by date)](https://img.shields.io/github/downloads/RubixDev/fabric-rug/latest/total)](https://github.com/RubixDev/fabric-rug/releases/latest)
-[![License](https://img.shields.io/github/license/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/fabric-rug)](https://github.com/RubixDev/fabric-rug/issues?q=is%3Aissue+is%3Aclosed)  
-[![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug/files)
-[![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg)](https://www.curseforge.com/minecraft/mc-mods/fabric-rug)
-
-Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
-
-## Lists of Categories
-- [`BUGFIX`](markdown/BUGFIX_Category.md)
-- [`CLIENT`](markdown/CLIENT_Category.md)
-- [`CRAFTING`](markdown/CRAFTING_Category.md)
-- [`CREATIVE`](markdown/CREATIVE_Category.md)
-- [`EXPERIMENTAL`](markdown/EXPERIMENTAL_Category.md)
-- [`FEATURE`](markdown/FEATURE_Category.md)
-- [`SURVIVAL`](markdown/SURVIVAL_Category.md)
-
+For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 52
-- [anvilledBlueIce](#anvilledblueice)
-- [anvilledIce](#anvilledice)
-- [anvilledPackedIce](#anvilledpackedice)
+Count: 42
 - [cactusFurnaceXP](#cactusfurnacexp)
-- [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
@@ -46,10 +24,7 @@ Count: 52
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
 - [infinityNeedsArrow](#infinityneedsarrow)
-- [lilyPadsOnCauldron](#lilypadsoncauldron)
-- [longerRepeaters](#longerrepeaters)
 - [moreBarkCrafting](#morebarkcrafting)
-- [newShulkerBehavior](#newshulkerbehavior)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
 - [noGhastGriefing](#noghastgriefing)
@@ -57,8 +32,6 @@ Count: 52
 - [peacefulHunger](#peacefulhunger)
 - [playerHeadDrops](#playerheaddrops)
 - [powderToGlassSmelting](#powdertoglasssmelting)
-- [reachDistance](#reachdistance)
-- [redstoneLampTurnOffDelay](#redstonelampturnoffdelay)
 - [shapelessCrafting](#shapelesscrafting)
 - [silenceMobs](#silencemobs)
 - [silkTouchFarmland](#silktouchfarmland)
@@ -71,40 +44,9 @@ Count: 52
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
-- [zeroTickPlants](#zerotickplants)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
-## Implemented Rules
-
-### anvilledBlueIce
-Custom amount of packed ice crushed by falling anvils make one blue ice.    
-- Type: `int`
-- Default value: `0`
-- Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
-
-### anvilledIce
-Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.    
-- Type: `int`
-- Default value: `0`
-- Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
-
-### anvilledPackedIce
-Custom amount of ice crushed by falling anvils make one packed ice.    
-- Type: `int`
-- Default value: `0`
-- Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+## Rules in SURVIVAL Category
 
 ### cactusFurnaceXP
 Amount of XP a Cactus smelted in a furnace gives  
@@ -115,13 +57,6 @@ Amount of XP a Cactus smelted in a furnace gives
 - Categories: `BUGFIX`, `SURVIVAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 1
-
-### concreteConvertOnCauldron
-Concrete powder converts to concrete blocks when on top of a filled cauldron    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `FEATURE`, `RUG`
 
 ### craftableCobwebs
 Cobwebs can be crafted out of 5 Strings in a cross pattern  
@@ -288,20 +223,6 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `BUGFIX`, `SURVIVAL`, `RUG`
 
-### lilyPadsOnCauldron
-Lily Pads can be placed on Cauldrons    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `FEATURE`, `RUG`
-
-### longerRepeaters
-Repeaters on top of Redstone BLocks double their delay    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
-
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3  
 Expect a lag spike when changing the value  
@@ -309,14 +230,6 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `SURVIVAL`, `RUG`
-
-### newShulkerBehavior
-Makes shulkers behave like in the current 1.17 snapshots  
-Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks    
@@ -373,25 +286,6 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `SURVIVAL`, `RUG`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
-
-### reachDistance
-Reach in which you can place and break blocks. Value will be 0.5 higher in creative  
-Mod needed on server and client for this feature to work  
-- Type: `double`
-- Default value: `4.5`
-- Suggested options: `0`, `4.5`, `5`, `10`
-- Categories: `EXPERIMENTAL`, `CREATIVE`, `CLIENT`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 100
-
-### redstoneLampTurnOffDelay
-Delay in game ticks for Redstone Lamps to turn off    
-- Type: `int`
-- Default value: `4`
-- Suggested options: `0`, `4`, `8`
-- Categories: `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 8
 
 ### shapelessCrafting
 Bread, Paper and Shulker Boxes can be crafted in a 2x2 field  
@@ -501,13 +395,6 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `SURVIVAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 9
-
-### zeroTickPlants
-Brings back the ability to force grow certain plants using 0-ticks    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `RUG`
 
 ### zombifiedPiglinsSpawningInPortals
 Allows Zombified Piglins to spawn inside Nether Portals    
