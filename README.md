@@ -20,13 +20,14 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 52
+Count: 53
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [cactusFurnaceXP](#cactusfurnacexp)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [craftableCobwebs](#craftablecobwebs)
+- [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [dragonDropsElytra](#dragondropselytra)
@@ -81,7 +82,7 @@ Custom amount of packed ice crushed by falling anvils make one blue ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -91,7 +92,7 @@ Custom amount of frosted ice crushed by falling anvils make one ice. Allows for 
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -101,7 +102,7 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -112,7 +113,7 @@ Amount of XP a Cactus smelted in a furnace gives
 - Type: `double`
 - Default value: `1`
 - Suggested options: `0.1`, `0.2`, `0.5`, `1`
-- Categories: `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 1
 
@@ -129,7 +130,14 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### craftableHorseArmor
+    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
+- Categories: `CRAFTING`, `RUG`
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron  
@@ -137,7 +145,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNotchApple
 Enchanted Golden Apples can be crafted with 8 Gold Blocks again  
@@ -145,14 +153,14 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### dragonDropsElytra
 Ender Dragon drops an Elytra when killed    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -162,7 +170,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyChestCrafting
 Chests can be crafted out of logs  
@@ -170,7 +178,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyDispenserCrafting
 Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow  
@@ -178,7 +186,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
@@ -188,7 +196,7 @@ Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyHarvestingRequireHoe
 The easyHarvesting feature requires the player to hold a hoe in his main hand  
@@ -196,7 +204,7 @@ Requires easyHarvesting to be enabled
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyMinecartsCrafting
 The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle  
@@ -204,7 +212,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyRepeaterCrafting
 Repeaters can be crafted with the raw materials for Redstone Torches  
@@ -212,7 +220,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyStickCrafting
 Sticks can be crafted out of logs  
@@ -220,7 +228,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyTrappedChestCrafting
 Trapped Chests can be crafted out of logs and a Tripwire Hook  
@@ -228,7 +236,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
@@ -236,7 +244,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance  
@@ -244,7 +252,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
@@ -252,7 +260,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness  
@@ -260,14 +268,14 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls    
 - Type: `int`
 - Default value: `5`
 - Suggested options: `0`, `2`, `3`, `5`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 10
 
@@ -277,7 +285,7 @@ Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
@@ -286,7 +294,7 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 
 ### lilyPadsOnCauldron
 Lily Pads can be placed on Cauldrons    
@@ -308,7 +316,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -323,35 +331,35 @@ Prevents Creepers from destroying blocks
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `SURVIVAL`, `RUG`
+- Categories: `RUG`, `SURVIVAL`
 
 ### noEndermanGriefing
 Prevents Endermen from picking up and placing blocks    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `SURVIVAL`, `RUG`
+- Categories: `RUG`, `SURVIVAL`
 
 ### noGhastGriefing
 Prevents Ghasts from destroying blocks    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `SURVIVAL`, `RUG`
+- Categories: `RUG`, `SURVIVAL`
 
 ### oldFishingLoot
 Reverts the fishing loot to how it was before 1.16    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `SURVIVAL`, `RUG`
+- Categories: `RUG`, `SURVIVAL`
 
 ### peacefulHunger
 Players do not lose any hunger like in peaceful mode    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
@@ -360,7 +368,7 @@ Players drop their head when killed by a player
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -370,7 +378,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
@@ -380,7 +388,7 @@ Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
 - Suggested options: `0`, `4.5`, `5`, `10`
-- Categories: `EXPERIMENTAL`, `CREATIVE`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
 
@@ -399,7 +407,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
@@ -408,7 +416,7 @@ Mobs named with 'silence_me' stop making noise
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -417,28 +425,28 @@ Mining Farmland with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchPathBlocks
 Mining Path Blocks with a Silk Touch tool will drop itself    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchSpawners
 Mining Spawners with a Silk Touch tool will drop itself    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them    
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `3`, `4`, `5`
-- Categories: `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 10
 
@@ -447,7 +455,7 @@ Shulkers always drop a given amount of shulker shells when killed
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `2`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 4
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
@@ -458,7 +466,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
@@ -468,7 +476,7 @@ Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `3`, `4`, `9`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
 
@@ -478,7 +486,7 @@ Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `9`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
 
@@ -488,7 +496,7 @@ Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
 
@@ -498,7 +506,7 @@ Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`
-- Categories: `CRAFTING`, `SURVIVAL`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
 
@@ -514,4 +522,4 @@ Allows Zombified Piglins to spawn inside Nether Portals
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
-- Categories: `SURVIVAL`, `RUG`
+- Categories: `RUG`, `SURVIVAL`

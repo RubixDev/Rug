@@ -34,7 +34,7 @@ Custom amount of packed ice crushed by falling anvils make one blue ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -44,7 +44,7 @@ Custom amount of frosted ice crushed by falling anvils make one ice. Allows for 
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -54,7 +54,7 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
-- Categories: `FEATURE`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
@@ -71,7 +71,7 @@ Ender Dragon drops an Elytra when killed
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -81,7 +81,7 @@ Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyHarvestingRequireHoe
 The easyHarvesting feature requires the player to hold a hoe in his main hand  
@@ -89,7 +89,7 @@ Requires easyHarvesting to be enabled
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
@@ -97,7 +97,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance  
@@ -105,7 +105,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
@@ -113,7 +113,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness  
@@ -121,14 +121,14 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls    
 - Type: `int`
 - Default value: `5`
 - Suggested options: `0`, `2`, `3`, `5`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 10
 
@@ -138,7 +138,7 @@ Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
@@ -169,7 +169,7 @@ Players do not lose any hunger like in peaceful mode
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
@@ -178,7 +178,7 @@ Players drop their head when killed by a player
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -187,7 +187,7 @@ Mobs named with 'silence_me' stop making noise
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -196,28 +196,28 @@ Mining Farmland with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchPathBlocks
 Mining Path Blocks with a Silk Touch tool will drop itself    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchSpawners
 Mining Spawners with a Silk Touch tool will drop itself    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed    
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `2`
-- Categories: `FEATURE`, `SURVIVAL`, `RUG`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 4
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)

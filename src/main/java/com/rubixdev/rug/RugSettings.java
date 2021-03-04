@@ -725,6 +725,22 @@ public class RugSettings {
             category = {RUG}
     )
     public static int redstoneLampTurnOffDelay = 4;
+
+    @CraftingRule(
+            recipes = {
+                    "leather_horse_armor",
+                    "iron_horse_armor",
+                    "golden_horse_armor",
+                    "diamond_horse_armor",
+            }
+    )
+    @Rule(
+            desc = "",
+            extra = "",
+            options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
+            category = {CRAFTING, RUG}
+    )
+    public static String craftableHorseArmor = "off";
 }
 
 // BUGFIX
