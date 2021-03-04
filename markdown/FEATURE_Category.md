@@ -150,10 +150,10 @@ Lily Pads can be placed on Cauldrons
 - Categories: `FEATURE`, `RUG`
 
 ### longerRepeaters
-Repeaters on top of Redstone BLocks double their delay    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+Repeaters on top of Redstone BLocks multiply their delay by set amount    
+- Type: `int`
+- Default value: `1`
+- Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### newShulkerBehavior
