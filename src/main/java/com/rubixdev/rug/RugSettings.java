@@ -735,12 +735,47 @@ public class RugSettings {
             }
     )
     @Rule(
-            desc = "",
-            extra = "",
+            desc = "Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces",
+            extra = "Expect a lag spike when changing the value",
             options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
-            category = {CRAFTING, RUG}
+            category = {CRAFTING, SURVIVAL, RUG}
     )
     public static String craftableHorseArmor = "off";
+
+    @CraftingRule(
+            recipes = {
+                    "woodcutting_acacia_fence.json",
+                    "woodcutting_acacia_slab.json",
+                    "woodcutting_acacia_stairs.json",
+                    "woodcutting_birch_fence.json",
+                    "woodcutting_birch_slab.json",
+                    "woodcutting_birch_stairs.json",
+                    "woodcutting_crimson_fence.json",
+                    "woodcutting_crimson_slab.json",
+                    "woodcutting_crimson_stairs.json",
+                    "woodcutting_dark_oak_fence.json",
+                    "woodcutting_dark_oak_slab.json",
+                    "woodcutting_dark_oak_stairs.json",
+                    "woodcutting_jungle_fence.json",
+                    "woodcutting_jungle_slab.json",
+                    "woodcutting_jungle_stairs.json",
+                    "woodcutting_oak_fence.json",
+                    "woodcutting_oak_slab.json",
+                    "woodcutting_oak_stairs.json",
+                    "woodcutting_spruce_fence.json",
+                    "woodcutting_spruce_slab.json",
+                    "woodcutting_spruce_stairs.json",
+                    "woodcutting_warped_fence.json",
+                    "woodcutting_warped_slab.json",
+                    "woodcutting_warped_stairs.json"
+            }
+    )
+    @Rule(
+            desc = "The Stonecutter can be used for all Wood Types",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean woodcutting = false;
 }
 
 // BUGFIX

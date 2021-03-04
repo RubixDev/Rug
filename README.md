@@ -20,7 +20,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 53
+Count: 54
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -72,6 +72,7 @@ Count: 53
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
+- [woodcutting](#woodcutting)
 - [zeroTickPlants](#zerotickplants)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
@@ -133,11 +134,12 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
-    
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
+Expect a lag spike when changing the value  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
-- Categories: `CRAFTING`, `RUG`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron  
@@ -509,6 +511,14 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
+
+### woodcutting
+The Stonecutter can be used for all Wood Types  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks    

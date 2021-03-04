@@ -2,9 +2,10 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 42
+Count: 44
 - [cactusFurnaceXP](#cactusfurnacexp)
 - [craftableCobwebs](#craftablecobwebs)
+- [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [dragonDropsElytra](#dragondropselytra)
@@ -44,6 +45,7 @@ Count: 42
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
+- [woodcutting](#woodcutting)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
 ## Rules in SURVIVAL Category
@@ -64,6 +66,14 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### craftableHorseArmor
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
+Expect a lag spike when changing the value  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
@@ -395,6 +405,14 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
+
+### woodcutting
+The Stonecutter can be used for all Wood Types  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### zombifiedPiglinsSpawningInPortals
 Allows Zombified Piglins to spawn inside Nether Portals    
