@@ -728,10 +728,10 @@ public class RugSettings {
 
     @CraftingRule(
             recipes = {
-                    "leather_horse_armor",
-                    "iron_horse_armor",
-                    "golden_horse_armor",
-                    "diamond_horse_armor",
+                    "craftable_horse_armor_leather_horse_armor",
+                    "craftable_horse_armor_iron_horse_armor",
+                    "craftable_horse_armor_golden_horse_armor",
+                    "craftable_horse_armor_diamond_horse_armor",
             }
     )
     @Rule(
