@@ -39,7 +39,7 @@ def read_rules() -> list:
         field = raw_rule.split('\n')[-1][18:].split(' ')
         rule.type = field[0]
         rule.name = field[1]
-        rule.value = field[3]
+        rule.value = field[3].replace('"', '')
 
         keys = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
         values = [i[12:].split(' = ')[1] for i in raw_rule.split('\n')[1:-2]]
