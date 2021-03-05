@@ -13,6 +13,6 @@ Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
 - Suggested options: `0`, `4.5`, `5`, `10`
-- Categories: `EXPERIMENTAL`, `CREATIVE`, `CLIENT`, `RUG`
+- Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100

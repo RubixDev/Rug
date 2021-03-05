@@ -725,6 +725,73 @@ public class RugSettings {
             category = {RUG}
     )
     public static int redstoneLampTurnOffDelay = 4;
+
+    @CraftingRule(
+            recipes = {
+                    "craftable_horse_armor_leather_horse_armor",
+                    "craftable_horse_armor_iron_horse_armor",
+                    "craftable_horse_armor_golden_horse_armor",
+                    "craftable_horse_armor_diamond_horse_armor",
+            }
+    )
+    @Rule(
+            desc = "Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces",
+            extra = "Expect a lag spike when changing the value",
+            options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static String craftableHorseArmor = "off";
+
+    @CraftingRule(
+            recipes = {
+                    "woodcutting_acacia_fence.json",
+                    "woodcutting_acacia_slab.json",
+                    "woodcutting_acacia_stairs.json",
+                    "woodcutting_birch_fence.json",
+                    "woodcutting_birch_slab.json",
+                    "woodcutting_birch_stairs.json",
+                    "woodcutting_crimson_fence.json",
+                    "woodcutting_crimson_slab.json",
+                    "woodcutting_crimson_stairs.json",
+                    "woodcutting_dark_oak_fence.json",
+                    "woodcutting_dark_oak_slab.json",
+                    "woodcutting_dark_oak_stairs.json",
+                    "woodcutting_jungle_fence.json",
+                    "woodcutting_jungle_slab.json",
+                    "woodcutting_jungle_stairs.json",
+                    "woodcutting_oak_fence.json",
+                    "woodcutting_oak_slab.json",
+                    "woodcutting_oak_stairs.json",
+                    "woodcutting_spruce_fence.json",
+                    "woodcutting_spruce_slab.json",
+                    "woodcutting_spruce_stairs.json",
+                    "woodcutting_warped_fence.json",
+                    "woodcutting_warped_slab.json",
+                    "woodcutting_warped_stairs.json"
+            }
+    )
+    @Rule(
+            desc = "The Stonecutter can be used for all wood types",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean woodcutting = false;
+
+    @Rule(
+            desc = "Honey Comb only sticks to selected Blocks",
+            extra = "Will render Ghost Blocks on the Client when mod is only Server Side",
+            options = {"both", "honey", "slime", "none"},
+            category = {EXPERIMENTAL, CLIENT, FEATURE, RUG}
+    )
+    public static String honeyCombStickiness = "both";
+    // honeyCombStickinessAdditional: Suggestion by DragonEggBedrockBreaking#0034
+
+    @Rule(
+            desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
+            options = {"off", "on_teleport", "on_landing", "both"},
+            category = {EXPERIMENTAL, FEATURE, RUG}
+    )
+    public static String dragonEggConvertsCobbleToEndstone = "off";
 }
 
 // BUGFIX

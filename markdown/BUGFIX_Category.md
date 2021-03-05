@@ -15,7 +15,7 @@ Amount of XP a Cactus smelted in a furnace gives
 - Type: `double`
 - Default value: `1`
 - Suggested options: `0.1`, `0.2`, `0.5`, `1`
-- Categories: `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 1
 
@@ -24,13 +24,13 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them    
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `3`, `4`, `5`
-- Categories: `BUGFIX`, `SURVIVAL`, `RUG`
+- Categories: `BUGFIX`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 10

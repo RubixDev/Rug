@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Rule:
     type: str
     name: str
@@ -12,6 +15,7 @@ class Rule:
 
     def __repr__(self):
         nl = '\n'
+        self.categories.sort()
         out = f'### {self.name}\n' \
               f'{self.desc}  {nl + self.extra if self.extra else ""}  \n' \
               f'- Type: `{self.type}`\n' \
@@ -28,7 +32,7 @@ class Rule:
         return out
 
 
-def read_rules() -> list:
+def read_rules() -> List[Rule]:
     with open('src/main/java/com/rubixdev/rug/RugSettings.java', 'r') as settings_file:
         settings_string = settings_file.read()
     raw_settings = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
@@ -39,7 +43,7 @@ def read_rules() -> list:
         field = raw_rule.split('\n')[-1][18:].split(' ')
         rule.type = field[0]
         rule.name = field[1]
-        rule.value = field[3]
+        rule.value = field[3].replace('"', '')
 
         keys = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
         values = [i[12:].split(' = ')[1] for i in raw_rule.split('\n')[1:-2]]
@@ -63,7 +67,7 @@ def read_rules() -> list:
     return rules
 
 
-def write_file(rules: list):
+def write_file(rules: List[Rule]):
     with open('markdown/README-header.md', 'r') as header_file:
         out = header_file.read()
 
@@ -93,7 +97,7 @@ def write_file(rules: list):
             category_readme.write(out[:-1])
 
 
-def list_rules(rules: list, rule_headline: str) -> str:
+def list_rules(rules: List[Rule], rule_headline: str) -> str:
     out = f'## Index\n' \
            f'Count: {len(rules)}\n'
     for rule in rules:

@@ -63,6 +63,14 @@ public abstract class FallingBlockEntityMixin extends Entity {
                     world.setBlockState(posBelow, Blocks.BLUE_ICE.getDefaultState(), 3);
                 }
             }
+        } else if (block.is(Blocks.DRAGON_EGG)) {
+            BlockPos posBelow = new BlockPos(this.getX(), this.getY() - 0.06, this.getZ());
+            Block blockBelow = this.world.getBlockState(posBelow).getBlock();
+            String rugSetting = RugSettings.dragonEggConvertsCobbleToEndstone;
+            if (blockBelow == Blocks.COBBLESTONE && (rugSetting.equals("both") || rugSetting.equals("on_landing"))) {
+                world.breakBlock(posBelow, false);
+                world.setBlockState(posBelow, Blocks.END_STONE.getDefaultState(), 3);
+            }
         }
     }
 }

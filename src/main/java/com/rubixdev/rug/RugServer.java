@@ -26,8 +26,10 @@ import net.minecraft.util.math.BlockPos;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class RugServer implements CarpetExtension {
     @Override
@@ -139,21 +141,68 @@ public class RugServer implements CarpetExtension {
     private void updateCraftingRule(ParsedRule<?> rule, String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
         ruleName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, ruleName);
 
-        if (rule.getBoolValue()) {
-            copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
+        if (rule.type == String.class) {
+            String value = rule.getAsString();
 
-            if (rule.type == int.class) {
-                int value = (Integer) rule.get();
-                for (String recipeName : recipes) {
-                    String filePath = datapackPath + recipeNamespace + "/recipes/" + recipeName;
-                    JsonObject jsonObject = readJson(filePath);
-                    assert jsonObject != null;
-                    jsonObject.getAsJsonObject("result").addProperty("count", value);
-                    writeJson(jsonObject, filePath);
+            List<String> installedRecipes = Lists.newArrayList();
+            try {
+                Stream<Path> fileStream = Files.list(new File(datapackPath + recipeNamespace, "recipes").toPath());
+                fileStream.forEach((path -> {
+                    for (String recipeName : recipes) {
+                        String fileName = path.getFileName().toString();
+                        if (fileName.startsWith(recipeName)) {
+                            installedRecipes.add(fileName);
+                        }
+                    }
+                }));
+            } catch (IOException ignored) {
+            }
+
+            deleteRecipes(installedRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName, false);
+
+            if (recipeNamespace.equals("rug")) {
+                List<String> installedAdvancements = Lists.newArrayList();
+                try {
+                    Stream<Path> fileStream = Files.list(new File(datapackPath, "rug/advancements").toPath());
+                    String finalRuleName = ruleName;
+                    fileStream.forEach((path -> {
+                        String fileName = path.getFileName().toString().replace(".json", "");
+                        if (fileName.startsWith(finalRuleName)) {
+                            installedAdvancements.add(fileName);
+                        }
+                    }));
+                } catch (IOException ignored) {
+                }
+                for (String advancement : installedAdvancements.toArray(new String[0])) {
+                    removeAdvancement(datapackPath, advancement);
                 }
             }
+
+            if (!value.equals("off")) {
+                List<String> tempRecipes = Lists.newArrayList();
+                for (String recipeName : recipes) {
+                    tempRecipes.add(recipeName + "_" + value + ".json");
+                }
+
+                copyRecipes(tempRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName + "_" + value);
+            }
         } else {
-            deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName);
+            if (rule.getBoolValue()) {
+                copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
+
+                if (rule.type == int.class) {
+                    int value = (Integer) rule.get();
+                    for (String recipeName : recipes) {
+                        String filePath = datapackPath + recipeNamespace + "/recipes/" + recipeName;
+                        JsonObject jsonObject = readJson(filePath);
+                        assert jsonObject != null;
+                        jsonObject.getAsJsonObject("result").addProperty("count", value);
+                        writeJson(jsonObject, filePath);
+                    }
+                }
+            } else {
+                deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName, true);
+            }
         }
     }
 
@@ -169,37 +218,45 @@ public class RugServer implements CarpetExtension {
             }
         }
         if (recipeNamespace.equals("rug")) {
-            try {
-                Files.copy(
-                        Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/rug/advancements/recipe_rule.json")),
-                        new File(datapackPath, "rug/advancements/" + ruleName + ".json").toPath(),
-                        StandardCopyOption.REPLACE_EXISTING
-                );
-            } catch (IOException ignored) {
-            }
-            JsonObject advancementJson = readJson(datapackPath + "rug/advancements/" + ruleName + ".json");
-            assert advancementJson != null;
-            JsonArray recipeRewards = advancementJson.getAsJsonObject("rewards").getAsJsonArray("recipes");
-
-            for (String recipeName : recipes) {
-                recipeRewards.add("rug:" + recipeName.replace(".json", ""));
-            }
-            writeJson(advancementJson, datapackPath + "rug/advancements/" + ruleName + ".json");
+            writeAdvancement(datapackPath, ruleName, recipes);
         }
     }
 
-    private void deleteRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
+    private void deleteRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName, boolean removeAdvancement) {
         for (String recipeName : recipes) {
             try {
                 Files.deleteIfExists(new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath());
             } catch (IOException ignored) {
             }
         }
-        if (recipeNamespace.equals("rug")) {
-            try {
-                Files.deleteIfExists(new File(datapackPath + "rug/advancements/" + ruleName + ".json").toPath());
-            } catch (IOException ignored) {
-            }
+        if (removeAdvancement && recipeNamespace.equals("rug")) {
+            removeAdvancement(datapackPath, ruleName);
+        }
+    }
+
+    private void writeAdvancement(String datapackPath, String ruleName, String[] recipes) {
+        try {
+            Files.copy(
+                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/rug/advancements/recipe_rule.json")),
+                    new File(datapackPath, "rug/advancements/" + ruleName + ".json").toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+            );
+        } catch (IOException ignored) {
+        }
+        JsonObject advancementJson = readJson(datapackPath + "rug/advancements/" + ruleName + ".json");
+        assert advancementJson != null;
+        JsonArray recipeRewards = advancementJson.getAsJsonObject("rewards").getAsJsonArray("recipes");
+
+        for (String recipeName : recipes) {
+            recipeRewards.add("rug:" + recipeName.replace(".json", ""));
+        }
+        writeJson(advancementJson, datapackPath + "rug/advancements/" + ruleName + ".json");
+    }
+
+    private void removeAdvancement(String datapackPath, String ruleName) {
+        try {
+            Files.deleteIfExists(new File(datapackPath + "rug/advancements/" + ruleName + ".json").toPath());
+        } catch (IOException ignored) {
         }
     }
 
