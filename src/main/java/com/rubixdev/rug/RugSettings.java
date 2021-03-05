@@ -423,14 +423,15 @@ public class RugSettings {
     public static boolean easyRepeaterCrafting = false;
 
     @CraftingRule(
-            recipes = {"name_tag.json"}
+            recipes = {"craftable_name_tag"}
     )
     @Rule(
-            desc = "Name Tags can be crafted with Paper and Iron",
+            desc = "Name Tags can be crafted with Paper and Iron or String or both",
             extra = "Expect a lag spike when changing the value",
+            options = {"off", "with_iron", "with_string", "with_both"},
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean craftableNameTags = false;
+    public static String craftableNameTags = "off";
 
     @CraftingRule(
             recipes = {
