@@ -94,10 +94,11 @@ public class RugSettings {
 
     @Rule(
             desc = "Ender Dragon drops an Elytra when killed",
+            options = {"none", "dragon_egg", "elytra", "both"},
             category = {FEATURE, SURVIVAL, RUG}
     )
-    public static boolean dragonDropsElytra = false;
-    // dragonDropsElytraAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    public static String dragonDrops = "none";
+    // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
 
