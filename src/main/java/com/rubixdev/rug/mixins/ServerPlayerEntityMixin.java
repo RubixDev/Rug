@@ -25,7 +25,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     @Inject(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"))
     private void onOnDeath(DamageSource damageSource, CallbackInfo ci) {
-        if (RugSettings.playerHeadDrops && damageSource.getAttacker() instanceof PlayerEntity) {
+        if ((RugSettings.playerHeadDrops.equals("on_killed_by_player") && damageSource.getAttacker() instanceof PlayerEntity)
+                || (RugSettings.playerHeadDrops.equals("on_death"))) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
             stack.getOrCreateTag().put("SkullOwner", NbtHelper.fromGameProfile(new CompoundTag(), this.getGameProfile()));
             this.dropStack(stack);

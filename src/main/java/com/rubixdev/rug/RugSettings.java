@@ -85,10 +85,11 @@ public class RugSettings {
     public static boolean noGhastGriefing = false;
 
     @Rule(
-            desc = "Players drop their head when killed by a player",
+            desc = "Players drop their head",
+            options = {"off", "on_death", "on_killed_by_player"},
             category = {FEATURE, SURVIVAL, RUG}
     )
-    public static boolean playerHeadDrops = false;
+    public static String playerHeadDrops = "off";
     // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
