@@ -813,6 +813,29 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static double enderPearlWaterDrag = 0.8;
+
+    public static class validatorKelpBlockHardness extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0 && newValue <= 0.5 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 0.5";
+        }
+    }
+
+    @Rule(
+            desc = "How long Kelp Blocks take to mine in survival",
+            extra = "Any value other than 0 will behave like 0.5 for clients without this mod",
+            options = {"0", "0.25", "0.5"},
+            strict = false,
+            validate = validatorKelpBlockHardness.class,
+            category = {EXPERIMENTAL, CLIENT, SURVIVAL, RUG}
+    )
+    public static double kelpBlockHardness = 0.5;
 }
 
 // BUGFIX
