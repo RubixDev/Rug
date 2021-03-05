@@ -20,7 +20,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 54
+Count: 55
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -46,6 +46,7 @@ Count: 54
 - [edibleSlimeBalls](#edibleslimeballs)
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
+- [honeyCombStickiness](#honeycombstickiness)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
@@ -290,6 +291,16 @@ Recommended using with peacefulHunger
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
+
+### honeyCombStickiness
+Honey Comb only sticks to selected Blocks  
+Will render Ghost Blocks on the Client when mod is only Server Side  
+- Type: `String`
+- Default value: `both`
+- Required options: `both`, `honey`, `slime`, `none`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - Suggestion by DragonEggBedrockBreaking#0034
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    

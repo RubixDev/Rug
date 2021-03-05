@@ -776,6 +776,15 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean woodcutting = false;
+
+    @Rule(
+            desc = "Honey Comb only sticks to selected Blocks",
+            extra = "Will render Ghost Blocks on the Client when mod is only Server Side",
+            options = {"both", "honey", "slime", "none"},
+            category = {EXPERIMENTAL, CLIENT, FEATURE, RUG}
+    )
+    public static String honeyCombStickiness = "both";
+    // honeyCombStickinessAdditional: Suggestion by DragonEggBedrockBreaking#0034
 }
 
 // BUGFIX

@@ -2,11 +2,12 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 5
+Count: 6
 - [edibleGoldIngots](#ediblegoldingots)
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
+- [honeyCombStickiness](#honeycombstickiness)
 - [reachDistance](#reachdistance)
 
 ## Rules in CLIENT Category
@@ -42,6 +43,16 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### honeyCombStickiness
+Honey Comb only sticks to selected Blocks  
+Will render Ghost Blocks on the Client when mod is only Server Side  
+- Type: `String`
+- Default value: `both`
+- Required options: `both`, `honey`, `slime`, `none`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - Suggestion by DragonEggBedrockBreaking#0034
 
 ### reachDistance
 Reach in which you can place and break blocks. Value will be 0.5 higher in creative  

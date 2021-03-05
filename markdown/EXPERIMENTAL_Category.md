@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 19
+Count: 20
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -13,6 +13,7 @@ Count: 19
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
 - [foodInstantHeal](#foodinstantheal)
+- [honeyCombStickiness](#honeycombstickiness)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [longerRepeaters](#longerrepeaters)
 - [newShulkerBehavior](#newshulkerbehavior)
@@ -112,6 +113,16 @@ Recommended using with peacefulHunger
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
+
+### honeyCombStickiness
+Honey Comb only sticks to selected Blocks  
+Will render Ghost Blocks on the Client when mod is only Server Side  
+- Type: `String`
+- Default value: `both`
+- Required options: `both`, `honey`, `slime`, `none`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - Suggestion by DragonEggBedrockBreaking#0034
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
