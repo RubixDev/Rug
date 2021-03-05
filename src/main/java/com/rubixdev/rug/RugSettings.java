@@ -669,14 +669,15 @@ public class RugSettings {
     public static int unpackableIce = 0;
 
     @CraftingRule(
-            recipes = {"cobweb.json"}
+            recipes = {"craftable_cobweb"}
     )
     @Rule(
-            desc = "Cobwebs can be crafted out of 5 Strings in a cross pattern",
+            desc = "Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area",
             extra = "Expect a lag spike when changing the value",
+            options = {"off", "cross", "full"},
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean craftableCobwebs = false;
+    public static String craftableCobwebs = "off";
 
     @CraftingRule(
             recipes = {"easy_trapped_chest_crafting.json"}
