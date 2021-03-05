@@ -785,6 +785,13 @@ public class RugSettings {
     )
     public static String honeyCombStickiness = "both";
     // honeyCombStickinessAdditional: Suggestion by DragonEggBedrockBreaking#0034
+
+    @Rule(
+            desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
+            options = {"off", "on_teleport", "on_landing", "both"},
+            category = {EXPERIMENTAL, FEATURE, RUG}
+    )
+    public static String dragonEggConvertsCobbleToEndstone = "off";
 }
 
 // BUGFIX

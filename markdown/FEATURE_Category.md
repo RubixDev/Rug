@@ -2,12 +2,13 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 24
+Count: 25
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [dragonDropsElytra](#dragondropselytra)
+- [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [easyHarvesting](#easyharvesting)
 - [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [edibleGoldIngots](#ediblegoldingots)
@@ -75,6 +76,13 @@ Ender Dragon drops an Elytra when killed
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### dragonEggConvertsCobbleToEndstone
+Dragon Eggs will convert Cobble under them to Endstone either on set event    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_teleport`, `on_landing`, `both`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  

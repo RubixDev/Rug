@@ -20,7 +20,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 55
+Count: 56
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -31,6 +31,7 @@ Count: 55
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [dragonDropsElytra](#dragondropselytra)
+- [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
 - [easyDispenserCrafting](#easydispensercrafting)
@@ -166,6 +167,13 @@ Ender Dragon drops an Elytra when killed
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### dragonEggConvertsCobbleToEndstone
+Dragon Eggs will convert Cobble under them to Endstone either on set event    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_teleport`, `on_landing`, `both`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### easyBoneBlockCrafting
 Bone Blocks can be crafted out of Bones  

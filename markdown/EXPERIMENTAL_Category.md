@@ -2,10 +2,11 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 20
+Count: 21
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
+- [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [easyHarvesting](#easyharvesting)
 - [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [edibleGoldIngots](#ediblegoldingots)
@@ -55,6 +56,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+
+### dragonEggConvertsCobbleToEndstone
+Dragon Eggs will convert Cobble under them to Endstone either on set event    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_teleport`, `on_landing`, `both`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  

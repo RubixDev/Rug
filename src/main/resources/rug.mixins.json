@@ -17,6 +17,7 @@
     "ClientPlayerInteractionManagerMixin",
     "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
+    "DragonEggBlockMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "EnderPearlEntityMixin",
