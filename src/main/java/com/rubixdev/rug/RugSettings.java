@@ -790,6 +790,29 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static String dragonEggConvertsCobbleToEndstone = "off";
+
+    public static class validatorEnderPearlWaterDrag extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0.5 && newValue <= 0.99 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0.5 to 0.99";
+        }
+    }
+
+    @Rule(
+            desc = "How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Pearl will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorEnderPearlWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double enderPearlWaterDrag = 0.8;
 }
 
 // BUGFIX

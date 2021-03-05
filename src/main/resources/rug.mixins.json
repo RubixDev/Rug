@@ -41,7 +41,8 @@
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
     "StoneCutterBlockMixin",
-    "SugarCaneBlockMixin"
+    "SugarCaneBlockMixin",
+    "ThrownEntityMixin"
   ],
   "client": [
   ],
