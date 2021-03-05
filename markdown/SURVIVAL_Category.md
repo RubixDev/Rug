@@ -407,7 +407,7 @@ Expect a lag spike when changing the value
   - You must choose a value from 0 to 9
 
 ### woodcutting
-The Stonecutter can be used for all Wood Types  
+The Stonecutter can be used for all wood types  
 Expect a lag spike when changing the value  
 - Type: `boolean`
 - Default value: `false`

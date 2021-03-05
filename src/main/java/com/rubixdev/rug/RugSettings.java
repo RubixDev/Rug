@@ -771,7 +771,7 @@ public class RugSettings {
             }
     )
     @Rule(
-            desc = "The Stonecutter can be used for all Wood Types",
+            desc = "The Stonecutter can be used for all wood types",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG}
     )
