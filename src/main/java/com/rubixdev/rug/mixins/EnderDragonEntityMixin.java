@@ -24,8 +24,14 @@ public abstract class EnderDragonEntityMixin extends Entity {
                     target = "Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;awardExperience(I)V",
                     ordinal = 1))
     private void onAwardExperience(CallbackInfo ci) {
-        if (RugSettings.dragonDropsElytra && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-            this.dropStack(new ItemStack(Items.ELYTRA));
+        String rugSetting = RugSettings.dragonDrops;
+        if (!rugSetting.equals("none") && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+            if (rugSetting.equals("elytra") || rugSetting.equals("both")) {
+                this.dropStack(new ItemStack(Items.ELYTRA));
+            }
+            if (rugSetting.equals("dragon_egg") || rugSetting.equals("both")) {
+                this.dropStack(new ItemStack(Items.DRAGON_EGG));
+            }
         }
     }
 }
