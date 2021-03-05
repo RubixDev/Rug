@@ -152,16 +152,10 @@ public class RugSettings {
     @Rule(
             desc = "Right clicking on fully grown crops harvests and immediately replants it",
             extra = "Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans",
+            options = {"off", "normal", "require_hoe"},
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
-    public static boolean easyHarvesting = false;
-
-    @Rule(
-            desc = "The easyHarvesting feature requires the player to hold a hoe in his main hand",
-            extra = "Requires easyHarvesting to be enabled",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
-    )
-    public static boolean easyHarvestingRequireHoe = true;
+    public static String easyHarvesting = "off";
 
     @Rule(
             desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
