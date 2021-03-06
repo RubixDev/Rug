@@ -904,6 +904,29 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean easyBlueIceCrafting = false;
+
+    public static class validatorSlimeChunkPercentage extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return (newValue >= 0 && newValue <= 100) && newValue % 10 == 0 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 100 that is a multiple of 10";
+        }
+    }
+
+    @Rule(
+            desc = "The percentage of chunks that are Slime chinks",
+            options = {"0", "10", "50", "100"},
+            strict = false,
+            validate = validatorSlimeChunkPercentage.class,
+            category = {EXPERIMENTAL, RUG}
+    )
+    public static int slimeChunkPercentage = 10;
+    // slimeChunkPercentageAdditional: [Idea by Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
 }
 
 // BUGFIX
