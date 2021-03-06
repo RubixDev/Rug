@@ -791,7 +791,7 @@ public class RugSettings {
     )
     public static String dragonEggConvertsCobbleToEndstone = "off";
 
-    public static class validatorEnderPearlWaterDrag extends Validator<Double> {
+    public static class validatorThrownItemWaterDrag extends Validator<Double> {
 
         @Override
         public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
@@ -809,7 +809,7 @@ public class RugSettings {
             extra = "Thrown Pearl will stutter on client when mod is only on server",
             options = {"0.8", "0.9", "0.99"},
             strict = false,
-            validate = validatorEnderPearlWaterDrag.class,
+            validate = validatorThrownItemWaterDrag.class,
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static double enderPearlWaterDrag = 0.8;
@@ -842,6 +842,26 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean campSleeping = false;
+
+    @Rule(
+            desc = "How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Snowball will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorThrownItemWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double snowballWaterDrag = 0.8;
+
+    @Rule(
+            desc = "How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Egg will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorThrownItemWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double eggWaterDrag = 0.8;
 }
 
 // BUGFIX
