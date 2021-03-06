@@ -893,6 +893,16 @@ public class RugSettings {
     )
     public static String moreFortressSpawningBlocks = "off";
     // moreFortressSpawningBlocksAdditional: Idea by [DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+
+    @CraftingRule(
+            recipes = {"easy_blue_ice_crafting.json"}
+    )
+    @Rule(
+            desc = "Blue Ice can be crafted from Ice and Blue Dye",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean easyBlueIceCrafting = false;
 }
 
 // BUGFIX
