@@ -20,23 +20,25 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 56
+Count: 64
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
-- [cactusFurnaceXP](#cactusfurnacexp)
+- [cactusFurnaceXp](#cactusfurnacexp)
+- [campSleeping](#campsleeping)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
-- [dragonDropsElytra](#dragondropselytra)
+- [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
+- [dragonXpDrop](#dragonxpdrop)
+- [easyBlueIceCrafting](#easyblueicecrafting)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
 - [easyDispenserCrafting](#easydispensercrafting)
 - [easyHarvesting](#easyharvesting)
-- [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [easyMinecartsCrafting](#easyminecartscrafting)
 - [easyRepeaterCrafting](#easyrepeatercrafting)
 - [easyStickCrafting](#easystickcrafting)
@@ -45,13 +47,17 @@ Count: 56
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
+- [eggWaterDrag](#eggwaterdrag)
 - [enderPearlDamage](#enderpearldamage)
+- [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [foodInstantHeal](#foodinstantheal)
 - [honeyCombStickiness](#honeycombstickiness)
 - [infinityNeedsArrow](#infinityneedsarrow)
+- [kelpBlockHardness](#kelpblockhardness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
 - [moreBarkCrafting](#morebarkcrafting)
+- [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
@@ -67,6 +73,8 @@ Count: 56
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
+- [slimeChunkPercentage](#slimechunkpercentage)
+- [snowballWaterDrag](#snowballwaterdrag)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [universalDyeing](#universaldyeing)
@@ -110,7 +118,7 @@ Custom amount of ice crushed by falling anvils make one packed ice.
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
-### cactusFurnaceXP
+### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items  
 - Type: `double`
@@ -120,6 +128,13 @@ Amount of XP a Cactus smelted in a furnace gives
 - Additional notes:
   - You must choose a value from 0 to 1
 
+### campSleeping
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### concreteConvertOnCauldron
 Concrete powder converts to concrete blocks when on top of a filled cauldron    
 - Type: `boolean`
@@ -128,11 +143,11 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Categories: `FEATURE`, `RUG`
 
 ### craftableCobwebs
-Cobwebs can be crafted out of 5 Strings in a cross pattern  
+Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
 Expect a lag spike when changing the value  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `cross`, `full`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
@@ -144,11 +159,11 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
-Name Tags can be crafted with Paper and Iron  
+Name Tags can be crafted with Paper and Iron or String or both  
 Expect a lag spike when changing the value  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `with_iron`, `with_string`, `with_both`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNotchApple
@@ -159,11 +174,11 @@ Expect a lag spike when changing the value
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
-### dragonDropsElytra
+### dragonDrops
 Ender Dragon drops an Elytra when killed    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `none`
+- Required options: `none`, `dragon_egg`, `elytra`, `both`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
@@ -174,6 +189,24 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+
+### dragonXpDrop
+Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
+- Type: `int`
+- Default value: `500`
+- Suggested options: `500`, `1200`, `12000`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0 to 12000
+  - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
+
+### easyBlueIceCrafting
+Blue Ice can be crafted from Ice and Blue Dye  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyBoneBlockCrafting
 Bone Blocks can be crafted out of Bones  
@@ -204,17 +237,9 @@ Expect a lag spike when changing the value
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-
-### easyHarvestingRequireHoe
-The easyHarvesting feature requires the player to hold a hoe in his main hand  
-Requires easyHarvesting to be enabled  
-- Type: `boolean`
-- Default value: `true`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyMinecartsCrafting
@@ -281,6 +306,16 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### eggWaterDrag
+How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Egg will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
+
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls    
 - Type: `int`
@@ -289,6 +324,16 @@ Amount of damage dealt by Ender Pearls
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 10
+
+### enderPearlWaterDrag
+How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Pearl will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
 
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off  
@@ -308,7 +353,7 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 - Required options: `both`, `honey`, `slime`, `none`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
-  - Suggestion by DragonEggBedrockBreaking#0034
+  - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
@@ -316,6 +361,16 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Default value: `true`
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+
+### kelpBlockHardness
+How long Kelp Blocks take to mine in survival  
+Any value other than 0 will behave like 0.5 for clients without this mod  
+- Type: `double`
+- Default value: `0.5`
+- Suggested options: `0`, `0.25`, `0.5`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 0.5
 
 ### lilyPadsOnCauldron
 Lily Pads can be placed on Cauldrons    
@@ -338,6 +393,16 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### moreFortressSpawningBlocks
+What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
+o  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `more`, `all`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -385,10 +450,10 @@ Players do not lose any hunger like in peaceful mode
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### playerHeadDrops
-Players drop their head when killed by a player    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+Players drop their head    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_death`, `on_killed_by_player`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
@@ -461,6 +526,26 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### slimeChunkPercentage
+The percentage of chunks that are Slime chinks    
+- Type: `int`
+- Default value: `10`
+- Suggested options: `0`, `10`, `50`, `100`
+- Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0 to 100 that is a multiple of 10
+  - [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+
+### snowballWaterDrag
+How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Snowball will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them    

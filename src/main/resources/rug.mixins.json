@@ -3,6 +3,7 @@
   "package": "com.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbsractBlockStateMixin",
     "AbstractFurnaceBlockEntityMixin",
     "AbstractPlantStemBlockMixin",
     "AbstractRedstoneGateBlockMixin",
@@ -40,8 +41,11 @@
     "ServerPlayNetworkHandlerMixin",
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
+    "SlimeEntityMixin",
+    "SpawnHelperMixin",
     "StoneCutterBlockMixin",
-    "SugarCaneBlockMixin"
+    "SugarCaneBlockMixin",
+    "ThrownEntityMixin"
   ],
   "client": [
   ],

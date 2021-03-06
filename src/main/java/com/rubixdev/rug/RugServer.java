@@ -52,7 +52,7 @@ public class RugServer implements CarpetExtension {
     @Override
     public void onServerLoaded(MinecraftServer server) {
         UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
-            if (!RugSettings.easyHarvesting || world.isClient() || hand != Hand.MAIN_HAND) {
+            if (RugSettings.easyHarvesting.equals("off") || world.isClient() || hand != Hand.MAIN_HAND) {
                 return ActionResult.PASS;
             }
 
@@ -62,7 +62,7 @@ public class RugServer implements CarpetExtension {
 
             if (isMature(state)) {
                 ItemStack tool = player != null ? player.getStackInHand(hand) : ItemStack.EMPTY;
-                if (RugSettings.easyHarvestingRequireHoe && !(tool.getItem() instanceof HoeItem)) {
+                if (RugSettings.easyHarvesting.equals("require_hoe") && !(tool.getItem() instanceof HoeItem)) {
                     return ActionResult.PASS;
                 }
                 List<ItemStack> droppedItems = Block.getDroppedStacks(state, (ServerWorld) world, pos, null, player, tool);

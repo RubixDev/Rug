@@ -85,18 +85,20 @@ public class RugSettings {
     public static boolean noGhastGriefing = false;
 
     @Rule(
-            desc = "Players drop their head when killed by a player",
+            desc = "Players drop their head",
+            options = {"off", "on_death", "on_killed_by_player"},
             category = {FEATURE, SURVIVAL, RUG}
     )
-    public static boolean playerHeadDrops = false;
+    public static String playerHeadDrops = "off";
     // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
             desc = "Ender Dragon drops an Elytra when killed",
+            options = {"none", "dragon_egg", "elytra", "both"},
             category = {FEATURE, SURVIVAL, RUG}
     )
-    public static boolean dragonDropsElytra = false;
-    // dragonDropsElytraAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    public static String dragonDrops = "none";
+    // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
 
@@ -150,16 +152,10 @@ public class RugSettings {
     @Rule(
             desc = "Right clicking on fully grown crops harvests and immediately replants it",
             extra = "Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans",
+            options = {"off", "normal", "require_hoe"},
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
-    public static boolean easyHarvesting = false;
-
-    @Rule(
-            desc = "The easyHarvesting feature requires the player to hold a hoe in his main hand",
-            extra = "Requires easyHarvesting to be enabled",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
-    )
-    public static boolean easyHarvestingRequireHoe = true;
+    public static String easyHarvesting = "off";
 
     @Rule(
             desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
@@ -270,7 +266,7 @@ public class RugSettings {
     )
     public static boolean edibleGoldIngots = false;
 
-    public static class validatorCactusFurnaceXP extends Validator<Double> {
+    public static class validatorCactusFurnaceXp extends Validator<Double> {
 
         @Override
         public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
@@ -288,10 +284,10 @@ public class RugSettings {
             extra = "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
             options = {"0.1", "0.2", "0.5", "1"},
             strict = false,
-            validate = validatorCactusFurnaceXP.class,
+            validate = validatorCactusFurnaceXp.class,
             category = {BUGFIX, SURVIVAL, RUG}
     )
-    public static double cactusFurnaceXP = 1;
+    public static double cactusFurnaceXp = 1;
 
     @Rule(
             desc = "Mining Farmland with a Silk Touch tool will drop itself",
@@ -427,14 +423,15 @@ public class RugSettings {
     public static boolean easyRepeaterCrafting = false;
 
     @CraftingRule(
-            recipes = {"name_tag.json"}
+            recipes = {"craftable_name_tag"}
     )
     @Rule(
-            desc = "Name Tags can be crafted with Paper and Iron",
+            desc = "Name Tags can be crafted with Paper and Iron or String or both",
             extra = "Expect a lag spike when changing the value",
+            options = {"off", "with_iron", "with_string", "with_both"},
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean craftableNameTags = false;
+    public static String craftableNameTags = "off";
 
     @CraftingRule(
             recipes = {
@@ -672,14 +669,15 @@ public class RugSettings {
     public static int unpackableIce = 0;
 
     @CraftingRule(
-            recipes = {"cobweb.json"}
+            recipes = {"craftable_cobweb"}
     )
     @Rule(
-            desc = "Cobwebs can be crafted out of 5 Strings in a cross pattern",
+            desc = "Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area",
             extra = "Expect a lag spike when changing the value",
+            options = {"off", "cross", "full"},
             category = {CRAFTING, SURVIVAL, RUG}
     )
-    public static boolean craftableCobwebs = false;
+    public static String craftableCobwebs = "off";
 
     @CraftingRule(
             recipes = {"easy_trapped_chest_crafting.json"}
@@ -784,7 +782,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, FEATURE, RUG}
     )
     public static String honeyCombStickiness = "both";
-    // honeyCombStickinessAdditional: Suggestion by DragonEggBedrockBreaking#0034
+    // honeyCombStickinessAdditional: [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
     @Rule(
             desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
@@ -792,6 +790,143 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static String dragonEggConvertsCobbleToEndstone = "off";
+
+    public static class validatorThrownItemWaterDrag extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0.5 && newValue <= 0.99 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0.5 to 0.99";
+        }
+    }
+
+    @Rule(
+            desc = "How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Pearl will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorThrownItemWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double enderPearlWaterDrag = 0.8;
+
+    public static class validatorKelpBlockHardness extends Validator<Double> {
+
+        @Override
+        public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0 && newValue <= 0.5 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 0.5";
+        }
+    }
+
+    @Rule(
+            desc = "How long Kelp Blocks take to mine in survival",
+            extra = "Any value other than 0 will behave like 0.5 for clients without this mod",
+            options = {"0", "0.25", "0.5"},
+            strict = false,
+            validate = validatorKelpBlockHardness.class,
+            category = {EXPERIMENTAL, CLIENT, SURVIVAL, RUG}
+    )
+    public static double kelpBlockHardness = 0.5;
+
+    @Rule(
+            desc = "Allows players to sleep in a Bed without setting their spawn point by entering while sneaking",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+    )
+    public static boolean campSleeping = false;
+
+    @Rule(
+            desc = "How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Snowball will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorThrownItemWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double snowballWaterDrag = 0.8;
+
+    @Rule(
+            desc = "How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents",
+            extra = "Thrown Egg will stutter on client when mod is only on server",
+            options = {"0.8", "0.9", "0.99"},
+            strict = false,
+            validate = validatorThrownItemWaterDrag.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static double eggWaterDrag = 0.8;
+
+    public static class validatorDragonXpDrop extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 0 && newValue <= 12000 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 12000";
+        }
+    }
+
+    @Rule(
+            desc = "Amount of XP dropped by later Dragons. The first Dragon always drops 12000",
+            options = {"500", "1200", "12000"},
+            strict = false,
+            validate = validatorDragonXpDrop.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static int dragonXpDrop = 500;
+    // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
+
+    @Rule(
+            desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
+            extra = "off = nether bricks only | more = (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks | all = all",
+            options = {"off", "more", "all"},
+            category = {EXPERIMENTAL, FEATURE, RUG}
+    )
+    public static String moreFortressSpawningBlocks = "off";
+    // moreFortressSpawningBlocksAdditional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+
+    @CraftingRule(
+            recipes = {"easy_blue_ice_crafting.json"}
+    )
+    @Rule(
+            desc = "Blue Ice can be crafted from Ice and Blue Dye",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean easyBlueIceCrafting = false;
+
+    public static class validatorSlimeChunkPercentage extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return (newValue >= 0 && newValue <= 100) && newValue % 10 == 0 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 100 that is a multiple of 10";
+        }
+    }
+
+    @Rule(
+            desc = "The percentage of chunks that are Slime chinks",
+            options = {"0", "10", "50", "100"},
+            strict = false,
+            validate = validatorSlimeChunkPercentage.class,
+            category = {EXPERIMENTAL, RUG}
+    )
+    public static int slimeChunkPercentage = 10;
+    // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
 }
 
 // BUGFIX
@@ -805,3 +940,4 @@ public class RugSettings {
 // SCARPET
 // SURVIVAL
 // TNT
+// CRAFTING

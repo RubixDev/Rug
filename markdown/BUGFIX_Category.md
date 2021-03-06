@@ -3,13 +3,13 @@
 For a list of all implemented Rules go [here](../README.md)
 ## Index
 Count: 3
-- [cactusFurnaceXP](#cactusfurnacexp)
+- [cactusFurnaceXp](#cactusfurnacexp)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [stonecutterDamage](#stonecutterdamage)
 
 ## Rules in BUGFIX Category
 
-### cactusFurnaceXP
+### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items  
 - Type: `double`

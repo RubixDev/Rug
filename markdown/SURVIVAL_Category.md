@@ -2,18 +2,19 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 44
-- [cactusFurnaceXP](#cactusfurnacexp)
+Count: 46
+- [cactusFurnaceXp](#cactusfurnacexp)
+- [campSleeping](#campsleeping)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
-- [dragonDropsElytra](#dragondropselytra)
+- [dragonDrops](#dragondrops)
+- [easyBlueIceCrafting](#easyblueicecrafting)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
 - [easyDispenserCrafting](#easydispensercrafting)
 - [easyHarvesting](#easyharvesting)
-- [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [easyMinecartsCrafting](#easyminecartscrafting)
 - [easyRepeaterCrafting](#easyrepeatercrafting)
 - [easyStickCrafting](#easystickcrafting)
@@ -25,6 +26,7 @@ Count: 44
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
 - [infinityNeedsArrow](#infinityneedsarrow)
+- [kelpBlockHardness](#kelpblockhardness)
 - [moreBarkCrafting](#morebarkcrafting)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
@@ -50,7 +52,7 @@ Count: 44
 
 ## Rules in SURVIVAL Category
 
-### cactusFurnaceXP
+### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items  
 - Type: `double`
@@ -60,12 +62,19 @@ Amount of XP a Cactus smelted in a furnace gives
 - Additional notes:
   - You must choose a value from 0 to 1
 
-### craftableCobwebs
-Cobwebs can be crafted out of 5 Strings in a cross pattern  
-Expect a lag spike when changing the value  
+### campSleeping
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### craftableCobwebs
+Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
+Expect a lag spike when changing the value  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `cross`, `full`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
@@ -77,11 +86,11 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
-Name Tags can be crafted with Paper and Iron  
+Name Tags can be crafted with Paper and Iron or String or both  
 Expect a lag spike when changing the value  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `with_iron`, `with_string`, `with_both`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNotchApple
@@ -92,14 +101,22 @@ Expect a lag spike when changing the value
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
-### dragonDropsElytra
+### dragonDrops
 Ender Dragon drops an Elytra when killed    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `none`
+- Required options: `none`, `dragon_egg`, `elytra`, `both`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### easyBlueIceCrafting
+Blue Ice can be crafted from Ice and Blue Dye  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyBoneBlockCrafting
 Bone Blocks can be crafted out of Bones  
@@ -130,17 +147,9 @@ Expect a lag spike when changing the value
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-
-### easyHarvestingRequireHoe
-The easyHarvesting feature requires the player to hold a hoe in his main hand  
-Requires easyHarvesting to be enabled  
-- Type: `boolean`
-- Default value: `true`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyMinecartsCrafting
@@ -233,6 +242,16 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 
+### kelpBlockHardness
+How long Kelp Blocks take to mine in survival  
+Any value other than 0 will behave like 0.5 for clients without this mod  
+- Type: `double`
+- Default value: `0.5`
+- Suggested options: `0`, `0.25`, `0.5`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 0.5
+
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3  
 Expect a lag spike when changing the value  
@@ -279,10 +298,10 @@ Players do not lose any hunger like in peaceful mode
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### playerHeadDrops
-Players drop their head when killed by a player    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+Players drop their head    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_death`, `on_killed_by_player`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
