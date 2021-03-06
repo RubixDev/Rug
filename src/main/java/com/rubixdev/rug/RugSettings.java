@@ -782,7 +782,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, FEATURE, RUG}
     )
     public static String honeyCombStickiness = "both";
-    // honeyCombStickinessAdditional: Suggestion by DragonEggBedrockBreaking#0034
+    // honeyCombStickinessAdditional: Idea by [DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208)
 
     @Rule(
             desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
@@ -884,6 +884,15 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static int dragonXpDrop = 500;
+
+    @Rule(
+            desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
+            extra = "off = nether bricks only; more = (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks; all = all",
+            options = {"off", "more", "all"},
+            category = {EXPERIMENTAL, FEATURE, RUG}
+    )
+    public static String moreFortressSpawningBlocks = "off";
+    // moreFortressSpawningBlocksAdditional: Idea by [DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 }
 
 // BUGFIX
@@ -897,3 +906,4 @@ public class RugSettings {
 // SCARPET
 // SURVIVAL
 // TNT
+// CRAFTING

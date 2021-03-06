@@ -41,6 +41,7 @@
     "ServerPlayNetworkHandlerMixin",
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
+    "SpawnHelperMixin",
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
     "ThrownEntityMixin"
