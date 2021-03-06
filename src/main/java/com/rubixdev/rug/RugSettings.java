@@ -884,6 +884,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static int dragonXpDrop = 500;
+    // dragonXpDropAdditional: [Idea by Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
     @Rule(
             desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
@@ -892,7 +893,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static String moreFortressSpawningBlocks = "off";
-    // moreFortressSpawningBlocksAdditional: Idea by [DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+    // moreFortressSpawningBlocksAdditional: [Idea by DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
     @CraftingRule(
             recipes = {"easy_blue_ice_crafting.json"}
