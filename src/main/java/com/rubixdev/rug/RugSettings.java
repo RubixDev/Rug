@@ -266,7 +266,7 @@ public class RugSettings {
     )
     public static boolean edibleGoldIngots = false;
 
-    public static class validatorCactusFurnaceXP extends Validator<Double> {
+    public static class validatorCactusFurnaceXp extends Validator<Double> {
 
         @Override
         public Double validate(ServerCommandSource source, ParsedRule<Double> currentRule, Double newValue, String string) {
@@ -284,10 +284,10 @@ public class RugSettings {
             extra = "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
             options = {"0.1", "0.2", "0.5", "1"},
             strict = false,
-            validate = validatorCactusFurnaceXP.class,
+            validate = validatorCactusFurnaceXp.class,
             category = {BUGFIX, SURVIVAL, RUG}
     )
-    public static double cactusFurnaceXP = 1;
+    public static double cactusFurnaceXp = 1;
 
     @Rule(
             desc = "Mining Farmland with a Silk Touch tool will drop itself",
@@ -862,6 +862,28 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static double eggWaterDrag = 0.8;
+
+    public static class validatorDragonXpDrop extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 0 && newValue <= 12000 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 12000";
+        }
+    }
+
+    @Rule(
+            desc = "Amount of XP dropped by later Dragons. The first Dragon always drops 12000",
+            options = {"500", "1200", "12000"},
+            strict = false,
+            validate = validatorDragonXpDrop.class,
+            category = {EXPERIMENTAL, CLIENT, RUG}
+    )
+    public static int dragonXpDrop = 500;
 }
 
 // BUGFIX

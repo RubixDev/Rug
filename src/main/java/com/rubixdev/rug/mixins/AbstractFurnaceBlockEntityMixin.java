@@ -46,7 +46,7 @@ public abstract class AbstractFurnaceBlockEntityMixin {
             )
     )
     private static void onSyntheticMethod_17761(World world, Vec3d vec3d, int i, float f) {
-        dropExperience(world, vec3d, i, isCactusRecipe ? (float) RugSettings.cactusFurnaceXP : f);
+        dropExperience(world, vec3d, i, isCactusRecipe ? (float) RugSettings.cactusFurnaceXp : f);
         isCactusRecipe = false;
     }
 }
