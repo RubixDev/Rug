@@ -782,7 +782,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, FEATURE, RUG}
     )
     public static String honeyCombStickiness = "both";
-    // honeyCombStickinessAdditional: Idea by [DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208)
+    // honeyCombStickinessAdditional: [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
     @Rule(
             desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
@@ -884,7 +884,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CLIENT, RUG}
     )
     public static int dragonXpDrop = 500;
-    // dragonXpDropAdditional: [Idea by Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
+    // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
     @Rule(
             desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
@@ -893,7 +893,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
     public static String moreFortressSpawningBlocks = "off";
-    // moreFortressSpawningBlocksAdditional: [Idea by DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+    // moreFortressSpawningBlocksAdditional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
     @CraftingRule(
             recipes = {"easy_blue_ice_crafting.json"}
@@ -926,7 +926,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, RUG}
     )
     public static int slimeChunkPercentage = 10;
-    // slimeChunkPercentageAdditional: [Idea by Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+    // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
 }
 
 // BUGFIX
