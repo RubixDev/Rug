@@ -2,15 +2,15 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 25
+Count: 26
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
+- [campSleeping](#campsleeping)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
-- [dragonDropsElytra](#dragondropselytra)
+- [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [easyHarvesting](#easyharvesting)
-- [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [edibleGoldIngots](#ediblegoldingots)
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
@@ -20,6 +20,7 @@ Count: 25
 - [honeyCombStickiness](#honeycombstickiness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
+- [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [peacefulHunger](#peacefulhunger)
 - [playerHeadDrops](#playerheaddrops)
@@ -61,6 +62,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
+### campSleeping
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### concreteConvertOnCauldron
 Concrete powder converts to concrete blocks when on top of a filled cauldron    
 - Type: `boolean`
@@ -68,11 +76,11 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RUG`
 
-### dragonDropsElytra
+### dragonDrops
 Ender Dragon drops an Elytra when killed    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `none`
+- Required options: `none`, `dragon_egg`, `elytra`, `both`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
@@ -87,17 +95,9 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-
-### easyHarvestingRequireHoe
-The easyHarvesting feature requires the player to hold a hoe in his main hand  
-Requires easyHarvesting to be enabled  
-- Type: `boolean`
-- Default value: `true`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
@@ -159,7 +159,7 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 - Required options: `both`, `honey`, `slime`, `none`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
-  - Suggestion by DragonEggBedrockBreaking#0034
+  - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
 ### lilyPadsOnCauldron
 Lily Pads can be placed on Cauldrons    
@@ -174,6 +174,16 @@ Repeaters on top of Redstone BLocks multiply their delay by set amount
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+
+### moreFortressSpawningBlocks
+What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
+o  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `more`, `all`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -193,10 +203,10 @@ Players do not lose any hunger like in peaceful mode
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### playerHeadDrops
-Players drop their head when killed by a player    
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+Players drop their head    
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `on_death`, `on_killed_by_player`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)

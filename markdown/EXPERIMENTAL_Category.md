@@ -2,27 +2,34 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 21
+Count: 28
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
+- [campSleeping](#campsleeping)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
+- [dragonXpDrop](#dragonxpdrop)
 - [easyHarvesting](#easyharvesting)
-- [easyHarvestingRequireHoe](#easyharvestingrequirehoe)
 - [edibleGoldIngots](#ediblegoldingots)
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
+- [eggWaterDrag](#eggwaterdrag)
+- [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [foodInstantHeal](#foodinstantheal)
 - [honeyCombStickiness](#honeycombstickiness)
 - [infinityNeedsArrow](#infinityneedsarrow)
+- [kelpBlockHardness](#kelpblockhardness)
 - [longerRepeaters](#longerrepeaters)
+- [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [peacefulHunger](#peacefulhunger)
 - [reachDistance](#reachdistance)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
+- [slimeChunkPercentage](#slimechunkpercentage)
+- [snowballWaterDrag](#snowballwaterdrag)
 - [zeroTickPlants](#zerotickplants)
 
 ## Rules in EXPERIMENTAL Category
@@ -57,6 +64,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
+### campSleeping
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### dragonEggConvertsCobbleToEndstone
 Dragon Eggs will convert Cobble under them to Endstone either on set event    
 - Type: `String`
@@ -64,20 +78,22 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
+### dragonXpDrop
+Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
+- Type: `int`
+- Default value: `500`
+- Suggested options: `500`, `1200`, `12000`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0 to 12000
+  - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
+
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-
-### easyHarvestingRequireHoe
-The easyHarvesting feature requires the player to hold a hoe in his main hand  
-Requires easyHarvesting to be enabled  
-- Type: `boolean`
-- Default value: `true`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
@@ -112,6 +128,26 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### eggWaterDrag
+How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Egg will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
+
+### enderPearlWaterDrag
+How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Pearl will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
+
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off  
 Recommended using with peacefulHunger  
@@ -130,7 +166,7 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 - Required options: `both`, `honey`, `slime`, `none`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
-  - Suggestion by DragonEggBedrockBreaking#0034
+  - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
@@ -139,12 +175,32 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 
+### kelpBlockHardness
+How long Kelp Blocks take to mine in survival  
+Any value other than 0 will behave like 0.5 for clients without this mod  
+- Type: `double`
+- Default value: `0.5`
+- Suggested options: `0`, `0.25`, `0.5`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 0.5
+
 ### longerRepeaters
 Repeaters on top of Redstone BLocks multiply their delay by set amount    
 - Type: `int`
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+
+### moreFortressSpawningBlocks
+What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
+o  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `more`, `all`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -193,6 +249,26 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### slimeChunkPercentage
+The percentage of chunks that are Slime chinks    
+- Type: `int`
+- Default value: `10`
+- Suggested options: `0`, `10`, `50`, `100`
+- Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0 to 100 that is a multiple of 10
+  - [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+
+### snowballWaterDrag
+How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents  
+Thrown Snowball will stutter on client when mod is only on server  
+- Type: `double`
+- Default value: `0.8`
+- Suggested options: `0.8`, `0.9`, `0.99`
+- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value from 0.5 to 0.99
 
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks    

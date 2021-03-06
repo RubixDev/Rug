@@ -2,11 +2,12 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 20
+Count: 21
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
+- [easyBlueIceCrafting](#easyblueicecrafting)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
 - [easyDispenserCrafting](#easydispensercrafting)
@@ -27,11 +28,11 @@ Count: 20
 ## Rules in CRAFTING Category
 
 ### craftableCobwebs
-Cobwebs can be crafted out of 5 Strings in a cross pattern  
+Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
 Expect a lag spike when changing the value  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `cross`, `full`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
@@ -43,15 +44,23 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
-Name Tags can be crafted with Paper and Iron  
+Name Tags can be crafted with Paper and Iron or String or both  
+Expect a lag spike when changing the value  
+- Type: `String`
+- Default value: `off`
+- Required options: `off`, `with_iron`, `with_string`, `with_both`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### craftableNotchApple
+Enchanted Golden Apples can be crafted with 8 Gold Blocks again  
 Expect a lag spike when changing the value  
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
-### craftableNotchApple
-Enchanted Golden Apples can be crafted with 8 Gold Blocks again  
+### easyBlueIceCrafting
+Blue Ice can be crafted from Ice and Blue Dye  
 Expect a lag spike when changing the value  
 - Type: `boolean`
 - Default value: `false`
