@@ -881,7 +881,7 @@ public class RugSettings {
             options = {"500", "1200", "12000"},
             strict = false,
             validate = validatorDragonXpDrop.class,
-            category = {EXPERIMENTAL, CLIENT, RUG}
+            category = {EXPERIMENTAL, SURVIVAL, RUG}
     )
     public static int dragonXpDrop = 500;
     // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
