@@ -93,7 +93,7 @@ public class RugSettings {
     // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
-            desc = "Ender Dragon drops an Elytra when killed",
+            desc = "Ender Dragon drops selected item(s) when killed",
             options = {"none", "dragon_egg", "elytra", "both"},
             category = {FEATURE, SURVIVAL, RUG}
     )
@@ -888,7 +888,7 @@ public class RugSettings {
 
     @Rule(
             desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
-            extra = "off = nether bricks only | more = (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks | all = all",
+            extra = "off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all",
             options = {"off", "more", "all"},
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
