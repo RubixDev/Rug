@@ -696,7 +696,7 @@ public class RugSettings {
     public static boolean infinityNeedsArrow = true;
 
     @Rule(
-            desc = "Repeaters on top of Redstone BLocks multiply their delay by set amount",
+            desc = "Repeaters on top of Redstone Blocks multiply their delay by set amount",
             options = {"1", "2", "3", "4"},
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
