@@ -942,12 +942,12 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Maximum number of layers, that can be applied to a banner",
-        extra = "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
-        options = {"3", "6", "10", "12"},
-        strict = false,
-        validate = validatorMaxBannerLayers.class,
-        category = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG}
+            desc = "Maximum number of layers, that can be applied to a banner",
+            extra = "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
+            options = {"3", "6", "10", "12"},
+            strict = false,
+            validate = validatorMaxBannerLayers.class,
+            category = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG}
     )
     public static int maxBannerLayers = 6;
     // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)

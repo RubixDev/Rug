@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 46
+Count: 48
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [craftableCobwebs](#craftablecobwebs)
@@ -10,6 +10,7 @@ Count: 46
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [dragonDrops](#dragondrops)
+- [dragonXpDrop](#dragonxpdrop)
 - [easyBlueIceCrafting](#easyblueicecrafting)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
@@ -27,6 +28,7 @@ Count: 46
 - [foodInstantHeal](#foodinstantheal)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [kelpBlockHardness](#kelpblockhardness)
+- [maxBannerLayers](#maxbannerlayers)
 - [moreBarkCrafting](#morebarkcrafting)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
@@ -102,13 +104,23 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
-Ender Dragon drops an Elytra when killed    
+Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `both`
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### dragonXpDrop
+Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
+- Type: `int`
+- Default value: `500`
+- Suggested options: `500`, `1200`, `12000`
+- Categories: `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 12000
+  - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
 ### easyBlueIceCrafting
 Blue Ice can be crafted from Ice and Blue Dye  
@@ -251,6 +263,17 @@ Any value other than 0 will behave like 0.5 for clients without this mod
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 0.5
+
+### maxBannerLayers
+Maximum number of layers, that can be applied to a banner  
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+- Type: `int`
+- Default value: `6`
+- Suggested options: `3`, `6`, `10`, `12`
+- Categories: `CLIENT`, `CRAFTING`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 3 to 16
+  - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3  

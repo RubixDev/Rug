@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 28
+Count: 30
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -21,6 +21,7 @@ Count: 28
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [kelpBlockHardness](#kelpblockhardness)
 - [longerRepeaters](#longerrepeaters)
+- [maxBannerLayers](#maxbannerlayers)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [peacefulHunger](#peacefulhunger)
@@ -30,6 +31,7 @@ Count: 28
 - [silkTouchSpawners](#silktouchspawners)
 - [slimeChunkPercentage](#slimechunkpercentage)
 - [snowballWaterDrag](#snowballwaterdrag)
+- [tallPlantNoUpdate](#tallplantnoupdate)
 - [zeroTickPlants](#zerotickplants)
 
 ## Rules in EXPERIMENTAL Category
@@ -83,7 +85,7 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
 - Type: `int`
 - Default value: `500`
 - Suggested options: `500`, `1200`, `12000`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 12000
   - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
@@ -186,15 +188,26 @@ Any value other than 0 will behave like 0.5 for clients without this mod
   - You must choose a value from 0 to 0.5
 
 ### longerRepeaters
-Repeaters on top of Redstone BLocks multiply their delay by set amount    
+Repeaters on top of Redstone Blocks multiply their delay by set amount    
 - Type: `int`
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
+### maxBannerLayers
+Maximum number of layers, that can be applied to a banner  
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+- Type: `int`
+- Default value: `6`
+- Suggested options: `3`, `6`, `10`, `12`
+- Categories: `CLIENT`, `CRAFTING`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 3 to 16
+  - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
-o  
+off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `more`, `all`
@@ -269,6 +282,14 @@ Thrown Snowball will stutter on client when mod is only on server
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0.5 to 0.99
+
+### tallPlantNoUpdate
+Tall Plants do not update blocks around the top part if the bottom half got broken  
+Old Bug: MC-31038  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `RUG`
 
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks    

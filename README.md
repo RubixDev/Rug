@@ -13,6 +13,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 ## Lists of Categories
 - [`BUGFIX`](markdown/BUGFIX_Category.md)
 - [`CLIENT`](markdown/CLIENT_Category.md)
+- [`COMMAND`](markdown/COMMAND_Category.md)
 - [`CRAFTING`](markdown/CRAFTING_Category.md)
 - [`CREATIVE`](markdown/CREATIVE_Category.md)
 - [`EXPERIMENTAL`](markdown/EXPERIMENTAL_Category.md)
@@ -20,12 +21,13 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 64
+Count: 67
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
+- [commandSlimeChunk](#commandslimechunk)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
@@ -56,6 +58,7 @@ Count: 64
 - [kelpBlockHardness](#kelpblockhardness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
+- [maxBannerLayers](#maxbannerlayers)
 - [moreBarkCrafting](#morebarkcrafting)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [newShulkerBehavior](#newshulkerbehavior)
@@ -77,6 +80,7 @@ Count: 64
 - [snowballWaterDrag](#snowballwaterdrag)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
+- [tallPlantNoUpdate](#tallplantnoupdate)
 - [universalDyeing](#universaldyeing)
 - [unpackableIce](#unpackableice)
 - [unpackableNetherWart](#unpackablenetherwart)
@@ -135,6 +139,14 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### commandSlimeChunk
+A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage  
+Players do not need extra permissions to use this command  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `COMMAND`, `RUG`
+
 ### concreteConvertOnCauldron
 Concrete powder converts to concrete blocks when on top of a filled cauldron    
 - Type: `boolean`
@@ -175,7 +187,7 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
-Ender Dragon drops an Elytra when killed    
+Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `both`
@@ -195,7 +207,7 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
 - Type: `int`
 - Default value: `500`
 - Suggested options: `500`, `1200`, `12000`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
+- Categories: `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 12000
   - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
@@ -380,11 +392,22 @@ Lily Pads can be placed on Cauldrons
 - Categories: `FEATURE`, `RUG`
 
 ### longerRepeaters
-Repeaters on top of Redstone BLocks multiply their delay by set amount    
+Repeaters on top of Redstone Blocks multiply their delay by set amount    
 - Type: `int`
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+
+### maxBannerLayers
+Maximum number of layers, that can be applied to a banner  
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+- Type: `int`
+- Default value: `6`
+- Suggested options: `3`, `6`, `10`, `12`
+- Categories: `CLIENT`, `CRAFTING`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 3 to 16
+  - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3  
@@ -396,7 +419,7 @@ Expect a lag spike when changing the value
 
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
-o  
+off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `more`, `all`
@@ -565,6 +588,14 @@ Shulkers always drop a given amount of shulker shells when killed
 - Additional notes:
   - You must choose a value from 0 to 4
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### tallPlantNoUpdate
+Tall Plants do not update blocks around the top part if the bottom half got broken  
+Old Bug: MC-31038  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `RUG`
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table  
