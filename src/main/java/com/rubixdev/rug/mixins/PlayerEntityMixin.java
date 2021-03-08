@@ -1,13 +1,10 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
+import com.rubixdev.rug.util.storage;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
@@ -18,13 +15,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Objects;
-
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity {
-    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
-        super(entityType, world);
-    }
+public class PlayerEntityMixin {
 
     @Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;"))
     private Difficulty onTickMovement(World world) {
@@ -44,13 +36,9 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
     }
 
-    @Redirect(method = "eatFood", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/HungerManager;eat(Lnet/minecraft/item/Item;Lnet/minecraft/item/ItemStack;)V"))
-    private void onEatFood(HungerManager hungerManager, Item item, ItemStack stack) {
-        if (RugSettings.foodInstantHeal && item.isFood()) {
-            this.heal(Objects.requireNonNull(item.getFoodComponent()).getHunger());
-        } else {
-            hungerManager.eat(item, stack);
-        }
+    @Inject(method = "eatFood", at = @At("HEAD"))
+    private void savePlayer(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
+        storage.player = (PlayerEntity) (Object) this;
     }
 
     @Inject(method = "isUsingEffectiveTool", at = @At("HEAD"), cancellable = true)
