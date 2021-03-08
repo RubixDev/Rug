@@ -67,7 +67,7 @@ def read_rules() -> List[Rule]:
     return rules
 
 
-def write_file(rules: List[Rule]):
+def write_files(rules: List[Rule]):
     with open('markdown/README-header.md', 'r') as header_file:
         out = header_file.read()
 
@@ -96,6 +96,8 @@ def write_file(rules: List[Rule]):
         with open(f'markdown/{category}_Category.md', 'w') as category_readme:
             category_readme.write(out[:-1])
 
+    curseforge_list(rules)
+
 
 def list_rules(rules: List[Rule], rule_headline: str) -> str:
     out = f'## Index\n' \
@@ -109,5 +111,19 @@ def list_rules(rules: List[Rule], rule_headline: str) -> str:
     return out
 
 
+def curseforge_list(rules: List[Rule]):
+    out = f'# Rug Mod for Fabric\n\n' \
+          f'Extension Mod for [gnembon\'s fabric-carpet](https://github.com/gnembon/fabric-carpet) ' \
+          f'with some more features\n\n' \
+          f'**Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) ' \
+          f'for a more detailed explanation of all features.**\n\n' \
+          f'## List of implemented Carpet Rules\n' \
+          f'Count: {len(rules)}  \n'
+    for rule in rules:
+        out += f'- {rule.name}  \n'
+    with open('markdown/curseforge.md', 'w') as curse_file:
+        curse_file.write(out)
+
+
 if __name__ == '__main__':
-    write_file(read_rules())
+    write_files(read_rules())
