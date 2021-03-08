@@ -958,6 +958,14 @@ public class RugSettings {
             category = {COMMAND, RUG}
     )
     public static boolean commandSlimeChunk = false;
+
+    @Rule(
+            desc = "Tall Plants do not update blocks around the top part if the bottom half got broken",
+            extra = "Old Bug: MC-31038",
+            category = {EXPERIMENTAL, RUG}
+    )
+    public static boolean tallPlantNoUpdate = false;
+    // Additional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
 }
 
 // BUGFIX
