@@ -30,6 +30,7 @@
     "ItemsMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
+    "LoomScreenMixin",
     "MobSpawnerBlockEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
