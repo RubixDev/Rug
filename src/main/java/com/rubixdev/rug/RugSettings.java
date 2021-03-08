@@ -947,10 +947,17 @@ public class RugSettings {
         options = {"3", "6", "10", "12"},
         strict = false,
         validate = validatorMaxBannerLayers.class,
-        category = {SURVIVAL, CLIENT, CRAFTING, RUG}
+        category = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG}
     )
     public static int maxBannerLayers = 6;
     // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
+    @Rule(
+            desc = "A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage",
+            extra = "Players do not need extra permissions to use this command",
+            category = {COMMAND, RUG}
+    )
+    public static boolean commandSlimeChunk = false;
 }
 
 // BUGFIX
