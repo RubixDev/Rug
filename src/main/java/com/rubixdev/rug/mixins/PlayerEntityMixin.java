@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -20,20 +21,12 @@ public class PlayerEntityMixin {
 
     @Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;"))
     private Difficulty onTickMovement(World world) {
-        if (RugSettings.peacefulHunger) {
-            return Difficulty.PEACEFUL;
-        } else {
-            return world.getDifficulty();
-        }
+        return RugSettings.peacefulHunger ? Difficulty.PEACEFUL : world.getDifficulty();
     }
 
     @Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean onTickMovement(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
-        if (RugSettings.foodInstantHeal) {
-            return false;
-        } else {
-            return gameRules.getBoolean(rule);
-        }
+        return !RugSettings.foodInstantHeal && gameRules.getBoolean(rule);
     }
 
     @Inject(method = "eatFood", at = @At("HEAD"))
@@ -46,5 +39,10 @@ public class PlayerEntityMixin {
         if (RugSettings.silkTouchSpawners && block.getBlock().is(Blocks.SPAWNER)) {
             cir.setReturnValue(true);
         }
+    }
+
+    @ModifyVariable(method = "canConsume", at = @At("HEAD"), ordinal = 0)
+    private boolean ignoreHunger(boolean original) {
+        return RugSettings.foodInstantHeal || original;
     }
 }
