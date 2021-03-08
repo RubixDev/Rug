@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 21
+Count: 22
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
@@ -15,6 +15,7 @@ Count: 21
 - [easyRepeaterCrafting](#easyrepeatercrafting)
 - [easyStickCrafting](#easystickcrafting)
 - [easyTrappedChestCrafting](#easytrappedchestcrafting)
+- [maxBannerLayers](#maxbannerlayers)
 - [moreBarkCrafting](#morebarkcrafting)
 - [powderToGlassSmelting](#powdertoglasssmelting)
 - [shapelessCrafting](#shapelesscrafting)
@@ -124,6 +125,17 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### maxBannerLayers
+Maximum number of layers, that can be applied to a banner  
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+- Type: `int`
+- Default value: `6`
+- Suggested options: `3`, `6`, `10`, `12`
+- Categories: `CLIENT`, `CRAFTING`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 3 to 16
+  - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3  

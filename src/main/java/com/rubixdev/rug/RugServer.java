@@ -7,6 +7,8 @@ import carpet.settings.ParsedRule;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
 import com.google.gson.*;
+import com.mojang.brigadier.CommandDispatcher;
+import com.rubixdev.rug.commands.SlimeChunkCommand;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -16,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ReloadCommand;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
@@ -47,6 +50,11 @@ public class RugServer implements CarpetExtension {
     @Override
     public void onGameStarted() {
         CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
+    }
+
+    @Override
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        SlimeChunkCommand.register(dispatcher);
     }
 
     @Override

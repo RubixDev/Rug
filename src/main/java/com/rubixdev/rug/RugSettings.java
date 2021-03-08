@@ -927,6 +927,45 @@ public class RugSettings {
     )
     public static int slimeChunkPercentage = 10;
     // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+
+    public static class validatorMaxBannerLayers extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 3 && newValue <= 16 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 3 to 16";
+        }
+    }
+
+    @Rule(
+            desc = "Maximum number of layers, that can be applied to a banner",
+            extra = "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
+            options = {"3", "6", "10", "12"},
+            strict = false,
+            validate = validatorMaxBannerLayers.class,
+            category = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG}
+    )
+    public static int maxBannerLayers = 6;
+    // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
+    @Rule(
+            desc = "A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage",
+            extra = "Players do not need extra permissions to use this command",
+            category = {COMMAND, RUG}
+    )
+    public static boolean commandSlimeChunk = false;
+
+    @Rule(
+            desc = "Tall Plants do not update blocks around the top part if the bottom half got broken",
+            extra = "Old Bug: MC-31038",
+            category = {EXPERIMENTAL, RUG}
+    )
+    public static boolean tallPlantNoUpdate = false;
+    // Additional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
 }
 
 // BUGFIX

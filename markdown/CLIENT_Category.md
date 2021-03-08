@@ -3,7 +3,6 @@
 For a list of all implemented Rules go [here](../README.md)
 ## Index
 Count: 11
-- [dragonXpDrop](#dragonxpdrop)
 - [edibleGoldIngots](#ediblegoldingots)
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
@@ -12,20 +11,11 @@ Count: 11
 - [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [honeyCombStickiness](#honeycombstickiness)
 - [kelpBlockHardness](#kelpblockhardness)
+- [maxBannerLayers](#maxbannerlayers)
 - [reachDistance](#reachdistance)
 - [snowballWaterDrag](#snowballwaterdrag)
 
 ## Rules in CLIENT Category
-
-### dragonXpDrop
-Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
-- Type: `int`
-- Default value: `500`
-- Suggested options: `500`, `1200`, `12000`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 12000
-  - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
@@ -98,6 +88,17 @@ Any value other than 0 will behave like 0.5 for clients without this mod
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 0.5
+
+### maxBannerLayers
+Maximum number of layers, that can be applied to a banner  
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+- Type: `int`
+- Default value: `6`
+- Suggested options: `3`, `6`, `10`, `12`
+- Categories: `CLIENT`, `CRAFTING`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 3 to 16
+  - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
 ### reachDistance
 Reach in which you can place and break blocks. Value will be 0.5 higher in creative  

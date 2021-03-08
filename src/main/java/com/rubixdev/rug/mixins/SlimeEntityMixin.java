@@ -28,7 +28,7 @@ public class SlimeEntityMixin {
         worldAccess = world;
     }
 
-    @ModifyVariable(method = "canSpawn", name = "bl", at = @At("STORE"))
+    @ModifyVariable(method = "canSpawn", at = @At("STORE"), ordinal = 0)
     private static boolean overwriteChance(boolean original) {
         ChunkPos chunkPos = new ChunkPos(blockPos);
         return ChunkRandom.getSlimeRandom(chunkPos.x, chunkPos.z, ((StructureWorldAccess)worldAccess).getSeed(), 987234911L).nextInt(10) < RugSettings.slimeChunkPercentage / 10;

@@ -23,6 +23,7 @@
     "EndermanEntityMixin",
     "EnderPearlEntityMixin",
     "FallingBlockEntityMixin",
+    "FallingBlockMixin",
     "FishingBobberEntityMixin",
     "GhastEntityMixin",
     "HungerManagerMixin",
@@ -30,6 +31,7 @@
     "ItemsMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
+    "LoomScreenMixin",
     "MobSpawnerBlockEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
@@ -45,7 +47,8 @@
     "SpawnHelperMixin",
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
-    "ThrownEntityMixin"
+    "ThrownEntityMixin",
+    "WorldMixin"
   ],
   "client": [
   ],

@@ -77,7 +77,7 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Categories: `FEATURE`, `RUG`
 
 ### dragonDrops
-Ender Dragon drops an Elytra when killed    
+Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `both`
@@ -169,7 +169,7 @@ Lily Pads can be placed on Cauldrons
 - Categories: `FEATURE`, `RUG`
 
 ### longerRepeaters
-Repeaters on top of Redstone BLocks multiply their delay by set amount    
+Repeaters on top of Redstone Blocks multiply their delay by set amount    
 - Type: `int`
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
@@ -177,7 +177,7 @@ Repeaters on top of Redstone BLocks multiply their delay by set amount
 
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
-o  
+off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `more`, `all`
