@@ -93,7 +93,7 @@ public class RugSettings {
     // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
     @Rule(
-            desc = "Ender Dragon drops an Elytra when killed",
+            desc = "Ender Dragon drops selected item(s) when killed",
             options = {"none", "dragon_egg", "elytra", "both"},
             category = {FEATURE, SURVIVAL, RUG}
     )
@@ -696,7 +696,7 @@ public class RugSettings {
     public static boolean infinityNeedsArrow = true;
 
     @Rule(
-            desc = "Repeaters on top of Redstone BLocks multiply their delay by set amount",
+            desc = "Repeaters on top of Redstone Blocks multiply their delay by set amount",
             options = {"1", "2", "3", "4"},
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
@@ -881,14 +881,14 @@ public class RugSettings {
             options = {"500", "1200", "12000"},
             strict = false,
             validate = validatorDragonXpDrop.class,
-            category = {EXPERIMENTAL, CLIENT, RUG}
+            category = {EXPERIMENTAL, SURVIVAL, RUG}
     )
     public static int dragonXpDrop = 500;
     // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
     @Rule(
             desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
-            extra = "off = nether bricks only | more = (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks | all = all",
+            extra = "off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all",
             options = {"off", "more", "all"},
             category = {EXPERIMENTAL, FEATURE, RUG}
     )
