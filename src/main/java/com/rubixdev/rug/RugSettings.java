@@ -966,6 +966,13 @@ public class RugSettings {
     )
     public static boolean tallPlantNoUpdate = false;
     // Additional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
+
+    @Rule(
+            desc = "A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible",
+            extra = "Players do not need extra permissions to use this command",
+            category = {COMMAND, RUG}
+    )
+    public static boolean commandFrame = false;
 }
 
 // BUGFIX
