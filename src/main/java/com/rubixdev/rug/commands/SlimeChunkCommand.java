@@ -1,5 +1,6 @@
 package com.rubixdev.rug.commands;
 
+import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.rubixdev.rug.RugSettings;
@@ -15,7 +16,7 @@ import net.minecraft.world.gen.ChunkRandom;
 public class SlimeChunkCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("slimechunk").
-                requires((player) -> RugSettings.commandSlimeChunk).
+                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSlimeChunk)).
                 executes(c -> {
                     ServerPlayerEntity playerEntity = c.getSource().getPlayer();
                     ChunkPos chunkPos = new ChunkPos(playerEntity.getBlockPos());

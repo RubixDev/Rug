@@ -1,5 +1,6 @@
 package com.rubixdev.rug.commands;
 
+import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.rubixdev.rug.RugSettings;
@@ -10,7 +11,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public class FrameCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("frame").
-                requires((player) -> RugSettings.commandFrame).
+                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandFrame)).
                 then(CommandManager.literal("hide").
                         executes((context) -> {
                             ServerCommandSource playerSource = context.getSource();

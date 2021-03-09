@@ -9,6 +9,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.*;
 import com.mojang.brigadier.CommandDispatcher;
 import com.rubixdev.rug.commands.FrameCommand;
+import com.rubixdev.rug.commands.SkullCommand;
 import com.rubixdev.rug.commands.SlimeChunkCommand;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
@@ -57,6 +58,7 @@ public class RugServer implements CarpetExtension {
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
         SlimeChunkCommand.register(dispatcher);
         FrameCommand.register(dispatcher);
+        SkullCommand.register(dispatcher);
     }
 
     @Override

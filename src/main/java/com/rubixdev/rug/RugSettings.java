@@ -954,10 +954,9 @@ public class RugSettings {
 
     @Rule(
             desc = "A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage",
-            extra = "Players do not need extra permissions to use this command",
             category = {COMMAND, RUG}
     )
-    public static boolean commandSlimeChunk = false;
+    public static String commandSlimeChunk = "ops";
 
     @Rule(
             desc = "Tall Plants do not update blocks around the top part if the bottom half got broken",
@@ -969,10 +968,15 @@ public class RugSettings {
 
     @Rule(
             desc = "A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible",
-            extra = "Players do not need extra permissions to use this command",
             category = {COMMAND, RUG}
     )
-    public static boolean commandFrame = false;
+    public static String commandFrame = "ops";
+
+    @Rule(
+            desc = "A command that gives the executing Player the Player Head of the selected Player",
+            category = {COMMAND, RUG}
+    )
+    public static String commandSkull = "ops";
 }
 
 // BUGFIX
