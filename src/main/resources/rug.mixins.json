@@ -38,6 +38,7 @@
     "PistonHandlerMixin",
     "PlayerEntityMixin",
     "RedstoneLampBlockMixin",
+    "RepeaterBlockMixin",
     "ServerPlayerEntityMixin",
     "ServerPlayerInteractionManagerMixin",
     "ServerPlayNetworkHandlerMixin",

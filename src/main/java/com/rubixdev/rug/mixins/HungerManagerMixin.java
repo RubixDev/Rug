@@ -1,7 +1,7 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
-import com.rubixdev.rug.util.storage;
+import com.rubixdev.rug.util.Storage;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -36,7 +36,7 @@ public class HungerManagerMixin {
     @Inject(method = "eat", at = @At("HEAD"), cancellable = true)
     private void onEat(Item item, ItemStack stack, CallbackInfo ci) {
         if (RugSettings.foodInstantHeal && item.isFood()) {
-            storage.player.heal(Objects.requireNonNull(item.getFoodComponent()).getHunger());
+            Storage.player.heal(Objects.requireNonNull(item.getFoodComponent()).getHunger());
             ci.cancel();
         }
     }

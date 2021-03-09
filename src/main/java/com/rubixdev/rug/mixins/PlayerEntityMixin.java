@@ -1,7 +1,7 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
-import com.rubixdev.rug.util.storage;
+import com.rubixdev.rug.util.Storage;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,7 +31,7 @@ public class PlayerEntityMixin {
 
     @Inject(method = "eatFood", at = @At("HEAD"))
     private void savePlayer(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
-        storage.player = (PlayerEntity) (Object) this;
+        Storage.player = (PlayerEntity) (Object) this;
     }
 
     @Inject(method = "isUsingEffectiveTool", at = @At("HEAD"), cancellable = true)
