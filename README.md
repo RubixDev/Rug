@@ -21,12 +21,14 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 67
+Count: 69
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
+- [commandFrame](#commandframe)
+- [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [craftableCobwebs](#craftablecobwebs)
@@ -139,12 +141,25 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### commandFrame
+A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandSkull
+A command that gives the executing Player the Player Head of the selected Player    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
 ### commandSlimeChunk
-A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage  
-Players do not need extra permissions to use this command  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
+A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
 - Categories: `COMMAND`, `RUG`
 
 ### concreteConvertOnCauldron
