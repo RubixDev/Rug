@@ -21,10 +21,11 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 69
+Count: 71
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
+- [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [commandFrame](#commandframe)
@@ -63,6 +64,7 @@ Count: 69
 - [maxBannerLayers](#maxbannerlayers)
 - [moreBarkCrafting](#morebarkcrafting)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
+- [netherrackGeneration](#netherrackgeneration)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
@@ -123,6 +125,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+
+### basaltToBlackstoneConversion
+Basalt converts to Blackstone if next to both Lava and Water    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -441,6 +450,13 @@ off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil,
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+
+### netherrackGeneration
+Netherrack is generated instead of Cobblestone if a Magma Block is below    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
