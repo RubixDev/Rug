@@ -983,6 +983,12 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL}
     )
     public static boolean netherrackGeneration = false;
+
+    @Rule(
+            desc = "Basalt converts to Blackstone if next to both Lava and Water",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL}
+    )
+    public static boolean basaltToBlackstoneConversion = false;
 }
 
 // BUGFIX

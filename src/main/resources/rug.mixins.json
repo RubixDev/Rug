@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AbsractBlockStateMixin",
+    "AbstractBlockMixin",
     "AbstractFurnaceBlockEntityMixin",
     "AbstractPlantStemBlockMixin",
     "AbstractRedstoneGateBlockMixin",
@@ -36,6 +37,7 @@
     "MobSpawnerBlockEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
+    "PillarBlockMixin",
     "PistonHandlerMixin",
     "PlayerEntityMixin",
     "RedstoneLampBlockMixin",
