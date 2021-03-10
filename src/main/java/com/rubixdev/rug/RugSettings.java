@@ -977,6 +977,18 @@ public class RugSettings {
             category = {COMMAND, RUG}
     )
     public static String commandSkull = "ops";
+
+    @Rule(
+            desc = "Netherrack is generated instead of Cobblestone if a Magma Block is below",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL}
+    )
+    public static boolean netherrackGeneration = false;
+
+    @Rule(
+            desc = "Basalt converts to Blackstone if next to both Lava and Water",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL}
+    )
+    public static boolean basaltToBlackstoneConversion = false;
 }
 
 // BUGFIX

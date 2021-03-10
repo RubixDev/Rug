@@ -2,7 +2,8 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 48
+Count: 50
+- [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [craftableCobwebs](#craftablecobwebs)
@@ -30,6 +31,7 @@ Count: 48
 - [kelpBlockHardness](#kelpblockhardness)
 - [maxBannerLayers](#maxbannerlayers)
 - [moreBarkCrafting](#morebarkcrafting)
+- [netherrackGeneration](#netherrackgeneration)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
 - [noGhastGriefing](#noghastgriefing)
@@ -53,6 +55,13 @@ Count: 48
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
 ## Rules in SURVIVAL Category
+
+### basaltToBlackstoneConversion
+Basalt converts to Blackstone if next to both Lava and Water    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -282,6 +291,13 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### netherrackGeneration
+Netherrack is generated instead of Cobblestone if a Magma Block is below    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks    

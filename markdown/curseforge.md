@@ -5,10 +5,11 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 **Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) for a more detailed explanation of all features.**
 
 ## List of implemented Carpet Rules
-Count: 69  
+Count: 71  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
+- basaltToBlackstoneConversion  
 - cactusFurnaceXp  
 - campSleeping  
 - commandFrame  
@@ -47,6 +48,7 @@ Count: 69
 - maxBannerLayers  
 - moreBarkCrafting  
 - moreFortressSpawningBlocks  
+- netherrackGeneration  
 - newShulkerBehavior  
 - noCreeperGriefing  
 - noEndermanGriefing  

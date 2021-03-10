@@ -2,10 +2,11 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 30
+Count: 32
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
+- [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [campSleeping](#campsleeping)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
@@ -23,6 +24,7 @@ Count: 30
 - [longerRepeaters](#longerrepeaters)
 - [maxBannerLayers](#maxbannerlayers)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
+- [netherrackGeneration](#netherrackgeneration)
 - [newShulkerBehavior](#newshulkerbehavior)
 - [peacefulHunger](#peacefulhunger)
 - [reachDistance](#reachdistance)
@@ -65,6 +67,13 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Additional notes:
   - You must choose a value from 0 to 32
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+
+### basaltToBlackstoneConversion
+Basalt converts to Blackstone if next to both Lava and Water    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### campSleeping
 Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
@@ -214,6 +223,13 @@ off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil,
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+
+### netherrackGeneration
+Netherrack is generated instead of Cobblestone if a Magma Block is below    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
