@@ -25,6 +25,7 @@
     "FallingBlockEntityMixin",
     "FallingBlockMixin",
     "FishingBobberEntityMixin",
+    "FluidBlockMixin",
     "GhastEntityMixin",
     "HungerManagerMixin",
     "ItemMixin",
