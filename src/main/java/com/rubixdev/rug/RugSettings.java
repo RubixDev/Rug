@@ -989,6 +989,12 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean basaltToBlackstoneConversion = false;
+
+    @Rule(
+            desc = "Lava creates infinite sources like Water",
+            category = {RUG}
+    )
+    public static boolean infiniteLavaSources = false;
 }
 
 // BUGFIX
