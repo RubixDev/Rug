@@ -980,13 +980,13 @@ public class RugSettings {
 
     @Rule(
             desc = "Netherrack is generated instead of Cobblestone if a Magma Block is below",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean netherrackGeneration = false;
 
     @Rule(
             desc = "Basalt converts to Blackstone if next to both Lava and Water",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean basaltToBlackstoneConversion = false;
 }
