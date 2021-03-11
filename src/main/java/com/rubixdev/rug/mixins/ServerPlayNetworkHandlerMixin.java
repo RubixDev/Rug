@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(ServerPlayNetworkHandler.class)
+@Mixin(value = ServerPlayNetworkHandler.class, priority = 900)
 public class ServerPlayNetworkHandlerMixin {
     @ModifyConstant(method = "onPlayerInteractEntity", allow = 2, require = 2, constant = @Constant(doubleValue = 36.0))
     private double changeAttackRange(final double baseAttackRange, final PlayerInteractEntityC2SPacket packet) {
