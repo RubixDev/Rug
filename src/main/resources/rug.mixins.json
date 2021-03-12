@@ -2,6 +2,7 @@
   "required": true,
   "package": "com.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "com.rubixdev.rug.util.MixinConfigPlugin",
   "mixins": [
     "AbsractBlockStateMixin",
     "AbstractBlockMixin",

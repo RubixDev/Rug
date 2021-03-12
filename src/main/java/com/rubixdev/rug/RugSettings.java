@@ -258,6 +258,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, CREATIVE, CLIENT, RUG}
     )
     public static double reachDistance = 4.5;
+    // reachDistanceAdditional: Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
 
     @Rule(
             desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
