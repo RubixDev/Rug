@@ -12,6 +12,7 @@ import com.rubixdev.rug.commands.FrameCommand;
 import com.rubixdev.rug.commands.SkullCommand;
 import com.rubixdev.rug.commands.SlimeChunkCommand;
 import com.rubixdev.rug.commands.SudoCommand;
+import com.rubixdev.rug.util.CraftingRule;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;

@@ -1,4 +1,4 @@
-package com.rubixdev.rug;
+package com.rubixdev.rug.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

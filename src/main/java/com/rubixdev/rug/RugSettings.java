@@ -3,6 +3,7 @@ package com.rubixdev.rug;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
+import com.rubixdev.rug.util.CraftingRule;
 import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
