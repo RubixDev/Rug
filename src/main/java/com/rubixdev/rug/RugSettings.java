@@ -10,6 +10,7 @@ import static carpet.settings.RuleCategory.*;
 public class RugSettings {
     public static final String RUG = "rug";
     public static final String CRAFTING = "crafting";
+    public static final String RENEWABLE = "renewable";
 
     public static class validatorAnvilledIce extends Validator<Integer> {
 
@@ -95,7 +96,7 @@ public class RugSettings {
     @Rule(
             desc = "Ender Dragon drops selected item(s) when killed",
             options = {"none", "dragon_egg", "elytra", "both"},
-            category = {FEATURE, SURVIVAL, RUG}
+            category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static String dragonDrops = "none";
     // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
@@ -139,7 +140,7 @@ public class RugSettings {
     @Rule(
             desc = "Makes shulkers behave like in the current 1.17 snapshots",
             extra = "Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport",
-            category = {EXPERIMENTAL, FEATURE, RUG}
+            category = {EXPERIMENTAL, FEATURE, RENEWABLE, RUG}
     )
     public static boolean newShulkerBehavior = false;
 
@@ -370,7 +371,7 @@ public class RugSettings {
     @Rule(
             desc = "Enchanted Golden Apples can be crafted with 8 Gold Blocks again",
             extra = "Expect a lag spike when changing the value",
-            category = {CRAFTING, SURVIVAL, RUG}
+            category = {CRAFTING, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean craftableNotchApple = false;
 
@@ -676,7 +677,7 @@ public class RugSettings {
             desc = "Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area",
             extra = "Expect a lag spike when changing the value",
             options = {"off", "cross", "full"},
-            category = {CRAFTING, SURVIVAL, RUG}
+            category = {CRAFTING, SURVIVAL, RENEWABLE, RUG}
     )
     public static String craftableCobwebs = "off";
 
@@ -737,7 +738,7 @@ public class RugSettings {
             desc = "Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces",
             extra = "Expect a lag spike when changing the value",
             options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
-            category = {CRAFTING, SURVIVAL, RUG}
+            category = {CRAFTING, SURVIVAL, RENEWABLE, RUG}
     )
     public static String craftableHorseArmor = "off";
 
@@ -788,7 +789,7 @@ public class RugSettings {
     @Rule(
             desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
             options = {"off", "on_teleport", "on_landing", "both"},
-            category = {EXPERIMENTAL, FEATURE, RUG}
+            category = {EXPERIMENTAL, FEATURE, RENEWABLE, RUG}
     )
     public static String dragonEggConvertsCobbleToEndstone = "off";
 
@@ -981,25 +982,25 @@ public class RugSettings {
 
     @Rule(
             desc = "Netherrack is generated instead of Cobblestone if a Magma Block is below",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean netherrackGeneration = false;
 
     @Rule(
             desc = "Basalt converts to Blackstone if next to both Lava and Water",
-            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean basaltToBlackstoneConversion = false;
 
     @Rule(
             desc = "Lava creates infinite sources like Water",
-            category = {SURVIVAL, RUG}
+            category = {SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean infiniteLavaSources = false;
 
     @Rule(
             desc = "Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block",
-            category = {FEATURE, SURVIVAL, RUG}
+            category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean basaltToLavaConversion = false;
 }
@@ -1016,3 +1017,4 @@ public class RugSettings {
 // SURVIVAL
 // TNT
 // CRAFTING
+// RENEWABLE
