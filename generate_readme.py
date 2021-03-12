@@ -63,6 +63,9 @@ def read_rules() -> List[Rule]:
             rule.options = [i[1:-1] for i in attr_dict['options'][1:-2].split(', ')]
         rule.strict = not ('strict' in keys)
         rule.categories = [i.replace('}', '') for i in attr_dict['category'][1:-1].split(', ')]
+        if 'RUG' not in rule.categories:
+            print(f'RUG category is missing in {rule.name}')
+            return []
         if not rule.strict:
             validator: str = attr_dict['validate'].replace(',', '')[:-6]
             rule.restriction = settings_string.split(f'class {validator} extends')[1].split('"')[1]
