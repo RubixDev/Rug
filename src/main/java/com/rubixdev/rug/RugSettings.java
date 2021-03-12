@@ -1003,6 +1003,12 @@ public class RugSettings {
             category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean basaltToLavaConversion = false;
+
+    @Rule(
+            desc = "A command that gives the executing Player the Player Head of the selected Player",
+            category = {COMMAND, RUG}
+    )
+    public static String commandSudo = "ops";
 }
 
 // BUGFIX
