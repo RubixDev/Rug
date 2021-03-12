@@ -992,9 +992,15 @@ public class RugSettings {
 
     @Rule(
             desc = "Lava creates infinite sources like Water",
-            category = {RUG}
+            category = {SURVIVAL, RUG}
     )
     public static boolean infiniteLavaSources = false;
+
+    @Rule(
+            desc = "Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block",
+            category = {FEATURE, SURVIVAL, RUG}
+    )
+    public static boolean basaltToLavaConversion = false;
 }
 
 // BUGFIX

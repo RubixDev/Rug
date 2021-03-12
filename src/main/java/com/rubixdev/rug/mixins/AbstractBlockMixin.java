@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class AbstractBlockMixin {
     @Inject(method = "getStateForNeighborUpdate", at = @At("HEAD"), cancellable = true)
     private void convertBasalt(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom, CallbackInfoReturnable<BlockState> cir) {
-        if (((Block) (Object) this).is(Blocks.BASALT) && Storage.shouldConvertBasalt(world, pos)) {
+        if (((Block) (Object) this).is(Blocks.BASALT) && Storage.shouldConvertToBlackstone(world, pos)) {
             cir.setReturnValue(Blocks.BLACKSTONE.getDefaultState());
-            world.syncWorldEvent(1501, pos, 0);
+            Storage.playFizzleSound(world, pos);
         }
     }
 }

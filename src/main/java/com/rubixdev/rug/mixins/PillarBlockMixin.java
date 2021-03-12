@@ -24,9 +24,9 @@ public class PillarBlockMixin extends Block {
         WorldAccess world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
 
-        if (this.is(Blocks.BASALT) && Storage.shouldConvertBasalt(world, pos)) {
+        if (this.is(Blocks.BASALT) && Storage.shouldConvertToBlackstone(world, pos)) {
             cir.setReturnValue(Blocks.BLACKSTONE.getDefaultState());
-            world.syncWorldEvent(1501, pos, 0);
+            Storage.playFizzleSound(world, pos);
         }
     }
 }
