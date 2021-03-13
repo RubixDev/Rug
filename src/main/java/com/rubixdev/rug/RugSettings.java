@@ -1029,6 +1029,7 @@ public class RugSettings {
 
     @Rule(
             desc = "Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below",
+            extra = "In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean concreteMixing = false;
