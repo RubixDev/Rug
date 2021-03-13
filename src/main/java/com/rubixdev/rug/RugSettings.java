@@ -1026,6 +1026,12 @@ public class RugSettings {
             category = {RUG}
     )
     public static boolean endCrystalPlacementRestriction = true;
+
+    @Rule(
+            desc = "Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+    )
+    public static boolean concreteMixing = false;
 }
 
 // BUGFIX
