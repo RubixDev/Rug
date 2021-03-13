@@ -1020,6 +1020,12 @@ public class RugSettings {
             category = {COMMAND, RUG}
     )
     public static String commandSudo = "ops";
+
+    @Rule(
+            desc = "End Crystals can only be placed on Obsidian and Bedrock Blocks",
+            category = {RUG}
+    )
+    public static boolean endCrystalPlacementRestriction = true;
 }
 
 // BUGFIX

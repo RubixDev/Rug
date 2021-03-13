@@ -21,6 +21,7 @@
     "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
     "DragonEggBlockMixin",
+    "EndCrystalItemMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "EnderPearlEntityMixin",
