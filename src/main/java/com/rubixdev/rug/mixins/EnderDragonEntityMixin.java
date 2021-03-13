@@ -28,11 +28,16 @@ public abstract class EnderDragonEntityMixin extends Entity {
     private void onUpdatePostDeath(CallbackInfo ci) {
         String rugSetting = RugSettings.dragonDrops;
         if (!rugSetting.equals("none") && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-            if (rugSetting.equals("elytra") || rugSetting.equals("both")) {
+            boolean dropAll = rugSetting.equals("all");
+
+            if (rugSetting.contains("elytra") || dropAll) {
                 this.dropStack(new ItemStack(Items.ELYTRA));
             }
-            if (rugSetting.equals("dragon_egg") || rugSetting.equals("both")) {
+            if (rugSetting.contains("dragon_egg") || dropAll) {
                 this.dropStack(new ItemStack(Items.DRAGON_EGG));
+            }
+            if (rugSetting.contains("dragon_head") || dropAll) {
+                this.dropStack(new ItemStack(Items.DRAGON_HEAD));
             }
         }
     }
