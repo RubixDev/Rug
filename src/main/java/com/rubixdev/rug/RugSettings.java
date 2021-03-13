@@ -96,16 +96,7 @@ public class RugSettings {
 
     @Rule(
             desc = "Ender Dragon drops selected item(s) when killed",
-            options = {
-                    "none",
-                    "dragon_egg",
-                    "elytra",
-                    "dragon_head",
-                    "dragon_egg,elytra",
-                    "dragon_egg,dragon_head",
-                    "elytra,dragon_head",
-                    "all"
-            },
+            options = {"none", "dragon_egg", "elytra", "dragon_head", "dragon_egg,elytra", "dragon_egg,dragon_head", "elytra,dragon_head", "all"},
             category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static String dragonDrops = "none";
