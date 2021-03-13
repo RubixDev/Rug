@@ -41,6 +41,7 @@ class Rule:
 
 def read_rules() -> List[Rule]:
     with open('src/main/java/com/rubixdev/rug/RugSettings.java', 'r') as settings_file:
+        print('Reading settings file\n')
         settings_string = settings_file.read()
     raw_rules: List[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
 
@@ -50,6 +51,7 @@ def read_rules() -> List[Rule]:
         field: List[str] = raw_rule.split('\n')[-1][18:].split(' ')
         rule.type = field[0]
         rule.name = field[1]
+        print(f'Parsing rule {rule.name}')
         rule.value = field[3].replace('"', '')
 
         keys: List[str] = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
@@ -74,29 +76,37 @@ def read_rules() -> List[Rule]:
             rule.additional = found_additional[1].split('\n')[0]
 
         rules.append(rule)
+        print(f'Successfully parsed {rule.name}')
+    print('\nFinished parsing rules\n')
     return rules
 
 
 def write_files(rules: List[Rule]):
     with open('markdown/README-header.md', 'r') as header_file:
+        print('Reading header file')
         out: str = header_file.read()
 
+    print('Listing all categories')
     all_categories: List[str] = list(set([item for sublist in [rule.categories for rule in rules] for item in sublist]))
     all_categories: List[str] = [category for category in all_categories if category.upper() != 'RUG']
     all_categories.sort()
+
     out += f'## Lists of Categories\n'
     for category in all_categories:
         out += f'- [`{category}`](markdown/{category}_Category.md)\n'
     out += '\n'
 
+    print('Sorting rules')
     rules.sort(key=lambda e: e.name)
 
     out += list_rules(rules, 'Implemented Rules')
 
     with open('README.md', 'w') as readme_file:
+        print('Writing README.md\n')
         readme_file.write(out[:-1])
 
     for category in all_categories:
+        print(f'Listing rules in {category} category')
         rules_in_category: List[Rule] = [rule for rule in rules if category in rule.categories]
         rules_in_category.sort(key=lambda e: e.name)
         out: str = f'# List of Rules in the {category} Category\n\n' \
@@ -104,6 +114,7 @@ def write_files(rules: List[Rule]):
         out += list_rules(rules_in_category, f'Rules in {category} Category')
 
         with open(f'markdown/{category}_Category.md', 'w') as category_readme:
+            print(f'Writing {category}_Category.md')
             category_readme.write(out[:-1])
 
     curseforge_list(rules)
@@ -132,8 +143,10 @@ def curseforge_list(rules: List[Rule]):
     for rule in rules:
         out += f'- {rule.name}  \n'
     with open('markdown/curseforge.md', 'w') as curse_file:
+        print('\nWriting curseforge.md')
         curse_file.write(out)
 
 
 if __name__ == '__main__':
     write_files(read_rules())
+    print('\nDone!')
