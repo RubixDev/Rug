@@ -5,17 +5,21 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 **Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) for a more detailed explanation of all features.**
 
 ## List of implemented Carpet Rules
-Count: 71  
+Count: 78  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
 - basaltToBlackstoneConversion  
+- basaltToLavaConversion  
 - cactusFurnaceXp  
 - campSleeping  
+- cobbleCrushing  
 - commandFrame  
 - commandSkull  
 - commandSlimeChunk  
+- commandSudo  
 - concreteConvertOnCauldron  
+- concreteMixing  
 - craftableCobwebs  
 - craftableHorseArmor  
 - craftableNameTags  
@@ -37,10 +41,13 @@ Count: 71
 - edibleNetheriteScraps  
 - edibleSlimeBalls  
 - eggWaterDrag  
+- endCrystalPlacementRestriction  
 - enderPearlDamage  
 - enderPearlWaterDrag  
 - foodInstantHeal  
+- gravelCrushing  
 - honeyCombStickiness  
+- infiniteLavaSources  
 - infinityNeedsArrow  
 - kelpBlockHardness  
 - lilyPadsOnCauldron  

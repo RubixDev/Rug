@@ -2,12 +2,13 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 32
+Count: 33
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [campSleeping](#campsleeping)
+- [concreteMixing](#concretemixing)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
 - [easyHarvesting](#easyharvesting)
@@ -73,10 +74,18 @@ Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### campSleeping
 Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### concreteMixing
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -87,7 +96,7 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### dragonXpDrop
 Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
@@ -229,7 +238,7 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -237,7 +246,7 @@ Shulkers hit by a shulker bullet have a chance to spawn a new shulker and telepo
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### peacefulHunger
 Players do not lose any hunger like in peaceful mode    
@@ -257,6 +266,7 @@ Mod needed on server and client for this feature to work
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
+  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
 
 ### silkTouchFarmland
 Mining Farmland with a Silk Touch tool will drop itself    

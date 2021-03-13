@@ -34,7 +34,7 @@ Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `cross`, `full`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
 Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
@@ -42,7 +42,7 @@ Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron or String or both  
@@ -58,7 +58,7 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### easyBlueIceCrafting
 Blue Ice can be crafted from Ice and Blue Dye  

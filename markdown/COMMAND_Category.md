@@ -2,10 +2,11 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 3
+Count: 4
 - [commandFrame](#commandframe)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
+- [commandSudo](#commandsudo)
 
 ## Rules in COMMAND Category
 
@@ -25,6 +26,14 @@ A command that gives the executing Player the Player Head of the selected Player
 
 ### commandSlimeChunk
 A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandSudo
+A command that executes the exact input as the selected Player  
+This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player  
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`

@@ -2,10 +2,13 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 50
+Count: 55
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
+- [basaltToLavaConversion](#basalttolavaconversion)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
+- [cobbleCrushing](#cobblecrushing)
+- [concreteMixing](#concretemixing)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
@@ -27,6 +30,8 @@ Count: 50
 - [edibleSlimeBalls](#edibleslimeballs)
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
+- [gravelCrushing](#gravelcrushing)
+- [infiniteLavaSources](#infinitelavasources)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [kelpBlockHardness](#kelpblockhardness)
 - [maxBannerLayers](#maxbannerlayers)
@@ -61,7 +66,14 @@ Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### basaltToLavaConversion
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -80,13 +92,28 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### cobbleCrushing
+Cobblestone crushed by a falling Anvil will convert into Gravel    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### concreteMixing
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### craftableCobwebs
 Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
 Expect a lag spike when changing the value  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `cross`, `full`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
 Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
@@ -94,7 +121,7 @@ Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron or String or both  
@@ -110,14 +137,14 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
-- Required options: `none`, `dragon_egg`, `elytra`, `both`
-- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -256,6 +283,20 @@ Recommended using with peacefulHunger
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
+### gravelCrushing
+Gravel crushed by a falling Anvil will convert into Sand    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### infiniteLavaSources
+Lava creates infinite sources like Water    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
+
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
 - Type: `boolean`
@@ -297,7 +338,7 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks    

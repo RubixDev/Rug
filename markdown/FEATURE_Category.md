@@ -2,13 +2,16 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 28
+Count: 32
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
+- [basaltToLavaConversion](#basalttolavaconversion)
 - [campSleeping](#campsleeping)
+- [cobbleCrushing](#cobblecrushing)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
+- [concreteMixing](#concretemixing)
 - [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [easyHarvesting](#easyharvesting)
@@ -18,6 +21,7 @@ Count: 28
 - [edibleSlimeBalls](#edibleslimeballs)
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
+- [gravelCrushing](#gravelcrushing)
 - [honeyCombStickiness](#honeycombstickiness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
@@ -69,7 +73,14 @@ Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### basaltToLavaConversion
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### campSleeping
 Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
@@ -78,6 +89,13 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
+### cobbleCrushing
+Cobblestone crushed by a falling Anvil will convert into Gravel    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
 ### concreteConvertOnCauldron
 Concrete powder converts to concrete blocks when on top of a filled cauldron    
 - Type: `boolean`
@@ -85,12 +103,20 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RUG`
 
+### concreteMixing
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
-- Required options: `none`, `dragon_egg`, `elytra`, `both`
-- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -99,7 +125,7 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it  
@@ -160,6 +186,13 @@ Recommended using with peacefulHunger
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
+### gravelCrushing
+Gravel crushed by a falling Anvil will convert into Sand    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
 ### honeyCombStickiness
 Honey Comb only sticks to selected Blocks  
 Will render Ghost Blocks on the Client when mod is only Server Side  
@@ -199,7 +232,7 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -207,7 +240,7 @@ Shulkers hit by a shulker bullet have a chance to spawn a new shulker and telepo
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### peacefulHunger
 Players do not lose any hunger like in peaceful mode    

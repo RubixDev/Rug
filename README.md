@@ -18,20 +18,25 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`CREATIVE`](markdown/CREATIVE_Category.md)
 - [`EXPERIMENTAL`](markdown/EXPERIMENTAL_Category.md)
 - [`FEATURE`](markdown/FEATURE_Category.md)
+- [`RENEWABLE`](markdown/RENEWABLE_Category.md)
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 71
+Count: 78
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
+- [basaltToLavaConversion](#basalttolavaconversion)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
+- [cobbleCrushing](#cobblecrushing)
 - [commandFrame](#commandframe)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
+- [commandSudo](#commandsudo)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
+- [concreteMixing](#concretemixing)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
@@ -53,10 +58,13 @@ Count: 71
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
 - [eggWaterDrag](#eggwaterdrag)
+- [endCrystalPlacementRestriction](#endcrystalplacementrestriction)
 - [enderPearlDamage](#enderpearldamage)
 - [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [foodInstantHeal](#foodinstantheal)
+- [gravelCrushing](#gravelcrushing)
 - [honeyCombStickiness](#honeycombstickiness)
+- [infiniteLavaSources](#infinitelavasources)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [kelpBlockHardness](#kelpblockhardness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
@@ -131,7 +139,14 @@ Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### basaltToLavaConversion
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -149,6 +164,13 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### cobbleCrushing
+Cobblestone crushed by a falling Anvil will convert into Gravel    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### commandFrame
 A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible    
@@ -171,6 +193,14 @@ A command that shows if the current chunk is a slime chunk based on the set slim
 - Required options: `true`, `false`, `ops`
 - Categories: `COMMAND`, `RUG`
 
+### commandSudo
+A command that executes the exact input as the selected Player  
+This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player  
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
 ### concreteConvertOnCauldron
 Concrete powder converts to concrete blocks when on top of a filled cauldron    
 - Type: `boolean`
@@ -178,13 +208,21 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RUG`
 
+### concreteMixing
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### craftableCobwebs
 Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
 Expect a lag spike when changing the value  
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `cross`, `full`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
 Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
@@ -192,7 +230,7 @@ Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron or String or both  
@@ -208,14 +246,14 @@ Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed    
 - Type: `String`
 - Default value: `none`
-- Required options: `none`, `dragon_egg`, `elytra`, `both`
-- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
@@ -224,7 +262,7 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### dragonXpDrop
 Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
@@ -352,6 +390,13 @@ Thrown Egg will stutter on client when mod is only on server
 - Additional notes:
   - You must choose a value from 0.5 to 0.99
 
+### endCrystalPlacementRestriction
+End Crystals can only be placed on Obsidian and Bedrock Blocks    
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `RUG`
+
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls    
 - Type: `int`
@@ -381,6 +426,13 @@ Recommended using with peacefulHunger
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
+### gravelCrushing
+Gravel crushed by a falling Anvil will convert into Sand    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
 ### honeyCombStickiness
 Honey Comb only sticks to selected Blocks  
 Will render Ghost Blocks on the Client when mod is only Server Side  
@@ -390,6 +442,13 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
+
+### infiniteLavaSources
+Lava creates infinite sources like Water    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
@@ -456,7 +515,7 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `SURVIVAL`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### newShulkerBehavior
 Makes shulkers behave like in the current 1.17 snapshots  
@@ -464,7 +523,7 @@ Shulkers hit by a shulker bullet have a chance to spawn a new shulker and telepo
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### noCreeperGriefing
 Prevents Creepers from destroying blocks    
@@ -531,6 +590,7 @@ Mod needed on server and client for this feature to work
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
+  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
 
 ### redstoneLampTurnOffDelay
 Delay in game ticks for Redstone Lamps to turn off    
