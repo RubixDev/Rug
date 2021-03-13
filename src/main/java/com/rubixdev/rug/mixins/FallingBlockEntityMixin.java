@@ -69,6 +69,9 @@ public abstract class FallingBlockEntityMixin extends Entity {
             } else if (blockBelow == Blocks.COBBLESTONE && RugSettings.cobbleCrushing) {
                 world.breakBlock(posBelow, false);
                 world.setBlockState(posBelow, Blocks.GRAVEL.getDefaultState(), 3);
+            } else if (blockBelow == Blocks.GRAVEL && RugSettings.gravelCrushing) {
+                world.breakBlock(posBelow, false);
+                world.setBlockState(posBelow, Blocks.SAND.getDefaultState(), 3);
             }
         } else if (block.is(Blocks.DRAGON_EGG)) {
             String rugSetting = RugSettings.dragonEggConvertsCobbleToEndstone;

@@ -1038,6 +1038,12 @@ public class RugSettings {
             category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean cobbleCrushing = false;
+
+    @Rule(
+            desc = "Gravel crushed by a falling Anvil will convert into Sand",
+            category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
+    )
+    public static boolean gravelCrushing = false;
 }
 
 // BUGFIX
