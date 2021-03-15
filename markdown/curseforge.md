@@ -5,7 +5,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 **Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) for a more detailed explanation of all features.**
 
 ## List of implemented Carpet Rules
-Count: 78  
+Count: 80  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -15,6 +15,7 @@ Count: 78
 - campSleeping  
 - cobbleCrushing  
 - commandFrame  
+- commandPeek  
 - commandSkull  
 - commandSlimeChunk  
 - commandSudo  
@@ -81,6 +82,7 @@ Count: 78
 - unpackableNetherWart  
 - unpackableQuartz  
 - unpackableWool  
+- villagersAlwaysConvert  
 - woodcutting  
 - zeroTickPlants  
 - zombifiedPiglinsSpawningInPortals  

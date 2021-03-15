@@ -22,7 +22,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 78
+Count: 80
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -32,6 +32,7 @@ Count: 78
 - [campSleeping](#campsleeping)
 - [cobbleCrushing](#cobblecrushing)
 - [commandFrame](#commandframe)
+- [commandPeek](#commandpeek)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
 - [commandSudo](#commandsudo)
@@ -98,6 +99,7 @@ Count: 78
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
+- [villagersAlwaysConvert](#villagersalwaysconvert)
 - [woodcutting](#woodcutting)
 - [zeroTickPlants](#zerotickplants)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
@@ -166,7 +168,8 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel    
+Cobblestone crushed by a falling Anvil will convert into Gravel  
+Carpet-Extra's renewableSand is prioritized over this  
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -174,6 +177,13 @@ Cobblestone crushed by a falling Anvil will convert into Gravel
 
 ### commandFrame
 A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandPeek
+A command that shows the Inventory or Ender Chest of the specified player    
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`
@@ -737,6 +747,13 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
+
+### villagersAlwaysConvert
+Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`
 
 ### woodcutting
 The Stonecutter can be used for all wood types  

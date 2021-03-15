@@ -2,8 +2,9 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 4
+Count: 5
 - [commandFrame](#commandframe)
+- [commandPeek](#commandpeek)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
 - [commandSudo](#commandsudo)
@@ -12,6 +13,13 @@ Count: 4
 
 ### commandFrame
 A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandPeek
+A command that shows the Inventory or Ender Chest of the specified player    
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`

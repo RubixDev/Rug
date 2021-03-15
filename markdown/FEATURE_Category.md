@@ -90,7 +90,8 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel    
+Cobblestone crushed by a falling Anvil will convert into Gravel  
+Carpet-Extra's renewableSand is prioritized over this  
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`

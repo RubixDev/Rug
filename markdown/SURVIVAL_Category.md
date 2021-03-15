@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 55
+Count: 56
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [cactusFurnaceXp](#cactusfurnacexp)
@@ -56,6 +56,7 @@ Count: 55
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
+- [villagersAlwaysConvert](#villagersalwaysconvert)
 - [woodcutting](#woodcutting)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
@@ -93,7 +94,8 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel    
+Cobblestone crushed by a falling Anvil will convert into Gravel  
+Carpet-Extra's renewableSand is prioritized over this  
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -504,6 +506,13 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 9
+
+### villagersAlwaysConvert
+Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`
 
 ### woodcutting
 The Stonecutter can be used for all wood types  
