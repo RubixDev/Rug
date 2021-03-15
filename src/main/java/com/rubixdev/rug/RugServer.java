@@ -8,10 +8,7 @@ import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
 import com.google.gson.*;
 import com.mojang.brigadier.CommandDispatcher;
-import com.rubixdev.rug.commands.FrameCommand;
-import com.rubixdev.rug.commands.SkullCommand;
-import com.rubixdev.rug.commands.SlimeChunkCommand;
-import com.rubixdev.rug.commands.SudoCommand;
+import com.rubixdev.rug.commands.*;
 import com.rubixdev.rug.util.CraftingRule;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
@@ -62,6 +59,7 @@ public class RugServer implements CarpetExtension {
         FrameCommand.register(dispatcher);
         SkullCommand.register(dispatcher);
         SudoCommand.register(dispatcher);
+        PeekCommand.register(dispatcher);
     }
 
     @Override

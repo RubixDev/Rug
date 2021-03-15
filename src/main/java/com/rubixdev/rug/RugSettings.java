@@ -1037,6 +1037,12 @@ public class RugSettings {
             category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean gravelCrushing = false;
+
+    @Rule(
+            desc = "A command that shows the Inventory or Ender Chest of the specified player",
+            category = {COMMAND, RUG}
+    )
+    public static String commandPeek = "ops";
 }
 
 // BUGFIX
