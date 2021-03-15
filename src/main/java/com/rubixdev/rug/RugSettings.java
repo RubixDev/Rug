@@ -1027,6 +1027,7 @@ public class RugSettings {
 
     @Rule(
             desc = "Cobblestone crushed by a falling Anvil will convert into Gravel",
+            extra = "Carpet-Extra's renewableSand is prioritized over this",
             category = {FEATURE, SURVIVAL, RENEWABLE, RUG}
     )
     public static boolean cobbleCrushing = false;
