@@ -55,7 +55,8 @@
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
     "ThrownEntityMixin",
-    "WorldMixin"
+    "WorldMixin",
+    "ZombieEntityMixin"
   ],
   "client": [
   ],

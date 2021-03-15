@@ -1043,6 +1043,12 @@ public class RugSettings {
             category = {COMMAND, RUG}
     )
     public static String commandPeek = "ops";
+
+    @Rule(
+            desc = "Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty",
+            category = {SURVIVAL, RUG}
+    )
+    public static boolean villagersAlwaysConvert = false;
 }
 
 // BUGFIX
