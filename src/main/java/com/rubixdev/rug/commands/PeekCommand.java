@@ -24,7 +24,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("peek").
-                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSudo)).
+                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandPeek)).
                 then(literal("inventory").
                         then(argument("player", StringArgumentType.word()).
                                 suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder))).
