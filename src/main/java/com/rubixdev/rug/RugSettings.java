@@ -1101,6 +1101,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceGlazedTerracotta = false;
+
+    @CraftingRule(recipes = "smoker_green_dye.json")
+    @Rule(
+            desc = "Cacti can be cooked into Green Dye in a Smoker",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean smokerGreenDye = false;
 }
 
 // BUGFIX
