@@ -317,9 +317,7 @@ public class RugSettings {
     )
     public static boolean edibleMagmaCream = false;
 
-    @CraftingRule(
-            recipes = {"easy_dispenser.json"}
-    )
+    @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(
             desc = "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
             extra = "Expect a lag spike when changing the value",
@@ -328,9 +326,7 @@ public class RugSettings {
     public static boolean easyDispenserCrafting = false;
     // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
-    @CraftingRule(
-            recipes = {"easy_bone_block.json"}
-    )
+    @CraftingRule(recipes = "easy_bone_block.json")
     @Rule(
             desc = "Bone Blocks can be crafted out of Bones",
             extra = "Expect a lag spike when changing the value",
@@ -366,9 +362,7 @@ public class RugSettings {
     )
     public static boolean moreBarkCrafting = false;
 
-    @CraftingRule(
-            recipes = {"notch_apple.json"}
-    )
+    @CraftingRule(recipes = "notch_apple.json")
     @Rule(
             desc = "Enchanted Golden Apples can be crafted with 8 Gold Blocks again",
             extra = "Expect a lag spike when changing the value",
@@ -376,9 +370,7 @@ public class RugSettings {
     )
     public static boolean craftableNotchApple = false;
 
-    @CraftingRule(
-            recipes = {"unpackable_quartz.json"}
-    )
+    @CraftingRule(recipes = "unpackable_quartz.json")
     @Rule(
             desc = "Quartz Blocks can be crafted into set amount of Quartz",
             extra = "Expect a lag spike when changing the value",
@@ -389,9 +381,7 @@ public class RugSettings {
     )
     public static int unpackableQuartz = 0;
 
-    @CraftingRule(
-            recipes = {"unpackable_wool.json"}
-    )
+    @CraftingRule(recipes = "unpackable_wool.json")
     @Rule(
             desc = "White Wool Blocks can be crafted into set amount of String",
             extra = "Expect a lag spike when changing the value",
@@ -402,9 +392,7 @@ public class RugSettings {
     )
     public static int unpackableWool = 0;
 
-    @CraftingRule(
-            recipes = {"unpackable_nether_wart.json"}
-    )
+    @CraftingRule(recipes = "unpackable_nether_wart.json")
     @Rule(
             desc = "Nether Wart Blocks can be crafted into set amount of Nether Warts",
             extra = "Expect a lag spike when changing the value",
@@ -415,9 +403,7 @@ public class RugSettings {
     )
     public static int unpackableNetherWart = 0;
 
-    @CraftingRule(
-            recipes = {"easy_repeater.json"}
-    )
+    @CraftingRule(recipes = "easy_repeater.json")
     @Rule(
             desc = "Repeaters can be crafted with the raw materials for Redstone Torches",
             extra = "Expect a lag spike when changing the value",
@@ -425,9 +411,7 @@ public class RugSettings {
     )
     public static boolean easyRepeaterCrafting = false;
 
-    @CraftingRule(
-            recipes = {"craftable_name_tag"}
-    )
+    @CraftingRule(recipes = "craftable_name_tag")
     @Rule(
             desc = "Name Tags can be crafted with Paper and Iron or String or both",
             extra = "Expect a lag spike when changing the value",
@@ -451,9 +435,7 @@ public class RugSettings {
     )
     public static boolean easyMinecartsCrafting = false;
 
-    @CraftingRule(
-            recipes = {"easy_chest_crafting.json"}
-    )
+    @CraftingRule(recipes = "easy_chest_crafting.json")
     @Rule(
             desc = "Chests can be crafted out of logs",
             extra = "Expect a lag spike when changing the value",
@@ -461,9 +443,7 @@ public class RugSettings {
     )
     public static boolean easyChestCrafting = false;
 
-    @CraftingRule(
-            recipes = {"easy_stick_crafting.json"}
-    )
+    @CraftingRule(recipes = "easy_stick_crafting.json")
     @Rule(
             desc = "Sticks can be crafted out of logs",
             extra = "Expect a lag spike when changing the value",
@@ -671,9 +651,7 @@ public class RugSettings {
     )
     public static int unpackableIce = 0;
 
-    @CraftingRule(
-            recipes = {"craftable_cobweb"}
-    )
+    @CraftingRule(recipes = "craftable_cobweb")
     @Rule(
             desc = "Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area",
             extra = "Expect a lag spike when changing the value",
@@ -682,9 +660,7 @@ public class RugSettings {
     )
     public static String craftableCobwebs = "off";
 
-    @CraftingRule(
-            recipes = {"easy_trapped_chest_crafting.json"}
-    )
+    @CraftingRule(recipes = "easy_trapped_chest_crafting.json")
     @Rule(
             desc = "Trapped Chests can be crafted out of logs and a Tripwire Hook",
             extra = "Expect a lag spike when changing the value",
@@ -898,9 +874,7 @@ public class RugSettings {
     public static String moreFortressSpawningBlocks = "off";
     // moreFortressSpawningBlocksAdditional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
-    @CraftingRule(
-            recipes = {"easy_blue_ice_crafting.json"}
-    )
+    @CraftingRule(recipes = "easy_blue_ice_crafting.json")
     @Rule(
             desc = "Blue Ice can be crafted from Ice and Blue Dye",
             extra = "Expect a lag spike when changing the value",
@@ -1062,6 +1036,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceStone = false;
+
+    @CraftingRule(recipes = "blast_furnace_glass.json")
+    @Rule(
+            desc = "Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceGlass = false;
 }
 
 // BUGFIX
