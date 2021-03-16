@@ -1109,6 +1109,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean smokerGreenDye = false;
+
+    @CraftingRule(recipes = "smoker_lime_dye.json")
+    @Rule(
+            desc = "Sea Pickles can be cooked into Lime Dye in a Smoker",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean smokerLimeDye = false;
 }
 
 // BUGFIX
