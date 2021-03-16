@@ -1066,6 +1066,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceNetherBrick = false;
+
+    @CraftingRule(recipes = "blast_furnace_smooth_quartz.json")
+    @Rule(
+            desc = "Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceSmoothQuartz = false;
 }
 
 // BUGFIX
