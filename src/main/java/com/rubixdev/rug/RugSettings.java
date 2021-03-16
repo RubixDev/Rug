@@ -1049,6 +1049,19 @@ public class RugSettings {
             category = {SURVIVAL, RUG}
     )
     public static boolean villagersAlwaysConvert = false;
+
+    @CraftingRule(
+            recipes = {
+                    "blast_furnace_stone.json",
+                    "blast_furnace_smooth_stone.json"
+            }
+    )
+    @Rule(
+            desc = "Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceStone = false;
 }
 
 // BUGFIX
