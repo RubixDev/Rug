@@ -1036,6 +1036,7 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceStone = false;
+    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
 
     @CraftingRule(recipes = "blast_furnace_glass.json")
     @Rule(
