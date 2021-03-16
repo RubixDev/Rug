@@ -1045,6 +1045,19 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceGlass = false;
+
+    @CraftingRule(
+            recipes = {
+                    "blast_furnace_smooth_sandstone.json",
+                    "blast_furnace_smooth_red_sandstone.json"
+            }
+    )
+    @Rule(
+            desc = "Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceSmoothSandStone = false;
 }
 
 // BUGFIX
