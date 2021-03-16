@@ -1058,6 +1058,14 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceSmoothSandStone = false;
+
+    @CraftingRule(recipes = "blast_furnace_nether_brick.json")
+    @Rule(
+            desc = "Netherrack can be smelted to Nether Brick in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceNetherBrick = false;
 }
 
 // BUGFIX
