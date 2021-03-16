@@ -1074,6 +1074,33 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean blastFurnaceSmoothQuartz = false;
+
+    @CraftingRule(
+            recipes = {
+                    "blast_furnace_black_glazed_terracotta.json",
+                    "blast_furnace_blue_glazed_terracotta.json",
+                    "blast_furnace_brown_glazed_terracotta.json",
+                    "blast_furnace_cyan_glazed_terracotta.json",
+                    "blast_furnace_gray_glazed_terracotta.json",
+                    "blast_furnace_green_glazed_terracotta.json",
+                    "blast_furnace_light_blue_glazed_terracotta.json",
+                    "blast_furnace_light_gray_glazed_terracotta.json",
+                    "blast_furnace_lime_glazed_terracotta.json",
+                    "blast_furnace_magenta_glazed_terracotta.json",
+                    "blast_furnace_orange_glazed_terracotta.json",
+                    "blast_furnace_pink_glazed_terracotta.json",
+                    "blast_furnace_purple_glazed_terracotta.json",
+                    "blast_furnace_red_glazed_terracotta.json",
+                    "blast_furnace_white_glazed_terracotta.json",
+                    "blast_furnace_yellow_glazed_terracotta.json"
+            }
+    )
+    @Rule(
+            desc = "Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace",
+            extra = "Expect a lag spike when changing the value",
+            category = {CRAFTING, SURVIVAL, RUG}
+    )
+    public static boolean blastFurnaceGlazedTerracotta = false;
 }
 
 // BUGFIX
