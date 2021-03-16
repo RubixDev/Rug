@@ -1104,7 +1104,7 @@ public class RugSettings {
 
     @CraftingRule(recipes = "smoker_green_dye.json")
     @Rule(
-            desc = "Cacti can be cooked into Green Dye in a Smoker",
+            desc = "Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies",
             extra = "Expect a lag spike when changing the value",
             category = {CRAFTING, SURVIVAL, RUG}
     )
