@@ -5,12 +5,18 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 **Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) for a more detailed explanation of all features.**
 
 ## List of implemented Carpet Rules
-Count: 80  
+Count: 88  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
 - basaltToBlackstoneConversion  
 - basaltToLavaConversion  
+- blastFurnaceGlass  
+- blastFurnaceGlazedTerracotta  
+- blastFurnaceNetherBrick  
+- blastFurnaceSmoothQuartz  
+- blastFurnaceSmoothSandStone  
+- blastFurnaceStone  
 - cactusFurnaceXp  
 - campSleeping  
 - cobbleCrushing  
@@ -73,6 +79,8 @@ Count: 80
 - silkTouchPathBlocks  
 - silkTouchSpawners  
 - slimeChunkPercentage  
+- smokerGreenDye  
+- smokerLimeDye  
 - snowballWaterDrag  
 - stonecutterDamage  
 - strictShulkerShells  

@@ -2,7 +2,13 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 22
+Count: 30
+- [blastFurnaceGlass](#blastfurnaceglass)
+- [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
+- [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
+- [blastFurnaceSmoothQuartz](#blastfurnacesmoothquartz)
+- [blastFurnaceSmoothSandStone](#blastfurnacesmoothsandstone)
+- [blastFurnaceStone](#blastfurnacestone)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
@@ -19,6 +25,8 @@ Count: 22
 - [moreBarkCrafting](#morebarkcrafting)
 - [powderToGlassSmelting](#powdertoglasssmelting)
 - [shapelessCrafting](#shapelesscrafting)
+- [smokerGreenDye](#smokergreendye)
+- [smokerLimeDye](#smokerlimedye)
 - [universalDyeing](#universaldyeing)
 - [unpackableIce](#unpackableice)
 - [unpackableNetherWart](#unpackablenetherwart)
@@ -27,6 +35,56 @@ Count: 22
 - [woodcutting](#woodcutting)
 
 ## Rules in CRAFTING Category
+
+### blastFurnaceGlass
+Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceGlazedTerracotta
+Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceNetherBrick
+Netherrack can be smelted to Nether Brick in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothQuartz
+Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothSandStone
+Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceStone
+Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
 
 ### craftableCobwebs
 Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
@@ -164,6 +222,22 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+
+### smokerGreenDye
+Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### smokerLimeDye
+Sea Pickles can be cooked into Lime Dye in a Smoker  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table  

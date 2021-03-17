@@ -22,12 +22,18 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 80
+Count: 88
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
+- [blastFurnaceGlass](#blastfurnaceglass)
+- [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
+- [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
+- [blastFurnaceSmoothQuartz](#blastfurnacesmoothquartz)
+- [blastFurnaceSmoothSandStone](#blastfurnacesmoothsandstone)
+- [blastFurnaceStone](#blastfurnacestone)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [cobbleCrushing](#cobblecrushing)
@@ -90,6 +96,8 @@ Count: 80
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
 - [slimeChunkPercentage](#slimechunkpercentage)
+- [smokerGreenDye](#smokergreendye)
+- [smokerLimeDye](#smokerlimedye)
 - [snowballWaterDrag](#snowballwaterdrag)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
@@ -149,6 +157,56 @@ Basalt converts to a Lava source when placed (or moved) next to a Lava Source, F
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### blastFurnaceGlass
+Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceGlazedTerracotta
+Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceNetherBrick
+Netherrack can be smelted to Nether Brick in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothQuartz
+Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothSandStone
+Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceStone
+Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -660,6 +718,22 @@ The percentage of chunks that are Slime chinks
 - Additional notes:
   - You must choose a value from 0 to 100 that is a multiple of 10
   - [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+
+### smokerGreenDye
+Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### smokerLimeDye
+Sea Pickles can be cooked into Lime Dye in a Smoker  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents  

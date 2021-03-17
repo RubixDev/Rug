@@ -2,9 +2,15 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 56
+Count: 64
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
+- [blastFurnaceGlass](#blastfurnaceglass)
+- [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
+- [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
+- [blastFurnaceSmoothQuartz](#blastfurnacesmoothquartz)
+- [blastFurnaceSmoothSandStone](#blastfurnacesmoothsandstone)
+- [blastFurnaceStone](#blastfurnacestone)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [cobbleCrushing](#cobblecrushing)
@@ -49,6 +55,8 @@ Count: 56
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
+- [smokerGreenDye](#smokergreendye)
+- [smokerLimeDye](#smokerlimedye)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [universalDyeing](#universaldyeing)
@@ -75,6 +83,56 @@ Basalt converts to a Lava source when placed (or moved) next to a Lava Source, F
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### blastFurnaceGlass
+Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceGlazedTerracotta
+Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceNetherBrick
+Netherrack can be smelted to Nether Brick in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothQuartz
+Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceSmoothSandStone
+Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### blastFurnaceStone
+Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives  
@@ -437,6 +495,22 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### smokerGreenDye
+Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### smokerLimeDye
+Sea Pickles can be cooked into Lime Dye in a Smoker  
+Expect a lag spike when changing the value  
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them    
