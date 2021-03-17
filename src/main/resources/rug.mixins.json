@@ -48,6 +48,7 @@
     "ServerPlayerEntityMixin",
     "ServerPlayerInteractionManagerMixin",
     "ServerPlayNetworkHandlerMixin",
+    "SettingsManagerMixin",
     "ShulkerEntityAccessorMixin",
     "ShulkerEntityMixin",
     "SlimeEntityMixin",

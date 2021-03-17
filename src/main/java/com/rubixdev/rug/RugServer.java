@@ -26,6 +26,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -36,6 +38,9 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class RugServer implements CarpetExtension {
+    public static final String VERSION = "1.1.7";
+    public static final Logger LOGGER = LogManager.getLogger("Rug");
+
     @Override
     public String version() {
         return "rug";
@@ -50,6 +55,8 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onGameStarted() {
+        LOGGER.info("Rug Mod v" + VERSION + " loaded!");
+
         CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
     }
 
