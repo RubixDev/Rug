@@ -1,8 +1,8 @@
-VERSION = '1.1.7'
-
 with open('gradle.properties', 'r') as gradle_file:
     content = gradle_file.read()
     old_version = content.split('mod_version = ')[1].split('\n')[0]
+
+VERSION = input(f'Current version: {old_version}\nNew version: ')
 
 with open('gradle.properties', 'w') as gradle_file:
     gradle_file.write(content.replace(old_version, VERSION))
