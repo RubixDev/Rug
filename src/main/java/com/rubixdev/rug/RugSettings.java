@@ -165,6 +165,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleNetheriteScraps = false;
+    // edibleNetheriteScrapsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
     @Rule(
             desc = "Players do not lose any hunger like in peaceful mode",
@@ -237,6 +238,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleSlimeBalls = false;
+    // edibleSlimeBallsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
     public static class validatorReachDistance extends Validator<Double> {
 
@@ -268,6 +270,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleGoldIngots = false;
+    // edibleGoldIngotsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
 
@@ -316,6 +319,7 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG}
     )
     public static boolean edibleMagmaCream = false;
+    // edibleMagmaCreamAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
     @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(
