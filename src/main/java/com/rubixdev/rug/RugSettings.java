@@ -817,7 +817,7 @@ public class RugSettings {
     public static double kelpBlockHardness = 0.5;
 
     @Rule(
-            desc = "Allows players to sleep in a Bed without setting their spawn point by entering while sneaking",
+            desc = "Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty",
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean campSleeping = false;
