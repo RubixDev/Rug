@@ -29,9 +29,8 @@ public class CactusBlockMixin extends Block {
         if (state.canPlaceAt(world, pos) && RugSettings.zeroTickPlants) {
             BlockPos blockPos = pos.up();
             if (world.isAir(blockPos)) {
-                int i;
-                for (i = 1; world.getBlockState(pos.down(i)).getBlock() == this; ++i) {
-                }
+                int i = 1;
+                while (world.getBlockState(pos.down(i)).getBlock() != this) { i++; }
 
                 if (i < 3) {
                     int j = state.get(AGE);

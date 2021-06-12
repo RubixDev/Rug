@@ -235,14 +235,6 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
-### newShulkerBehavior
-Makes shulkers behave like in the current 1.17 snapshots  
-Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
-
 ### peacefulHunger
 Players do not lose any hunger like in peaceful mode    
 - Type: `boolean`

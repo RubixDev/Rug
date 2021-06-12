@@ -7,13 +7,15 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.rubixdev.rug.RugSettings;
-import com.rubixdev.rug.screenhandlers.PlayerInventoryScreenHandler;
-import net.minecraft.entity.player.PlayerEntity;
+import com.rubixdev.rug.gui.PlayerDataGui;
+import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.screen.*;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 
 import java.util.Collection;
 
@@ -40,7 +42,7 @@ public class PeekCommand {
         ServerCommandSource source = context.getSource();
 
         PlayerManager playerManager = source.getMinecraftServer().getPlayerManager();
-        PlayerEntity targetPlayer = playerManager.getPlayer(StringArgumentType.getString(context, "player"));
+        ServerPlayerEntity targetPlayer = playerManager.getPlayer(StringArgumentType.getString(context, "player"));
         ServerPlayerEntity executingPlayer = source.getPlayer();
 
         if (targetPlayer == null) {
@@ -49,7 +51,7 @@ public class PeekCommand {
         }
 
         if (isEnderChest) {
-            showEnderchest(executingPlayer, targetPlayer);
+            showEnderChest(executingPlayer, targetPlayer);
         } else {
             showInventory(executingPlayer, targetPlayer);
         }
@@ -57,16 +59,24 @@ public class PeekCommand {
         return 1;
     }
 
-    public static void showInventory(ServerPlayerEntity executingPlayer, PlayerEntity targetPlayer) {
-        executingPlayer.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inv, player) ->
-                new PlayerInventoryScreenHandler(syncId, executingPlayer, targetPlayer.inventory),
-                new LiteralText("Inventory of " + targetPlayer.getDisplayName().asString())));
+    public static void showInventory(ServerPlayerEntity executingPlayer, ServerPlayerEntity targetPlayer) {
+        PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X5, executingPlayer, targetPlayer);
+        invScreen.setTitle(Text.of("Inventory of " + targetPlayer.getDisplayName().asString()));
+        for (int slot = 0; slot < executingPlayer.getInventory().size(); slot++) {
+            invScreen.setSlotRedirect(slot, new Slot(targetPlayer.getInventory(), slot, 0, 0));
+        }
+        invScreen.open();
     }
 
-    public static void showEnderchest(PlayerEntity executingPlayer, PlayerEntity targetPlayer) {
-        executingPlayer.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inv, player) ->
-                new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X3, syncId, player.inventory, targetPlayer.getEnderChestInventory(), 3),
-                new LiteralText("Ender Chest of " + targetPlayer.getDisplayName().asString())));
+    public static void showEnderChest(ServerPlayerEntity executingPlayer, ServerPlayerEntity targetPlayer) {
+        EnderChestInventory targetEnderChest = targetPlayer.getEnderChestInventory();
+
+        PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X3, executingPlayer, targetPlayer);
+        invScreen.setTitle(Text.of("EnderChest of " + targetPlayer.getDisplayName().asString()));
+        for (int slot = 0; slot < targetEnderChest.size(); slot++) {
+            invScreen.setSlotRedirect(slot, new Slot(targetEnderChest, slot, 0, 0));
+        }
+        invScreen.open();
     }
 
     private static Collection<String> getPlayers(ServerCommandSource source) {

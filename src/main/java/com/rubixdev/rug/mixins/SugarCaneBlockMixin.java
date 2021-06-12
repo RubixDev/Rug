@@ -27,9 +27,8 @@ public class SugarCaneBlockMixin extends Block {
     @Inject(method = "scheduledTick", at = @At("TAIL"))
     private void onScheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         if (state.canPlaceAt(world, pos) && RugSettings.zeroTickPlants && world.isAir(pos.up())) {
-            int i;
-            for (i = 1; world.getBlockState(pos.down(i)).getBlock() == this; ++i) {
-            }
+            int i = 1;
+            while (world.getBlockState(pos.down(i)).getBlock() != this) { i++; }
 
             if (i < 3) {
                 int j = state.get(AGE);

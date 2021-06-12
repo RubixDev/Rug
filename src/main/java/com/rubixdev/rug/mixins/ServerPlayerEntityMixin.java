@@ -6,7 +6,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -34,14 +34,14 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         if ((RugSettings.playerHeadDrops.equals("on_killed_by_player") && damageSource.getAttacker() instanceof PlayerEntity)
                 || (RugSettings.playerHeadDrops.equals("on_death"))) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
-            stack.getOrCreateTag().put("SkullOwner", NbtHelper.fromGameProfile(new CompoundTag(), this.getGameProfile()));
+            stack.getOrCreateTag().put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
             this.dropStack(stack);
         }
     }
 
     @Inject(method = "setSpawnPoint", at = @At("HEAD"), cancellable = true)
     private void onSetSpawnPoint(RegistryKey<World> dimension, BlockPos pos, float angle, boolean spawnPointSet, boolean bl, CallbackInfo ci) {
-        if (RugSettings.campSleeping && bl && this.isSneaking() && this.getServerWorld().getBlockState(pos).getBlock().isIn(BlockTags.BEDS)) {
+        if (RugSettings.campSleeping && bl && this.isSneaking() && this.getServerWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
             ci.cancel();
         }
     }

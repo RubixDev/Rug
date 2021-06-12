@@ -10,20 +10,25 @@ import com.google.gson.*;
 import com.mojang.brigadier.CommandDispatcher;
 import com.rubixdev.rug.commands.*;
 import com.rubixdev.rug.util.CraftingRule;
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtIo;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ReloadCommand;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Util;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
 import org.apache.logging.log4j.LogManager;
@@ -37,9 +42,11 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.stream.Stream;
 
-public class RugServer implements CarpetExtension {
+public class RugServer implements CarpetExtension, ModInitializer {
     public static final String VERSION = "1.1.8";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
+
+    private static MinecraftServer minecraftServer;
 
     @Override
     public String version() {
@@ -49,7 +56,8 @@ public class RugServer implements CarpetExtension {
     public static void noop() {
     }
 
-    static {
+    @Override
+    public void onInitialize() {
         CarpetServer.manageExtension(new RugServer());
     }
 
@@ -71,6 +79,8 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onServerLoaded(MinecraftServer server) {
+        minecraftServer = server;
+
         UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
             if (RugSettings.easyHarvesting.equals("off") || world.isClient() || hand != Hand.MAIN_HAND) {
                 return ActionResult.PASS;
@@ -137,23 +147,22 @@ public class RugServer implements CarpetExtension {
                     craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
                     craftingRule.recipes(),
                     craftingRule.recipeNamespace(),
-                    datapackPath + "data/",
-                    server
+                    datapackPath + "data/"
             );
         }
-        reload(server);
+        reload();
         if (isFirstLoad) {
             server.getCommandManager().execute(server.getCommandSource(), "/datapack enable \"file/Rug_flexibleData\"");
         }
     }
 
-    private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String datapackPath, MinecraftServer server) {
+    private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String datapackPath) {
         updateCraftingRule(CarpetServer.settingsManager.getRule(ruleName), recipes, recipeNamespace, datapackPath, ruleName);
 
         CarpetServer.settingsManager.addRuleObserver(((source, rule, s) -> {
             if (rule.name.equals(ruleName)) {
                 updateCraftingRule(rule, recipes, recipeNamespace, datapackPath, ruleName);
-                reload(server);
+                reload();
             }
         }));
     }
@@ -300,13 +309,13 @@ public class RugServer implements CarpetExtension {
         }
     }
 
-    private void reload(MinecraftServer server) {
-        ResourcePackManager resourcePackManager = server.getDataPackManager();
+    private void reload() {
+        ResourcePackManager resourcePackManager = minecraftServer.getDataPackManager();
         resourcePackManager.scanPacks();
         Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
         collection.add("Rug_flexibleData");
 
-        ReloadCommand.method_29480(collection, server.getCommandSource());
+        ReloadCommand.tryReloadDataPacks(collection, minecraftServer.getCommandSource());
     }
 
     private static boolean isMature(BlockState state) {
@@ -330,5 +339,19 @@ public class RugServer implements CarpetExtension {
             return CocoaBlock.AGE;
         }
         return null;
+    }
+
+    public static void savePlayerData(ServerPlayerEntity player) {
+        File playerDataDir = minecraftServer.getSavePath(WorldSavePath.PLAYERDATA).toFile();
+        try {
+            NbtCompound compoundTag = player.writeNbt(new NbtCompound());
+            File file = File.createTempFile(player.getUuidAsString() + "-", ".dat", playerDataDir);
+            NbtIo.writeCompressed(compoundTag, file);
+            File file2 = new File(playerDataDir, player.getUuidAsString() + ".dat");
+            File file3 = new File(playerDataDir, player.getUuidAsString() + ".dat_old");
+            Util.backupAndReplace(file2, file, file3);
+        } catch (Exception var6) {
+            LOGGER.warn("Failed to save player data for " + player.getName().getString());
+        }
     }
 }

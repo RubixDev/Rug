@@ -26,7 +26,7 @@ public class RepeaterBlockMixin {
         int defaultDelay = state.get(DELAY) * 2;
         if (
                 RugSettings.longerRepeaters > 1
-                        && Storage.world.getBlockState(Storage.blockPos.down()).getBlock().is(Blocks.REDSTONE_BLOCK)
+                        && Storage.world.getBlockState(Storage.blockPos.down()).isOf(Blocks.REDSTONE_BLOCK)
         ) {
             return defaultDelay * RugSettings.longerRepeaters;
         } else {

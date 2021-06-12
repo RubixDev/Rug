@@ -10,7 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,17 +35,16 @@ public abstract class BlockMixin {
     )
     private static void onDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfo ci) {
         boolean baseCondition = EnchantmentHelper.get(stack).containsKey(Enchantments.SILK_TOUCH) && stack.getItem() != Items.ENCHANTED_BOOK;
-        Block block = state.getBlock();
 
-        if (block.is(Blocks.FARMLAND) && baseCondition && RugSettings.silkTouchFarmland) {
+        if (state.isOf(Blocks.FARMLAND) && baseCondition && RugSettings.silkTouchFarmland) {
             dropStack(world, pos, new ItemStack(Items.FARMLAND));
             ci.cancel();
-        } else if (block.is(Blocks.GRASS_PATH) && baseCondition && RugSettings.silkTouchPathBlocks) {
-            dropStack(world, pos, new ItemStack(Items.GRASS_PATH));
+        } else if (state.isOf(Blocks.DIRT_PATH) && baseCondition && RugSettings.silkTouchPathBlocks) {
+            dropStack(world, pos, new ItemStack(Items.DIRT_PATH));
             ci.cancel();
-        } else if (block.is(Blocks.SPAWNER) && baseCondition && RugSettings.silkTouchSpawners) {
+        } else if (state.isOf(Blocks.SPAWNER) && baseCondition && RugSettings.silkTouchSpawners) {
             ItemStack newStack = new ItemStack(Items.SPAWNER);
-            CompoundTag tag = blockEntity.toTag(new CompoundTag());
+            NbtCompound tag = blockEntity.writeNbt(new NbtCompound());
             tag.remove("id");
             tag.remove("x");
             tag.remove("y");
