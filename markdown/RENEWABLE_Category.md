@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 12
+Count: 11
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [cobbleCrushing](#cobblecrushing)
@@ -14,7 +14,6 @@ Count: 12
 - [gravelCrushing](#gravelcrushing)
 - [infiniteLavaSources](#infinitelavasources)
 - [netherrackGeneration](#netherrackgeneration)
-- [newShulkerBehavior](#newshulkerbehavior)
 
 ## Rules in RENEWABLE Category
 

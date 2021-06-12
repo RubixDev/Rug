@@ -22,7 +22,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 88
+Count: 87
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -80,7 +80,6 @@ Count: 88
 - [moreBarkCrafting](#morebarkcrafting)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [netherrackGeneration](#netherrackgeneration)
-- [newShulkerBehavior](#newshulkerbehavior)
 - [noCreeperGriefing](#nocreepergriefing)
 - [noEndermanGriefing](#noendermangriefing)
 - [noGhastGriefing](#noghastgriefing)
@@ -219,7 +218,7 @@ Amount of XP a Cactus smelted in a furnace gives
   - You must choose a value from 0 to 1
 
 ### campSleeping
-Allows players to sleep in a Bed without setting their spawn point by entering while sneaking    
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty    
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -423,6 +422,8 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance  
@@ -431,6 +432,8 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
@@ -439,6 +442,8 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness  
@@ -447,6 +452,8 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
 
 ### eggWaterDrag
 How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents  
