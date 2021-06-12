@@ -26,7 +26,7 @@ public abstract class BlockItemMixin {
 
     @Inject(method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;", at = @At("HEAD"))
     private void onPlace(ItemPlacementContext context, CallbackInfoReturnable<ActionResult> cir) {
-        isValidLilyPad = RugSettings.lilyPadsOnCauldron && context.getStack().getItem() == Items.LILY_PAD && context.getWorld().getBlockState(context.getBlockPos().down()).getBlock().is(Blocks.CAULDRON);
+        isValidLilyPad = RugSettings.lilyPadsOnCauldron && context.getStack().getItem() == Items.LILY_PAD && context.getWorld().getBlockState(context.getBlockPos().down()).isOf(Blocks.CAULDRON);
     }
 
     @Redirect(method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;playSound(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FF)V"))

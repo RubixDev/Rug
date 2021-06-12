@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 12
+Count: 11
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [cobbleCrushing](#cobblecrushing)
@@ -14,7 +14,6 @@ Count: 12
 - [gravelCrushing](#gravelcrushing)
 - [infiniteLavaSources](#infinitelavasources)
 - [netherrackGeneration](#netherrackgeneration)
-- [newShulkerBehavior](#newshulkerbehavior)
 
 ## Rules in RENEWABLE Category
 
@@ -100,11 +99,3 @@ Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
-### newShulkerBehavior
-Makes shulkers behave like in the current 1.17 snapshots  
-Shulkers hit by a shulker bullet have a chance to spawn a new shulker and teleport  
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`

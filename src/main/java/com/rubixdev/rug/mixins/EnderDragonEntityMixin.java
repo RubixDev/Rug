@@ -23,7 +23,7 @@ public abstract class EnderDragonEntityMixin extends Entity {
 
     @Inject(method = "updatePostDeath",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;awardExperience(I)V",
+                    target = "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V",
                     ordinal = 1))
     private void onUpdatePostDeath(CallbackInfo ci) {
         String rugSetting = RugSettings.dragonDrops;

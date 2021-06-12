@@ -34,9 +34,9 @@ public class PlayerEntityMixin {
         Storage.player = (PlayerEntity) (Object) this;
     }
 
-    @Inject(method = "isUsingEffectiveTool", at = @At("HEAD"), cancellable = true)
-    private void onIsUsingEffectiveTool(BlockState block, CallbackInfoReturnable<Boolean> cir) {
-        if (RugSettings.silkTouchSpawners && block.getBlock().is(Blocks.SPAWNER)) {
+    @Inject(method = "canHarvest", at = @At("HEAD"), cancellable = true)
+    private void onCanHarvest(BlockState block, CallbackInfoReturnable<Boolean> cir) {
+        if (RugSettings.silkTouchSpawners && block.isOf(Blocks.SPAWNER)) {
             cir.setReturnValue(true);
         }
     }

@@ -2,7 +2,6 @@ package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.util.Storage;
 import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class AbstractBlockMixin {
     @Inject(method = "getStateForNeighborUpdate", at = @At("HEAD"), cancellable = true)
     private void convertBasalt(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom, CallbackInfoReturnable<BlockState> cir) {
-        if (((Block) (Object) this).is(Blocks.BASALT) && Storage.shouldConvertToBlackstone(world, pos)) {
+        if (state.isOf(Blocks.BASALT) && Storage.shouldConvertToBlackstone(world, pos)) {
             cir.setReturnValue(Blocks.BLACKSTONE.getDefaultState());
             Storage.playFizzleSound(world, pos);
         }

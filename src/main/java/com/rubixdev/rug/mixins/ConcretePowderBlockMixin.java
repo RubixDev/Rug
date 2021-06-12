@@ -1,10 +1,7 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CauldronBlock;
-import net.minecraft.block.ConcretePowderBlock;
+import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -22,7 +19,7 @@ public class ConcretePowderBlockMixin {
     private static void onHardensOnAnySide(BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir, boolean bl, BlockPos.Mutable mutable, Direction[] var4, int var5, int var6, Direction direction) {
         if (RugSettings.concreteConvertOnCauldron && direction == Direction.DOWN) {
             BlockState blockState = world.getBlockState(pos.down());
-            if (blockState.getBlock().is(Blocks.CAULDRON) && blockState.get(CauldronBlock.LEVEL) == 3) {
+            if (blockState.isOf(Blocks.CAULDRON) && blockState.get(LeveledCauldronBlock.LEVEL) == 3) {
                 cir.setReturnValue(true);
             }
         }

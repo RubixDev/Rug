@@ -1,7 +1,8 @@
 {
   "required": true,
+  "minVersion": "0.8",
   "package": "com.rubixdev.rug.mixins",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "plugin": "com.rubixdev.rug.util.MixinConfigPlugin",
   "mixins": [
     "AbsractBlockStateMixin",
@@ -15,7 +16,7 @@
     "BowItemMixin",
     "CactusBlockMixin",
     "CarpetServerMixin",
-    "CauldronBlockMixin",
+    "AbstractCauldronBlockMixin",
     "ChorusFlowerBlockMixin",
     "ClientPlayerInteractionManagerMixin",
     "ConcretePowderBlockMixin",
@@ -49,8 +50,6 @@
     "ServerPlayerInteractionManagerMixin",
     "ServerPlayNetworkHandlerMixin",
     "SettingsManagerMixin",
-    "ShulkerEntityAccessorMixin",
-    "ShulkerEntityMixin",
     "SlimeEntityMixin",
     "SpawnHelperMixin",
     "StoneCutterBlockMixin",
@@ -58,8 +57,6 @@
     "ThrownEntityMixin",
     "WorldMixin",
     "ZombieEntityMixin"
-  ],
-  "client": [
   ],
   "injectors": {
     "defaultRequire": 1
