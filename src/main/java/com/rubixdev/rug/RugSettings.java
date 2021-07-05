@@ -1120,6 +1120,28 @@ public class RugSettings {
             category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
     )
     public static boolean silkTouchBuddingAmethysts = false;
+
+    public static class validatorVillagersDropEmeralds extends Validator<Integer> {
+
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer newValue, String s) {
+            return newValue >= 0 && newValue <= 5 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 5";
+        }
+    }
+
+    @Rule(
+            desc = "Villagers drop between 1 and x Emeralds on death, where x is the given number",
+            category = {FEATURE, SURVIVAL, RUG},
+            options = {"0", "1", "3"},
+            strict = false,
+            validate = validatorVillagersDropEmeralds.class
+    )
+    public static int villagersDropEmeralds = 0;
 }
 
 // BUGFIX

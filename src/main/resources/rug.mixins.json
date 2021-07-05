@@ -55,6 +55,7 @@
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
     "ThrownEntityMixin",
+    "VillagerEntityMixin",
     "WorldMixin",
     "ZombieEntityMixin"
   ],
