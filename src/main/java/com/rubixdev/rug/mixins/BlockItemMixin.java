@@ -21,16 +21,37 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockItem.class)
 public abstract class BlockItemMixin {
-    @Shadow public abstract Block getBlock();
+    @Shadow
+    public abstract Block getBlock();
+
     private boolean isValidLilyPad;
 
-    @Inject(method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;", at = @At("HEAD"))
+    @Inject(
+        method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;",
+        at = @At("HEAD")
+    )
     private void onPlace(ItemPlacementContext context, CallbackInfoReturnable<ActionResult> cir) {
-        isValidLilyPad = RugSettings.lilyPadsOnCauldron && context.getStack().getItem() == Items.LILY_PAD && context.getWorld().getBlockState(context.getBlockPos().down()).isOf(Blocks.CAULDRON);
+        isValidLilyPad = RugSettings.lilyPadsOnCauldron
+            && context.getStack().getItem() == Items.LILY_PAD
+            && context.getWorld().getBlockState(context.getBlockPos().down()).isOf(Blocks.CAULDRON);
     }
 
-    @Redirect(method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;playSound(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FF)V"))
-    private void onPlace(World world, PlayerEntity player, BlockPos pos, SoundEvent sound, SoundCategory category, float volume, float pitch) {
+    @Redirect(
+        method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/world/World;playSound(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FF)V"
+        )
+    )
+    private void onPlace(
+        World world,
+        PlayerEntity player,
+        BlockPos pos,
+        SoundEvent sound,
+        SoundCategory category,
+        float volume,
+        float pitch
+    ) {
         if (isValidLilyPad) {
             world.playSound(null, pos, sound, category, volume, pitch);
         } else {
@@ -38,7 +59,13 @@ public abstract class BlockItemMixin {
         }
     }
 
-    @Redirect(method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/ActionResult;success(Z)Lnet/minecraft/util/ActionResult;"))
+    @Redirect(
+        method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/util/ActionResult;success(Z)Lnet/minecraft/util/ActionResult;"
+        )
+    )
     private ActionResult onPlace(boolean swingHand) {
         if (isValidLilyPad) {
             return ActionResult.success(true);

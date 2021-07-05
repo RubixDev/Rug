@@ -10,7 +10,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EnderPearlEntity.class)
 public class EnderPearlEntityMixin {
-    @Redirect(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
+    @Redirect(
+        method = "onCollision",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
+        )
+    )
     private boolean onOnCollision(Entity entity, DamageSource source, float amount) {
         return entity.damage(source, RugSettings.enderPearlDamage);
     }

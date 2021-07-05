@@ -23,25 +23,44 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
-    @Shadow public abstract ServerWorld getServerWorld();
+    @Shadow
+    public abstract ServerWorld getServerWorld();
 
     public ServerPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile profile) {
         super(world, pos, yaw, profile);
     }
 
-    @Inject(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"))
+    @Inject(
+        method = "onDeath",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"
+        )
+    )
     private void onOnDeath(DamageSource damageSource, CallbackInfo ci) {
-        if ((RugSettings.playerHeadDrops.equals("on_killed_by_player") && damageSource.getAttacker() instanceof PlayerEntity)
-                || (RugSettings.playerHeadDrops.equals("on_death"))) {
+        if (( RugSettings.playerHeadDrops.equals("on_killed_by_player")
+            && damageSource.getAttacker() instanceof PlayerEntity )
+            || ( RugSettings.playerHeadDrops.equals("on_death") )) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
-            stack.getOrCreateTag().put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
+            stack.getOrCreateTag()
+                .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
             this.dropStack(stack);
         }
     }
 
     @Inject(method = "setSpawnPoint", at = @At("HEAD"), cancellable = true)
-    private void onSetSpawnPoint(RegistryKey<World> dimension, BlockPos pos, float angle, boolean spawnPointSet, boolean bl, CallbackInfo ci) {
-        if (RugSettings.campSleeping && bl && this.isSneaking() && this.getServerWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
+    private void onSetSpawnPoint(
+        RegistryKey<World> dimension,
+        BlockPos pos,
+        float angle,
+        boolean spawnPointSet,
+        boolean bl,
+        CallbackInfo ci
+    ) {
+        if (RugSettings.campSleeping
+            && bl
+            && this.isSneaking()
+            && this.getServerWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
             ci.cancel();
         }
     }

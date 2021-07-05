@@ -22,37 +22,40 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 public class SudoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("sudo").
-                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSudo)).
-                then(argument("player", StringArgumentType.word()).
-                        suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder))).
-                        then(argument("command", StringArgumentType.greedyString())
-                                .executes(context -> {
-                                    String targetPlayerName = StringArgumentType.getString(context, "player");
-                                    String commandString = StringArgumentType.getString(context, "command");
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("sudo").requires(
+            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandSudo)
+        )
+            .then(
+                argument("player", StringArgumentType.word()).suggests(
+                    ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
+                ).then(argument("command", StringArgumentType.greedyString()).executes(context -> {
+                    String targetPlayerName = StringArgumentType.getString(context, "player");
+                    String commandString = StringArgumentType.getString(context, "command");
 
-                                    MinecraftServer server = context.getSource().getMinecraftServer();
-                                    PlayerManager playerManager = server.getPlayerManager();
-                                    ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
+                    MinecraftServer server = context.getSource().getMinecraftServer();
+                    PlayerManager playerManager = server.getPlayerManager();
+                    ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
 
-                                    if (targetPlayer == null) {
-                                        context.getSource().sendError(new LiteralText("Targeted Player could not be found"));
-                                        return 0;
-                                    }
+                    if (targetPlayer == null) {
+                        context.getSource().sendError(new LiteralText("Targeted Player could not be found"));
+                        return 0;
+                    }
 
-                                    if (commandString.startsWith("/")) {
-                                        server.getCommandManager().execute(targetPlayer.getCommandSource(), commandString);
-                                    } else {
-                                        Text text = new TranslatableText("chat.type.text", targetPlayerName, commandString);
-                                        playerManager.broadcastChatMessage(text, MessageType.CHAT, targetPlayer.getUuid());
-                                    }
+                    if (commandString.startsWith("/")) {
+                        server.getCommandManager().execute(targetPlayer.getCommandSource(), commandString);
+                    } else {
+                        Text text = new TranslatableText("chat.type.text", targetPlayerName, commandString);
+                        playerManager.broadcastChatMessage(text, MessageType.CHAT, targetPlayer.getUuid());
+                    }
 
-                                    context.getSource().sendFeedback(
-                                            new LiteralText("Executed \"" + commandString + "\" as " + targetPlayerName),
-                                            true
-                                    );
-                                    return 1;
-                                })));
+                    context.getSource()
+                        .sendFeedback(
+                            new LiteralText("Executed \"" + commandString + "\" as " + targetPlayerName),
+                            true
+                        );
+                    return 1;
+                }))
+            );
         dispatcher.register(command);
     }
 

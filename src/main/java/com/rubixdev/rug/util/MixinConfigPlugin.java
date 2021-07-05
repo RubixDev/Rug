@@ -18,16 +18,14 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public String getRefMapperConfig() {
-        return null;
-    }
+    public String getRefMapperConfig() { return null; }
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         List<String> reachDistanceMixins = Lists.newArrayList(
-                "com.rubixdev.rug.mixins.ClientPlayerInteractionManagerMixin",
-                "com.rubixdev.rug.mixins.ServerPlayerInteractionManagerMixin",
-                "com.rubixdev.rug.mixins.ServerPlayNetworkHandlerMixin"
+            "com.rubixdev.rug.mixins.ClientPlayerInteractionManagerMixin",
+            "com.rubixdev.rug.mixins.ServerPlayerInteractionManagerMixin",
+            "com.rubixdev.rug.mixins.ServerPlayNetworkHandlerMixin"
         );
 
         if (reachDistanceMixins.contains(mixinClassName)) {
@@ -43,9 +41,7 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public List<String> getMixins() {
-        return null;
-    }
+    public List<String> getMixins() { return null; }
 
     @Override
     public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {

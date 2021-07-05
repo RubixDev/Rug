@@ -13,10 +13,18 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(BowItem.class)
 public class BowItemMixin {
-    @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getArrowType(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;"))
+    @Redirect(
+        method = "use",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/entity/player/PlayerEntity;getArrowType(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;"
+        )
+    )
     private ItemStack onUse(PlayerEntity playerEntity, ItemStack stack) {
         ItemStack arrowType = playerEntity.getArrowType(stack);
-        if (!RugSettings.infinityNeedsArrow && arrowType.isEmpty() && EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0) {
+        if (!RugSettings.infinityNeedsArrow
+            && arrowType.isEmpty()
+            && EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0) {
             return new ItemStack(Items.ARROW);
         } else {
             return arrowType;

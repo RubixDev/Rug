@@ -10,11 +10,12 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EndCrystalItem.class)
 public class EndCrystalItemMixin {
-    @Redirect(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
+    @Redirect(
+        method = "useOnBlock",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z")
+    )
     private boolean allowPlacement(BlockState blockState, Block block) {
-        if (!RugSettings.endCrystalPlacementRestriction) {
-            return true;
-        }
+        if (!RugSettings.endCrystalPlacementRestriction) { return true; }
 
         return blockState.isOf(block);
     }

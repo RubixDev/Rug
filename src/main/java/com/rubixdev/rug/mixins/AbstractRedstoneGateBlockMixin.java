@@ -16,13 +16,25 @@ import java.util.Random;
 @Mixin(AbstractRedstoneGateBlock.class)
 public abstract class AbstractRedstoneGateBlockMixin {
 
-    @Inject(method = "scheduledTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractRedstoneGateBlock;getUpdateDelayInternal(Lnet/minecraft/block/BlockState;)I"))
+    @Inject(
+        method = "scheduledTick",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/block/AbstractRedstoneGateBlock;getUpdateDelayInternal(Lnet/minecraft/block/BlockState;)I"
+        )
+    )
     private void onScheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         Storage.world = world;
         Storage.blockPos = pos;
     }
 
-    @Inject(method = "updatePowered", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/AbstractRedstoneGateBlock;getUpdateDelayInternal(Lnet/minecraft/block/BlockState;)I"))
+    @Inject(
+        method = "updatePowered",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/block/AbstractRedstoneGateBlock;getUpdateDelayInternal(Lnet/minecraft/block/BlockState;)I"
+        )
+    )
     private void onUpdatePowered(World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         Storage.world = world;
         Storage.blockPos = pos;

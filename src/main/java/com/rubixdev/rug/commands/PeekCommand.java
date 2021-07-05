@@ -25,20 +25,28 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("peek").
-                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandPeek)).
-                then(literal("inventory").
-                        then(argument("player", StringArgumentType.word()).
-                                suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder))).
-                                executes(context -> execute(context, false)))).
-                then(literal("enderchest").
-                        then(argument("player", StringArgumentType.word()).
-                                suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder))).
-                                executes(context -> execute(context, true))));
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("peek").requires(
+            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandPeek)
+        )
+            .then(
+                literal("inventory").then(
+                    argument("player", StringArgumentType.word()).suggests(
+                        ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
+                    ).executes(context -> execute(context, false))
+                )
+            )
+            .then(
+                literal("enderchest").then(
+                    argument("player", StringArgumentType.word()).suggests(
+                        ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
+                    ).executes(context -> execute(context, true))
+                )
+            );
         dispatcher.register(command);
     }
 
-    private static int execute(CommandContext<ServerCommandSource> context, boolean isEnderChest) throws CommandSyntaxException {
+    private static int execute(CommandContext<ServerCommandSource> context, boolean isEnderChest)
+        throws CommandSyntaxException {
         ServerCommandSource source = context.getSource();
 
         PlayerManager playerManager = source.getMinecraftServer().getPlayerManager();

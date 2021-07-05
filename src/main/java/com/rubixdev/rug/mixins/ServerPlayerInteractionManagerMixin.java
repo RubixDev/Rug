@@ -19,20 +19,41 @@ public class ServerPlayerInteractionManagerMixin {
     private ServerPlayerEntity interactPlayer;
     private BlockState interactBlock;
 
-    @ModifyConstant(method = "processBlockBreakingAction", require = 1, allow = 1, constant = @Constant(doubleValue = 36.0))
+    @ModifyConstant(
+        method = "processBlockBreakingAction",
+        require = 1,
+        allow = 1,
+        constant = @Constant(doubleValue = 36.0)
+    )
     private double changeReachDistance(final double baseReachDistance) {
         return Math.pow(Math.sqrt(baseReachDistance) + RugSettings.reachDistance - 4.5, 2);
     }
 
     @Inject(method = "interactBlock", at = @At("HEAD"))
-    private void getParameters(ServerPlayerEntity player, World world, ItemStack stack, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
+    private void getParameters(
+        ServerPlayerEntity player,
+        World world,
+        ItemStack stack,
+        Hand hand,
+        BlockHitResult hitResult,
+        CallbackInfoReturnable<ActionResult> cir
+    ) {
         interactPlayer = player;
         interactBlock = world.getBlockState(hitResult.getBlockPos());
     }
 
-    @ModifyVariable(method = "interactBlock", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/server/network/ServerPlayerEntity;shouldCancelInteraction()Z"))
+    @ModifyVariable(
+        method = "interactBlock",
+        at = @At(
+            value = "INVOKE_ASSIGN",
+            target = "Lnet/minecraft/server/network/ServerPlayerEntity;shouldCancelInteraction()Z"
+        )
+    )
     private boolean allowSneakRightClick(boolean original) {
-        if (RugSettings.campSleeping && interactBlock.isIn(BlockTags.BEDS) && interactPlayer.isSneaking() && interactPlayer.getMainHandStack().isEmpty()) {
+        if (RugSettings.campSleeping
+            && interactBlock.isIn(BlockTags.BEDS)
+            && interactPlayer.isSneaking()
+            && interactPlayer.getMainHandStack().isEmpty()) {
             return false;
         }
         return original;

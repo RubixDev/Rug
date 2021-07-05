@@ -18,7 +18,9 @@ import java.util.Random;
 
 @Mixin(SugarCaneBlock.class)
 public class SugarCaneBlockMixin extends Block {
-    @Shadow @Final public static IntProperty AGE;
+    @Shadow
+    @Final
+    public static IntProperty AGE;
 
     public SugarCaneBlockMixin(Settings settings) {
         super(settings);
@@ -28,7 +30,9 @@ public class SugarCaneBlockMixin extends Block {
     private void onScheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         if (state.canPlaceAt(world, pos) && RugSettings.zeroTickPlants && world.isAir(pos.up())) {
             int i = 1;
-            while (world.getBlockState(pos.down(i)).getBlock() != this) { i++; }
+            while (world.getBlockState(pos.down(i)).getBlock() != this) {
+                i++;
+            }
 
             if (i < 3) {
                 int j = state.get(AGE);

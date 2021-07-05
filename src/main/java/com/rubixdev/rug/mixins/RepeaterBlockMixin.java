@@ -15,7 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RepeaterBlock.class)
 public class RepeaterBlockMixin {
-    @Shadow @Final public static IntProperty DELAY;
+    @Shadow
+    @Final
+    public static IntProperty DELAY;
 
     @Inject(method = "getUpdateDelayInternal", at = @At("HEAD"), cancellable = true)
     private void modifyDelay(BlockState state, CallbackInfoReturnable<Integer> cir) {
@@ -24,10 +26,8 @@ public class RepeaterBlockMixin {
 
     private int getModifiedDelay(BlockState state) {
         int defaultDelay = state.get(DELAY) * 2;
-        if (
-                RugSettings.longerRepeaters > 1
-                        && Storage.world.getBlockState(Storage.blockPos.down()).isOf(Blocks.REDSTONE_BLOCK)
-        ) {
+        if (RugSettings.longerRepeaters > 1
+            && Storage.world.getBlockState(Storage.blockPos.down()).isOf(Blocks.REDSTONE_BLOCK)) {
             return defaultDelay * RugSettings.longerRepeaters;
         } else {
             return defaultDelay;

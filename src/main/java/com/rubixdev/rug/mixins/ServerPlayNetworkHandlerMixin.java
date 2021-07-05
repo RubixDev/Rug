@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class ServerPlayNetworkHandlerMixin {
     @ModifyConstant(method = "onPlayerInteractEntity", allow = 2, require = 2, constant = @Constant(doubleValue = 36.0))
     private double changeAttackRange(final double baseAttackRange, final PlayerInteractEntityC2SPacket packet) {
-        // TODO: If packet type == ATTACK: return baseAttackRange
         return Math.pow(Math.sqrt(baseAttackRange) + RugSettings.reachDistance - 4.5, 2);
     }
 

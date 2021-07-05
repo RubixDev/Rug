@@ -14,22 +14,23 @@ import java.util.List;
 
 @Mixin(SpawnHelper.class)
 public class SpawnHelperMixin {
-    @Redirect(method = "getSpawnEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
+    @Redirect(
+        method = "getSpawnEntries",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z")
+    )
     private static boolean allowMoreSpawnableFortressBlocks(BlockState floorBlock, Block netherBricks) {
-        if (RugSettings.moreFortressSpawningBlocks.equals("all")) {
-            return true;
-        }
+        if (RugSettings.moreFortressSpawningBlocks.equals("all")) { return true; }
 
         List<Block> allowedBlocks = Lists.newArrayList(
-                netherBricks,
-                Blocks.NETHERRACK,
-                Blocks.SOUL_SAND,
-                Blocks.SOUL_SOIL,
-                Blocks.PACKED_ICE,
-                Blocks.BLUE_ICE,
-                Blocks.GRAVEL,
-                Blocks.MAGMA_BLOCK,
-                Blocks.RED_NETHER_BRICKS
+            netherBricks,
+            Blocks.NETHERRACK,
+            Blocks.SOUL_SAND,
+            Blocks.SOUL_SOIL,
+            Blocks.PACKED_ICE,
+            Blocks.BLUE_ICE,
+            Blocks.GRAVEL,
+            Blocks.MAGMA_BLOCK,
+            Blocks.RED_NETHER_BRICKS
         );
         return RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(floorBlock.getBlock());
     }

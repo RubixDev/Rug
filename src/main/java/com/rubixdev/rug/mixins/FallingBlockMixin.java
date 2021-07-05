@@ -20,6 +20,8 @@ public class FallingBlockMixin {
     }
 
     private static boolean isTallPlant(BlockState blockState) {
-        return blockState.isIn(BlockTags.TALL_FLOWERS) || blockState.isOf(Blocks.TALL_GRASS) || blockState.isOf(Blocks.LARGE_FERN);
+        return blockState.isIn(BlockTags.TALL_FLOWERS)
+            || blockState.isOf(Blocks.TALL_GRASS)
+            || blockState.isOf(Blocks.LARGE_FERN);
     }
 }

@@ -24,15 +24,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(World.class)
 public abstract class WorldMixin {
-    @Shadow public abstract BlockState getBlockState(BlockPos pos);
+    @Shadow
+    public abstract BlockState getBlockState(BlockPos pos);
 
-    @Shadow public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
+    @Shadow
+    public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
 
     private boolean shouldOverwrite;
     private boolean lowerWasFirst;
 
     @Inject(method = "breakBlock", at = @At("HEAD"))
-    private void testForBlock(BlockPos pos, boolean drop, Entity breakingEntity, int maxUpdateDepth, CallbackInfoReturnable<Boolean> cir) {
+    private void testForBlock(
+        BlockPos pos,
+        boolean drop,
+        Entity breakingEntity,
+        int maxUpdateDepth,
+        CallbackInfoReturnable<Boolean> cir
+    ) {
         BlockState blockState = this.getBlockState(pos);
 
         boolean isUpperHalf = isTallPlant(blockState) && blockState.get(TallPlantBlock.HALF) == DoubleBlockHalf.UPPER;
@@ -56,15 +64,34 @@ public abstract class WorldMixin {
     }
 
     private boolean isTallPlant(BlockState blockState) {
-        return blockState.isIn(BlockTags.TALL_FLOWERS) || blockState.isOf(Blocks.TALL_GRASS) || blockState.isOf(Blocks.LARGE_FERN);
+        return blockState.isIn(BlockTags.TALL_FLOWERS)
+            || blockState.isOf(Blocks.TALL_GRASS)
+            || blockState.isOf(Blocks.LARGE_FERN);
     }
 
-    @Inject(method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;II)Z", at = @At("HEAD"), cancellable = true)
-    private void convertBasalt(BlockPos pos, BlockState state, int flags, int maxUpdateDepth, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(
+        method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;II)Z",
+        at = @At("HEAD"),
+        cancellable = true
+    )
+    private void convertBasalt(
+        BlockPos pos,
+        BlockState state,
+        int flags,
+        int maxUpdateDepth,
+        CallbackInfoReturnable<Boolean> cir
+    ) {
         if (state.isOf(Blocks.BASALT)) {
             if (Storage.shouldConvertToLava((BlockView) this, pos)) {
                 Storage.playFizzleSound((WorldAccess) this, pos);
-                ((WorldAccess) this).playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                ( (WorldAccess) this ).playSound(
+                    null,
+                    pos,
+                    SoundEvents.ITEM_BUCKET_EMPTY_LAVA,
+                    SoundCategory.BLOCKS,
+                    1.0F,
+                    1.0F
+                );
                 cir.setReturnValue(this.setBlockState(pos, Blocks.LAVA.getDefaultState(), flags, maxUpdateDepth));
             }
         }

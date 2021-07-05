@@ -15,24 +15,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FluidBlock.class)
 public abstract class FluidBlockMixin {
-    @Shadow protected abstract void playExtinguishSound(WorldAccess world, BlockPos pos);
+    @Shadow
+    protected abstract void playExtinguishSound(WorldAccess world, BlockPos pos);
 
     @Inject(
-            method = "receiveNeighborFluids",
-            at = @At(value = "INVOKE_ASSIGN",
-                    target = "Lnet/minecraft/fluid/FluidState;isStill()Z"),
-            cancellable = true
+        method = "receiveNeighborFluids",
+        at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/fluid/FluidState;isStill()Z"),
+        cancellable = true
     )
-    private void generateNetherrack(
-            World world,
-            BlockPos pos,
-            BlockState state,
-            CallbackInfoReturnable<Boolean> cir
-    ) {
+    private void generateNetherrack(World world, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (RugSettings.netherrackGeneration
-                        && world.getBlockState(pos.down()).isOf(Blocks.MAGMA_BLOCK)
-                        && !world.getFluidState(pos).isStill()
-        ) {
+            && world.getBlockState(pos.down()).isOf(Blocks.MAGMA_BLOCK)
+            && !world.getFluidState(pos).isStill()) {
             world.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());
             this.playExtinguishSound(world, pos);
             cir.setReturnValue(false);
