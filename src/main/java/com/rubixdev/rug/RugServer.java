@@ -10,6 +10,8 @@ import com.google.gson.*;
 import com.mojang.brigadier.CommandDispatcher;
 import com.rubixdev.rug.commands.*;
 import com.rubixdev.rug.util.CraftingRule;
+import com.rubixdev.rug.util.Logging;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;
@@ -53,8 +55,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         return "rug";
     }
 
-    public static void noop() {
-    }
+    public static void noop() {}
 
     @Override
     public void onInitialize() {
@@ -81,7 +82,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     public void onServerLoaded(MinecraftServer server) {
         minecraftServer = server;
 
-        UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
+        UseBlockCallback.EVENT.register(( (player, world, hand, hitResult) -> {
             if (RugSettings.easyHarvesting.equals("off") || world.isClient() || hand != Hand.MAIN_HAND) {
                 return ActionResult.PASS;
             }
@@ -92,15 +93,22 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
             if (isMature(state)) {
                 ItemStack tool = player != null ? player.getStackInHand(hand) : ItemStack.EMPTY;
-                if (RugSettings.easyHarvesting.equals("require_hoe") && !(tool.getItem() instanceof HoeItem)) {
+                if (RugSettings.easyHarvesting.equals("require_hoe") && !( tool.getItem() instanceof HoeItem )) {
                     return ActionResult.PASS;
                 }
-                List<ItemStack> droppedItems = Block.getDroppedStacks(state, (ServerWorld) world, pos, null, player, tool);
+                List<ItemStack> droppedItems = Block.getDroppedStacks(
+                    state,
+                    (ServerWorld) world,
+                    pos,
+                    null,
+                    player,
+                    tool
+                );
                 boolean removedSeed = false;
                 for (ItemStack itemStack : droppedItems) {
                     if (!removedSeed) {
                         Item item = itemStack.getItem();
-                        if (item instanceof BlockItem && ((BlockItem) item).getBlock() == block) {
+                        if (item instanceof BlockItem && ( (BlockItem) item ).getBlock() == block) {
                             itemStack.decrement(1);
                             removedSeed = true;
                         }
@@ -108,46 +116,45 @@ public class RugServer implements CarpetExtension, ModInitializer {
                     Block.dropStack(world, pos, itemStack);
                 }
 
-                world.setBlockState(pos, removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState());
+                world.setBlockState(
+                    pos,
+                    removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState()
+                );
 
                 return ActionResult.SUCCESS;
             }
             return ActionResult.PASS;
-        }));
+        } ));
     }
 
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
         String datapackPath = server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/Rug_flexibleData/";
         boolean isFirstLoad = !Files.isDirectory(new File(datapackPath).toPath());
+
         try {
             Files.createDirectories(new File(datapackPath + "data/rug/recipes").toPath());
             Files.createDirectories(new File(datapackPath + "data/rug/advancements").toPath());
             Files.createDirectories(new File(datapackPath + "data/minecraft/recipes").toPath());
-            Files.copy(
-                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/pack.mcmeta")),
-                    new File(datapackPath, "pack.mcmeta").toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-            );
-        } catch (IOException ignored) {
+            copyFile("assets/rug/Rug_flexibleDataStorage/pack.mcmeta", datapackPath + "pack.mcmeta", true);
+        } catch (IOException e) {
+            Logging.logStackTrace(e);
         }
-        try {
-            Files.copy(
-                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/rug/advancements/root.json")),
-                    new File(datapackPath, "data/rug/advancements/root.json").toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-            );
-        } catch (IOException ignored) {
-        }
+
+        copyFile(
+            "assets/rug/Rug_flexibleDataStorage/rug/advancements/root.json",
+            datapackPath + "data/rug/advancements/root.json",
+            true
+        );
 
         for (Field f : RugSettings.class.getDeclaredFields()) {
             CraftingRule craftingRule = f.getAnnotation(CraftingRule.class);
             if (craftingRule == null) continue;
             registerCraftingRule(
-                    craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
-                    craftingRule.recipes(),
-                    craftingRule.recipeNamespace(),
-                    datapackPath + "data/"
+                craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
+                craftingRule.recipes(),
+                craftingRule.recipeNamespace(),
+                datapackPath + "data/"
             );
         }
         reload();
@@ -156,18 +163,30 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
     }
 
-    private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String datapackPath) {
-        updateCraftingRule(CarpetServer.settingsManager.getRule(ruleName), recipes, recipeNamespace, datapackPath, ruleName);
+    private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String dataPath) {
+        updateCraftingRule(
+            CarpetServer.settingsManager.getRule(ruleName),
+            recipes,
+            recipeNamespace,
+            dataPath,
+            ruleName
+        );
 
-        CarpetServer.settingsManager.addRuleObserver(((source, rule, s) -> {
+        CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
             if (rule.name.equals(ruleName)) {
-                updateCraftingRule(rule, recipes, recipeNamespace, datapackPath, ruleName);
+                updateCraftingRule(rule, recipes, recipeNamespace, dataPath, ruleName);
                 reload();
             }
-        }));
+        });
     }
 
-    private void updateCraftingRule(ParsedRule<?> rule, String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
+    private void updateCraftingRule(
+        ParsedRule<?> rule,
+        String[] recipes,
+        String recipeNamespace,
+        String datapackPath,
+        String ruleName
+    ) {
         ruleName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, ruleName);
 
         if (rule.type == String.class) {
@@ -176,15 +195,17 @@ public class RugServer implements CarpetExtension, ModInitializer {
             List<String> installedRecipes = Lists.newArrayList();
             try {
                 Stream<Path> fileStream = Files.list(new File(datapackPath + recipeNamespace, "recipes").toPath());
-                fileStream.forEach((path -> {
+                fileStream.forEach(( path -> {
                     for (String recipeName : recipes) {
                         String fileName = path.getFileName().toString();
                         if (fileName.startsWith(recipeName)) {
                             installedRecipes.add(fileName);
                         }
                     }
-                }));
-            } catch (IOException ignored) {
+                } ));
+                fileStream.close();
+            } catch (IOException e) {
+                Logging.logStackTrace(e);
             }
 
             deleteRecipes(installedRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName, false);
@@ -194,13 +215,15 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 try {
                     Stream<Path> fileStream = Files.list(new File(datapackPath, "rug/advancements").toPath());
                     String finalRuleName = ruleName;
-                    fileStream.forEach((path -> {
+                    fileStream.forEach(( path -> {
                         String fileName = path.getFileName().toString().replace(".json", "");
                         if (fileName.startsWith(finalRuleName)) {
                             installedAdvancements.add(fileName);
                         }
-                    }));
-                } catch (IOException ignored) {
+                    } ));
+                    fileStream.close();
+                } catch (IOException e) {
+                    Logging.logStackTrace(e);
                 }
                 for (String advancement : installedAdvancements.toArray(new String[0])) {
                     removeAdvancement(datapackPath, advancement);
@@ -215,47 +238,49 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
                 copyRecipes(tempRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName + "_" + value);
             }
-        } else {
-            if (rule.getBoolValue()) {
-                copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
+        } else if (rule.type == int.class && (Integer) rule.get() > 0) {
+            copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
 
-                if (rule.type == int.class) {
-                    int value = (Integer) rule.get();
-                    for (String recipeName : recipes) {
-                        String filePath = datapackPath + recipeNamespace + "/recipes/" + recipeName;
-                        JsonObject jsonObject = readJson(filePath);
-                        assert jsonObject != null;
-                        jsonObject.getAsJsonObject("result").addProperty("count", value);
-                        writeJson(jsonObject, filePath);
-                    }
-                }
-            } else {
-                deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName, true);
+            int value = (Integer) rule.get();
+            for (String recipeName : recipes) {
+                String filePath = datapackPath + recipeNamespace + "/recipes/" + recipeName;
+                JsonObject jsonObject = readJson(filePath);
+                assert jsonObject != null;
+                jsonObject.getAsJsonObject("result").addProperty("count", value);
+                writeJson(jsonObject, filePath);
             }
+        } else if (rule.type == boolean.class && rule.getBoolValue()) {
+            copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
+        } else {
+            deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName, true);
         }
     }
 
     private void copyRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
         for (String recipeName : recipes) {
-            try {
-                Files.copy(
-                        Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/" + recipeNamespace + "/recipes/" + recipeName)),
-                        new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath(),
-                        StandardCopyOption.REPLACE_EXISTING
-                );
-            } catch (IOException ignored) {
-            }
+            copyFile(
+                "assets/rug/Rug_flexibleDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
+                datapackPath + recipeNamespace + "/recipes" + recipeName,
+                true
+            );
         }
         if (recipeNamespace.equals("rug")) {
             writeAdvancement(datapackPath, ruleName, recipes);
         }
     }
 
-    private void deleteRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName, boolean removeAdvancement) {
+    private void deleteRecipes(
+        String[] recipes,
+        String recipeNamespace,
+        String datapackPath,
+        String ruleName,
+        boolean removeAdvancement
+    ) {
         for (String recipeName : recipes) {
             try {
                 Files.deleteIfExists(new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath());
-            } catch (IOException ignored) {
+            } catch (IOException e) {
+                Logging.logStackTrace(e);
             }
         }
         if (removeAdvancement && recipeNamespace.equals("rug")) {
@@ -264,14 +289,12 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void writeAdvancement(String datapackPath, String ruleName, String[] recipes) {
-        try {
-            Files.copy(
-                    Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/rug/Rug_flexibleDataStorage/rug/advancements/recipe_rule.json")),
-                    new File(datapackPath, "rug/advancements/" + ruleName + ".json").toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-            );
-        } catch (IOException ignored) {
-        }
+        copyFile(
+            "assets/rug/Rug_flexibleDataStorage/rug/advancements/recipe_rule.json",
+            datapackPath + "rug/advancements/" + ruleName + ".json",
+            true
+        );
+
         JsonObject advancementJson = readJson(datapackPath + "rug/advancements/" + ruleName + ".json");
         assert advancementJson != null;
         JsonArray recipeRewards = advancementJson.getAsJsonObject("rewards").getAsJsonArray("recipes");
@@ -285,7 +308,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private void removeAdvancement(String datapackPath, String ruleName) {
         try {
             Files.deleteIfExists(new File(datapackPath + "rug/advancements/" + ruleName + ".json").toPath());
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            Logging.logStackTrace(e);
         }
     }
 
@@ -305,7 +329,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
             FileWriter writer = new FileWriter(filePath);
             writer.write(new GsonBuilder().setPrettyPrinting().create().toJson(jsonObject));
             writer.close();
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            Logging.logStackTrace(e);
         }
     }
 
@@ -321,24 +346,37 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private static boolean isMature(BlockState state) {
         Block block = state.getBlock();
         if (block instanceof CropBlock) {
-            return ((CropBlock) block).isMature(state);
+            return ( (CropBlock) block ).isMature(state);
         } else if (block instanceof NetherWartBlock) {
             return state.get(NetherWartBlock.AGE) == 3;
-        } else if (block instanceof CocoaBlock) {
-            return state.get(CocoaBlock.AGE) == 2;
-        }
+        } else if (block instanceof CocoaBlock) { return state.get(CocoaBlock.AGE) == 2; }
         return false;
     }
 
     private static IntProperty getAgeProperty(Block block) {
         if (block instanceof CropBlock) {
-            return ((CropBlock) block).getAgeProperty();
+            return ( (CropBlock) block ).getAgeProperty();
         } else if (block instanceof NetherWartBlock) {
             return NetherWartBlock.AGE;
-        } else if (block instanceof CocoaBlock) {
-            return CocoaBlock.AGE;
-        }
+        } else if (block instanceof CocoaBlock) { return CocoaBlock.AGE; }
         return null;
+    }
+
+    private void copyFile(String resourcePath, String targetPath, boolean replaceExisting) {
+        InputStream source = Objects.requireNonNull(
+            BundledModule.class.getClassLoader().getResourceAsStream(resourcePath)
+        );
+        Path target = new File(targetPath).toPath();
+
+        try {
+            if (replaceExisting) {
+                Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+            } else {
+                Files.copy(source, target);
+            }
+        } catch (IOException e) {
+            Logging.logStackTrace(e);
+        }
     }
 
     public static void savePlayerData(ServerPlayerEntity player) {
@@ -350,7 +388,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
             File file2 = new File(playerDataDir, player.getUuidAsString() + ".dat");
             File file3 = new File(playerDataDir, player.getUuidAsString() + ".dat_old");
             Util.backupAndReplace(file2, file, file3);
-        } catch (Exception var6) {
+        } catch (Exception ignored) {
             LOGGER.warn("Failed to save player data for " + player.getName().getString());
         }
     }
