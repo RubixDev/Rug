@@ -34,15 +34,18 @@ public abstract class BlockMixin {
             )
     )
     private static void onDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfo ci) {
-        boolean baseCondition = EnchantmentHelper.get(stack).containsKey(Enchantments.SILK_TOUCH) && stack.getItem() != Items.ENCHANTED_BOOK;
+        boolean usesSilkTouch = EnchantmentHelper.get(stack).containsKey(Enchantments.SILK_TOUCH) && stack.getItem() != Items.ENCHANTED_BOOK;
 
-        if (state.isOf(Blocks.FARMLAND) && baseCondition && RugSettings.silkTouchFarmland) {
+        if (RugSettings.silkTouchFarmland && state.isOf(Blocks.FARMLAND) && usesSilkTouch) {
             dropStack(world, pos, new ItemStack(Items.FARMLAND));
             ci.cancel();
-        } else if (state.isOf(Blocks.DIRT_PATH) && baseCondition && RugSettings.silkTouchPathBlocks) {
+        } else if (RugSettings.silkTouchPathBlocks && state.isOf(Blocks.DIRT_PATH) && usesSilkTouch) {
             dropStack(world, pos, new ItemStack(Items.DIRT_PATH));
             ci.cancel();
-        } else if (state.isOf(Blocks.SPAWNER) && baseCondition && RugSettings.silkTouchSpawners) {
+        } else if (RugSettings.silkTouchBuddingAmethysts && state.isOf(Blocks.BUDDING_AMETHYST) && usesSilkTouch) {
+            dropStack(world, pos, new ItemStack(Items.BUDDING_AMETHYST));
+            ci.cancel();
+        } else if (RugSettings.silkTouchSpawners && state.isOf(Blocks.SPAWNER) && usesSilkTouch) {
             ItemStack newStack = new ItemStack(Items.SPAWNER);
             NbtCompound tag = blockEntity.writeNbt(new NbtCompound());
             tag.remove("id");

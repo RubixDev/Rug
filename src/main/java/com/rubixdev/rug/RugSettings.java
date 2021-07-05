@@ -1114,6 +1114,12 @@ public class RugSettings {
             category = {CRAFTING, SURVIVAL, RUG}
     )
     public static boolean smokerLimeDye = false;
+
+    @Rule(
+            desc = "Mining Budding Amethysts with a Silk Touch tool will drop itself",
+            category = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG}
+    )
+    public static boolean silkTouchBuddingAmethysts = false;
 }
 
 // BUGFIX
