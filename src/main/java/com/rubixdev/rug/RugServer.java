@@ -33,6 +33,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -130,20 +132,28 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public void onServerLoadedWorlds(MinecraftServer server) {
-        String datapackPath = server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/Rug_flexibleData/";
+        String datapackPath = server.getSavePath(WorldSavePath.DATAPACKS).toString();
+        if (Files.isDirectory(new File(datapackPath + "/Rug_flexibleData/").toPath())) {
+            try {
+                FileUtils.deleteDirectory(new File(datapackPath + "/Rug_flexibleData/"));
+            } catch (IOException e) {
+                Logging.logStackTrace(e);
+            }
+        }
+        datapackPath += "/RugData/";
         boolean isFirstLoad = !Files.isDirectory(new File(datapackPath).toPath());
 
         try {
             Files.createDirectories(new File(datapackPath + "data/rug/recipes").toPath());
             Files.createDirectories(new File(datapackPath + "data/rug/advancements").toPath());
             Files.createDirectories(new File(datapackPath + "data/minecraft/recipes").toPath());
-            copyFile("assets/rug/Rug_flexibleDataStorage/pack.mcmeta", datapackPath + "pack.mcmeta", true);
+            copyFile("assets/rug/RugDataStorage/pack.mcmeta", datapackPath + "pack.mcmeta", true);
         } catch (IOException e) {
             Logging.logStackTrace(e);
         }
 
         copyFile(
-            "assets/rug/Rug_flexibleDataStorage/rug/advancements/root.json",
+            "assets/rug/RugDataStorage/rug/advancements/root.json",
             datapackPath + "data/rug/advancements/root.json",
             true
         );
@@ -160,7 +170,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
         reload();
         if (isFirstLoad) {
-            server.getCommandManager().execute(server.getCommandSource(), "/datapack enable \"file/Rug_flexibleData\"");
+            server.getCommandManager().execute(server.getCommandSource(), "/datapack enable \"file/RugData\"");
         }
     }
 
@@ -260,8 +270,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private void copyRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
         for (String recipeName : recipes) {
             copyFile(
-                "assets/rug/Rug_flexibleDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
-                datapackPath + recipeNamespace + "/recipes" + recipeName,
+                "assets/rug/RugDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
+                datapackPath + recipeNamespace + "/recipes/" + recipeName,
                 true
             );
         }
@@ -291,7 +301,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     private void writeAdvancement(String datapackPath, String ruleName, String[] recipes) {
         copyFile(
-            "assets/rug/Rug_flexibleDataStorage/rug/advancements/recipe_rule.json",
+            "assets/rug/RugDataStorage/rug/advancements/recipe_rule.json",
             datapackPath + "rug/advancements/" + ruleName + ".json",
             true
         );
@@ -339,7 +349,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         ResourcePackManager resourcePackManager = minecraftServer.getDataPackManager();
         resourcePackManager.scanPacks();
         Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
-        collection.add("Rug_flexibleData");
+        collection.add("RugData");
 
         ReloadCommand.tryReloadDataPacks(collection, minecraftServer.getCommandSource());
     }
