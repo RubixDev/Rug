@@ -1,27 +1,33 @@
 package com.rubixdev.rug.commands;
 
-import carpet.settings.SettingsManager;
+import static net.minecraft.command.CommandSource.suggestMatching;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
+
+import java.util.Collection;
+
+import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.serialization.Dynamic;
 import com.rubixdev.rug.RugSettings;
 import com.rubixdev.rug.gui.PlayerDataGui;
+
+import carpet.settings.SettingsManager;
+import net.minecraft.command.argument.GameProfileArgumentType;
 import net.minecraft.inventory.EnderChestInventory;
-import net.minecraft.screen.*;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-
-import java.util.Collection;
-
-import static net.minecraft.command.CommandSource.suggestMatching;
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandManager.literal;
+import net.minecraft.world.dimension.DimensionType;
 
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -30,14 +36,14 @@ public class PeekCommand {
         )
             .then(
                 literal("inventory").then(
-                    argument("player", StringArgumentType.word()).suggests(
+                    argument("player", GameProfileArgumentType.gameProfile()).suggests(
                         ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
                     ).executes(context -> execute(context, false))
                 )
             )
             .then(
                 literal("enderchest").then(
-                    argument("player", StringArgumentType.word()).suggests(
+                    argument("player", GameProfileArgumentType.gameProfile()).suggests(
                         ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
                     ).executes(context -> execute(context, true))
                 )
@@ -50,12 +56,22 @@ public class PeekCommand {
         ServerCommandSource source = context.getSource();
 
         PlayerManager playerManager = source.getMinecraftServer().getPlayerManager();
-        ServerPlayerEntity targetPlayer = playerManager.getPlayer(StringArgumentType.getString(context, "player"));
+        GameProfile targetPlayerProfile = GameProfileArgumentType.getProfileArgument(context, "player")
+            .iterator()
+            .next();
+        ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerProfile.getName());
         ServerPlayerEntity executingPlayer = source.getPlayer();
 
         if (targetPlayer == null) {
-            source.sendError(new LiteralText("Targeted Player could not be found"));
-            return 0;
+            targetPlayer = playerManager.createPlayer(targetPlayerProfile);
+            NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
+            ServerWorld world = source.getMinecraftServer()
+                .getWorld(
+                    DimensionType.worldFromDimensionNbt(
+                        new Dynamic<>(NbtOps.INSTANCE, targetPlayerData.get("Dimension"))
+                    ).result().get()
+                );
+            if (world != null) targetPlayer.setWorld(world);
         }
 
         if (isEnderChest) {
