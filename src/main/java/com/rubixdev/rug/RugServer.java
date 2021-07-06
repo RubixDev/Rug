@@ -76,6 +76,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         SkullCommand.register(dispatcher);
         SudoCommand.register(dispatcher);
         PeekCommand.register(dispatcher);
+        MaxEffectCommand.register(dispatcher);
     }
 
     @Override

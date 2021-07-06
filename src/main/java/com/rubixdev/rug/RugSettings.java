@@ -1174,6 +1174,13 @@ public class RugSettings {
         validate = validatorVillagersDropEmeralds.class
     )
     public static int villagersDropEmeralds = 0;
+
+    @Rule(
+        desc = "A command to quickly give the player the specified effect for infinite time and at max level",
+        extra = "This is basically just an alias for: `/effect give @s <effect> 999999 255 true`",
+        category = { COMMAND, RUG }
+    )
+    public static String commandMaxEffect = "ops";
 }
 
 // BUGFIX
