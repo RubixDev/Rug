@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 31
+Count: 33
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -30,10 +30,12 @@ Count: 31
 - [peacefulHunger](#peacefulhunger)
 - [playerHeadDrops](#playerheaddrops)
 - [silenceMobs](#silencemobs)
+- [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
 - [strictShulkerShells](#strictshulkershells)
+- [villagersDropEmeralds](#villagersdropemeralds)
 
 ## Rules in FEATURE Category
 
@@ -269,6 +271,13 @@ Mobs named with 'silence_me' stop making noise
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
+### silkTouchBuddingAmethysts
+Mining Budding Amethysts with a Silk Touch tool will drop itself    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### silkTouchFarmland
 Mining Farmland with a Silk Touch tool will drop itself    
 - Type: `boolean`
@@ -299,3 +308,12 @@ Shulkers always drop a given amount of shulker shells when killed
 - Additional notes:
   - You must choose a value from 0 to 4
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### villagersDropEmeralds
+Villagers drop between 1 and x Emeralds on death, where x is the given number    
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `1`, `3`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 5

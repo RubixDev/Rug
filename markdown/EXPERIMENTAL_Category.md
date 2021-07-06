@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 32
+Count: 33
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -28,6 +28,7 @@ Count: 32
 - [netherrackGeneration](#netherrackgeneration)
 - [peacefulHunger](#peacefulhunger)
 - [reachDistance](#reachdistance)
+- [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
@@ -267,6 +268,13 @@ Mod needed on server and client for this feature to work
   - You must choose a value from 0 to 100
   - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
 
+### silkTouchBuddingAmethysts
+Mining Budding Amethysts with a Silk Touch tool will drop itself    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### silkTouchFarmland
 Mining Farmland with a Silk Touch tool will drop itself    
 - Type: `boolean`
@@ -315,6 +323,8 @@ Old Bug: MC-31038
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
 
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks    

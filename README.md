@@ -22,7 +22,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 87
+Count: 90
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -38,6 +38,7 @@ Count: 87
 - [campSleeping](#campsleeping)
 - [cobbleCrushing](#cobblecrushing)
 - [commandFrame](#commandframe)
+- [commandMaxEffect](#commandmaxeffect)
 - [commandPeek](#commandpeek)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
@@ -91,6 +92,7 @@ Count: 87
 - [redstoneLampTurnOffDelay](#redstonelampturnoffdelay)
 - [shapelessCrafting](#shapelesscrafting)
 - [silenceMobs](#silencemobs)
+- [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
@@ -107,6 +109,7 @@ Count: 87
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
 - [villagersAlwaysConvert](#villagersalwaysconvert)
+- [villagersDropEmeralds](#villagersdropemeralds)
 - [woodcutting](#woodcutting)
 - [zeroTickPlants](#zerotickplants)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
@@ -234,6 +237,14 @@ Carpet-Extra's renewableSand is prioritized over this
 
 ### commandFrame
 A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible    
+- Type: `String`
+- Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandMaxEffect
+A command to quickly give the player the specified effect for infinite time and at max level  
+This is basically just an alias for: `/effect give @s <effect> 999999 255 true`  
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`
@@ -687,6 +698,13 @@ Mobs named with 'silence_me' stop making noise
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
+### silkTouchBuddingAmethysts
+Mining Budding Amethysts with a Silk Touch tool will drop itself    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### silkTouchFarmland
 Mining Farmland with a Silk Touch tool will drop itself    
 - Type: `boolean`
@@ -770,6 +788,8 @@ Old Bug: MC-31038
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table  
@@ -827,6 +847,15 @@ Villagers killed by Zombies will always convert to Zombie Villagers regardless o
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
+
+### villagersDropEmeralds
+Villagers drop between 1 and x Emeralds on death, where x is the given number    
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `1`, `3`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 5
 
 ### woodcutting
 The Stonecutter can be used for all wood types  

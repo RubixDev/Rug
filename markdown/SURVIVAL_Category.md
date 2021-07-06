@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 64
+Count: 66
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [blastFurnaceGlass](#blastfurnaceglass)
@@ -52,6 +52,7 @@ Count: 64
 - [powderToGlassSmelting](#powdertoglasssmelting)
 - [shapelessCrafting](#shapelesscrafting)
 - [silenceMobs](#silencemobs)
+- [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
@@ -65,6 +66,7 @@ Count: 64
 - [unpackableQuartz](#unpackablequartz)
 - [unpackableWool](#unpackablewool)
 - [villagersAlwaysConvert](#villagersalwaysconvert)
+- [villagersDropEmeralds](#villagersdropemeralds)
 - [woodcutting](#woodcutting)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
 
@@ -483,6 +485,13 @@ Mobs named with 'silence_me' stop making noise
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
+### silkTouchBuddingAmethysts
+Mining Budding Amethysts with a Silk Touch tool will drop itself    
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
 ### silkTouchFarmland
 Mining Farmland with a Silk Touch tool will drop itself    
 - Type: `boolean`
@@ -595,6 +604,15 @@ Villagers killed by Zombies will always convert to Zombie Villagers regardless o
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
+
+### villagersDropEmeralds
+Villagers drop between 1 and x Emeralds on death, where x is the given number    
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `1`, `3`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 5
 
 ### woodcutting
 The Stonecutter can be used for all wood types  
