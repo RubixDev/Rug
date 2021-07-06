@@ -39,7 +39,7 @@ public class RugSettings {
         validate = validatorAnvilledIce.class
     )
     public static int anvilledBlueIce = 0;
-    // anvilledBlueIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+    // anvilledBlueIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
         desc = "Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.",
@@ -49,7 +49,7 @@ public class RugSettings {
         validate = validatorAnvilledIce.class
     )
     public static int anvilledIce = 0;
-    // anvilledIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+    // anvilledIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
         desc = "Custom amount of ice crushed by falling anvils make one packed ice.",
@@ -59,7 +59,7 @@ public class RugSettings {
         validate = validatorAnvilledIce.class
     )
     public static int anvilledPackedIce = 0;
-    // anvilledPackedIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+    // anvilledPackedIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(desc = "Allows Zombified Piglins to spawn inside Nether Portals", category = { SURVIVAL, RUG })
     public static boolean zombifiedPiglinsSpawningInPortals = true;
@@ -82,7 +82,7 @@ public class RugSettings {
         category = { FEATURE, SURVIVAL, RUG }
     )
     public static String playerHeadDrops = "off";
-    // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(
         desc = "Ender Dragon drops selected item(s) when killed",
@@ -98,7 +98,7 @@ public class RugSettings {
         category = { FEATURE, SURVIVAL, RENEWABLE, RUG }
     )
     public static String dragonDrops = "none";
-    // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
 
@@ -126,11 +126,11 @@ public class RugSettings {
         validate = validatorStrictShulkerShells.class
     )
     public static int strictShulkerShells = 0;
-    // strictShulkerShellsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    // strictShulkerShellsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(desc = "Mobs named with 'silence_me' stop making noise", category = { FEATURE, SURVIVAL, RUG })
     public static boolean silenceMobs = false;
-    // silenceMobsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+    // silenceMobsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(desc = "Brings back the ability to force grow certain plants using 0-ticks", category = { EXPERIMENTAL, RUG })
     public static boolean zeroTickPlants = false;
@@ -157,14 +157,14 @@ public class RugSettings {
     public static boolean edibleNetheriteScraps = false;
     // edibleNetheriteScrapsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows
     // this item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
 
     @Rule(
         desc = "Players do not lose any hunger like in peaceful mode",
         category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
     )
     public static boolean peacefulHunger = false;
-    // peacefulHungerAdditional: Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
+    // peacefulHungerAdditional: Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
     @Rule(
         desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
@@ -173,7 +173,7 @@ public class RugSettings {
     )
     public static boolean foodInstantHeal = false;
     // foodInstantHealAdditional: Suggestion by
-    // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
+    // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
     @Rule(desc = "Lily Pads can be placed on Cauldrons", category = { FEATURE, RUG })
     public static boolean lilyPadsOnCauldron = false;
@@ -240,7 +240,7 @@ public class RugSettings {
     public static boolean edibleSlimeBalls = false;
     // edibleSlimeBallsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
 
     public static class validatorReachDistance extends Validator<Double> {
 
@@ -270,7 +270,7 @@ public class RugSettings {
     )
     public static double reachDistance = 4.5;
     // reachDistanceAdditional: Is disabled when
-    // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
+    // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed:::
 
     @Rule(
         desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
@@ -280,7 +280,7 @@ public class RugSettings {
     public static boolean edibleGoldIngots = false;
     // edibleGoldIngotsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
 
@@ -336,7 +336,7 @@ public class RugSettings {
     public static boolean edibleMagmaCream = false;
     // edibleMagmaCreamAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
 
     @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(
@@ -345,7 +345,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean easyDispenserCrafting = false;
-    // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+    // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(recipes = "easy_bone_block.json")
     @Rule(
@@ -477,7 +477,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean shapelessCrafting = false;
-    // shapelessCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+    // shapelessCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(
         recipes = {
@@ -504,7 +504,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean powderToGlassSmelting = false;
-    // powderToGlassSmeltingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+    // powderToGlassSmeltingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(
         recipes = {
@@ -630,7 +630,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean universalDyeing = false;
-    // universalDyeingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+    // universalDyeingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     public static class validatorUnpackables extends Validator<Integer> {
 
@@ -776,7 +776,7 @@ public class RugSettings {
     public static String honeyCombStickiness = "both";
     // honeyCombStickinessAdditional: [Idea from
     // DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208)
-    // on the [SciCraft Discord](https://discord.gg/scicraft)
+    // on the [SciCraft Discord](https://discord.gg/scicraft):::
 
     @Rule(
         desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
@@ -893,7 +893,7 @@ public class RugSettings {
         category = { EXPERIMENTAL, SURVIVAL, RUG }
     )
     public static int dragonXpDrop = 500;
-    // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
+    // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171):::
 
     @Rule(
         desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
@@ -903,7 +903,7 @@ public class RugSettings {
     )
     public static String moreFortressSpawningBlocks = "off";
     // moreFortressSpawningBlocksAdditional: [Idea from
-    // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
+    // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182):::
 
     @CraftingRule(recipes = "easy_blue_ice_crafting.json")
     @Rule(
@@ -939,7 +939,7 @@ public class RugSettings {
         category = { EXPERIMENTAL, RUG }
     )
     public static int slimeChunkPercentage = 10;
-    // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
+    // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161):::
 
     public static class validatorMaxBannerLayers extends Validator<Integer> {
 
@@ -968,7 +968,7 @@ public class RugSettings {
         category = { EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG }
     )
     public static int maxBannerLayers = 6;
-    // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+    // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111):::
 
     @Rule(
         desc = "A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage",
@@ -982,7 +982,7 @@ public class RugSettings {
         category = { EXPERIMENTAL, RUG }
     )
     public static boolean tallPlantNoUpdate = false;
-    // Additional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
+    // tallPlantNoUpdateAdditional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185):::
 
     @Rule(
         desc = "A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible",
@@ -1066,7 +1066,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean blastFurnaceStone = false;
-    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
+    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15):::
 
     @CraftingRule(recipes = "blast_furnace_glass.json")
     @Rule(

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import re
+
 
 class Rule:
     type: str
@@ -48,32 +50,31 @@ def read_rules() -> list[Rule]:
     rules: list[Rule] = []
     for raw_rule in raw_rules:
         rule: Rule = Rule()
-        field: list[str] = raw_rule.split('\n')[-1][18:].split(' ')
+        field: list[str] = raw_rule.split('\n')[-1].split('public static ')[-1].split(' ')
         rule.type = field[0]
         rule.name = field[1]
         print(f'Parsing rule {rule.name}')
         rule.value = field[3].replace('"', '')
 
-        keys: list[str] = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
-        values: list[str] = [i[12:].split(' = ')[1] for i in raw_rule.split('\n')[1:-2]]
-        attr_dict: dict[str: str] = {k: v for k, v in zip(keys, values)}
+        attr_dict: dict[str: str] = { match.group(1): match.group(2) for match in re.finditer(r'(name|desc|extra|options|category|strict|appSource|validate) = ([\s\S]+?)(?=,\n?\s*?\w+?\s?=\s?|\n?\s*?\)\n)', raw_rule) }
+        print(attr_dict)
 
-        rule.desc = attr_dict['desc'][1:-2]
-        if 'extra' in keys:
-            rule.extra = attr_dict['extra'][1:-2]
-        if 'options' in keys:
-            rule.options = [i[1:-1] for i in attr_dict['options'][1:-2].split(', ')]
-        rule.strict = not ('strict' in keys)
-        rule.categories = [i.replace('}', '') for i in attr_dict['category'][1:-1].split(', ')]
+        rule.desc = attr_dict['desc'][1:-1]
+        if 'extra' in attr_dict.keys():
+            rule.extra = attr_dict['extra'][1:-1]
+        if 'options' in attr_dict.keys():
+            rule.options = [re.sub(r'\s|\n', '', option)[1:-1] for option in re.compile(r',\s|,\n').split(attr_dict['options'][1:-1])]
+        rule.strict = not ('strict' in attr_dict.keys()) or attr_dict['strict'] == 'true'
+        rule.categories = [category for category in attr_dict['category'][1:-1].replace(' ', '').split(',')]
         if 'RUG' not in rule.categories:
-            print(f'RUG category is missing in {rule.name}')
+            print(f'\033[1;31mRUG category is missing in {rule.name}!\033[22m Exiting...\033[0m')
             return []
         if not rule.strict:
-            validator: str = attr_dict['validate'].replace(',', '')[:-6]
+            validator: str = attr_dict['validate'].replace('.class', '')
             rule.restriction = settings_string.split(f'class {validator} extends')[1].split('"')[1]
         found_additional: list[str] = settings_string.split(f'// {rule.name}Additional: ')
         if len(found_additional) > 1:
-            rule.additional = found_additional[1].split('\n')[0]
+            rule.additional = re.sub(r'\n\s+?//\s?', ' ', found_additional[1].split(':::')[0])
 
         rules.append(rule)
         print(f'Successfully parsed {rule.name}')
