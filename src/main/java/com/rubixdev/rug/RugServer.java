@@ -47,7 +47,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class RugServer implements CarpetExtension, ModInitializer {
-    public static final String VERSION = "1.1.9";
+    public static final String VERSION = "1.1.10";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
 
     private static MinecraftServer minecraftServer;
