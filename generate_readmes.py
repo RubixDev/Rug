@@ -1,4 +1,4 @@
-from typing import List, Dict
+#!/usr/bin/env python3
 
 
 class Rule:
@@ -15,9 +15,9 @@ class Rule:
 
     def __repr__(self):
         nl: str = '\n'
-        options: List[str] = ['true', 'false'] if self.type == 'boolean' else self.options
+        options: list[str] = ['true', 'false'] if self.type == 'boolean' else self.options
         if 'COMMAND' in self.categories:
-            options: List[str] = ['true', 'false', 'ops']
+            options: list[str] = ['true', 'false', 'ops']
 
         self.categories.sort()
 
@@ -35,28 +35,28 @@ class Rule:
                 out += f'\n  - {self.restriction}'
             if self.additional:
                 out += f'\n  - {self.additional}'
-        
+
         return out
 
 
-def read_rules() -> List[Rule]:
+def read_rules() -> list[Rule]:
     with open('src/main/java/com/rubixdev/rug/RugSettings.java', 'r') as settings_file:
         print('Reading settings file\n')
         settings_string = settings_file.read()
-    raw_rules: List[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
+    raw_rules: list[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
 
-    rules: List[Rule] = []
+    rules: list[Rule] = []
     for raw_rule in raw_rules:
         rule: Rule = Rule()
-        field: List[str] = raw_rule.split('\n')[-1][18:].split(' ')
+        field: list[str] = raw_rule.split('\n')[-1][18:].split(' ')
         rule.type = field[0]
         rule.name = field[1]
         print(f'Parsing rule {rule.name}')
         rule.value = field[3].replace('"', '')
 
-        keys: List[str] = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
-        values: List[str] = [i[12:].split(' = ')[1] for i in raw_rule.split('\n')[1:-2]]
-        attr_dict: Dict[str: str] = {k: v for k, v in zip(keys, values)}
+        keys: list[str] = [i[12:].split(' = ')[0] for i in raw_rule.split('\n')[1:-2]]
+        values: list[str] = [i[12:].split(' = ')[1] for i in raw_rule.split('\n')[1:-2]]
+        attr_dict: dict[str: str] = {k: v for k, v in zip(keys, values)}
 
         rule.desc = attr_dict['desc'][1:-2]
         if 'extra' in keys:
@@ -71,7 +71,7 @@ def read_rules() -> List[Rule]:
         if not rule.strict:
             validator: str = attr_dict['validate'].replace(',', '')[:-6]
             rule.restriction = settings_string.split(f'class {validator} extends')[1].split('"')[1]
-        found_additional: List[str] = settings_string.split(f'// {rule.name}Additional: ')
+        found_additional: list[str] = settings_string.split(f'// {rule.name}Additional: ')
         if len(found_additional) > 1:
             rule.additional = found_additional[1].split('\n')[0]
 
@@ -81,14 +81,14 @@ def read_rules() -> List[Rule]:
     return rules
 
 
-def write_files(rules: List[Rule]):
+def write_files(rules: list[Rule]):
     with open('markdown/README-header.md', 'r') as header_file:
         print('Reading header file')
         out: str = header_file.read()
 
     print('Listing all categories')
-    all_categories: List[str] = list(set([item for sublist in [rule.categories for rule in rules] for item in sublist]))
-    all_categories: List[str] = [category for category in all_categories if category.upper() != 'RUG']
+    all_categories: list[str] = list(set([item for sublist in [rule.categories for rule in rules] for item in sublist]))
+    all_categories: list[str] = [category for category in all_categories if category.upper() != 'RUG']
     all_categories.sort()
 
     out += f'## Lists of Categories\n'
@@ -107,7 +107,7 @@ def write_files(rules: List[Rule]):
 
     for category in all_categories:
         print(f'Listing rules in {category} category')
-        rules_in_category: List[Rule] = [rule for rule in rules if category in rule.categories]
+        rules_in_category: list[Rule] = [rule for rule in rules if category in rule.categories]
         rules_in_category.sort(key=lambda e: e.name)
         out: str = f'# List of Rules in the {category} Category\n\n' \
                    f'For a list of all implemented Rules go [here](../README.md)\n'
@@ -120,7 +120,7 @@ def write_files(rules: List[Rule]):
     curseforge_list(rules)
 
 
-def list_rules(rules: List[Rule], rule_headline: str) -> str:
+def list_rules(rules: list[Rule], rule_headline: str) -> str:
     out: str = f'## Index\n' \
                f'Count: {len(rules)}\n'
     for rule in rules:
@@ -132,7 +132,7 @@ def list_rules(rules: List[Rule], rule_headline: str) -> str:
     return out
 
 
-def curseforge_list(rules: List[Rule]):
+def curseforge_list(rules: list[Rule]):
     out: str = f'# Rug Mod for Fabric\n\n' \
                f'Extension Mod for [gnembon\'s fabric-carpet](https://github.com/gnembon/fabric-carpet) ' \
                f'with some more features\n\n' \

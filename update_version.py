@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 with open('gradle.properties', 'r') as gradle_file:
     content = gradle_file.read()
     old_version = content.split('mod_version = ')[1].split('\n')[0]
