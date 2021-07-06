@@ -18,7 +18,9 @@ import java.util.Random;
 
 @Mixin(CactusBlock.class)
 public class CactusBlockMixin extends Block {
-    @Shadow @Final public static IntProperty AGE;
+    @Shadow
+    @Final
+    public static IntProperty AGE;
 
     public CactusBlockMixin(Settings settings) {
         super(settings);
@@ -30,8 +32,7 @@ public class CactusBlockMixin extends Block {
             BlockPos blockPos = pos.up();
             if (world.isAir(blockPos)) {
                 int i;
-                for (i = 1; world.getBlockState(pos.down(i)).getBlock() == this; ++i) {
-                }
+                for (i = 1; world.getBlockState(pos.down(i)).getBlock() == this; ++i) {}
 
                 if (i < 3) {
                     int j = state.get(AGE);

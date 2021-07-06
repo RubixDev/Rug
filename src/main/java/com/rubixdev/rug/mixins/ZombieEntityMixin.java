@@ -10,7 +10,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ZombieEntity.class)
 public class ZombieEntityMixin {
-    @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;"))
+    @Redirect(
+        method = "onKilledOther",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;"
+        )
+    )
     private Difficulty allowConversion(ServerWorld world) {
         if (RugSettings.villagersAlwaysConvert && world.getDifficulty() != Difficulty.PEACEFUL) {
             return Difficulty.HARD;

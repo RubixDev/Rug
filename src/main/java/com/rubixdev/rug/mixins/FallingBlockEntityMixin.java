@@ -29,11 +29,19 @@ public abstract class FallingBlockEntityMixin extends Entity {
     private int iceCount;
     private int packedIceCount;
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", ordinal = 0,
-            target = "Lnet/minecraft/entity/FallingBlockEntity;remove()V"),
-            slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1)),
-            locals = LocalCapture.CAPTURE_FAILHARD,
-            cancellable = true)
+    @Inject(
+        method = "tick",
+        at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraft/entity/FallingBlockEntity;remove()V"),
+        slice = @Slice(
+            from = @At(
+                value = "INVOKE",
+                target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+                ordinal = 1
+            )
+        ),
+        locals = LocalCapture.CAPTURE_FAILHARD,
+        cancellable = true
+    )
     private void onTick(CallbackInfo ci, Block block, BlockPos pos) {
         BlockPos posBelow = new BlockPos(this.getX(), this.getY() - 0.06, this.getZ());
         Block blockBelow = world.getBlockState(posBelow).getBlock();
@@ -75,44 +83,44 @@ public abstract class FallingBlockEntityMixin extends Entity {
             }
         } else if (block.is(Blocks.DRAGON_EGG)) {
             String rugSetting = RugSettings.dragonEggConvertsCobbleToEndstone;
-            if (blockBelow == Blocks.COBBLESTONE && (rugSetting.equals("both") || rugSetting.equals("on_landing"))) {
+            if (blockBelow == Blocks.COBBLESTONE && ( rugSetting.equals("both") || rugSetting.equals("on_landing") )) {
                 world.breakBlock(posBelow, false);
                 world.setBlockState(posBelow, Blocks.END_STONE.getDefaultState(), 3);
             }
-        } else if ((block.is(Blocks.SAND) && blockBelow.is(Blocks.GRAVEL))
-                || (block.is(Blocks.GRAVEL) && blockBelow.is(Blocks.SAND))) {
-            Block concreteBlock = world.getBlockState(posBelow.down()).getBlock();
-            if (isConcrete(concreteBlock) && RugSettings.concreteMixing) {
-                world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.SAND.getDefaultState()));
-                world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState()));
+        } else if (( block.is(Blocks.SAND) && blockBelow.is(Blocks.GRAVEL) )
+            || ( block.is(Blocks.GRAVEL) && blockBelow.is(Blocks.SAND) )) {
+                Block concreteBlock = world.getBlockState(posBelow.down()).getBlock();
+                if (isConcrete(concreteBlock) && RugSettings.concreteMixing) {
+                    world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.SAND.getDefaultState()));
+                    world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState()));
 
-                Block powderBlock = getCorrespondingPowder(concreteBlock);
-                assert powderBlock != null;
-                world.setBlockState(posBelow, powderBlock.getDefaultState(), 3);
-                this.remove();
-                ci.cancel();
+                    Block powderBlock = getCorrespondingPowder(concreteBlock);
+                    assert powderBlock != null;
+                    world.setBlockState(posBelow, powderBlock.getDefaultState(), 3);
+                    this.remove();
+                    ci.cancel();
+                }
             }
-        }
     }
 
     private boolean isConcrete(Block block) {
         List<Block> concreteBlocks = Lists.newArrayList(
-                Blocks.WHITE_CONCRETE,
-                Blocks.ORANGE_CONCRETE,
-                Blocks.MAGENTA_CONCRETE,
-                Blocks.LIGHT_BLUE_CONCRETE,
-                Blocks.YELLOW_CONCRETE,
-                Blocks.LIME_CONCRETE,
-                Blocks.PINK_CONCRETE,
-                Blocks.GRAY_CONCRETE,
-                Blocks.LIGHT_GRAY_CONCRETE,
-                Blocks.CYAN_CONCRETE,
-                Blocks.PURPLE_CONCRETE,
-                Blocks.BLUE_CONCRETE,
-                Blocks.BROWN_CONCRETE,
-                Blocks.GREEN_CONCRETE,
-                Blocks.RED_CONCRETE,
-                Blocks.BLACK_CONCRETE
+            Blocks.WHITE_CONCRETE,
+            Blocks.ORANGE_CONCRETE,
+            Blocks.MAGENTA_CONCRETE,
+            Blocks.LIGHT_BLUE_CONCRETE,
+            Blocks.YELLOW_CONCRETE,
+            Blocks.LIME_CONCRETE,
+            Blocks.PINK_CONCRETE,
+            Blocks.GRAY_CONCRETE,
+            Blocks.LIGHT_GRAY_CONCRETE,
+            Blocks.CYAN_CONCRETE,
+            Blocks.PURPLE_CONCRETE,
+            Blocks.BLUE_CONCRETE,
+            Blocks.BROWN_CONCRETE,
+            Blocks.GREEN_CONCRETE,
+            Blocks.RED_CONCRETE,
+            Blocks.BLACK_CONCRETE
         );
 
         return concreteBlocks.contains(block);

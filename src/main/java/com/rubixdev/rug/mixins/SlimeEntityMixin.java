@@ -23,7 +23,14 @@ public class SlimeEntityMixin {
     private static WorldAccess worldAccess;
 
     @Inject(method = "canSpawn", at = @At("HEAD"))
-    private static void getParams(EntityType<SlimeEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
+    private static void getParams(
+        EntityType<SlimeEntity> type,
+        WorldAccess world,
+        SpawnReason spawnReason,
+        BlockPos pos,
+        Random random,
+        CallbackInfoReturnable<Boolean> cir
+    ) {
         blockPos = pos;
         worldAccess = world;
     }
@@ -31,6 +38,11 @@ public class SlimeEntityMixin {
     @ModifyVariable(method = "canSpawn", at = @At("STORE"), ordinal = 0)
     private static boolean overwriteChance(boolean original) {
         ChunkPos chunkPos = new ChunkPos(blockPos);
-        return ChunkRandom.getSlimeRandom(chunkPos.x, chunkPos.z, ((StructureWorldAccess)worldAccess).getSeed(), 987234911L).nextInt(10) < RugSettings.slimeChunkPercentage / 10;
+        return ChunkRandom.getSlimeRandom(
+            chunkPos.x,
+            chunkPos.z,
+            ( (StructureWorldAccess) worldAccess ).getSeed(),
+            987234911L
+        ).nextInt(10) < RugSettings.slimeChunkPercentage / 10;
     }
 }

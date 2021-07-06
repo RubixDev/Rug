@@ -16,7 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LilyPadBlockMixin {
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
     private void onCanPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (RugSettings.lilyPadsOnCauldron && floor.getBlock().is(Blocks.CAULDRON) && floor.get(CauldronBlock.LEVEL) == 3) {
+        if (RugSettings.lilyPadsOnCauldron
+            && floor.getBlock().is(Blocks.CAULDRON)
+            && floor.get(CauldronBlock.LEVEL) == 3) {
             cir.setReturnValue(true);
         }
     }

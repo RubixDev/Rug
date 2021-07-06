@@ -14,29 +14,28 @@ import java.util.List;
 
 @Mixin(SpawnHelper.class)
 public class SpawnHelperMixin {
-    @Redirect(method = "method_29950", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;"))
+    @Redirect(
+        method = "method_29950",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;")
+    )
     private static Block allowMoreSpawnableFortressBlocks(BlockState blockState) {
         Block block = blockState.getBlock();
 
         Block allow = Blocks.NETHER_BRICKS;
-        if (RugSettings.moreFortressSpawningBlocks.equals("all")) {
-            return allow;
-        }
+        if (RugSettings.moreFortressSpawningBlocks.equals("all")) { return allow; }
 
         List<Block> allowedBlocks = Lists.newArrayList(
-                allow,
-                Blocks.NETHERRACK,
-                Blocks.SOUL_SAND,
-                Blocks.SOUL_SOIL,
-                Blocks.PACKED_ICE,
-                Blocks.BLUE_ICE,
-                Blocks.GRAVEL,
-                Blocks.MAGMA_BLOCK,
-                Blocks.RED_NETHER_BRICKS
+            allow,
+            Blocks.NETHERRACK,
+            Blocks.SOUL_SAND,
+            Blocks.SOUL_SOIL,
+            Blocks.PACKED_ICE,
+            Blocks.BLUE_ICE,
+            Blocks.GRAVEL,
+            Blocks.MAGMA_BLOCK,
+            Blocks.RED_NETHER_BRICKS
         );
-        if (RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(block)) {
-            return allow;
-        }
+        if (RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(block)) { return allow; }
 
         return block;
     }

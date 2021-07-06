@@ -24,10 +24,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CauldronBlock.class)
 public class CauldronBlockMixin {
-    @Shadow @Final public static IntProperty LEVEL;
+    @Shadow
+    @Final
+    public static IntProperty LEVEL;
 
-    @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;", shift = At.Shift.AFTER), cancellable = true)
-    private void onOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    @Inject(
+        method = "onUse",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;",
+            shift = At.Shift.AFTER
+        ),
+        cancellable = true
+    )
+    private void onOnUse(
+        BlockState state,
+        World world,
+        BlockPos pos,
+        PlayerEntity player,
+        Hand hand,
+        BlockHitResult hit,
+        CallbackInfoReturnable<ActionResult> cir
+    ) {
         Item item = player.getStackInHand(hand).getItem();
         if (RugSettings.lilyPadsOnCauldron && item == Items.LILY_PAD && state.get(LEVEL) == 3) {
             if (world.getBlockState(pos.up()).getBlock().is(Blocks.AIR)) {

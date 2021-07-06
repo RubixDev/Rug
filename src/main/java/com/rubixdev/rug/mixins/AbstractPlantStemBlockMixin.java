@@ -17,13 +17,23 @@ import java.util.Random;
 
 @Mixin(AbstractPlantStemBlock.class)
 public abstract class AbstractPlantStemBlockMixin extends AbstractPlantPartBlock {
-    @Shadow @Final public static IntProperty AGE;
+    @Shadow
+    @Final
+    public static IntProperty AGE;
 
-    @Shadow @Final private double growthChance;
+    @Shadow
+    @Final
+    private double growthChance;
 
-    @Shadow protected abstract boolean chooseStemState(BlockState state);
+    @Shadow
+    protected abstract boolean chooseStemState(BlockState state);
 
-    protected AbstractPlantStemBlockMixin(Settings settings, Direction growthDirection, VoxelShape outlineShape, boolean tickWater) {
+    protected AbstractPlantStemBlockMixin(
+        Settings settings,
+        Direction growthDirection,
+        VoxelShape outlineShape,
+        boolean tickWater
+    ) {
         super(settings, growthDirection, outlineShape, tickWater);
     }
 

@@ -20,18 +20,24 @@ import java.util.Random;
 
 @Mixin(ChorusFlowerBlock.class)
 public abstract class ChorusFlowerBlockMixin extends Block {
-    @Shadow @Final public static IntProperty AGE;
+    @Shadow
+    @Final
+    public static IntProperty AGE;
 
-    @Shadow @Final private ChorusPlantBlock plantBlock;
+    @Shadow
+    @Final
+    private ChorusPlantBlock plantBlock;
 
     @Shadow
     private static boolean isSurroundedByAir(WorldView world, BlockPos pos, @Nullable Direction exceptDirection) {
         return false;
     }
 
-    @Shadow protected abstract void grow(World world, BlockPos pos, int age);
+    @Shadow
+    protected abstract void grow(World world, BlockPos pos, int age);
 
-    @Shadow protected abstract void die(World world, BlockPos pos);
+    @Shadow
+    protected abstract void die(World world, BlockPos pos);
 
     public ChorusFlowerBlockMixin(Settings settings) {
         super(settings);
@@ -54,7 +60,7 @@ public abstract class ChorusFlowerBlockMixin extends Block {
                     } else if (block == this.plantBlock) {
                         l = 1;
 
-                        for(int k = 0; k < 4; ++k) {
+                        for (int k = 0; k < 4; ++k) {
                             Block block2 = world.getBlockState(pos.down(l + 1)).getBlock();
                             if (block2 != this.plantBlock) {
                                 if (block2 == Blocks.END_STONE) {
@@ -84,10 +90,12 @@ public abstract class ChorusFlowerBlockMixin extends Block {
 
                         boolean bl3 = false;
 
-                        for(int m = 0; m < l; ++m) {
+                        for (int m = 0; m < l; ++m) {
                             Direction direction = Direction.Type.HORIZONTAL.random(random);
                             BlockPos blockPos2 = pos.offset(direction);
-                            if (world.isAir(blockPos2) && world.isAir(blockPos2.down()) && isSurroundedByAir(world, blockPos2, direction.getOpposite())) {
+                            if (world.isAir(blockPos2)
+                                && world.isAir(blockPos2.down())
+                                && isSurroundedByAir(world, blockPos2, direction.getOpposite())) {
                                 this.grow(world, blockPos2, i + 1);
                                 bl3 = true;
                             }

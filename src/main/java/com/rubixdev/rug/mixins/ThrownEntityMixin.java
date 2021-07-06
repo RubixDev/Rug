@@ -18,9 +18,7 @@ public class ThrownEntityMixin {
             return (float) RugSettings.enderPearlWaterDrag;
         } else if ((Object) this instanceof SnowballEntity) {
             return (float) RugSettings.snowballWaterDrag;
-        } else if ((Object) this instanceof EggEntity) {
-            return (float) RugSettings.eggWaterDrag;
-        }
+        } else if ((Object) this instanceof EggEntity) { return (float) RugSettings.eggWaterDrag; }
         return baseValue;
     }
 }

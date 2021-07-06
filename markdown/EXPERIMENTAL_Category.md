@@ -324,6 +324,8 @@ Old Bug: MC-31038
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
 
 ### zeroTickPlants
 Brings back the ability to force grow certain plants using 0-ticks    

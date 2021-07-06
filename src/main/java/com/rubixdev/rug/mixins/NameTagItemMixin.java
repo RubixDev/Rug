@@ -12,13 +12,20 @@ import java.util.Objects;
 
 @Mixin(NameTagItem.class)
 public abstract class NameTagItemMixin {
-    @Redirect(method = "useOnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setCustomName(Lnet/minecraft/text/Text;)V"))
+    @Redirect(
+        method = "useOnEntity",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/entity/LivingEntity;setCustomName(Lnet/minecraft/text/Text;)V"
+        )
+    )
     private void onUseOnEntity(LivingEntity entity, Text name) {
         if (RugSettings.silenceMobs && name.getString().equals("silence_me")) {
             entity.setCustomName(Text.of("silenced"));
             entity.setSilent(true);
         } else {
-            if (entity.hasCustomName() && Objects.requireNonNull(entity.getCustomName()).getString().equals("silenced")) {
+            if (entity.hasCustomName()
+                && Objects.requireNonNull(entity.getCustomName()).getString().equals("silenced")) {
                 entity.setSilent(false);
             }
             entity.setCustomName(name);

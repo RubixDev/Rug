@@ -21,10 +21,14 @@ public abstract class EnderDragonEntityMixin extends Entity {
         super(type, world);
     }
 
-    @Inject(method = "updatePostDeath",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;awardExperience(I)V",
-                    ordinal = 1))
+    @Inject(
+        method = "updatePostDeath",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;awardExperience(I)V",
+            ordinal = 1
+        )
+    )
     private void onUpdatePostDeath(CallbackInfo ci) {
         String rugSetting = RugSettings.dragonDrops;
         if (!rugSetting.equals("none") && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {

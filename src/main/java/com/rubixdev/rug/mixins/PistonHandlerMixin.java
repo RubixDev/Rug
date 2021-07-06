@@ -21,20 +21,22 @@ public abstract class PistonHandlerMixin {
     private static void onIsAdjacentBlockStuck(Block block, Block block2, CallbackInfoReturnable<Boolean> cir) {
         switch (RugSettings.honeyCombStickiness) {
             case "honey":
-                if ((block2.is(Blocks.HONEYCOMB_BLOCK) && block.is(Blocks.SLIME_BLOCK))
-                        || (block.is(Blocks.HONEYCOMB_BLOCK) && block2.is(Blocks.SLIME_BLOCK))) {
+                if (( block2.is(Blocks.HONEYCOMB_BLOCK) && block.is(Blocks.SLIME_BLOCK) )
+                    || ( block.is(Blocks.HONEYCOMB_BLOCK) && block2.is(Blocks.SLIME_BLOCK) )) {
                     cir.setReturnValue(false);
                 }
                 break;
+
             case "slime":
-                if ((block2.is(Blocks.HONEYCOMB_BLOCK) && block.is(Blocks.HONEY_BLOCK))
-                        || (block.is(Blocks.HONEYCOMB_BLOCK) && block2.is(Blocks.HONEY_BLOCK))) {
+                if (( block2.is(Blocks.HONEYCOMB_BLOCK) && block.is(Blocks.HONEY_BLOCK) )
+                    || ( block.is(Blocks.HONEYCOMB_BLOCK) && block2.is(Blocks.HONEY_BLOCK) )) {
                     cir.setReturnValue(false);
                 }
                 break;
+
             case "none":
-                if ((block2.is(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(block))
-                        || (block.is(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(block2))) {
+                if (( block2.is(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(block) )
+                    || ( block.is(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(block2) )) {
                     cir.setReturnValue(false);
                 }
                 break;

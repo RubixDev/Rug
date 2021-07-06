@@ -20,11 +20,15 @@ import java.util.Random;
 
 @Mixin(BambooBlock.class)
 public abstract class BambooBlockMixin extends Block {
-    @Shadow @Final public static IntProperty STAGE;
+    @Shadow
+    @Final
+    public static IntProperty STAGE;
 
-    @Shadow protected abstract int countBambooBelow(BlockView world, BlockPos pos);
+    @Shadow
+    protected abstract int countBambooBelow(BlockView world, BlockPos pos);
 
-    @Shadow protected abstract void updateLeaves(BlockState state, World world, BlockPos pos, Random random, int height);
+    @Shadow
+    protected abstract void updateLeaves(BlockState state, World world, BlockPos pos, Random random, int height);
 
     public BambooBlockMixin(Settings settings) {
         super(settings);

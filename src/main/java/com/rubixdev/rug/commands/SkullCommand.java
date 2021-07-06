@@ -23,14 +23,21 @@ import static net.minecraft.server.command.CommandManager.argument;
 
 public class SkullCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("skull").
-                requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSkull)).
-                executes(context -> execute(context, 0)).
-                then(argument("player", StringArgumentType.word()).
-                        suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder))).
-                        executes(context -> execute(context, 1)).
-                        then(argument("count", IntegerArgumentType.integer(1)).
-                                executes(context -> execute(context, context.getArgument("count", Integer.class)))));
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("skull").requires(
+            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandSkull)
+        )
+            .executes(context -> execute(context, 0))
+            .then(
+                argument("player", StringArgumentType.word()).suggests(
+                    ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
+                )
+                    .executes(context -> execute(context, 1))
+                    .then(
+                        argument("count", IntegerArgumentType.integer(1)).executes(
+                            context -> execute(context, context.getArgument("count", Integer.class))
+                        )
+                    )
+            );
         dispatcher.register(command);
     }
 
@@ -45,7 +52,10 @@ public class SkullCommand {
 
         if (count == 0) count = 1;
 
-        return manager.execute(source, "give " + playerName + " minecraft:player_head{SkullOwner:" + skullOwner + "} " + count);
+        return manager.execute(
+            source,
+            "give " + playerName + " minecraft:player_head{SkullOwner:" + skullOwner + "} " + count
+        );
     }
 
     private static Collection<String> getPlayers(ServerCommandSource source) {
