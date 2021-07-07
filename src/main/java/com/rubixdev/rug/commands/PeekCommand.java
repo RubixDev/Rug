@@ -55,7 +55,7 @@ public class PeekCommand {
         throws CommandSyntaxException {
         ServerCommandSource source = context.getSource();
 
-        PlayerManager playerManager = source.getMinecraftServer().getPlayerManager();
+        PlayerManager playerManager = source.getServer().getPlayerManager();
         GameProfile targetPlayerProfile = GameProfileArgumentType.getProfileArgument(context, "player")
             .iterator()
             .next();
@@ -65,7 +65,7 @@ public class PeekCommand {
         if (targetPlayer == null) {
             targetPlayer = playerManager.createPlayer(targetPlayerProfile);
             NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
-            ServerWorld world = source.getMinecraftServer()
+            ServerWorld world = source.getServer()
                 .getWorld(
                     DimensionType.worldFromDimensionNbt(
                         new Dynamic<>(NbtOps.INSTANCE, targetPlayerData.get("Dimension"))

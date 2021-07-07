@@ -43,8 +43,8 @@ public class SkullCommand {
 
     private static int execute(CommandContext<ServerCommandSource> context, int count) throws CommandSyntaxException {
         ServerCommandSource playerSource = context.getSource();
-        ServerCommandSource source = playerSource.getMinecraftServer().getCommandSource();
-        CommandManager manager = playerSource.getMinecraftServer().getCommandManager();
+        ServerCommandSource source = playerSource.getServer().getCommandSource();
+        CommandManager manager = playerSource.getServer().getCommandManager();
 
         ServerPlayerEntity playerEntity = playerSource.getPlayer();
         String playerName = playerEntity.getName().getString();

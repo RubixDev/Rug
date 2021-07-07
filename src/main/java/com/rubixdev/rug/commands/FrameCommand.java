@@ -14,9 +14,9 @@ public class FrameCommand {
             .requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandFrame))
             .then(CommandManager.literal("hide").executes((context) -> {
                 ServerCommandSource playerSource = context.getSource();
-                ServerCommandSource source = playerSource.getMinecraftServer().getCommandSource();
+                ServerCommandSource source = playerSource.getServer().getCommandSource();
                 ServerPlayerEntity playerEntity = playerSource.getPlayer();
-                CommandManager manager = playerSource.getMinecraftServer().getCommandManager();
+                CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 
                 manager.execute(
@@ -45,9 +45,9 @@ public class FrameCommand {
             }))
             .then(CommandManager.literal("show").executes(( context -> {
                 ServerCommandSource playerSource = context.getSource();
-                ServerCommandSource source = playerSource.getMinecraftServer().getCommandSource();
+                ServerCommandSource source = playerSource.getServer().getCommandSource();
                 ServerPlayerEntity playerEntity = playerSource.getPlayer();
-                CommandManager manager = playerSource.getMinecraftServer().getCommandManager();
+                CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 
                 manager.execute(

@@ -32,7 +32,7 @@ public class SudoCommand {
                     String targetPlayerName = StringArgumentType.getString(context, "player");
                     String commandString = StringArgumentType.getString(context, "command");
 
-                    MinecraftServer server = context.getSource().getMinecraftServer();
+                    MinecraftServer server = context.getSource().getServer();
                     PlayerManager playerManager = server.getPlayerManager();
                     ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
 
