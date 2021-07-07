@@ -1,6 +1,6 @@
 package com.rubixdev.rug.mixins;
 
-import com.rubixdev.rug.util.Storage;
+import com.rubixdev.rug.util.FluidHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,9 +24,9 @@ public class PillarBlockMixin extends Block {
         WorldAccess world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
 
-        if (this == Blocks.BASALT && Storage.shouldConvertToBlackstone(world, pos)) {
+        if (this == Blocks.BASALT && FluidHelper.shouldConvertToBlackstone(world, pos)) {
             cir.setReturnValue(Blocks.BLACKSTONE.getDefaultState());
-            Storage.playFizzleSound(world, pos);
+            FluidHelper.playFizzleSound(world, pos);
         }
     }
 }

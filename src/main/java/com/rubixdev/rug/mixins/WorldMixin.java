@@ -1,7 +1,7 @@
 package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
-import com.rubixdev.rug.util.Storage;
+import com.rubixdev.rug.util.FluidHelper;
 
 import net.minecraft.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,7 +34,7 @@ public abstract class WorldMixin {
     public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
 
     @SuppressWarnings("ShadowTarget")
-    @Shadow
+    @Shadow(remap = false)
     public abstract boolean setBlockStateWithBlockEntity(
         BlockPos blockPos_1,
         BlockState blockState_1,
@@ -94,8 +94,14 @@ public abstract class WorldMixin {
         CallbackInfoReturnable<Boolean> cir
     ) {
         if (state.isOf(Blocks.BASALT)) {
-            if (Storage.shouldConvertToLava((BlockView) this, pos)) {
-                Storage.playFizzleSound((WorldAccess) this, pos);
+            BlockState prevState = ( (BlockView) this ).getBlockState(pos);
+            if (FluidHelper.shouldConvertToLava((BlockView) this, pos)) {
+                if (prevState.isOf(Blocks.LAVA) && prevState.getFluidState().isStill()) {
+                    cir.setReturnValue(false);
+                    return;
+                }
+
+                FluidHelper.playFizzleSound((WorldAccess) this, pos);
                 ( (WorldAccess) this ).playSound(
                     null,
                     pos,
@@ -110,7 +116,7 @@ public abstract class WorldMixin {
     }
 
     @SuppressWarnings("UnresolvedMixinReference")
-    @Inject(method = "setBlockStateWithBlockEntity", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "setBlockStateWithBlockEntity", at = @At("HEAD"), cancellable = true, remap = false)
     private void convertBasalt(
         BlockPos pos,
         BlockState state,
@@ -119,8 +125,8 @@ public abstract class WorldMixin {
         CallbackInfoReturnable<Boolean> cir
     ) {
         if (state.isOf(Blocks.BASALT)) {
-            if (Storage.shouldConvertToLava((BlockView) this, pos)) {
-                Storage.playFizzleSound((WorldAccess) this, pos);
+            if (FluidHelper.shouldConvertToLava((BlockView) this, pos)) {
+                FluidHelper.playFizzleSound((WorldAccess) this, pos);
                 ( (WorldAccess) this ).playSound(
                     null,
                     pos,
