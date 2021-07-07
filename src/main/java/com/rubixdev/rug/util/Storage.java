@@ -38,7 +38,7 @@ public class Storage {
 
     private static boolean isBlockAdjacent(Block block, BlockView world, BlockPos pos) {
         for (Direction direction : Direction.values()) {
-            if (world.getBlockState(pos.offset(direction)).isOf(block)) { return true; }
+            if (world.getBlockState(pos.offset(direction)).isOf(block)) return true;
         }
         return false;
     }

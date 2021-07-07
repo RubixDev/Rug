@@ -2,6 +2,16 @@ package com.rubixdev.rug.mixins;
 
 import com.rubixdev.rug.RugSettings;
 import com.rubixdev.rug.util.Storage;
+
+import net.minecraft.block.entity.BlockEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.TallPlantBlock;
@@ -14,21 +24,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(World.class)
+@Mixin(value = World.class, priority = 1010)
 public abstract class WorldMixin {
     @Shadow
     public abstract BlockState getBlockState(BlockPos pos);
 
     @Shadow
     public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
+
+    @SuppressWarnings("ShadowTarget")
+    @Shadow
+    public abstract boolean setBlockStateWithBlockEntity(
+        BlockPos blockPos_1,
+        BlockState blockState_1,
+        BlockEntity newBlockEntity,
+        int int_1
+    );
 
     private boolean shouldOverwrite;
     private boolean lowerWasFirst;
@@ -93,6 +105,33 @@ public abstract class WorldMixin {
                     1.0F
                 );
                 cir.setReturnValue(this.setBlockState(pos, Blocks.LAVA.getDefaultState(), flags, maxUpdateDepth));
+            }
+        }
+    }
+
+    @SuppressWarnings("UnresolvedMixinReference")
+    @Inject(method = "setBlockStateWithBlockEntity", at = @At("HEAD"), cancellable = true)
+    private void convertBasalt(
+        BlockPos pos,
+        BlockState state,
+        BlockEntity newBlockEntity,
+        int flags,
+        CallbackInfoReturnable<Boolean> cir
+    ) {
+        if (state.isOf(Blocks.BASALT)) {
+            if (Storage.shouldConvertToLava((BlockView) this, pos)) {
+                Storage.playFizzleSound((WorldAccess) this, pos);
+                ( (WorldAccess) this ).playSound(
+                    null,
+                    pos,
+                    SoundEvents.ITEM_BUCKET_EMPTY_LAVA,
+                    SoundCategory.BLOCKS,
+                    1.0F,
+                    1.0F
+                );
+                cir.setReturnValue(
+                    this.setBlockStateWithBlockEntity(pos, Blocks.LAVA.getDefaultState(), newBlockEntity, flags)
+                );
             }
         }
     }
