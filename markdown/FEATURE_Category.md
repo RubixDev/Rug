@@ -40,7 +40,7 @@ Count: 33
 ## Rules in FEATURE Category
 
 ### anvilledBlueIce
-Custom amount of packed ice crushed by falling anvils make one blue ice.    
+Custom amount of packed ice crushed by falling anvils make one blue ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
@@ -50,7 +50,7 @@ Custom amount of packed ice crushed by falling anvils make one blue ice.
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
 ### anvilledIce
-Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.    
+Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
@@ -60,7 +60,7 @@ Custom amount of frosted ice crushed by falling anvils make one ice. Allows for 
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
 ### anvilledPackedIce
-Custom amount of ice crushed by falling anvils make one packed ice.    
+Custom amount of ice crushed by falling anvils make one packed ice.
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`, `9`
@@ -70,51 +70,51 @@ Custom amount of ice crushed by falling anvils make one packed ice.
   - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
 
 ### basaltToBlackstoneConversion
-Basalt converts to Blackstone if next to both Lava and Water    
+Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### basaltToLavaConversion
-Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### campSleeping
-Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty    
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel  
-Carpet-Extra's renewableSand is prioritized over this  
+Cobblestone crushed by a falling Anvil will convert into Gravel
+Carpet-Extra's renewableSand is prioritized over this
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### concreteConvertOnCauldron
-Concrete powder converts to concrete blocks when on top of a filled cauldron    
+Concrete powder converts to concrete blocks when on top of a filled cauldron
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RUG`
 
 ### concreteMixing
-Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
-In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
-Ender Dragon drops selected item(s) when killed    
+Ender Dragon drops selected item(s) when killed
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
@@ -123,62 +123,62 @@ Ender Dragon drops selected item(s) when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### dragonEggConvertsCobbleToEndstone
-Dragon Eggs will convert Cobble under them to Endstone either on set event    
+Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it  
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
+Right clicking on fully grown crops harvests and immediately replants it
+Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
-Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleMagmaCream
-Magma Cream is edible and gives 10 seconds of Fire Resistance  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Magma Cream is edible and gives 10 seconds of Fire Resistance
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleNetheriteScraps
-Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleSlimeBalls
-Slime Balls are edible and give Jump Boost and Slowness  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Slime Balls are edible and give Jump Boost and Slowness
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### enderPearlDamage
-Amount of damage dealt by Ender Pearls    
+Amount of damage dealt by Ender Pearls
 - Type: `int`
 - Default value: `5`
 - Suggested options: `0`, `2`, `3`, `5`
@@ -187,8 +187,8 @@ Amount of damage dealt by Ender Pearls
   - You must choose a value from 0 to 10
 
 ### foodInstantHeal
-Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off  
-Recommended using with peacefulHunger  
+Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
+Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -197,15 +197,15 @@ Recommended using with peacefulHunger
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### gravelCrushing
-Gravel crushed by a falling Anvil will convert into Sand    
+Gravel crushed by a falling Anvil will convert into Sand
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### honeyCombStickiness
-Honey Comb only sticks to selected Blocks  
-Will render Ghost Blocks on the Client when mod is only Server Side  
+Honey Comb only sticks to selected Blocks
+Will render Ghost Blocks on the Client when mod is only Server Side
 - Type: `String`
 - Default value: `both`
 - Required options: `both`, `honey`, `slime`, `none`
@@ -214,22 +214,22 @@ Will render Ghost Blocks on the Client when mod is only Server Side
   - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
 ### lilyPadsOnCauldron
-Lily Pads can be placed on Cauldrons    
+Lily Pads can be placed on Cauldrons
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RUG`
 
 ### longerRepeaters
-Repeaters on top of Redstone Blocks multiply their delay by set amount    
+Repeaters on top of Redstone Blocks multiply their delay by set amount
 - Type: `int`
 - Default value: `1`
 - Required options: `1`, `2`, `3`, `4`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 
 ### moreFortressSpawningBlocks
-What blocks Fortress mobs can spawn on inside the bigger Bounding Box  
-off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all  
+What blocks Fortress mobs can spawn on inside the bigger Bounding Box
+off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `more`, `all`
@@ -238,14 +238,14 @@ off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil,
   - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)
 
 ### netherrackGeneration
-Netherrack is generated instead of Cobblestone if a Magma Block is below    
+Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### peacefulHunger
-Players do not lose any hunger like in peaceful mode    
+Players do not lose any hunger like in peaceful mode
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -254,7 +254,7 @@ Players do not lose any hunger like in peaceful mode
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### playerHeadDrops
-Players drop their head    
+Players drop their head
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_death`, `on_killed_by_player`
@@ -263,7 +263,7 @@ Players drop their head
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### silenceMobs
-Mobs named with 'silence_me' stop making noise    
+Mobs named with 'silence_me' stop making noise
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -272,35 +272,35 @@ Mobs named with 'silence_me' stop making noise
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### silkTouchBuddingAmethysts
-Mining Budding Amethysts with a Silk Touch tool will drop itself    
+Mining Budding Amethysts with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchFarmland
-Mining Farmland with a Silk Touch tool will drop itself    
+Mining Farmland with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchPathBlocks
-Mining Path Blocks with a Silk Touch tool will drop itself    
+Mining Path Blocks with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchSpawners
-Mining Spawners with a Silk Touch tool will drop itself    
+Mining Spawners with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### strictShulkerShells
-Shulkers always drop a given amount of shulker shells when killed    
+Shulkers always drop a given amount of shulker shells when killed
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `2`
@@ -310,7 +310,7 @@ Shulkers always drop a given amount of shulker shells when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### villagersDropEmeralds
-Villagers drop between 1 and x Emeralds on death, where x is the given number    
+Villagers drop between 1 and x Emeralds on death, where x is the given number
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `3`

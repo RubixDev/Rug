@@ -157,7 +157,7 @@ public class RugSettings {
     public static boolean edibleNetheriteScraps = false;
     // edibleNetheriteScrapsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows
     // this item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
+    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     @Rule(
         desc = "Players do not lose any hunger like in peaceful mode",
@@ -240,7 +240,7 @@ public class RugSettings {
     public static boolean edibleSlimeBalls = false;
     // edibleSlimeBallsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
+    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     public static class validatorReachDistance extends Validator<Double> {
 
@@ -280,7 +280,7 @@ public class RugSettings {
     public static boolean edibleGoldIngots = false;
     // edibleGoldIngotsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
+    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
 
@@ -336,7 +336,7 @@ public class RugSettings {
     public static boolean edibleMagmaCream = false;
     // edibleMagmaCreamAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/fabric-rug/issues/19):::
+    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(
@@ -1066,7 +1066,7 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static boolean blastFurnaceStone = false;
-    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15):::
+    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15):::
 
     @CraftingRule(recipes = "blast_furnace_glass.json")
     @Rule(

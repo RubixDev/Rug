@@ -137,7 +137,7 @@ def curseforge_list(rules: list[Rule]):
     out: str = f'# Rug Mod for Fabric\n\n' \
                f'Extension Mod for [gnembon\'s fabric-carpet](https://github.com/gnembon/fabric-carpet) ' \
                f'with some more features\n\n' \
-               f'**Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) ' \
+               f'**Visit the [GitHub page](https://github.com/RubixDev/Rug) ' \
                f'for a more detailed explanation of all features.**\n\n' \
                f'## List of implemented Carpet Rules\n' \
                f'Count: {len(rules)}  \n'
