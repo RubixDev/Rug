@@ -147,15 +147,14 @@ public class RugServer implements CarpetExtension, ModInitializer {
             Files.createDirectories(new File(datapackPath + "data/rug/recipes").toPath());
             Files.createDirectories(new File(datapackPath + "data/rug/advancements").toPath());
             Files.createDirectories(new File(datapackPath + "data/minecraft/recipes").toPath());
-            copyFile("assets/rug/RugDataStorage/pack.mcmeta", datapackPath + "pack.mcmeta", true);
+            copyFile("assets/rug/RugDataStorage/pack.mcmeta", datapackPath + "pack.mcmeta");
         } catch (IOException e) {
             Logging.logStackTrace(e);
         }
 
         copyFile(
             "assets/rug/RugDataStorage/rug/advancements/root.json",
-            datapackPath + "data/rug/advancements/root.json",
-            true
+            datapackPath + "data/rug/advancements/root.json"
         );
 
         for (Field f : RugSettings.class.getDeclaredFields()) {
@@ -271,8 +270,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         for (String recipeName : recipes) {
             copyFile(
                 "assets/rug/RugDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
-                datapackPath + recipeNamespace + "/recipes/" + recipeName,
-                true
+                datapackPath + recipeNamespace + "/recipes/" + recipeName
             );
         }
         if (recipeNamespace.equals("rug")) {
@@ -302,8 +300,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private void writeAdvancement(String datapackPath, String ruleName, String[] recipes) {
         copyFile(
             "assets/rug/RugDataStorage/rug/advancements/recipe_rule.json",
-            datapackPath + "rug/advancements/" + ruleName + ".json",
-            true
+            datapackPath + "rug/advancements/" + ruleName + ".json"
         );
 
         JsonObject advancementJson = readJson(datapackPath + "rug/advancements/" + ruleName + ".json");
@@ -373,18 +370,14 @@ public class RugServer implements CarpetExtension, ModInitializer {
         return null;
     }
 
-    private void copyFile(String resourcePath, String targetPath, boolean replaceExisting) {
+    private void copyFile(String resourcePath, String targetPath) {
         InputStream source = Objects.requireNonNull(
             BundledModule.class.getClassLoader().getResourceAsStream(resourcePath)
         );
         Path target = new File(targetPath).toPath();
 
         try {
-            if (replaceExisting) {
-                Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
-            } else {
-                Files.copy(source, target);
-            }
+            Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             Logging.logStackTrace(e);
         }
