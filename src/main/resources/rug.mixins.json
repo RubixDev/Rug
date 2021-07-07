@@ -44,6 +44,7 @@
     "PillarBlockMixin",
     "PistonHandlerMixin",
     "PlayerEntityMixin",
+    "PointedDripstoneBlockMixin",
     "RedstoneLampBlockMixin",
     "RepeaterBlockMixin",
     "ServerPlayerEntityMixin",

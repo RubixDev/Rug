@@ -178,7 +178,7 @@ public class RugSettings {
     @Rule(desc = "Lily Pads can be placed on Cauldrons", category = { FEATURE, RUG })
     public static boolean lilyPadsOnCauldron = false;
 
-    public static class validatorStonecutterDamage extends Validator<Integer> {
+    public static class validatorDamage extends Validator<Integer> {
 
         @Override
         public Integer validate(
@@ -200,34 +200,16 @@ public class RugSettings {
         desc = "How much damage Stonecutters deal when stepping on them",
         options = { "0", "3", "4", "5" },
         strict = false,
-        validate = validatorStonecutterDamage.class,
+        validate = validatorDamage.class,
         category = { BUGFIX, SURVIVAL, RUG }
     )
     public static int stonecutterDamage = 0;
-
-    public static class validatorEnderPearlDamage extends Validator<Integer> {
-
-        @Override
-        public Integer validate(
-            ServerCommandSource serverCommandSource,
-            ParsedRule<Integer> parsedRule,
-            Integer newValue,
-            String s
-        ) {
-            return newValue >= 0 && newValue <= 10 ? newValue : null;
-        }
-
-        @Override
-        public String description() {
-            return "You must choose a value from 0 to 10";
-        }
-    }
 
     @Rule(
         desc = "Amount of damage dealt by Ender Pearls",
         options = { "0", "2", "3", "5" },
         strict = false,
-        validate = validatorEnderPearlDamage.class,
+        validate = validatorDamage.class,
         category = { FEATURE, SURVIVAL, RUG }
     )
     public static int enderPearlDamage = 5;
@@ -1181,6 +1163,15 @@ public class RugSettings {
         category = { COMMAND, RUG }
     )
     public static String commandMaxEffect = "ops";
+
+    @Rule(
+            desc = "Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this",
+            category = {FEATURE, SURVIVAL, RUG},
+            options = {"0", "2", "4"},
+            strict = false,
+            validate = validatorDamage.class
+    )
+    public static int stalagmiteSteppingDamage = 0;
 }
 
 // BUGFIX
