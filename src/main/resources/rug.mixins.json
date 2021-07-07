@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.rubixdev.rug.mixins",
+  "package": "de.rubixdev.rug.mixins",
   "compatibilityLevel": "JAVA_16",
-  "plugin": "com.rubixdev.rug.util.MixinConfigPlugin",
+  "plugin": "de.rubixdev.rug.util.MixinConfigPlugin",
   "mixins": [
     "AbsractBlockStateMixin",
     "AbstractBlockMixin",

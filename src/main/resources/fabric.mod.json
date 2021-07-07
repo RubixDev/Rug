@@ -20,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.rubixdev.rug.RugServer"
+      "de.rubixdev.rug.RugServer"
     ]
   },
   "mixins": [
