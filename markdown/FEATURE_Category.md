@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 33
+Count: 34
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -34,6 +34,7 @@ Count: 33
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
+- [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [villagersDropEmeralds](#villagersdropemeralds)
 
@@ -92,6 +93,7 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 
 ### cobbleCrushing
 Cobblestone crushed by a falling Anvil will convert into Gravel
+
 Carpet-Extra's renewableSand is prioritized over this
 - Type: `boolean`
 - Default value: `false`
@@ -107,6 +109,7 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 
 ### concreteMixing
 Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below
+
 In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator
 - Type: `boolean`
 - Default value: `false`
@@ -131,6 +134,7 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
+
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `String`
 - Default value: `off`
@@ -139,6 +143,7 @@ Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -149,6 +154,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -159,6 +165,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -169,6 +176,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -188,6 +196,7 @@ Amount of damage dealt by Ender Pearls
 
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
+
 Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
@@ -205,6 +214,7 @@ Gravel crushed by a falling Anvil will convert into Sand
 
 ### honeyCombStickiness
 Honey Comb only sticks to selected Blocks
+
 Will render Ghost Blocks on the Client when mod is only Server Side
 - Type: `String`
 - Default value: `both`
@@ -229,6 +239,7 @@ Repeaters on top of Redstone Blocks multiply their delay by set amount
 
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box
+
 off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all
 - Type: `String`
 - Default value: `off`
@@ -298,6 +309,15 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### stalagmiteSteppingDamage
+Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `2`, `4`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 10
 
 ### strictShulkerShells
 Shulkers always drop a given amount of shulker shells when killed

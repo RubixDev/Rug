@@ -22,7 +22,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 90
+Count: 91
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -100,6 +100,7 @@ Count: 90
 - [smokerGreenDye](#smokergreendye)
 - [smokerLimeDye](#smokerlimedye)
 - [snowballWaterDrag](#snowballwaterdrag)
+- [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [tallPlantNoUpdate](#tallplantnoupdate)
@@ -162,6 +163,7 @@ Basalt converts to a Lava source when placed (or moved) next to a Lava Source, F
 
 ### blastFurnaceGlass
 Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -170,6 +172,7 @@ Expect a lag spike when changing the value
 
 ### blastFurnaceGlazedTerracotta
 Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -178,6 +181,7 @@ Expect a lag spike when changing the value
 
 ### blastFurnaceNetherBrick
 Netherrack can be smelted to Nether Brick in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -186,6 +190,7 @@ Expect a lag spike when changing the value
 
 ### blastFurnaceSmoothQuartz
 Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -194,6 +199,7 @@ Expect a lag spike when changing the value
 
 ### blastFurnaceSmoothSandStone
 Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -202,6 +208,7 @@ Expect a lag spike when changing the value
 
 ### blastFurnaceStone
 Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -212,6 +219,7 @@ Expect a lag spike when changing the value
 
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives
+
 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items
 - Type: `double`
 - Default value: `1`
@@ -229,6 +237,7 @@ Allows players to sleep in a Bed without setting their spawn point by entering w
 
 ### cobbleCrushing
 Cobblestone crushed by a falling Anvil will convert into Gravel
+
 Carpet-Extra's renewableSand is prioritized over this
 - Type: `boolean`
 - Default value: `false`
@@ -244,6 +253,7 @@ A command that makes the nearest item frame in a 5 Block radius around the playe
 
 ### commandMaxEffect
 A command to quickly give the player the specified effect for infinite time and at max level
+
 This is basically just an alias for: `/effect give @s <effect> 999999 255 true`
 - Type: `String`
 - Default value: `ops`
@@ -273,6 +283,7 @@ A command that shows if the current chunk is a slime chunk based on the set slim
 
 ### commandSudo
 A command that executes the exact input as the selected Player
+
 This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player
 - Type: `String`
 - Default value: `ops`
@@ -288,6 +299,7 @@ Concrete powder converts to concrete blocks when on top of a filled cauldron
 
 ### concreteMixing
 Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below
+
 In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator
 - Type: `boolean`
 - Default value: `false`
@@ -296,6 +308,7 @@ In combination with cobbleCrushing and gravelCrushing allows for an automatic Co
 
 ### craftableCobwebs
 Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area
+
 Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
@@ -304,6 +317,7 @@ Expect a lag spike when changing the value
 
 ### craftableHorseArmor
 Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+
 Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
@@ -312,6 +326,7 @@ Expect a lag spike when changing the value
 
 ### craftableNameTags
 Name Tags can be crafted with Paper and Iron or String or both
+
 Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
@@ -320,6 +335,7 @@ Expect a lag spike when changing the value
 
 ### craftableNotchApple
 Enchanted Golden Apples can be crafted with 8 Gold Blocks again
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -354,6 +370,7 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
 
 ### easyBlueIceCrafting
 Blue Ice can be crafted from Ice and Blue Dye
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -362,6 +379,7 @@ Expect a lag spike when changing the value
 
 ### easyBoneBlockCrafting
 Bone Blocks can be crafted out of Bones
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -370,6 +388,7 @@ Expect a lag spike when changing the value
 
 ### easyChestCrafting
 Chests can be crafted out of logs
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -378,6 +397,7 @@ Expect a lag spike when changing the value
 
 ### easyDispenserCrafting
 Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -388,6 +408,7 @@ Expect a lag spike when changing the value
 
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
+
 Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `String`
 - Default value: `off`
@@ -396,6 +417,7 @@ Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 
 ### easyMinecartsCrafting
 The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -404,6 +426,7 @@ Expect a lag spike when changing the value
 
 ### easyRepeaterCrafting
 Repeaters can be crafted with the raw materials for Redstone Torches
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -412,6 +435,7 @@ Expect a lag spike when changing the value
 
 ### easyStickCrafting
 Sticks can be crafted out of logs
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -420,6 +444,7 @@ Expect a lag spike when changing the value
 
 ### easyTrappedChestCrafting
 Trapped Chests can be crafted out of logs and a Tripwire Hook
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -428,6 +453,7 @@ Expect a lag spike when changing the value
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -438,6 +464,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -448,6 +475,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -458,6 +486,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -468,6 +497,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### eggWaterDrag
 How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Egg will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
@@ -494,6 +524,7 @@ Amount of damage dealt by Ender Pearls
 
 ### enderPearlWaterDrag
 How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Pearl will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
@@ -504,6 +535,7 @@ Thrown Pearl will stutter on client when mod is only on server
 
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
+
 Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
@@ -521,6 +553,7 @@ Gravel crushed by a falling Anvil will convert into Sand
 
 ### honeyCombStickiness
 Honey Comb only sticks to selected Blocks
+
 Will render Ghost Blocks on the Client when mod is only Server Side
 - Type: `String`
 - Default value: `both`
@@ -545,6 +578,7 @@ A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 
 ### kelpBlockHardness
 How long Kelp Blocks take to mine in survival
+
 Any value other than 0 will behave like 0.5 for clients without this mod
 - Type: `double`
 - Default value: `0.5`
@@ -569,6 +603,7 @@ Repeaters on top of Redstone Blocks multiply their delay by set amount
 
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
+
 This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
 - Type: `int`
 - Default value: `6`
@@ -580,6 +615,7 @@ This only works for clients with this mod installed and the Banner tooltips neve
 
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -588,6 +624,7 @@ Expect a lag spike when changing the value
 
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box
+
 off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all
 - Type: `String`
 - Default value: `off`
@@ -651,6 +688,7 @@ Players drop their head
 
 ### powderToGlassSmelting
 Concrete Powder can be smelted to Glass of the corresponding color
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -661,6 +699,7 @@ Expect a lag spike when changing the value
 
 ### reachDistance
 Reach in which you can place and break blocks. Value will be 0.5 higher in creative
+
 Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
@@ -681,6 +720,7 @@ Delay in game ticks for Redstone Lamps to turn off
 
 ### shapelessCrafting
 Bread, Paper and Shulker Boxes can be crafted in a 2x2 field
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -738,6 +778,7 @@ The percentage of chunks that are Slime chinks
 
 ### smokerGreenDye
 Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -746,6 +787,7 @@ Expect a lag spike when changing the value
 
 ### smokerLimeDye
 Sea Pickles can be cooked into Lime Dye in a Smoker
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -754,6 +796,7 @@ Expect a lag spike when changing the value
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Snowball will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
@@ -761,6 +804,15 @@ Thrown Snowball will stutter on client when mod is only on server
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0.5 to 0.99
+
+### stalagmiteSteppingDamage
+Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `2`, `4`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 10
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them
@@ -783,6 +835,7 @@ Shulkers always drop a given amount of shulker shells when killed
 
 ### tallPlantNoUpdate
 Tall Plants do not update blocks around the top part if the bottom half got broken
+
 Old Bug: MC-31038
 - Type: `boolean`
 - Default value: `false`
@@ -793,6 +846,7 @@ Old Bug: MC-31038
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
@@ -803,6 +857,7 @@ Expect a lag spike when changing the value
 
 ### unpackableIce
 Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly
+
 Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
@@ -813,6 +868,7 @@ Expect a lag spike when changing the value
 
 ### unpackableNetherWart
 Nether Wart Blocks can be crafted into set amount of Nether Warts
+
 Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
@@ -823,6 +879,7 @@ Expect a lag spike when changing the value
 
 ### unpackableQuartz
 Quartz Blocks can be crafted into set amount of Quartz
+
 Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
@@ -833,6 +890,7 @@ Expect a lag spike when changing the value
 
 ### unpackableWool
 White Wool Blocks can be crafted into set amount of String
+
 Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
@@ -859,6 +917,7 @@ Villagers drop between 1 and x Emeralds on death, where x is the given number
 
 ### woodcutting
 The Stonecutter can be used for all wood types
+
 Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`

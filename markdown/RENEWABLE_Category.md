@@ -18,53 +18,57 @@ Count: 11
 ## Rules in RENEWABLE Category
 
 ### basaltToBlackstoneConversion
-Basalt converts to Blackstone if next to both Lava and Water    
+Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### basaltToLavaConversion
-Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel  
-Carpet-Extra's renewableSand is prioritized over this  
+Cobblestone crushed by a falling Anvil will convert into Gravel
+
+Carpet-Extra's renewableSand is prioritized over this
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableCobwebs
-Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
-Expect a lag spike when changing the value  
+Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area
+
+Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `cross`, `full`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
-Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
-Expect a lag spike when changing the value  
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+
+Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNotchApple
-Enchanted Golden Apples can be crafted with 8 Gold Blocks again  
-Expect a lag spike when changing the value  
+Enchanted Golden Apples can be crafted with 8 Gold Blocks again
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
-Ender Dragon drops selected item(s) when killed    
+Ender Dragon drops selected item(s) when killed
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
@@ -73,28 +77,28 @@ Ender Dragon drops selected item(s) when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### dragonEggConvertsCobbleToEndstone
-Dragon Eggs will convert Cobble under them to Endstone either on set event    
+Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_teleport`, `on_landing`, `both`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`
 
 ### gravelCrushing
-Gravel crushed by a falling Anvil will convert into Sand    
+Gravel crushed by a falling Anvil will convert into Sand
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infiniteLavaSources
-Lava creates infinite sources like Water    
+Lava creates infinite sources like Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### netherrackGeneration
-Netherrack is generated instead of Cobblestone if a Magma Block is below    
+Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`

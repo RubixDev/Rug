@@ -19,6 +19,7 @@ Count: 11
 
 ### edibleGoldIngots
 Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -29,6 +30,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleMagmaCream
 Magma Cream is edible and gives 10 seconds of Fire Resistance
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -39,6 +41,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleNetheriteScraps
 Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -49,6 +52,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### edibleSlimeBalls
 Slime Balls are edible and give Jump Boost and Slowness
+
 Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
@@ -59,6 +63,7 @@ Works server side only, but eating animation is only rendered if the mod is on t
 
 ### eggWaterDrag
 How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Egg will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
@@ -69,6 +74,7 @@ Thrown Egg will stutter on client when mod is only on server
 
 ### enderPearlWaterDrag
 How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Pearl will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
@@ -79,6 +85,7 @@ Thrown Pearl will stutter on client when mod is only on server
 
 ### honeyCombStickiness
 Honey Comb only sticks to selected Blocks
+
 Will render Ghost Blocks on the Client when mod is only Server Side
 - Type: `String`
 - Default value: `both`
@@ -89,6 +96,7 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 
 ### kelpBlockHardness
 How long Kelp Blocks take to mine in survival
+
 Any value other than 0 will behave like 0.5 for clients without this mod
 - Type: `double`
 - Default value: `0.5`
@@ -99,6 +107,7 @@ Any value other than 0 will behave like 0.5 for clients without this mod
 
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
+
 This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
 - Type: `int`
 - Default value: `6`
@@ -110,6 +119,7 @@ This only works for clients with this mod installed and the Banner tooltips neve
 
 ### reachDistance
 Reach in which you can place and break blocks. Value will be 0.5 higher in creative
+
 Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
@@ -121,6 +131,7 @@ Mod needed on server and client for this feature to work
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
+
 Thrown Snowball will stutter on client when mod is only on server
 - Type: `double`
 - Default value: `0.8`
