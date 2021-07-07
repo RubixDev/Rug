@@ -50,6 +50,7 @@ tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
 
     // Minecraft 1.17 (21w19a) upwards uses Java 16.
+    //noinspection GroovyAssignabilityCheck, GroovyAccessibility
     it.options.release = 16
 }
 
@@ -69,12 +70,17 @@ jar {
 // configure the maven publication
 publishing {
     publications {
+        //noinspection GroovyAssignabilityCheck
         mavenJava(MavenPublication) {
             // add all the jars that should be included when publishing to maven
+            //noinspection GroovyAssignabilityCheck
             artifact(remapJar) {
+                //noinspection GroovyAssignabilityCheck
                 builtBy remapJar
             }
+            //noinspection GroovyAssignabilityCheck
             artifact(sourcesJar) {
+                //noinspection GroovyAssignabilityCheck
                 builtBy remapSourcesJar
             }
         }
