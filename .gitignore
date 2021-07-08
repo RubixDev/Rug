@@ -17,7 +17,7 @@ classes/
 *.iws
 
 # vscode
-
+.vscode/
 .settings/
 bin/
 .classpath

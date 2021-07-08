@@ -1,5 +1,4 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "java.home": "/usr/lib/jvm/java-16-openjdk",
     "debug.console.wordWrap": false
 }

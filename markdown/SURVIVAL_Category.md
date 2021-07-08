@@ -72,72 +72,79 @@ Count: 65
 ## Rules in SURVIVAL Category
 
 ### basaltToBlackstoneConversion
-Basalt converts to Blackstone if next to both Lava and Water    
+Basalt converts to Blackstone if next to both Lava and Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### basaltToLavaConversion
-Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block    
+Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceGlass
-Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace  
-Expect a lag spike when changing the value  
+Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceGlazedTerracotta
-Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace  
-Expect a lag spike when changing the value  
+Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceNetherBrick
-Netherrack can be smelted to Nether Brick in a Blast Furnace  
-Expect a lag spike when changing the value  
+Netherrack can be smelted to Nether Brick in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceSmoothQuartz
-Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace  
-Expect a lag spike when changing the value  
+Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceSmoothSandStone
-Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace  
-Expect a lag spike when changing the value  
+Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### blastFurnaceStone
-Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace  
-Expect a lag spike when changing the value  
+Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [Suggestion from Philipp766](https://github.com/RubixDev/fabric-rug/issues/15)
+  - [Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15)
 
 ### cactusFurnaceXp
-Amount of XP a Cactus smelted in a furnace gives  
-1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items  
+Amount of XP a Cactus smelted in a furnace gives
+
+1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items
 - Type: `double`
 - Default value: `1`
 - Suggested options: `0.1`, `0.2`, `0.5`, `1`
@@ -146,62 +153,68 @@ Amount of XP a Cactus smelted in a furnace gives
   - You must choose a value from 0 to 1
 
 ### campSleeping
-Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty    
+Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### cobbleCrushing
-Cobblestone crushed by a falling Anvil will convert into Gravel  
-Carpet-Extra's renewableSand is prioritized over this  
+Cobblestone crushed by a falling Anvil will convert into Gravel
+
+Carpet-Extra's renewableSand is prioritized over this
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### concreteMixing
-Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below  
-In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator  
+Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below
+
+In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### craftableCobwebs
-Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area  
-Expect a lag spike when changing the value  
+Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area
+
+Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `cross`, `full`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
-Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces  
-Expect a lag spike when changing the value  
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+
+Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
-Name Tags can be crafted with Paper and Iron or String or both  
-Expect a lag spike when changing the value  
+Name Tags can be crafted with Paper and Iron or String or both
+
+Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `with_iron`, `with_string`, `with_both`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### craftableNotchApple
-Enchanted Golden Apples can be crafted with 8 Gold Blocks again  
-Expect a lag spike when changing the value  
+Enchanted Golden Apples can be crafted with 8 Gold Blocks again
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
-Ender Dragon drops selected item(s) when killed    
+Ender Dragon drops selected item(s) when killed
 - Type: `String`
 - Default value: `none`
 - Required options: `none`, `dragon_egg`, `elytra`, `dragon_head`, `dragon_egg,elytra`, `dragon_egg,dragon_head`, `elytra,dragon_head`, `all`
@@ -210,7 +223,7 @@ Ender Dragon drops selected item(s) when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### dragonXpDrop
-Amount of XP dropped by later Dragons. The first Dragon always drops 12000    
+Amount of XP dropped by later Dragons. The first Dragon always drops 12000
 - Type: `int`
 - Default value: `500`
 - Suggested options: `500`, `1200`, `12000`
@@ -220,32 +233,36 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
   - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
 ### easyBlueIceCrafting
-Blue Ice can be crafted from Ice and Blue Dye  
-Expect a lag spike when changing the value  
+Blue Ice can be crafted from Ice and Blue Dye
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyBoneBlockCrafting
-Bone Blocks can be crafted out of Bones  
-Expect a lag spike when changing the value  
+Bone Blocks can be crafted out of Bones
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyChestCrafting
-Chests can be crafted out of logs  
-Expect a lag spike when changing the value  
+Chests can be crafted out of logs
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyDispenserCrafting
-Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow  
-Expect a lag spike when changing the value  
+Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -254,87 +271,96 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it  
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans  
+Right clicking on fully grown crops harvests and immediately replants it
+
+Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### easyMinecartsCrafting
-The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle  
-Expect a lag spike when changing the value  
+The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyRepeaterCrafting
-Repeaters can be crafted with the raw materials for Redstone Torches  
-Expect a lag spike when changing the value  
+Repeaters can be crafted with the raw materials for Redstone Torches
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyStickCrafting
-Sticks can be crafted out of logs  
-Expect a lag spike when changing the value  
+Sticks can be crafted out of logs
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### easyTrappedChestCrafting
-Trapped Chests can be crafted out of logs and a Tripwire Hook  
-Expect a lag spike when changing the value  
+Trapped Chests can be crafted out of logs and a Tripwire Hook
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### edibleGoldIngots
-Butter is finally edible. Keep in mind 250g of pure butter are not that healthy  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
+
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleMagmaCream
-Magma Cream is edible and gives 10 seconds of Fire Resistance  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Magma Cream is edible and gives 10 seconds of Fire Resistance
+
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleNetheriteScraps
-Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
+
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### edibleSlimeBalls
-Slime Balls are edible and give Jump Boost and Slowness  
-Works server side only, but eating animation is only rendered if the mod is on the client too  
+Slime Balls are edible and give Jump Boost and Slowness
+
+Works server side only, but eating animation is only rendered if the mod is on the client too
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/fabric-rug/issues/19)
+  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### enderPearlDamage
-Amount of damage dealt by Ender Pearls    
+Amount of damage dealt by Ender Pearls
 - Type: `int`
 - Default value: `5`
 - Suggested options: `0`, `2`, `3`, `5`
@@ -343,8 +369,9 @@ Amount of damage dealt by Ender Pearls
   - You must choose a value from 0 to 10
 
 ### foodInstantHeal
-Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off  
-Recommended using with peacefulHunger  
+Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
+
+Recommended using with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -353,29 +380,30 @@ Recommended using with peacefulHunger
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### gravelCrushing
-Gravel crushed by a falling Anvil will convert into Sand    
+Gravel crushed by a falling Anvil will convert into Sand
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infiniteLavaSources
-Lava creates infinite sources like Water    
+Lava creates infinite sources like Water
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory    
+A Bow enchanted with Infinity needs the player to have an arrow in his inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 
 ### kelpBlockHardness
-How long Kelp Blocks take to mine in survival  
-Any value other than 0 will behave like 0.5 for clients without this mod  
+How long Kelp Blocks take to mine in survival
+
+Any value other than 0 will behave like 0.5 for clients without this mod
 - Type: `double`
 - Default value: `0.5`
 - Suggested options: `0`, `0.25`, `0.5`
@@ -384,8 +412,9 @@ Any value other than 0 will behave like 0.5 for clients without this mod
   - You must choose a value from 0 to 0.5
 
 ### maxBannerLayers
-Maximum number of layers, that can be applied to a banner  
-This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+Maximum number of layers, that can be applied to a banner
+
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
 - Type: `int`
 - Default value: `6`
 - Suggested options: `3`, `6`, `10`, `12`
@@ -395,50 +424,51 @@ This only works for clients with this mod installed and the Banner tooltips neve
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
 ### moreBarkCrafting
-Crafting Logs to Wood gives 4 instead of 3  
-Expect a lag spike when changing the value  
+Crafting Logs to Wood gives 4 instead of 3
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### netherrackGeneration
-Netherrack is generated instead of Cobblestone if a Magma Block is below    
+Netherrack is generated instead of Cobblestone if a Magma Block is below
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### noCreeperGriefing
-Prevents Creepers from destroying blocks    
+Prevents Creepers from destroying blocks
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
 
 ### noEndermanGriefing
-Prevents Endermen from picking up and placing blocks    
+Prevents Endermen from picking up and placing blocks
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
 
 ### noGhastGriefing
-Prevents Ghasts from destroying blocks    
+Prevents Ghasts from destroying blocks
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
 
 ### oldFishingLoot
-Reverts the fishing loot to how it was before 1.16    
+Reverts the fishing loot to how it was before 1.16
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
 
 ### peacefulHunger
-Players do not lose any hunger like in peaceful mode    
+Players do not lose any hunger like in peaceful mode
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -447,7 +477,7 @@ Players do not lose any hunger like in peaceful mode
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
 
 ### playerHeadDrops
-Players drop their head    
+Players drop their head
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `on_death`, `on_killed_by_player`
@@ -456,8 +486,9 @@ Players drop their head
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### powderToGlassSmelting
-Concrete Powder can be smelted to Glass of the corresponding color  
-Expect a lag spike when changing the value  
+Concrete Powder can be smelted to Glass of the corresponding color
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -466,8 +497,9 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### shapelessCrafting
-Bread, Paper and Shulker Boxes can be crafted in a 2x2 field  
-Expect a lag spike when changing the value  
+Bread, Paper and Shulker Boxes can be crafted in a 2x2 field
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -476,7 +508,7 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### silenceMobs
-Mobs named with 'silence_me' stop making noise    
+Mobs named with 'silence_me' stop making noise
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -485,44 +517,46 @@ Mobs named with 'silence_me' stop making noise
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### silkTouchFarmland
-Mining Farmland with a Silk Touch tool will drop itself    
+Mining Farmland with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchPathBlocks
-Mining Path Blocks with a Silk Touch tool will drop itself    
+Mining Path Blocks with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### silkTouchSpawners
-Mining Spawners with a Silk Touch tool will drop itself    
+Mining Spawners with a Silk Touch tool will drop itself
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### smokerGreenDye
-Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies  
-Expect a lag spike when changing the value  
+Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### smokerLimeDye
-Sea Pickles can be cooked into Lime Dye in a Smoker  
-Expect a lag spike when changing the value  
+Sea Pickles can be cooked into Lime Dye in a Smoker
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### stonecutterDamage
-How much damage Stonecutters deal when stepping on them    
+How much damage Stonecutters deal when stepping on them
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `3`, `4`, `5`
@@ -531,7 +565,7 @@ How much damage Stonecutters deal when stepping on them
   - You must choose a value from 0 to 10
 
 ### strictShulkerShells
-Shulkers always drop a given amount of shulker shells when killed    
+Shulkers always drop a given amount of shulker shells when killed
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `2`
@@ -541,8 +575,9 @@ Shulkers always drop a given amount of shulker shells when killed
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
 
 ### universalDyeing
-Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table  
-Expect a lag spike when changing the value  
+Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -551,8 +586,9 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### unpackableIce
-Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly  
-Expect a lag spike when changing the value  
+Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly
+
+Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `3`, `4`, `9`
@@ -561,8 +597,9 @@ Expect a lag spike when changing the value
   - You must choose a value from 0 to 9
 
 ### unpackableNetherWart
-Nether Wart Blocks can be crafted into set amount of Nether Warts  
-Expect a lag spike when changing the value  
+Nether Wart Blocks can be crafted into set amount of Nether Warts
+
+Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `9`
@@ -571,8 +608,9 @@ Expect a lag spike when changing the value
   - You must choose a value from 0 to 9
 
 ### unpackableQuartz
-Quartz Blocks can be crafted into set amount of Quartz  
-Expect a lag spike when changing the value  
+Quartz Blocks can be crafted into set amount of Quartz
+
+Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`
@@ -581,8 +619,9 @@ Expect a lag spike when changing the value
   - You must choose a value from 0 to 9
 
 ### unpackableWool
-White Wool Blocks can be crafted into set amount of String  
-Expect a lag spike when changing the value  
+White Wool Blocks can be crafted into set amount of String
+
+Expect a lag spike when changing the value
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `4`
@@ -591,14 +630,14 @@ Expect a lag spike when changing the value
   - You must choose a value from 0 to 9
 
 ### villagersAlwaysConvert
-Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty    
+Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `RUG`, `SURVIVAL`
 
 ### villagersDropEmeralds
-Villagers drop between 1 and x Emeralds on death, where x is the given number    
+Villagers drop between 1 and x Emeralds on death, where x is the given number
 - Type: `int`
 - Default value: `0`
 - Suggested options: `0`, `1`, `3`
@@ -607,15 +646,16 @@ Villagers drop between 1 and x Emeralds on death, where x is the given number
   - You must choose a value from 0 to 5
 
 ### woodcutting
-The Stonecutter can be used for all wood types  
-Expect a lag spike when changing the value  
+The Stonecutter can be used for all wood types
+
+Expect a lag spike when changing the value
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### zombifiedPiglinsSpawningInPortals
-Allows Zombified Piglins to spawn inside Nether Portals    
+Allows Zombified Piglins to spawn inside Nether Portals
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`

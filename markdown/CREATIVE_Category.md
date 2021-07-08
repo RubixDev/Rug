@@ -8,8 +8,9 @@ Count: 1
 ## Rules in CREATIVE Category
 
 ### reachDistance
-Reach in which you can place and break blocks. Value will be 0.5 higher in creative  
-Mod needed on server and client for this feature to work  
+Reach in which you can place and break blocks. Value will be 0.5 higher in creative
+
+Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
 - Suggested options: `0`, `4.5`, `5`, `10`

@@ -8,10 +8,10 @@ class Rule:
     name: str
     value: str
     desc: str
-    extra: str = ""
-    options: list = []
+    extra: list[str] = []
+    options: list[str] = []
     strict: bool
-    categories: list
+    categories: list[str]
     restriction: str = ""
     additional: str = ""
 
@@ -24,7 +24,7 @@ class Rule:
         self.categories.sort()
 
         out = f'### {self.name}\n' \
-              f'{self.desc}  {nl + self.extra if self.extra else ""}  \n' \
+              f'{self.desc}{nl + nl + ("  " + nl).join(self.extra) if self.extra else ""}\n' \
               f'- Type: `{self.type}`\n' \
               f'- Default value: `{self.value}`\n' \
               f'- {"Required" if self.strict else "Suggested"} ' \
@@ -42,7 +42,7 @@ class Rule:
 
 
 def read_rules() -> list[Rule]:
-    with open('src/main/java/com/rubixdev/rug/RugSettings.java', 'r') as settings_file:
+    with open('src/main/java/de/rubixdev/rug/RugSettings.java', 'r') as settings_file:
         print('Reading settings file\n')
         settings_string = settings_file.read()
     raw_rules: list[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
@@ -61,7 +61,10 @@ def read_rules() -> list[Rule]:
 
         rule.desc = attr_dict['desc'][1:-1]
         if 'extra' in attr_dict.keys():
-            rule.extra = attr_dict['extra'][1:-1]
+            if (attr_dict['extra'][0] == '{'):
+                rule.extra = [re.sub(r'\s|\n', '', extra)[1:-1] for extra in re.compile(r',\s|,\n').split(attr_dict['extra'][1:-1])]
+            else:
+                rule.extra = [attr_dict['extra'][1:-1]]
         if 'options' in attr_dict.keys():
             rule.options = [re.sub(r'\s|\n', '', option)[1:-1] for option in re.compile(r',\s|,\n').split(attr_dict['options'][1:-1])]
         rule.strict = not ('strict' in attr_dict.keys()) or attr_dict['strict'] == 'true'
@@ -137,7 +140,7 @@ def curseforge_list(rules: list[Rule]):
     out: str = f'# Rug Mod for Fabric\n\n' \
                f'Extension Mod for [gnembon\'s fabric-carpet](https://github.com/gnembon/fabric-carpet) ' \
                f'with some more features\n\n' \
-               f'**Visit the [GitHub page](https://github.com/RubixDev/fabric-rug) ' \
+               f'**Visit the [GitHub page](https://github.com/RubixDev/Rug) ' \
                f'for a more detailed explanation of all features.**\n\n' \
                f'## List of implemented Carpet Rules\n' \
                f'Count: {len(rules)}  \n'
