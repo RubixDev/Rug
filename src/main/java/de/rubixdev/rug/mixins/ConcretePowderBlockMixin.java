@@ -17,8 +17,13 @@ public class ConcretePowderBlockMixin {
 
     @Inject(
         method = "hardensOnAnySide",
-        at = @At(value = "JUMP", ordinal = 1, shift = At.Shift.AFTER),
-        locals = LocalCapture.CAPTURE_FAILSOFT,
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/world/BlockView;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;",
+            ordinal = 0,
+            shift = At.Shift.AFTER
+        ),
+        locals = LocalCapture.CAPTURE_FAILHARD,
         cancellable = true
     )
     private static void onHardensOnAnySide(
@@ -34,7 +39,7 @@ public class ConcretePowderBlockMixin {
     ) {
         if (RugSettings.concreteConvertOnCauldron && direction == Direction.DOWN) {
             BlockState blockState = world.getBlockState(pos.down());
-            if (blockState.isOf(Blocks.CAULDRON) && blockState.get(LeveledCauldronBlock.LEVEL) == 3) {
+            if (blockState.isOf(Blocks.WATER_CAULDRON) && blockState.get(LeveledCauldronBlock.LEVEL) == 3) {
                 cir.setReturnValue(true);
             }
         }
