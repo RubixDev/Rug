@@ -47,7 +47,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class RugServer implements CarpetExtension, ModInitializer {
-    public static final String VERSION = "1.1.10";
+    public static final String VERSION = "1.1.11";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
 
     private static MinecraftServer minecraftServer;
@@ -371,14 +371,16 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void copyFile(String resourcePath, String targetPath) {
-        InputStream source = Objects.requireNonNull(
-            BundledModule.class.getClassLoader().getResourceAsStream(resourcePath)
-        );
+        InputStream source = BundledModule.class.getClassLoader().getResourceAsStream(resourcePath);
         Path target = new File(targetPath).toPath();
 
         try {
+            assert source != null;
             Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
+            Logging.logStackTrace(e);
+        } catch (NullPointerException e) {
+            LOGGER.error("Resource '" + resourcePath + "' is null:");
             Logging.logStackTrace(e);
         }
     }
