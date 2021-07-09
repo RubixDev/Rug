@@ -1,6 +1,16 @@
 package de.rubixdev.rug.mixins;
 
+import java.util.List;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
 import com.google.common.collect.Lists;
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,39 +21,24 @@ import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Slice;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-
-import java.util.List;
+import net.minecraft.world.WorldEvents;
 
 @Mixin(FallingBlockEntity.class)
 public abstract class FallingBlockEntityMixin extends Entity {
     @Shadow
     private BlockState block;
 
-    public FallingBlockEntityMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
-
     private int frostedIceCount;
     private int iceCount;
     private int packedIceCount;
 
+    public FallingBlockEntityMixin(EntityType<?> type, World world) {
+        super(type, world);
+    }
+
     @Inject(
         method = "tick",
-        at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraft/entity/FallingBlockEntity;discard()V"),
-        slice = @Slice(
-            from = @At(
-                value = "INVOKE",
-                target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
-                ordinal = 1
-            )
-        ),
+        at = @At(value = "FIELD", target = "Lnet/minecraft/entity/FallingBlockEntity;destroyedOnLanding:Z"),
         locals = LocalCapture.CAPTURE_FAILHARD,
         cancellable = true
     )
@@ -97,13 +92,21 @@ public abstract class FallingBlockEntityMixin extends Entity {
             || ( this.block.isOf(Blocks.GRAVEL) && blockStateBelow.isOf(Blocks.SAND) )) {
                 BlockState concreteBlock = world.getBlockState(posBelow.down());
                 if (isConcrete(concreteBlock) && RugSettings.concreteMixing) {
-                    world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.SAND.getDefaultState()));
-                    world.syncWorldEvent(2001, posBelow, Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState()));
+                    world.syncWorldEvent(
+                        WorldEvents.BLOCK_BROKEN,
+                        posBelow,
+                        Block.getRawIdFromState(Blocks.SAND.getDefaultState())
+                    );
+                    world.syncWorldEvent(
+                        WorldEvents.BLOCK_BROKEN,
+                        posBelow,
+                        Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState())
+                    );
 
                     Block powderBlock = getCorrespondingPowder(concreteBlock);
                     assert powderBlock != null;
                     world.setBlockState(posBelow, powderBlock.getDefaultState(), 3);
-                    this.remove(RemovalReason.DISCARDED);
+                    this.discard();
                     ci.cancel();
                 }
             }
