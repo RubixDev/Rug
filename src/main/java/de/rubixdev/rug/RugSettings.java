@@ -1172,6 +1172,18 @@ public class RugSettings {
             validate = validatorDamage.class
     )
     public static int stalagmiteSteppingDamage = 0;
+
+    @CraftingRule(recipes = "unpackable_amethysts.json")
+    @Rule(
+        desc = "Amethyst Blocks can be crafted into set amount of Amethyst Shards",
+        extra = "Expect a lag spike when changing the value",
+        options = { "0", "4" },
+        strict = false,
+        validate = validatorUnpackables.class,
+        category = { CRAFTING, SURVIVAL, RUG }
+    )
+    public static int unpackableAmethysts = 0;
+    // unpackableAmethystsAdditional: Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
 }
 
 // BUGFIX

@@ -22,7 +22,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 91
+Count: 92
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -105,6 +105,7 @@ Count: 91
 - [strictShulkerShells](#strictshulkershells)
 - [tallPlantNoUpdate](#tallplantnoupdate)
 - [universalDyeing](#universaldyeing)
+- [unpackableAmethysts](#unpackableamethysts)
 - [unpackableIce](#unpackableice)
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
@@ -854,6 +855,18 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+
+### unpackableAmethysts
+Amethyst Blocks can be crafted into set amount of Amethyst Shards
+
+Expect a lag spike when changing the value
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `4`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 9
+  - Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79)
 
 ### unpackableIce
 Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly

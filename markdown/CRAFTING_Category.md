@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 30
+Count: 31
 - [blastFurnaceGlass](#blastfurnaceglass)
 - [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
 - [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
@@ -28,6 +28,7 @@ Count: 30
 - [smokerGreenDye](#smokergreendye)
 - [smokerLimeDye](#smokerlimedye)
 - [universalDyeing](#universaldyeing)
+- [unpackableAmethysts](#unpackableamethysts)
 - [unpackableIce](#unpackableice)
 - [unpackableNetherWart](#unpackablenetherwart)
 - [unpackableQuartz](#unpackablequartz)
@@ -273,6 +274,18 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+
+### unpackableAmethysts
+Amethyst Blocks can be crafted into set amount of Amethyst Shards
+
+Expect a lag spike when changing the value
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `4`
+- Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 9
+  - Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79)
 
 ### unpackableIce
 Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly
