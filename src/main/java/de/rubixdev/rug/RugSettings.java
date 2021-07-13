@@ -247,7 +247,7 @@ public class RugSettings {
         extra = "Mod needed on server and client for this feature to work",
         strict = false,
         validate = validatorReachDistance.class,
-        options = { "0", "4.5", "5", "10" },
+        options = { "0.0", "4.5", "5.0", "10.0" },
         category = { EXPERIMENTAL, CREATIVE, CLIENT, RUG }
     )
     public static double reachDistance = 4.5;
@@ -285,12 +285,12 @@ public class RugSettings {
     @Rule(
         desc = "Amount of XP a Cactus smelted in a furnace gives",
         extra = "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
-        options = { "0.1", "0.2", "0.5", "1" },
+        options = { "0.1", "0.2", "0.5", "1.0" },
         strict = false,
         validate = validatorCactusFurnaceXp.class,
         category = { BUGFIX, SURVIVAL, RUG }
     )
-    public static double cactusFurnaceXp = 1;
+    public static double cactusFurnaceXp = 1.0;
 
     @Rule(
         desc = "Mining Farmland with a Silk Touch tool will drop itself",
@@ -816,7 +816,7 @@ public class RugSettings {
     @Rule(
         desc = "How long Kelp Blocks take to mine in survival",
         extra = "Any value other than 0 will behave like 0.5 for clients without this mod",
-        options = { "0", "0.25", "0.5" },
+        options = { "0.0", "0.25", "0.5" },
         strict = false,
         validate = validatorKelpBlockHardness.class,
         category = { EXPERIMENTAL, CLIENT, SURVIVAL, RUG }

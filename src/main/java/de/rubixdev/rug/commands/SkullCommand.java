@@ -59,7 +59,7 @@ public class SkullCommand {
     }
 
     private static Collection<String> getPlayers(ServerCommandSource source) {
-        Set<String> players = Sets.newLinkedHashSet(Arrays.asList("RubixDev", "gnembon", "Steve", "Alex"));
+        Set<String> players = Sets.newLinkedHashSet(Arrays.asList("RubixDev", "gnembon"));
         players.addAll(source.getPlayerNames());
         return players;
     }
