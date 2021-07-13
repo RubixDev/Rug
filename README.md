@@ -222,8 +222,8 @@ Amount of XP a Cactus smelted in a furnace gives
 
 1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items
 - Type: `double`
-- Default value: `1`
-- Suggested options: `0.1`, `0.2`, `0.5`, `1`
+- Default value: `1.0`
+- Suggested options: `0.1`, `0.2`, `0.5`, `1.0`
 - Categories: `BUGFIX`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 1
@@ -589,7 +589,7 @@ How long Kelp Blocks take to mine in survival
 Any value other than 0 will behave like 0.5 for clients without this mod
 - Type: `double`
 - Default value: `0.5`
-- Suggested options: `0`, `0.25`, `0.5`
+- Suggested options: `0.0`, `0.25`, `0.5`
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 0.5
@@ -719,7 +719,7 @@ Reach in which you can place and break blocks. Value will be 0.5 higher in creat
 Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
-- Suggested options: `0`, `4.5`, `5`, `10`
+- Suggested options: `0.0`, `4.5`, `5.0`, `10.0`
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100

@@ -112,7 +112,7 @@ public class RugServer implements CarpetExtension {
 
     @Override
     public void onServerClosed(MinecraftServer server) {
-        File datapackPath = new File(server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/RugData/");
+        File datapackPath = new File(server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/RugData/data/");
         if (Files.isDirectory(datapackPath.toPath())) {
             try {
                 FileUtils.deleteDirectory(datapackPath);

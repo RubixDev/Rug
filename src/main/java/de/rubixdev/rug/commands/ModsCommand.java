@@ -29,10 +29,7 @@ public class ModsCommand {
         dispatcher.register(command);
     }
 
-    private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric)
-            throws CommandSyntaxException {
-        ServerPlayerEntity playerEntity = context.getSource().getPlayer();
-
+    private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric) {
         List<ModMetadata> installedMods = FabricLoader.getInstance()
                 .getAllMods()
                 .stream()
@@ -52,7 +49,7 @@ public class ModsCommand {
         }
         chatMessageJson += String.join(",\"\\n    \",", modJsons) + "]";
 
-        playerEntity.sendSystemMessage(Text.Serializer.fromJson(chatMessageJson), Util.NIL_UUID);
+        context.getSource().sendFeedback(Text.Serializer.fromJson(chatMessageJson), false);
         return 1;
     }
 

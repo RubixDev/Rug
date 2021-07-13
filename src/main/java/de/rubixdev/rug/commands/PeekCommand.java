@@ -28,6 +28,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.world.dimension.DimensionType;
 
 public class PeekCommand {
@@ -66,6 +67,13 @@ public class PeekCommand {
         if (targetPlayer == null) {
             targetPlayer = playerManager.createPlayer(targetPlayerProfile);
             NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
+
+            if (targetPlayerData == null) {
+                source.sendError(Text.of("Targeted player's data could not be found. Was he ever in this world?"));
+                return 0;
+            }
+
+            @SuppressWarnings({"deprecation", "OptionalGetWithoutIsPresent"})
             ServerWorld world = source.getMinecraftServer()
                 .getWorld(
                     DimensionType.method_28521(new Dynamic<>(NbtOps.INSTANCE, targetPlayerData.get("Dimension")))

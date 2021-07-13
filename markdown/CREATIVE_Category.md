@@ -13,7 +13,7 @@ Reach in which you can place and break blocks. Value will be 0.5 higher in creat
 Mod needed on server and client for this feature to work
 - Type: `double`
 - Default value: `4.5`
-- Suggested options: `0`, `4.5`, `5`, `10`
+- Suggested options: `0.0`, `4.5`, `5.0`, `10.0`
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
