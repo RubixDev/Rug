@@ -1184,6 +1184,12 @@ public class RugSettings {
         category = { COMMAND, RUG }
     )
     public static String commandMaxEffect = "ops";
+
+    @Rule(
+            desc = "A command listing all mods installed on the server",
+            category = { COMMAND, RUG }
+    )
+    public static String commandMods = "true";
 }
 
 // BUGFIX

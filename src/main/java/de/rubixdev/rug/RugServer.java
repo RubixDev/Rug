@@ -23,6 +23,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.brigadier.CommandDispatcher;
 
+import de.rubixdev.rug.commands.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,12 +32,6 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.script.bundled.BundledModule;
 import carpet.settings.ParsedRule;
-import de.rubixdev.rug.commands.FrameCommand;
-import de.rubixdev.rug.commands.MaxEffectCommand;
-import de.rubixdev.rug.commands.PeekCommand;
-import de.rubixdev.rug.commands.SkullCommand;
-import de.rubixdev.rug.commands.SlimeChunkCommand;
-import de.rubixdev.rug.commands.SudoCommand;
 import de.rubixdev.rug.util.CraftingRule;
 import de.rubixdev.rug.util.Logging;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -62,20 +57,39 @@ import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
 
 public class RugServer implements CarpetExtension {
-    public static final String VERSION = "1.1.10";
+    public static final String VERSION = "1.1.12";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
 
     private static MinecraftServer minecraftServer;
 
-    @Override
-    public String version() {
-        return "rug";
+    static {
+        CarpetServer.manageExtension(new RugServer());
     }
 
     public static void noop() {}
 
-    static {
-        CarpetServer.manageExtension(new RugServer());
+    private static boolean isMature(BlockState state) {
+        Block block = state.getBlock();
+        if (block instanceof CropBlock) {
+            return ( (CropBlock) block ).isMature(state);
+        } else if (block instanceof NetherWartBlock) {
+            return state.get(NetherWartBlock.AGE) == 3;
+        } else if (block instanceof CocoaBlock) { return state.get(CocoaBlock.AGE) == 2; }
+        return false;
+    }
+
+    private static IntProperty getAgeProperty(Block block) {
+        if (block instanceof CropBlock) {
+            return ( (CropBlock) block ).getAgeProperty();
+        } else if (block instanceof NetherWartBlock) {
+            return NetherWartBlock.AGE;
+        } else if (block instanceof CocoaBlock) { return CocoaBlock.AGE; }
+        return null;
+    }
+
+    @Override
+    public String version() {
+        return "rug";
     }
 
     @Override
@@ -93,6 +107,19 @@ public class RugServer implements CarpetExtension {
         SudoCommand.register(dispatcher);
         PeekCommand.register(dispatcher);
         MaxEffectCommand.register(dispatcher);
+        ModsCommand.register(dispatcher);
+    }
+
+    @Override
+    public void onServerClosed(MinecraftServer server) {
+        File datapackPath = new File(server.getSavePath(WorldSavePath.DATAPACKS).toString() + "/RugData/");
+        if (Files.isDirectory(datapackPath.toPath())) {
+            try {
+                FileUtils.deleteDirectory(datapackPath);
+            } catch (IOException e) {
+                Logging.logStackTrace(e);
+            }
+        }
     }
 
     @Override
@@ -365,34 +392,17 @@ public class RugServer implements CarpetExtension {
         ReloadCommand.method_29480(collection, minecraftServer.getCommandSource());
     }
 
-    private static boolean isMature(BlockState state) {
-        Block block = state.getBlock();
-        if (block instanceof CropBlock) {
-            return ( (CropBlock) block ).isMature(state);
-        } else if (block instanceof NetherWartBlock) {
-            return state.get(NetherWartBlock.AGE) == 3;
-        } else if (block instanceof CocoaBlock) { return state.get(CocoaBlock.AGE) == 2; }
-        return false;
-    }
-
-    private static IntProperty getAgeProperty(Block block) {
-        if (block instanceof CropBlock) {
-            return ( (CropBlock) block ).getAgeProperty();
-        } else if (block instanceof NetherWartBlock) {
-            return NetherWartBlock.AGE;
-        } else if (block instanceof CocoaBlock) { return CocoaBlock.AGE; }
-        return null;
-    }
-
     private void copyFile(String resourcePath, String targetPath) {
-        InputStream source = Objects.requireNonNull(
-            BundledModule.class.getClassLoader().getResourceAsStream(resourcePath)
-        );
+        InputStream source = BundledModule.class.getClassLoader().getResourceAsStream(resourcePath);
         Path target = new File(targetPath).toPath();
 
         try {
+            assert source != null;
             Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
+            Logging.logStackTrace(e);
+        } catch (NullPointerException e) {
+            LOGGER.error("Resource '" + resourcePath + "' is null:");
             Logging.logStackTrace(e);
         }
     }

@@ -2,9 +2,10 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 6
+Count: 7
 - [commandFrame](#commandframe)
 - [commandMaxEffect](#commandmaxeffect)
+- [commandMods](#commandmods)
 - [commandPeek](#commandpeek)
 - [commandSkull](#commandskull)
 - [commandSlimeChunk](#commandslimechunk)
@@ -25,6 +26,13 @@ A command to quickly give the player the specified effect for infinite time and 
 This is basically just an alias for: `/effect give @s <effect> 999999 255 true`
 - Type: `String`
 - Default value: `ops`
+- Required options: `true`, `false`, `ops`
+- Categories: `COMMAND`, `RUG`
+
+### commandMods
+A command listing all mods installed on the server
+- Type: `String`
+- Default value: `true`
 - Required options: `true`, `false`, `ops`
 - Categories: `COMMAND`, `RUG`
 

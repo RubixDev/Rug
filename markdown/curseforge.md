@@ -5,7 +5,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 **Visit the [GitHub page](https://github.com/RubixDev/Rug) for a more detailed explanation of all features.**
 
 ## List of implemented Carpet Rules
-Count: 90  
+Count: 91  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -22,6 +22,7 @@ Count: 90
 - cobbleCrushing  
 - commandFrame  
 - commandMaxEffect  
+- commandMods  
 - commandPeek  
 - commandSkull  
 - commandSlimeChunk  
