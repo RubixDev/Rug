@@ -4,16 +4,13 @@ import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import de.rubixdev.rug.RugSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Util;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,10 +25,7 @@ public class ModsCommand {
         dispatcher.register(command);
     }
 
-    private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric)
-        throws CommandSyntaxException {
-        ServerPlayerEntity playerEntity = context.getSource().getPlayer();
-
+    private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric) {
         List<ModMetadata> installedMods = FabricLoader.getInstance()
             .getAllMods()
             .stream()
@@ -51,7 +45,7 @@ public class ModsCommand {
         }
         chatMessageJson += String.join(",\"\\n    \",", modJsons) + "]";
 
-        playerEntity.sendSystemMessage(Text.Serializer.fromJson(chatMessageJson), Util.NIL_UUID);
+        context.getSource().sendFeedback(Text.Serializer.fromJson(chatMessageJson), false);
         return 1;
     }
 
