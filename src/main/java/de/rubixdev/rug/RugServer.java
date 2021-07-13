@@ -22,6 +22,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.brigadier.CommandDispatcher;
 
+import de.rubixdev.rug.commands.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,12 +31,6 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.script.bundled.BundledModule;
 import carpet.settings.ParsedRule;
-import de.rubixdev.rug.commands.FrameCommand;
-import de.rubixdev.rug.commands.MaxEffectCommand;
-import de.rubixdev.rug.commands.PeekCommand;
-import de.rubixdev.rug.commands.SkullCommand;
-import de.rubixdev.rug.commands.SlimeChunkCommand;
-import de.rubixdev.rug.commands.SudoCommand;
 import de.rubixdev.rug.util.CraftingRule;
 import de.rubixdev.rug.util.Logging;
 import net.fabricmc.api.ModInitializer;
@@ -98,6 +93,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         SudoCommand.register(dispatcher);
         PeekCommand.register(dispatcher);
         MaxEffectCommand.register(dispatcher);
+        ModsCommand.register(dispatcher);
     }
 
     @Override

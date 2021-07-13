@@ -1184,6 +1184,12 @@ public class RugSettings {
     )
     public static int unpackableAmethysts = 0;
     // unpackableAmethystsAdditional: Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
+
+    @Rule(
+            desc = "A command listing all mods installed on the server",
+            category = { COMMAND, RUG }
+    )
+    public static String commandMods = "true";
 }
 
 // BUGFIX
