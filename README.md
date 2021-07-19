@@ -1,12 +1,13 @@
 # Rug Mod for Fabric
 
-[![GitHub all releases](https://img.shields.io/github/downloads/RubixDev/Rug/total)](https://github.com/RubixDev/Rug/releases)
-[![GitHub release (latest by date)](https://img.shields.io/github/downloads/RubixDev/Rug/latest/total)](https://github.com/RubixDev/Rug/releases/latest)
-[![License](https://img.shields.io/github/license/RubixDev/Rug)](https://github.com/RubixDev/Rug/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/RubixDev/Rug)](https://github.com/RubixDev/Rug/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/Rug)](https://github.com/RubixDev/Rug/issues?q=is%3Aissue+is%3Aclosed)
-[![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/Rug/files)
-[![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg)](https://www.curseforge.com/minecraft/mc-mods/Rug)
+![Total Downloads](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fshields.rubixdev.de%2Frug%2Fdownloads)
+[![GitHub all releases](https://img.shields.io/github/downloads/RubixDev/Rug/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases)
+[![GitHub release (latest by date)](https://img.shields.io/github/downloads/RubixDev/Rug/latest/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases/latest)
+[![License](https://img.shields.io/github/license/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/issues?q=is%3Aissue+is%3Aclosed)
+[![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug/files)
+[![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug)
 
 ![Icon](src/main/resources/assets/rug/icon.png)
 
