@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 import re
+import json
+
+
+with open('pyconfig.json', 'r') as config_file:
+    SETTINGS: dict[str, any] = json.load(config_file)
 
 
 class Rule:
@@ -42,7 +47,7 @@ class Rule:
 
 
 def read_rules() -> list[Rule]:
-    with open('src/main/java/de/rubixdev/rug/RugSettings.java', 'r') as settings_file:
+    with open(SETTINGS['carpetSettingsClass'], 'r') as settings_file:
         print('Reading settings file\n')
         settings_string = settings_file.read()
     raw_rules: list[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
@@ -57,22 +62,27 @@ def read_rules() -> list[Rule]:
         rule.value = field[3].replace('"', '')
 
         attr_dict: dict[str: str] = { match.group(1): match.group(2) for match in re.finditer(r'(name|desc|extra|options|category|strict|appSource|validate) = ([\s\S]+?)(?=,\n?\s*?\w+?\s?=\s?|\n?\s*?\)\n)', raw_rule) }
-        print(attr_dict)
 
         rule.desc = attr_dict['desc'][1:-1]
         if 'extra' in attr_dict.keys():
             if (attr_dict['extra'][0] == '{'):
-                rule.extra = [re.sub(r'\s|\n', '', extra)[1:-1] for extra in re.compile(r',\s|,\n').split(attr_dict['extra'][1:-1])]
+                rule.extra = [
+                    re.sub(r'([^\\]|^)"', r'\1|||||', extra)
+                        .split('|||||')[1].split('|||||')[0]
+                        .replace('\\"', '"')
+                    for extra in re.sub(r'",\s|",\n', '"|||||', attr_dict['extra'][1:-1]).split('|||||')
+                ]
             else:
                 rule.extra = [attr_dict['extra'][1:-1]]
         if 'options' in attr_dict.keys():
             rule.options = [re.sub(r'\s|\n', '', option)[1:-1] for option in re.compile(r',\s|,\n').split(attr_dict['options'][1:-1])]
         rule.strict = not ('strict' in attr_dict.keys()) or attr_dict['strict'] == 'true'
         rule.categories = [category for category in attr_dict['category'][1:-1].replace(' ', '').split(',')]
-        if 'RUG' not in rule.categories:
-            print(f'\033[1;31mRUG category is missing in {rule.name}!\033[22m Exiting...\033[0m')
+        main_category: str = SETTINGS['mainCategory']
+        if main_category not in rule.categories:
+            print(f'\033[1;31m{main_category} category is missing in {rule.name}!\033[22m Exiting...\033[0m')
             return []
-        if not rule.strict:
+        if 'validate' in attr_dict.keys():
             validator: str = attr_dict['validate'].replace('.class', '')
             rule.restriction = settings_string.split(f'class {validator} extends')[1].split('"')[1]
         found_additional: list[str] = settings_string.split(f'// {rule.name}Additional: ')
@@ -86,13 +96,13 @@ def read_rules() -> list[Rule]:
 
 
 def write_files(rules: list[Rule]):
-    with open('markdown/README-header.md', 'r') as header_file:
+    with open(SETTINGS['readmeHeader'], 'r') as header_file:
         print('Reading header file')
         out: str = header_file.read()
 
     print('Listing all categories')
     all_categories: list[str] = list(set([item for sublist in [rule.categories for rule in rules] for item in sublist]))
-    all_categories: list[str] = [category for category in all_categories if category.upper() != 'RUG']
+    all_categories = [category for category in all_categories if category.upper() != SETTINGS['mainCategory']]
     all_categories.sort()
 
     out += f'## Lists of Categories\n'
@@ -137,13 +147,9 @@ def list_rules(rules: list[Rule], rule_headline: str) -> str:
 
 
 def curseforge_list(rules: list[Rule]):
-    out: str = f'# Rug Mod for Fabric\n\n' \
-               f'Extension Mod for [gnembon\'s fabric-carpet](https://github.com/gnembon/fabric-carpet) ' \
-               f'with some more features\n\n' \
-               f'**Visit the [GitHub page](https://github.com/RubixDev/Rug) ' \
-               f'for a more detailed explanation of all features.**\n\n' \
-               f'## List of implemented Carpet Rules\n' \
-               f'Count: {len(rules)}  \n'
+    with open(SETTINGS['curseForgeHeader'], 'r') as header_file:
+        out: str = header_file.read()
+    out += f'Count: {len(rules)}  \n'
     for rule in rules:
         out += f'- {rule.name}  \n'
     with open('markdown/curseforge.md', 'w') as curse_file:
