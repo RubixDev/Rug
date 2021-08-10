@@ -19,7 +19,7 @@ public class SpawnHelperMixin {
         at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z")
     )
     private static boolean allowMoreSpawnableFortressBlocks(BlockState floorBlock, Block netherBricks) {
-        if (RugSettings.moreFortressSpawningBlocks.equals("all")) { return true; }
+        if (RugSettings.moreFortressSpawningBlocks.equals("all")) return true;
 
         List<Block> allowedBlocks = Lists.newArrayList(
             netherBricks,
@@ -32,6 +32,7 @@ public class SpawnHelperMixin {
             Blocks.MAGMA_BLOCK,
             Blocks.RED_NETHER_BRICKS
         );
-        return RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(floorBlock.getBlock());
+
+        return RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(floorBlock.getBlock()) || floorBlock.isOf(netherBricks);
     }
 }
