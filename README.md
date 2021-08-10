@@ -11,7 +11,7 @@
 
 ![Icon](src/main/resources/assets/rug/icon.png)
 
-<a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api"><img alt="Requires Fabric API" src="https://i.imgur.com/Ol1Tcf8.png" width="200"></a>
+[![Fabric API](fabric-api.png)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 
 Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 

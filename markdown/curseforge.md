@@ -1,6 +1,6 @@
 # Rug Mod
 
-<a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api"><img alt="Requires Fabric API" src="https://i.imgur.com/Ol1Tcf8.png" width="200"></a>
+[![Fabric API](https://raw.githubusercontent.com/RubixDev/Rug/1.17/fabric-api.png)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 
 Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 
