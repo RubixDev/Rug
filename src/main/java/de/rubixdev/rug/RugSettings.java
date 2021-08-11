@@ -164,7 +164,8 @@ public class RugSettings {
         category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
     )
     public static boolean peacefulHunger = false;
-    // peacefulHungerAdditional: Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
+    // peacefulHungerAdditional: Suggestion by
+    // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
     @Rule(
         desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
@@ -964,7 +965,8 @@ public class RugSettings {
         category = { EXPERIMENTAL, RUG }
     )
     public static boolean tallPlantNoUpdate = false;
-    // tallPlantNoUpdateAdditional: [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185):::
+    // tallPlantNoUpdateAdditional: [Idea from
+    // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185):::
 
     @Rule(
         desc = "A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible",
@@ -1165,11 +1167,11 @@ public class RugSettings {
     public static String commandMaxEffect = "ops";
 
     @Rule(
-            desc = "Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this",
-            category = {FEATURE, SURVIVAL, RUG},
-            options = {"0", "2", "4"},
-            strict = false,
-            validate = validatorDamage.class
+        desc = "Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this",
+        category = { FEATURE, SURVIVAL, RUG },
+        options = { "0", "2", "4" },
+        strict = false,
+        validate = validatorDamage.class
     )
     public static int stalagmiteSteppingDamage = 0;
 
@@ -1183,13 +1185,14 @@ public class RugSettings {
         category = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableAmethysts = 0;
-    // unpackableAmethystsAdditional: Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
+    // unpackableAmethystsAdditional: Idea from
+    // [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
 
-    @Rule(
-            desc = "A command listing all mods installed on the server",
-            category = { COMMAND, RUG }
-    )
+    @Rule(desc = "A command listing all mods installed on the server", category = { COMMAND, RUG })
     public static String commandMods = "true";
+
+    @Rule(desc = "Cats can also be tamed with cooked Cod and Salmon, not just with raw", category = { SURVIVAL, RUG })
+    public static boolean tameCatsWithCookedFish = false;
 }
 
 // BUGFIX

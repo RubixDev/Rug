@@ -17,6 +17,7 @@
     "BowItemMixin",
     "CactusBlockMixin",
     "CarpetServerMixin",
+    "CatEntityMixin",
     "ChorusFlowerBlockMixin",
     "ClientPlayerInteractionManagerMixin",
     "ConcretePowderBlockMixin",
