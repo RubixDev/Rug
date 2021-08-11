@@ -1193,6 +1193,12 @@ public class RugSettings {
 
     @Rule(desc = "Cats can also be tamed with cooked Cod and Salmon, not just with raw", category = { SURVIVAL, RUG })
     public static boolean tameCatsWithCookedFish = false;
+
+    @Rule(
+        desc = "Item Frames inside wooden pressure plates hold them down",
+        category = { BUGFIX, RUG }
+    )
+    public static boolean itemFramesActivatePressurePlates = true;
 }
 
 // BUGFIX
