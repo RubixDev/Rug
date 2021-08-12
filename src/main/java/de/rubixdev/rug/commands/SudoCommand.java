@@ -2,8 +2,12 @@ package de.rubixdev.rug.commands;
 
 import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.Message;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.MinecraftServer;
@@ -28,9 +32,8 @@ public class SudoCommand {
             .then(
                 argument("player", StringArgumentType.word()).suggests(
                     ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
-                ).then(argument("command", StringArgumentType.greedyString()).executes(context -> {
+                ).then(literal("chat").then(argument("message", StringArgumentType.greedyString()).executes(context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");
-                    String commandString = StringArgumentType.getString(context, "command");
 
                     MinecraftServer server = context.getSource().getServer();
                     PlayerManager playerManager = server.getPlayerManager();
@@ -41,19 +44,24 @@ public class SudoCommand {
                         return 0;
                     }
 
-                    if (commandString.startsWith("/")) {
-                        server.getCommandManager().execute(targetPlayer.getCommandSource(), commandString);
-                    } else {
-                        Text text = new TranslatableText("chat.type.text", targetPlayerName, commandString);
-                        playerManager.broadcastChatMessage(text, MessageType.CHAT, targetPlayer.getUuid());
+                    Text text = new TranslatableText(
+                        "chat.type.text",
+                        targetPlayerName,
+                        StringArgumentType.getString(context, "message")
+                    );
+                    playerManager.broadcastChatMessage(text, MessageType.CHAT, targetPlayer.getUuid());
+                    return 1;
+                }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
+                    String targetPlayerName = StringArgumentType.getString(context, "player");
+                    MinecraftServer server = context.getSource().getServer();
+                    ServerPlayerEntity player = server.getPlayerManager().getPlayer(targetPlayerName);
+
+                    if (player == null) {
+                        Message errorMessage = new LiteralText("Targeted player could not be found");
+                        throw new CommandSyntaxException(new SimpleCommandExceptionType(errorMessage), errorMessage);
                     }
 
-                    context.getSource()
-                        .sendFeedback(
-                            new LiteralText("Executed \"" + commandString + "\" as " + targetPlayerName),
-                            true
-                        );
-                    return 1;
+                    return player.getCommandSource();
                 }))
             );
         dispatcher.register(command);

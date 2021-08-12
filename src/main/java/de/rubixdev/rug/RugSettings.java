@@ -1002,8 +1002,7 @@ public class RugSettings {
     public static boolean basaltToLavaConversion = false;
 
     @Rule(
-        desc = "A command that executes the exact input as the selected Player",
-        extra = "This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player",
+        desc = "A command that executes a command or sends a chat message as the selected Player",
         category = { COMMAND, RUG }
     )
     public static String commandSudo = "ops";
