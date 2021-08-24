@@ -1,13 +1,19 @@
 package de.rubixdev.rug.commands;
 
-import carpet.settings.SettingsManager;
+import static net.minecraft.command.CommandSource.suggestMatching;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
+
+import java.util.Collection;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.Message;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+
+import carpet.settings.SettingsManager;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.MinecraftServer;
@@ -17,12 +23,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-
-import java.util.Collection;
-
-import static net.minecraft.command.CommandSource.suggestMatching;
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandManager.literal;
 
 public class SudoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {

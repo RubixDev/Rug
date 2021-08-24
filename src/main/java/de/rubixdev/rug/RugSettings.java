@@ -1193,11 +1193,35 @@ public class RugSettings {
     @Rule(desc = "Cats can also be tamed with cooked Cod and Salmon, not just with raw", category = { SURVIVAL, RUG })
     public static boolean tameCatsWithCookedFish = false;
 
-    @Rule(
-        desc = "Item Frames inside wooden pressure plates hold them down",
-        category = { BUGFIX, RUG }
-    )
+    @Rule(desc = "Item Frames inside wooden pressure plates hold them down", category = { BUGFIX, RUG })
     public static boolean itemFramesActivatePressurePlates = true;
+
+    public static class validatorEnderEyeDropChance extends Validator<Integer> {
+
+        @Override
+        public Integer validate(
+            ServerCommandSource source,
+            ParsedRule<Integer> currentRule,
+            Integer newValue,
+            String string
+        ) {
+            return ( newValue >= 0 && newValue <= 100 ) ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 100";
+        }
+    }
+
+    @Rule(
+        desc = "The chance of Ender Eyes dropping when thrown",
+        category = { SURVIVAL, RUG },
+        strict = false,
+        validate = validatorEnderEyeDropChance.class,
+        options = { "0", "50", "80", "100" }
+    )
+    public static int enderEyeDropChance = 80;
 }
 
 // BUGFIX

@@ -27,6 +27,7 @@
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "EnderPearlEntityMixin",
+    "EyeOfEnderEntityMixin",
     "FallingBlockEntityMixin",
     "FallingBlockMixin",
     "FishingBobberEntityMixin",
