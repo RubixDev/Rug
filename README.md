@@ -596,7 +596,7 @@ Lava creates infinite sources like Water
 - Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory
+A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
