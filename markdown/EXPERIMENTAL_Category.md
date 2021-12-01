@@ -207,7 +207,7 @@ Will render Ghost Blocks on the Client when mod is only Server Side
   - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory
+A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`

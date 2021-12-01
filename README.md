@@ -39,7 +39,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 93
+Count: 96
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -85,6 +85,7 @@ Count: 93
 - [edibleSlimeBalls](#edibleslimeballs)
 - [eggWaterDrag](#eggwaterdrag)
 - [endCrystalPlacementRestriction](#endcrystalplacementrestriction)
+- [enderEyeDropChance](#endereyedropchance)
 - [enderPearlDamage](#enderpearldamage)
 - [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [foodInstantHeal](#foodinstantheal)
@@ -92,6 +93,7 @@ Count: 93
 - [honeyCombStickiness](#honeycombstickiness)
 - [infiniteLavaSources](#infinitelavasources)
 - [infinityNeedsArrow](#infinityneedsarrow)
+- [itemFramesActivatePressurePlates](#itemframesactivatepressureplates)
 - [kelpBlockHardness](#kelpblockhardness)
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
@@ -122,6 +124,7 @@ Count: 93
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [tallPlantNoUpdate](#tallplantnoupdate)
+- [tameCatsWithCookedFish](#tamecatswithcookedfish)
 - [universalDyeing](#universaldyeing)
 - [unpackableAmethysts](#unpackableamethysts)
 - [unpackableIce](#unpackableice)
@@ -308,9 +311,7 @@ A command that shows if the current chunk is a slime chunk based on the set slim
 - Categories: `COMMAND`, `RUG`
 
 ### commandSudo
-A command that executes the exact input as the selected Player
-
-This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player
+A command that executes a command or sends a chat message as the selected Player
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`
@@ -539,6 +540,15 @@ End Crystals can only be placed on Obsidian and Bedrock Blocks
 - Required options: `true`, `false`
 - Categories: `RUG`
 
+### enderEyeDropChance
+The chance of Ender Eyes dropping when thrown
+- Type: `int`
+- Default value: `80`
+- Suggested options: `0`, `50`, `80`, `100`
+- Categories: `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 100
+
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls
 - Type: `int`
@@ -596,11 +606,18 @@ Lava creates infinite sources like Water
 - Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory
+A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+
+### itemFramesActivatePressurePlates
+Item Frames inside wooden pressure plates hold them down
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `BUGFIX`, `RUG`
 
 ### kelpBlockHardness
 How long Kelp Blocks take to mine in survival
@@ -869,6 +886,13 @@ Old Bug: MC-31038
 - Categories: `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - [Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)
+
+### tameCatsWithCookedFish
+Cats can also be tamed with cooked Cod and Salmon, not just with raw
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table

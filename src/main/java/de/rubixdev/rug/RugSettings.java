@@ -662,7 +662,7 @@ public class RugSettings {
     public static boolean easyTrappedChestCrafting = false;
 
     @Rule(
-        desc = "A Bow enchanted with Infinity needs the player to have an arrow in his inventory",
+        desc = "A Bow enchanted with Infinity needs the player to have an arrow in their inventory",
         category = { EXPERIMENTAL, BUGFIX, SURVIVAL, RUG }
     )
     public static boolean infinityNeedsArrow = true;

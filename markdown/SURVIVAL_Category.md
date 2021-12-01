@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 68
+Count: 70
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [blastFurnaceGlass](#blastfurnaceglass)
@@ -34,6 +34,7 @@ Count: 68
 - [edibleMagmaCream](#ediblemagmacream)
 - [edibleNetheriteScraps](#ediblenetheritescraps)
 - [edibleSlimeBalls](#edibleslimeballs)
+- [enderEyeDropChance](#endereyedropchance)
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
 - [gravelCrushing](#gravelcrushing)
@@ -61,6 +62,7 @@ Count: 68
 - [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
+- [tameCatsWithCookedFish](#tamecatswithcookedfish)
 - [universalDyeing](#universaldyeing)
 - [unpackableAmethysts](#unpackableamethysts)
 - [unpackableIce](#unpackableice)
@@ -362,6 +364,15 @@ Works server side only, but eating animation is only rendered if the mod is on t
 - Additional notes:
   - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
+### enderEyeDropChance
+The chance of Ender Eyes dropping when thrown
+- Type: `int`
+- Default value: `80`
+- Suggested options: `0`, `50`, `80`, `100`
+- Categories: `RUG`, `SURVIVAL`
+- Additional notes:
+  - You must choose a value from 0 to 100
+
 ### enderPearlDamage
 Amount of damage dealt by Ender Pearls
 - Type: `int`
@@ -397,7 +408,7 @@ Lava creates infinite sources like Water
 - Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory
+A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
@@ -592,6 +603,13 @@ Shulkers always drop a given amount of shulker shells when killed
 - Additional notes:
   - You must choose a value from 0 to 4
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)
+
+### tameCatsWithCookedFish
+Cats can also be tamed with cooked Cod and Salmon, not just with raw
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`
 
 ### universalDyeing
 Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table

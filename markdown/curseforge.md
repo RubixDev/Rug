@@ -9,7 +9,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues) (preferred) or here in the comments.
 
 ## List of implemented Rules
-Count: 93  
+Count: 96  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -55,6 +55,7 @@ Count: 93
 - edibleSlimeBalls  
 - eggWaterDrag  
 - endCrystalPlacementRestriction  
+- enderEyeDropChance  
 - enderPearlDamage  
 - enderPearlWaterDrag  
 - foodInstantHeal  
@@ -62,6 +63,7 @@ Count: 93
 - honeyCombStickiness  
 - infiniteLavaSources  
 - infinityNeedsArrow  
+- itemFramesActivatePressurePlates  
 - kelpBlockHardness  
 - lilyPadsOnCauldron  
 - longerRepeaters  
@@ -92,6 +94,7 @@ Count: 93
 - stonecutterDamage  
 - strictShulkerShells  
 - tallPlantNoUpdate  
+- tameCatsWithCookedFish  
 - universalDyeing  
 - unpackableAmethysts  
 - unpackableIce  

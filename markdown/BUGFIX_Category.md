@@ -2,9 +2,10 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 3
+Count: 4
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [infinityNeedsArrow](#infinityneedsarrow)
+- [itemFramesActivatePressurePlates](#itemframesactivatepressureplates)
 - [stonecutterDamage](#stonecutterdamage)
 
 ## Rules in BUGFIX Category
@@ -21,11 +22,18 @@ Amount of XP a Cactus smelted in a furnace gives
   - You must choose a value from 0 to 1
 
 ### infinityNeedsArrow
-A Bow enchanted with Infinity needs the player to have an arrow in his inventory
+A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
 - Default value: `true`
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `EXPERIMENTAL`, `RUG`, `SURVIVAL`
+
+### itemFramesActivatePressurePlates
+Item Frames inside wooden pressure plates hold them down
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `BUGFIX`, `RUG`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them

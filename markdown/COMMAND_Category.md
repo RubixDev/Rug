@@ -58,9 +58,7 @@ A command that shows if the current chunk is a slime chunk based on the set slim
 - Categories: `COMMAND`, `RUG`
 
 ### commandSudo
-A command that executes the exact input as the selected Player
-
-This is not just an alias for /execute, because inputs without '/' will be sent as a chat message by the selected Player
+A command that executes a command or sends a chat message as the selected Player
 - Type: `String`
 - Default value: `ops`
 - Required options: `true`, `false`, `ops`
