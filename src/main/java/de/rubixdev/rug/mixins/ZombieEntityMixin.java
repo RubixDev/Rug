@@ -15,7 +15,8 @@ public class ZombieEntityMixin {
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;"
-        )
+        ),
+        require = 0 // Compatability with minitweaks
     )
     private Difficulty allowConversion(ServerWorld world) {
         if (RugSettings.villagersAlwaysConvert && world.getDifficulty() != Difficulty.PEACEFUL) {
