@@ -30,7 +30,7 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
 
         if (reachDistanceMixins.contains(mixinClassName)) {
             Optional<ModContainer> container = FabricLoader.getInstance().getModContainer("reach-entity-attributes");
-            return !container.isPresent();
+            return container.isEmpty();
         }
         return true;
     }

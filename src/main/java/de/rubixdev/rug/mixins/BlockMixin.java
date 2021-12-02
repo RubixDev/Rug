@@ -55,12 +55,12 @@ public abstract class BlockMixin {
             ci.cancel();
         } else if (RugSettings.silkTouchSpawners && state.isOf(Blocks.SPAWNER) && usesSilkTouch) {
             ItemStack newStack = new ItemStack(Items.SPAWNER);
-            NbtCompound tag = blockEntity.writeNbt(new NbtCompound());
+            NbtCompound tag = blockEntity.createNbt();
             tag.remove("id");
             tag.remove("x");
             tag.remove("y");
             tag.remove("z");
-            newStack.putSubTag("BlockEntityTag", tag);
+            newStack.setSubNbt("BlockEntityTag", tag);
             dropStack(world, pos, newStack);
             ci.cancel();
         }

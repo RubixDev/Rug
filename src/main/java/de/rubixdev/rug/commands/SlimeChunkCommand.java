@@ -11,7 +11,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.ChunkRandom;
+import net.minecraft.world.gen.random.ChunkRandom;
 
 public class SlimeChunkCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {

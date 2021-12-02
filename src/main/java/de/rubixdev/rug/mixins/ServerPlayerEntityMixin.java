@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     @Shadow
-    public abstract ServerWorld getServerWorld();
+    public abstract ServerWorld getWorld();
 
     public ServerPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile profile) {
         super(world, pos, yaw, profile);
@@ -42,7 +42,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
             && damageSource.getAttacker() instanceof PlayerEntity )
             || ( RugSettings.playerHeadDrops.equals("on_death") )) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
-            stack.getOrCreateTag()
+            stack.getOrCreateNbt()
                 .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
             this.dropStack(stack);
         }
@@ -60,7 +60,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         if (RugSettings.campSleeping
             && bl
             && this.isSneaking()
-            && this.getServerWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
+            && this.getWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
             ci.cancel();
         }
     }

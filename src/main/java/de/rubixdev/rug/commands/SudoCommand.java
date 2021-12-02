@@ -49,7 +49,7 @@ public class SudoCommand {
                         targetPlayerName,
                         StringArgumentType.getString(context, "message")
                     );
-                    playerManager.broadcastChatMessage(text, MessageType.CHAT, targetPlayer.getUuid());
+                    playerManager.broadcast(text, MessageType.CHAT, targetPlayer.getUuid());
                     return 1;
                 }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");

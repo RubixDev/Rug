@@ -54,7 +54,7 @@ public class PlayerEntityMixin {
         }
     }
 
-    @ModifyVariable(method = "canConsume", at = @At("HEAD"), ordinal = 0)
+    @ModifyVariable(method = "canConsume", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private boolean ignoreHunger(boolean original) {
         return RugSettings.foodInstantHeal || original;
     }

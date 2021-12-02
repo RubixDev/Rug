@@ -5,9 +5,7 @@ import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,9 +16,6 @@ import java.util.Random;
 
 @Mixin(BambooBlock.class)
 public abstract class BambooBlockMixin extends Block {
-    @Shadow
-    @Final
-    public static IntProperty STAGE;
 
     public BambooBlockMixin(Settings settings) {
         super(settings);

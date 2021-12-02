@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(AbstractFurnaceBlockEntity.class)
 public abstract class AbstractFurnaceBlockEntityMixin {
     @Shadow
@@ -26,7 +25,7 @@ public abstract class AbstractFurnaceBlockEntityMixin {
 
     @SuppressWarnings("rawtypes")
     @Inject(
-        method = "method_17761(Ljava/util/List;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;Lit/unimi/dsi/fastutil/objects/Object2IntMap$Entry;Lnet/minecraft/recipe/Recipe;)V",
+        method = "method_17761",
         at = @At(value = "INVOKE", target = "java/util/List.add(Ljava/lang/Object;)Z")
     )
     private static void onSyntheticMethod_17761(
@@ -43,10 +42,10 @@ public abstract class AbstractFurnaceBlockEntityMixin {
     }
 
     @Redirect(
-        method = "method_17761(Ljava/util/List;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;Lit/unimi/dsi/fastutil/objects/Object2IntMap$Entry;Lnet/minecraft/recipe/Recipe;)V",
+        method = "method_17761",
         at = @At(
             value = "INVOKE",
-            target = "net/minecraft/block/entity/AbstractFurnaceBlockEntity.dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;IF)V"
+            target = "Lnet/minecraft/block/entity/AbstractFurnaceBlockEntity;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;IF)V"
         )
     )
     private static void onSyntheticMethod_17761(ServerWorld world, Vec3d vec3d, int i, float f) {

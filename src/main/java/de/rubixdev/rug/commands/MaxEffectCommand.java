@@ -37,7 +37,7 @@ public class MaxEffectCommand {
                     false,
                     false
                 );
-                success = ( (LivingEntity) player ).addStatusEffect(statusEffectInstance, source.getEntity());
+                success = ( player ).addStatusEffect(statusEffectInstance, source.getEntity());
             }
 
 
@@ -48,12 +48,11 @@ public class MaxEffectCommand {
             source.sendFeedback(
                 new TranslatableText(
                     "commands.effect.give.success.single",
-                    new Object[] { effect.getName(), player.getDisplayName(), 999999 }
-                ),
+                        effect.getName(), player.getDisplayName(), 999999),
                 true
             );
 
-            return success ? 1 : 0;
+            return 1;
         }));
         dispatcher.register(command);
     }

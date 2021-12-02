@@ -15,7 +15,7 @@ import java.util.List;
 @Mixin(SpawnHelper.class)
 public class SpawnHelperMixin {
     @Redirect(
-        method = "getSpawnEntries",
+        method = "shouldUseNetherFortressSpawns",
         at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z")
     )
     private static boolean allowMoreSpawnableFortressBlocks(BlockState floorBlock, Block netherBricks) {

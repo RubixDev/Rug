@@ -33,7 +33,8 @@ public abstract class WorldMixin {
     @Shadow
     public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
 
-    @SuppressWarnings("ShadowTarget")
+    // Compatibility with `movableBlockEntities` from Carpet. See /src/main/java/carpet/mixins/World_movableTEMixin.java
+    @SuppressWarnings("MixinAnnotationTarget")
     @Shadow(remap = false)
     public abstract boolean setBlockStateWithBlockEntity(
         BlockPos blockPos_1,
@@ -115,7 +116,7 @@ public abstract class WorldMixin {
         }
     }
 
-    @SuppressWarnings("UnresolvedMixinReference")
+    @SuppressWarnings({"MixinAnnotationTarget", "UnresolvedMixinReference"})
     @Inject(method = "setBlockStateWithBlockEntity", at = @At("HEAD"), cancellable = true, remap = false)
     private void convertBasalt(
         BlockPos pos,

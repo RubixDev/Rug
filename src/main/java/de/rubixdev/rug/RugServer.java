@@ -349,10 +349,9 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private JsonObject readJson(String filePath) {
-        JsonParser jsonParser = new JsonParser();
         try {
             FileReader reader = new FileReader(filePath);
-            return jsonParser.parse(reader).getAsJsonObject();
+            return JsonParser.parseReader(reader).getAsJsonObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -17,6 +17,7 @@ public class StoneCutterBlockMixin extends Block {
         super(settings);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (RugSettings.stonecutterDamage > 0 && !( entity instanceof ItemEntity )) {
