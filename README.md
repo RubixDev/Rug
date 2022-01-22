@@ -810,7 +810,7 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### slimeChunkPercentage
-The percentage of chunks that are Slime chinks
+The percentage of chunks that are Slime chunks
 - Type: `int`
 - Default value: `10`
 - Suggested options: `0`, `10`, `50`, `100`
