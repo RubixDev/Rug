@@ -915,7 +915,7 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "The percentage of chunks that are Slime chinks",
+        desc = "The percentage of chunks that are Slime chunks",
         options = { "0", "10", "50", "100" },
         strict = false,
         validate = validatorSlimeChunkPercentage.class,

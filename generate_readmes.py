@@ -50,7 +50,7 @@ def read_rules() -> list[Rule]:
     with open(SETTINGS['carpetSettingsClass'], 'r') as settings_file:
         print('Reading settings file\n')
         settings_string = settings_file.read()
-    raw_rules: list[str] = [i.split(';')[0] for i in settings_string.split('@Rule')[1:]]
+    raw_rules: list[str] = [i.split(';')[0] for i in re.compile('^[^/\n]*[^/\n]*@Rule', re.MULTILINE).split(settings_string)[1:]]
 
     rules: list[Rule] = []
     for raw_rule in raw_rules:

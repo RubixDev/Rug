@@ -2,11 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 11
-- [edibleGoldIngots](#ediblegoldingots)
-- [edibleMagmaCream](#ediblemagmacream)
-- [edibleNetheriteScraps](#ediblenetheritescraps)
-- [edibleSlimeBalls](#edibleslimeballs)
+Count: 7
 - [eggWaterDrag](#eggwaterdrag)
 - [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [honeyCombStickiness](#honeycombstickiness)
@@ -16,50 +12,6 @@ Count: 11
 - [snowballWaterDrag](#snowballwaterdrag)
 
 ## Rules in CLIENT Category
-
-### edibleGoldIngots
-Butter is finally edible. Keep in mind 250g of pure butter are not that healthy
-
-Works server side only, but eating animation is only rendered if the mod is on the client too
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-- Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
-
-### edibleMagmaCream
-Magma Cream is edible and gives 10 seconds of Fire Resistance
-
-Works server side only, but eating animation is only rendered if the mod is on the client too
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-- Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
-
-### edibleNetheriteScraps
-Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate
-
-Works server side only, but eating animation is only rendered if the mod is on the client too
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-- Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
-
-### edibleSlimeBalls
-Slime Balls are edible and give Jump Boost and Slowness
-
-Works server side only, but eating animation is only rendered if the mod is on the client too
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `CLIENT`, `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
-- Additional notes:
-  - [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this item as edible with Rug installed on client, as described in [#19](https://github.com/RubixDev/Rug/issues/19)
 
 ### eggWaterDrag
 How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
