@@ -1,6 +1,5 @@
 # Rug Mod for Fabric
 
-![Total Downloads](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fshields.rubixdev.de%2Frug%2Fdownloads)
 [![GitHub all releases](https://img.shields.io/github/downloads/RubixDev/Rug/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases)
 [![GitHub release (latest by date)](https://img.shields.io/github/downloads/RubixDev/Rug/latest/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases/latest)
 [![License](https://img.shields.io/github/license/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/blob/main/LICENSE)
@@ -15,15 +14,10 @@
 
 Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
 
-## Related or Recommended Minecraft Mods and Tools
+## Related Mods and Tools
 
 [![Carpet Mod](https://github-readme-stats.vercel.app/api/pin/?username=gnembon&repo=fabric-carpet&theme=dracula&show_owner=true)](https://github.com/gnembon/fabric-carpet)
 
 [![CarpetGamerules](https://github-readme-stats.vercel.app/api/pin/?username=RubixDev&repo=CarpetGamerules&theme=dracula&show_owner=true)](https://github.com/RubixDev/CarpetGamerules)
 
 [![CarpetConfigCreator](https://github-readme-stats.vercel.app/api/pin/?username=RubixDev&repo=CarpetConfigCreator&theme=dracula&show_owner=true)](https://github.com/RubixDev/CarpetConfigCreator)
-
-[![Ledger](https://github-readme-stats.vercel.app/api/pin/?username=QuiltServerTools&repo=Ledger&theme=dracula&show_owner=true)](https://github.com/QuiltServerTools/Ledger)
-
-[![jline4mcdsrv](https://github-readme-stats.vercel.app/api/pin/?username=chirs241097&repo=jline4mcdsrv&theme=dracula&show_owner=true)](https://github.com/chirs241097/jline4mcdsrv)
-
