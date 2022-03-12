@@ -149,12 +149,12 @@ public class RugSettings {
     )
     public static String easyHarvesting = "off";
 
-    @Rule(
-        desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
-        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-    )
-    public static boolean edibleNetheriteScraps = false;
+//    @Rule(
+//        desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
+//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
+//    )
+//    public static boolean edibleNetheriteScraps = false;
     // edibleNetheriteScrapsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows
     // this item as edible with Rug installed on client, as described in
     // [#19](https://github.com/RubixDev/Rug/issues/19):::
@@ -215,12 +215,12 @@ public class RugSettings {
     )
     public static int enderPearlDamage = 5;
 
-    @Rule(
-        desc = "Slime Balls are edible and give Jump Boost and Slowness",
-        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-    )
-    public static boolean edibleSlimeBalls = false;
+//    @Rule(
+//        desc = "Slime Balls are edible and give Jump Boost and Slowness",
+//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
+//    )
+//    public static boolean edibleSlimeBalls = false;
     // edibleSlimeBallsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
     // [#19](https://github.com/RubixDev/Rug/issues/19):::
@@ -255,12 +255,12 @@ public class RugSettings {
     // reachDistanceAdditional: Is disabled when
     // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed:::
 
-    @Rule(
-        desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
-        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-    )
-    public static boolean edibleGoldIngots = false;
+//    @Rule(
+//        desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
+//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
+//    )
+//    public static boolean edibleGoldIngots = false;
     // edibleGoldIngotsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
     // [#19](https://github.com/RubixDev/Rug/issues/19):::
@@ -311,12 +311,12 @@ public class RugSettings {
     )
     public static boolean silkTouchSpawners = false;
 
-    @Rule(
-        desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance",
-        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-    )
-    public static boolean edibleMagmaCream = false;
+//    @Rule(
+//        desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance",
+//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
+//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
+//    )
+//    public static boolean edibleMagmaCream = false;
     // edibleMagmaCreamAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
     // item as edible with Rug installed on client, as described in
     // [#19](https://github.com/RubixDev/Rug/issues/19):::

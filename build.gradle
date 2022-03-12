@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.11-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -42,6 +42,7 @@ processResources {
     }
 }
 
+//noinspection GroovyAssignabilityCheck
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly
@@ -50,7 +51,6 @@ tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
 
     // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-    //noinspection GroovyAssignabilityCheck, GroovyAccessibility
     it.options.release = 17
 }
 
@@ -72,17 +72,8 @@ publishing {
     publications {
         //noinspection GroovyAssignabilityCheck
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
             //noinspection GroovyAssignabilityCheck
-            artifact(remapJar) {
-                //noinspection GroovyAssignabilityCheck
-                builtBy remapJar
-            }
-            //noinspection GroovyAssignabilityCheck
-            artifact(sourcesJar) {
-                //noinspection GroovyAssignabilityCheck
-                builtBy remapSourcesJar
-            }
+            from components.java
         }
     }
 

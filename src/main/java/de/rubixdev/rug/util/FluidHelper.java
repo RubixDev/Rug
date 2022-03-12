@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.tag.FluidTags;
-import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -37,7 +37,7 @@ public class FluidHelper {
         return false;
     }
 
-    private static boolean isFluidAdjacent(Tag.Identified<Fluid> fluid, BlockView world, BlockPos pos, FluidFlowType type) {
+    private static boolean isFluidAdjacent(TagKey<Fluid> fluid, BlockView world, BlockPos pos, FluidFlowType type) {
         for (Direction direction : Direction.values()) {
             FluidState fluidState = world.getFluidState(pos.offset(direction));
             if (fluidState.isIn(fluid)
@@ -51,15 +51,15 @@ public class FluidHelper {
         return false;
     }
 
-    private static boolean isFluidAdjacent(Tag.Identified<Fluid> fluid, BlockView world, BlockPos pos) {
+    private static boolean isFluidAdjacent(TagKey<Fluid> fluid, BlockView world, BlockPos pos) {
         return isFluidAdjacent(fluid, world, pos, FluidFlowType.ANY);
     }
 
-    private static boolean isStillFluidAdjacent(Tag.Identified<Fluid> fluid, BlockView world, BlockPos pos) {
+    private static boolean isStillFluidAdjacent(TagKey<Fluid> fluid, BlockView world, BlockPos pos) {
         return isFluidAdjacent(fluid, world, pos, FluidFlowType.STILL);
     }
 
-    private static boolean isFlowingFluidAdjacent(Tag.Identified<Fluid> fluid, BlockView world, BlockPos pos) {
+    private static boolean isFlowingFluidAdjacent(TagKey<Fluid> fluid, BlockView world, BlockPos pos) {
         return isFluidAdjacent(fluid, world, pos, FluidFlowType.FLOWING);
     }
 

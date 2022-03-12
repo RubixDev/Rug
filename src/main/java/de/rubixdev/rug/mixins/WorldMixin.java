@@ -33,7 +33,7 @@ public abstract class WorldMixin {
     @Shadow
     public abstract boolean setBlockState(BlockPos pos, BlockState state, int flags, int maxUpdateDepth);
 
-    // Compatibility with `movableBlockEntities` from Carpet. See /src/main/java/carpet/mixins/World_movableTEMixin.java
+    // Compatibility with `movableBlockEntities` from Carpet. See /src/main/java/carpet/mixins/Level_movableTEMixin.java
     @SuppressWarnings("MixinAnnotationTarget")
     @Shadow(remap = false)
     public abstract boolean setBlockStateWithBlockEntity(

@@ -15,28 +15,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
-    private void onEatFood(
-        World world,
-        PlayerEntity user,
-        Hand hand,
-        CallbackInfoReturnable<TypedActionResult<ItemStack>> cir
-    ) {
-        ItemStack stack = user.getStackInHand(hand);
-
-        Item item = stack.getItem();
-        if (item == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps
-            || item == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls
-            || item == Items.GOLD_INGOT && !RugSettings.edibleGoldIngots
-            || item == Items.MAGMA_CREAM && !RugSettings.edibleMagmaCream) {
-            cir.setReturnValue(TypedActionResult.pass(stack));
-        }
-    }
-
-    @Inject(method = "getMaxUseTime", at = @At(value = "RETURN", ordinal = 0), cancellable = true)
-    private void onGetMaxUseTime(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
-        if (stack.getItem() == Items.GOLD_INGOT && RugSettings.edibleGoldIngots) {
-            cir.setReturnValue(128);
-        }
-    }
+//    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
+//    private void onEatFood(
+//        World world,
+//        PlayerEntity user,
+//        Hand hand,
+//        CallbackInfoReturnable<TypedActionResult<ItemStack>> cir
+//    ) {
+//        ItemStack stack = user.getStackInHand(hand);
+//
+//        Item item = stack.getItem();
+//        if (item == Items.NETHERITE_SCRAP && !RugSettings.edibleNetheriteScraps
+//            || item == Items.SLIME_BALL && !RugSettings.edibleSlimeBalls
+//            || item == Items.GOLD_INGOT && !RugSettings.edibleGoldIngots
+//            || item == Items.MAGMA_CREAM && !RugSettings.edibleMagmaCream) {
+//            cir.setReturnValue(TypedActionResult.pass(stack));
+//        }
+//    }
+//
+//    @Inject(method = "getMaxUseTime", at = @At(value = "RETURN", ordinal = 0), cancellable = true)
+//    private void onGetMaxUseTime(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
+//        if (stack.getItem() == Items.GOLD_INGOT && RugSettings.edibleGoldIngots) {
+//            cir.setReturnValue(128);
+//        }
+//    }
 }
