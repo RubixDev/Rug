@@ -1222,6 +1222,14 @@ public class RugSettings {
         options = { "0", "50", "80", "100" }
     )
     public static int enderEyeDropChance = 80;
+
+    @CraftingRule(recipes = "craftable_tuff.json")
+    @Rule(
+        desc = "Craft tuff from andesite and cobblestone",
+        extra = "Expect a lag spike when changing the value",
+        category = { SURVIVAL, CRAFTING, RENEWABLE, RUG }
+    )
+    public static boolean craftableTuff = false;
 }
 
 // BUGFIX
