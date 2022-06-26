@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 31
+Count: 32
 - [blastFurnaceGlass](#blastfurnaceglass)
 - [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
 - [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
@@ -13,6 +13,7 @@ Count: 31
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
+- [craftableTuff](#craftabletuff)
 - [easyBlueIceCrafting](#easyblueicecrafting)
 - [easyBoneBlockCrafting](#easyboneblockcrafting)
 - [easyChestCrafting](#easychestcrafting)
@@ -122,6 +123,15 @@ Expect a lag spike when changing the value
 
 ### craftableNotchApple
 Enchanted Golden Apples can be crafted with 8 Gold Blocks again
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### craftableTuff
+Craft tuff from andesite and cobblestone
 
 Expect a lag spike when changing the value
 - Type: `boolean`

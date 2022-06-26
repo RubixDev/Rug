@@ -2,13 +2,14 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 29
+Count: 30
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [campSleeping](#campsleeping)
 - [concreteMixing](#concretemixing)
+- [deepslateGeneration](#deepslategeneration)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
 - [easyHarvesting](#easyharvesting)
@@ -87,6 +88,13 @@ In combination with cobbleCrushing and gravelCrushing allows for an automatic Co
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### deepslateGeneration
+Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonEggConvertsCobbleToEndstone
 Dragon Eggs will convert Cobble under them to Endstone either on set event

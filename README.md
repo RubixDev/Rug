@@ -33,7 +33,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 92
+Count: 94
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -61,6 +61,8 @@ Count: 92
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
+- [craftableTuff](#craftabletuff)
+- [deepslateGeneration](#deepslategeneration)
 - [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
@@ -358,6 +360,22 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### craftableTuff
+Craft tuff from andesite and cobblestone
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### deepslateGeneration
+Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed

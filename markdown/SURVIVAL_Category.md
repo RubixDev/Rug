@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 66
+Count: 68
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [blastFurnaceGlass](#blastfurnaceglass)
@@ -19,6 +19,8 @@ Count: 66
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
+- [craftableTuff](#craftabletuff)
+- [deepslateGeneration](#deepslategeneration)
 - [dragonDrops](#dragondrops)
 - [dragonXpDrop](#dragonxpdrop)
 - [easyBlueIceCrafting](#easyblueicecrafting)
@@ -213,6 +215,22 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### craftableTuff
+Craft tuff from andesite and cobblestone
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
+
+### deepslateGeneration
+Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed
