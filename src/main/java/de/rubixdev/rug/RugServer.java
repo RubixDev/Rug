@@ -151,6 +151,9 @@ public class RugServer implements CarpetExtension, ModInitializer {
                     pos,
                     removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState()
                 );
+                if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
+                    tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                }
 
                 return ActionResult.SUCCESS;
             }
