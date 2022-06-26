@@ -19,7 +19,6 @@
     "CarpetServerMixin",
     "CatEntityMixin",
     "ChorusFlowerBlockMixin",
-    "ClientPlayerInteractionManagerMixin",
     "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
     "DragonEggBlockMixin",
@@ -39,7 +38,6 @@
     "LavaFluidMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
-    "LoomScreenMixin",
     "MobSpawnerBlockEntityMixin",
     "NameTagItemMixin",
     "NetherPortalBlockMixin",
@@ -67,6 +65,8 @@
     "defaultRequire": 1
   },
   "client": [
-    "GameRendererMixin"
+    "ClientPlayerInteractionManagerMixin",
+    "GameRendererMixin",
+    "LoomScreenMixin"
   ]
 }
