@@ -6,16 +6,14 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.random.ChunkRandom;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.random.ChunkRandom;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Random;
 
 @Mixin(SlimeEntity.class)
 public class SlimeEntityMixin {
@@ -28,13 +26,14 @@ public class SlimeEntityMixin {
         WorldAccess world,
         SpawnReason spawnReason,
         BlockPos pos,
-        Random random,
+        net.minecraft.util.math.random.Random random,
         CallbackInfoReturnable<Boolean> cir
     ) {
         blockPos = pos;
         worldAccess = world;
     }
 
+    @SuppressWarnings("InvalidInjectorMethodSignature") // Thinks it should return EntityType for some reason
     @ModifyVariable(method = "canSpawn", at = @At("STORE"), ordinal = 0)
     private static boolean overwriteChance(boolean original) {
         ChunkPos chunkPos = new ChunkPos(blockPos);

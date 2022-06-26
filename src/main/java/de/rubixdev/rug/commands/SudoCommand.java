@@ -15,14 +15,13 @@ import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 
 import carpet.settings.SettingsManager;
 import de.rubixdev.rug.RugSettings;
-import net.minecraft.network.MessageType;
+import net.minecraft.command.argument.MessageArgumentType;
+import net.minecraft.network.message.MessageType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 
 public class SudoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -32,7 +31,7 @@ public class SudoCommand {
             .then(
                 argument("player", StringArgumentType.word()).suggests(
                     ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
-                ).then(literal("chat").then(argument("message", StringArgumentType.greedyString()).executes(context -> {
+                ).then(literal("chat").then(argument("message", MessageArgumentType.message()).executes(context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");
 
                     MinecraftServer server = context.getSource().getServer();
@@ -40,16 +39,20 @@ public class SudoCommand {
                     ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
 
                     if (targetPlayer == null) {
-                        context.getSource().sendError(new LiteralText("Targeted Player could not be found"));
+                        context.getSource().sendError(Text.of("Targeted Player could not be found"));
                         return 0;
                     }
 
-                    Text text = new TranslatableText(
-                        "chat.type.text",
-                        targetPlayerName,
-                        StringArgumentType.getString(context, "message")
+                    MessageArgumentType.SignedMessage signedMessage = MessageArgumentType.getSignedMessage(context, "message");
+                    ServerCommandSource source = context.getSource();
+                    signedMessage.decorate(source).thenAcceptAsync(
+                        decoratedMessage -> playerManager.broadcast(
+                            decoratedMessage,
+                            targetPlayer,
+                            MessageType.CHAT
+                        ),
+                        server
                     );
-                    playerManager.broadcast(text, MessageType.CHAT, targetPlayer.getUuid());
                     return 1;
                 }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");
@@ -57,7 +60,7 @@ public class SudoCommand {
                     ServerPlayerEntity player = server.getPlayerManager().getPlayer(targetPlayerName);
 
                     if (player == null) {
-                        Message errorMessage = new LiteralText("Targeted player could not be found");
+                        Message errorMessage = Text.of("Targeted player could not be found");
                         throw new CommandSyntaxException(new SimpleCommandExceptionType(errorMessage), errorMessage);
                     }
 

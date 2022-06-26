@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
+import carpet.script.Module;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
 import com.google.gson.GsonBuilder;
@@ -23,13 +24,13 @@ import com.google.gson.JsonParser;
 import com.mojang.brigadier.CommandDispatcher;
 
 import de.rubixdev.rug.commands.*;
+import net.minecraft.command.CommandRegistryAccess;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.script.bundled.BundledModule;
 import carpet.settings.ParsedRule;
 import de.rubixdev.rug.util.CraftingRule;
 import de.rubixdev.rug.util.Logging;
@@ -86,7 +87,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     @Override
-    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         SlimeChunkCommand.register(dispatcher);
         FrameCommand.register(dispatcher);
         SkullCommand.register(dispatcher);
@@ -397,7 +398,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void copyFile(String resourcePath, String targetPath) {
-        InputStream source = BundledModule.class.getClassLoader().getResourceAsStream(resourcePath);
+        InputStream source = Module.class.getClassLoader().getResourceAsStream(resourcePath);
         Path target = new File(targetPath).toPath();
 
         try {

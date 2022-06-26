@@ -15,7 +15,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 public class MaxEffectCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -42,11 +42,11 @@ public class MaxEffectCommand {
 
 
             if (!success) {
-                throw new SimpleCommandExceptionType(new TranslatableText("commands.effect.give.failed")).create();
+                throw new SimpleCommandExceptionType(Text.translatable("commands.effect.give.failed")).create();
             }
 
             source.sendFeedback(
-                new TranslatableText(
+                Text.translatable(
                     "commands.effect.give.success.single",
                         effect.getName(), player.getDisplayName(), 999999),
                 true

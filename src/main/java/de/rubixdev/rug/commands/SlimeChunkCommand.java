@@ -7,11 +7,10 @@ import de.rubixdev.rug.RugSettings;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
-import net.minecraft.util.Util;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.random.ChunkRandom;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.random.ChunkRandom;
 
 public class SlimeChunkCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -19,6 +18,7 @@ public class SlimeChunkCommand {
             .requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSlimeChunk))
             .executes(c -> {
                 ServerPlayerEntity playerEntity = c.getSource().getPlayer();
+                if (playerEntity == null) return 0;
                 ChunkPos chunkPos = new ChunkPos(playerEntity.getBlockPos());
                 StructureWorldAccess worldAccess = c.getSource().getWorld();
                 boolean isSlimeChunk = ChunkRandom.getSlimeRandom(
@@ -27,10 +27,7 @@ public class SlimeChunkCommand {
                     worldAccess.getSeed(),
                     987234911L
                 ).nextInt(10) < RugSettings.slimeChunkPercentage / 10;
-                playerEntity.sendSystemMessage(
-                    new LiteralText("You are " + ( isSlimeChunk ? "" : "not " ) + "in a Slime Chunk"),
-                    Util.NIL_UUID
-                );
+                playerEntity.sendMessage(Text.of("You are " + (isSlimeChunk ? "" : "not ") + "in a Slime Chunk"));
                 return 1;
             });
         dispatcher.register(command);

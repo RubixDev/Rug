@@ -62,7 +62,7 @@ public class PeekCommand {
         ServerPlayerEntity executingPlayer = source.getPlayer();
 
         if (targetPlayer == null) {
-            targetPlayer = playerManager.createPlayer(targetPlayerProfile);
+            targetPlayer = playerManager.createPlayer(targetPlayerProfile, null);
             NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
 
             if (targetPlayerData == null) {
@@ -91,7 +91,7 @@ public class PeekCommand {
 
     public static void showInventory(ServerPlayerEntity executingPlayer, ServerPlayerEntity targetPlayer) {
         PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X5, executingPlayer, targetPlayer);
-        invScreen.setTitle(Text.of("Inventory of " + targetPlayer.getDisplayName().asString()));
+        invScreen.setTitle(Text.of("Inventory of " + targetPlayer.getDisplayName().getString()));
         for (int slot = 0; slot < executingPlayer.getInventory().size(); slot++) {
             invScreen.setSlotRedirect(slot, new Slot(targetPlayer.getInventory(), slot, 0, 0));
         }
@@ -102,7 +102,7 @@ public class PeekCommand {
         EnderChestInventory targetEnderChest = targetPlayer.getEnderChestInventory();
 
         PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X3, executingPlayer, targetPlayer);
-        invScreen.setTitle(Text.of("EnderChest of " + targetPlayer.getDisplayName().asString()));
+        invScreen.setTitle(Text.of("EnderChest of " + targetPlayer.getDisplayName().getString()));
         for (int slot = 0; slot < targetEnderChest.size(); slot++) {
             invScreen.setSlotRedirect(slot, new Slot(targetEnderChest, slot, 0, 0));
         }
