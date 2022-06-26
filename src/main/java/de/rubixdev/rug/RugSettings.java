@@ -1230,6 +1230,12 @@ public class RugSettings {
         category = { SURVIVAL, CRAFTING, RENEWABLE, RUG }
     )
     public static boolean craftableTuff = false;
+
+    @Rule(
+        desc = "Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0",
+        category = { EXPERIMENTAL, SURVIVAL, RENEWABLE, RUG }
+    )
+    public static boolean deepslateGeneration = false;
 }
 
 // BUGFIX

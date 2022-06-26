@@ -26,11 +26,15 @@ public abstract class FluidBlockMixin {
         at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/fluid/FluidState;isStill()Z"),
         cancellable = true
     )
-    private void generateNetherrack(World world, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
+    private void generateNetherrackOrDeepslate(World world, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (RugSettings.netherrackGeneration
-            && world.getBlockState(pos.down()).isOf(Blocks.MAGMA_BLOCK)
-            && !world.getFluidState(pos).isStill()) {
+                && world.getBlockState(pos.down()).isOf(Blocks.MAGMA_BLOCK)
+                && !world.getFluidState(pos).isStill()) {
             world.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());
+            this.playExtinguishSound(world, pos);
+            cir.setReturnValue(false);
+        } else if (RugSettings.deepslateGeneration && !world.getFluidState(pos).isStill() && pos.getY() < 0) {
+            world.setBlockState(pos, Blocks.COBBLED_DEEPSLATE.getDefaultState());
             this.playExtinguishSound(world, pos);
             cir.setReturnValue(false);
         }
