@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 32
+Count: 33
 - [blastFurnaceGlass](#blastfurnaceglass)
 - [blastFurnaceGlazedTerracotta](#blastfurnaceglazedterracotta)
 - [blastFurnaceNetherBrick](#blastfurnacenetherbrick)
@@ -23,6 +23,7 @@ Count: 32
 - [easyStickCrafting](#easystickcrafting)
 - [easyTrappedChestCrafting](#easytrappedchestcrafting)
 - [maxBannerLayers](#maxbannerlayers)
+- [missingCobbleRecipes](#missingcobblerecipes)
 - [moreBarkCrafting](#morebarkcrafting)
 - [powderToGlassSmelting](#powdertoglasssmelting)
 - [shapelessCrafting](#shapelesscrafting)
@@ -224,6 +225,15 @@ This only works for clients with this mod installed and the Banner tooltips neve
 - Additional notes:
   - You must choose a value from 3 to 16
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
+### missingCobbleRecipes
+Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `BUGFIX`, `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3

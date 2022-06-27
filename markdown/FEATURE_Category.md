@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 30
+Count: 31
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -30,6 +30,7 @@ Count: 30
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
 - [silkTouchSpawners](#silktouchspawners)
+- [splashOxidize](#splashoxidize)
 - [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [strictShulkerShells](#strictshulkershells)
 - [villagersDropEmeralds](#villagersdropemeralds)
@@ -261,6 +262,13 @@ Mining Spawners with a Silk Touch tool will drop itself
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### splashOxidize
+Copper blocks oxidize one stage when hit with a water bottle
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 
 ### stalagmiteSteppingDamage
 Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this

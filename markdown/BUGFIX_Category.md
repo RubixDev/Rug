@@ -2,10 +2,11 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 4
+Count: 5
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [itemFramesActivatePressurePlates](#itemframesactivatepressureplates)
+- [missingCobbleRecipes](#missingcobblerecipes)
 - [stonecutterDamage](#stonecutterdamage)
 
 ## Rules in BUGFIX Category
@@ -34,6 +35,15 @@ Item Frames inside wooden pressure plates hold them down
 - Default value: `true`
 - Required options: `true`, `false`
 - Categories: `BUGFIX`, `RUG`
+
+### missingCobbleRecipes
+Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `BUGFIX`, `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### stonecutterDamage
 How much damage Stonecutters deal when stepping on them

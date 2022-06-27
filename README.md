@@ -33,7 +33,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
 
 ## Index
-Count: 94
+Count: 96
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -90,6 +90,7 @@ Count: 94
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
 - [maxBannerLayers](#maxbannerlayers)
+- [missingCobbleRecipes](#missingcobblerecipes)
 - [moreBarkCrafting](#morebarkcrafting)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [netherrackGeneration](#netherrackgeneration)
@@ -112,6 +113,7 @@ Count: 94
 - [smokerGreenDye](#smokergreendye)
 - [smokerLimeDye](#smokerlimedye)
 - [snowballWaterDrag](#snowballwaterdrag)
+- [splashOxidize](#splashoxidize)
 - [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [stonecutterDamage](#stonecutterdamage)
 - [strictShulkerShells](#strictshulkershells)
@@ -620,6 +622,15 @@ This only works for clients with this mod installed and the Banner tooltips neve
   - You must choose a value from 3 to 16
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
 
+### missingCobbleRecipes
+Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone
+
+Expect a lag spike when changing the value
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `BUGFIX`, `CRAFTING`, `RUG`, `SURVIVAL`
+
 ### moreBarkCrafting
 Crafting Logs to Wood gives 4 instead of 3
 
@@ -811,6 +822,13 @@ Thrown Snowball will stutter on client when mod is only on server
 - Categories: `CLIENT`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0.5 to 0.99
+
+### splashOxidize
+Copper blocks oxidize one stage when hit with a water bottle
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `FEATURE`, `RUG`, `SURVIVAL`
 
 ### stalagmiteSteppingDamage
 Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this

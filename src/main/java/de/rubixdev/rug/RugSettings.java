@@ -1259,7 +1259,7 @@ public class RugSettings {
 
     @Rule(
         desc = "Copper blocks oxidize one stage when hit with a water bottle",
-        category = { FEATURE, DISPENSER, SURVIVAL, RUG }
+        category = { FEATURE, SURVIVAL, RUG }
     )
     public static boolean splashOxidize = false;
 }

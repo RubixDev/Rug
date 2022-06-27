@@ -9,7 +9,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues) (preferred) or here in the comments.
 
 ## List of implemented Rules
-Count: 94  
+Count: 96  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -66,6 +66,7 @@ Count: 94
 - lilyPadsOnCauldron  
 - longerRepeaters  
 - maxBannerLayers  
+- missingCobbleRecipes  
 - moreBarkCrafting  
 - moreFortressSpawningBlocks  
 - netherrackGeneration  
@@ -88,6 +89,7 @@ Count: 94
 - smokerGreenDye  
 - smokerLimeDye  
 - snowballWaterDrag  
+- splashOxidize  
 - stalagmiteSteppingDamage  
 - stonecutterDamage  
 - strictShulkerShells  
