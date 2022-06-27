@@ -45,6 +45,7 @@
     "PistonHandlerMixin",
     "PlayerEntityMixin",
     "PointedDripstoneBlockMixin",
+    "PotionEntityMixin",
     "PressurePlateBlockMixin",
     "RedstoneLampBlockMixin",
     "RepeaterBlockMixin",

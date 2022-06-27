@@ -1256,6 +1256,12 @@ public class RugSettings {
         category = { SURVIVAL, CRAFTING, BUGFIX, RUG }
     )
     public static boolean missingCobbleRecipes = false;
+
+    @Rule(
+        desc = "Copper blocks oxidize one stage when hit with a water bottle",
+        category = { FEATURE, DISPENSER, SURVIVAL, RUG }
+    )
+    public static boolean splashOxidize = false;
 }
 
 // BUGFIX
