@@ -345,6 +345,7 @@ public class RugSettings {
             "crimson_hyphae.json",
             "dark_oak_wood.json",
             "jungle_wood.json",
+            "mangrove_wood.json",
             "oak_wood.json",
             "spruce_wood.json",
             "stripped_acacia_wood.json",
