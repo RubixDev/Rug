@@ -62,7 +62,7 @@ import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
 
 public class RugServer implements CarpetExtension, ModInitializer {
-    public static final String VERSION = "1.3.1";
+    public static final String VERSION = "1.3.2";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
 
     private static MinecraftServer minecraftServer;
