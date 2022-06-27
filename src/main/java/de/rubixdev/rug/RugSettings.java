@@ -1239,6 +1239,23 @@ public class RugSettings {
         category = { EXPERIMENTAL, SURVIVAL, RENEWABLE, RUG }
     )
     public static boolean deepslateGeneration = false;
+
+    @CraftingRule(
+        recipes = {
+            "dispenser.json",
+            "dropper.json",
+            "lever.json",
+            "observer.json",
+            "piston.json"
+        },
+        recipeNamespace = "minecraft"
+    )
+    @Rule(
+        desc = "Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone",
+        extra = "Expect a lag spike when changing the value",
+        category = { SURVIVAL, CRAFTING, BUGFIX, RUG }
+    )
+    public static boolean missingCobbleRecipes = false;
 }
 
 // BUGFIX
