@@ -14,7 +14,7 @@
     "issues": "https://github.com/RubixDev/Rug/issues"
   },
 
-  "license": "CC0-1.0",
+  "license": "GPL-2.0-only",
   "icon": "assets/rug/icon.png",
 
   "environment": "*",
