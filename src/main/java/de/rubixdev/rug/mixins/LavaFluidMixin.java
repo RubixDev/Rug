@@ -17,20 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LavaFluid.class)
-public abstract class LavaFluidMixin {
-    @Shadow protected abstract void playExtinguishEvent(WorldAccess world, BlockPos pos);
-
+public class LavaFluidMixin {
     @Inject(method = "isInfinite", at = @At("HEAD"), cancellable = true)
     private void setInfinite(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(RugSettings.infiniteLavaSources);
-    }
-
-    @Inject(method = "flow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/WorldAccess;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"), cancellable = true)
-    private void generateDeepslate(WorldAccess world, BlockPos pos, BlockState state, Direction direction, FluidState fluidState, CallbackInfo ci) {
-        if (RugSettings.deepslateGeneration && pos.getY() < 0) {
-            world.setBlockState(pos, Blocks.DEEPSLATE.getDefaultState(), Block.NOTIFY_ALL);
-            this.playExtinguishEvent(world, pos);
-            ci.cancel();
-        }
     }
 }
