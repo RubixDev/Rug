@@ -144,7 +144,7 @@ public class RugSettings {
 
     @Rule(
         desc = "Right clicking on fully grown crops harvests and immediately replants it",
-        extra = "Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans",
+        extra = "Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines",
         options = { "off", "normal", "require_hoe" },
         category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
     )

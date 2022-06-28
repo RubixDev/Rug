@@ -55,6 +55,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -120,12 +122,16 @@ public class RugServer implements CarpetExtension, ModInitializer {
             BlockPos pos = hitResult.getBlockPos();
             BlockState state = world.getBlockState(pos);
             Block block = state.getBlock();
+            ItemStack tool = player != null ? player.getStackInHand(hand) : ItemStack.EMPTY;
+            if (RugSettings.easyHarvesting.equals("require_hoe") && !( tool.getItem() instanceof HoeItem )) {
+                return ActionResult.PASS;
+            }
+            boolean allowsHarvestFromTop = RugSettings.easyHarvesting.equals("require_hoe")
+                || hitResult.getSide() != Direction.UP;
+            boolean allowsHarvestFromBottom = RugSettings.easyHarvesting.equals("require_hoe")
+                || hitResult.getSide() != Direction.DOWN;
 
             if (isMature(state)) {
-                ItemStack tool = player != null ? player.getStackInHand(hand) : ItemStack.EMPTY;
-                if (RugSettings.easyHarvesting.equals("require_hoe") && !( tool.getItem() instanceof HoeItem )) {
-                    return ActionResult.PASS;
-                }
                 List<ItemStack> droppedItems = Block.getDroppedStacks(
                     state,
                     (ServerWorld) world,
@@ -150,14 +156,50 @@ public class RugServer implements CarpetExtension, ModInitializer {
                     pos,
                     removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState()
                 );
-                if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
-                    tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
+            } else if (List.of(
+                Blocks.SUGAR_CANE,
+                Blocks.CACTUS,
+                Blocks.BAMBOO,
+                Blocks.KELP_PLANT,
+                Blocks.TWISTING_VINES_PLANT
+            ).contains(state.getBlock()) && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, state.getBlock(), Direction.UP)) return ActionResult.PASS;
+            } else if (state.isOf(Blocks.KELP) && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, Blocks.KELP_PLANT, Direction.UP)) return ActionResult.PASS;
+            } else if (state.isOf(Blocks.TWISTING_VINES) && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, Blocks.TWISTING_VINES_PLANT, Direction.UP)) return ActionResult.PASS;
+            } else if (List.of(Blocks.WEEPING_VINES_PLANT, Blocks.CAVE_VINES_PLANT).contains(state.getBlock())
+                && allowsHarvestFromBottom) {
+                    if (!harvestStemPlant(pos, world, state.getBlock(), Direction.DOWN)) return ActionResult.PASS;
+                } else if (state.isOf(Blocks.WEEPING_VINES) && allowsHarvestFromBottom) {
+                    if (!harvestStemPlant(pos, world, Blocks.WEEPING_VINES_PLANT, Direction.DOWN))
+                        return ActionResult.PASS;
+                } else if (state.isOf(Blocks.CAVE_VINES) && allowsHarvestFromBottom) {
+                    if (!harvestStemPlant(pos, world, Blocks.CAVE_VINES_PLANT, Direction.DOWN))
+                        return ActionResult.PASS;
+                } else {
+                    return ActionResult.PASS;
                 }
 
-                return ActionResult.SUCCESS;
+            if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
+                tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
             }
-            return ActionResult.PASS;
+            return ActionResult.SUCCESS;
         } ));
+    }
+
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    private boolean harvestStemPlant(BlockPos pos, World world, Block stem, Direction growDirection) {
+        int count = 1;
+        BlockPos root = pos.offset(growDirection.getOpposite());
+        while (world.getBlockState(root).isOf(stem)) {
+            count++;
+            root = root.offset(growDirection.getOpposite());
+        }
+
+        if (count == 1 && !world.getBlockState(pos.offset(growDirection)).isOf(stem)) { return false; }
+        world.breakBlock(root.offset(growDirection, 2), true);
+        return true;
     }
 
     @Override
