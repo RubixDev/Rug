@@ -9,9 +9,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
@@ -51,5 +49,15 @@ public abstract class AbstractFurnaceBlockEntityMixin {
     private static void onSyntheticMethod_17761(ServerWorld world, Vec3d vec3d, int i, float f) {
         dropExperience(world, vec3d, i, isCactusRecipe ? (float) RugSettings.cactusFurnaceXp : f);
         isCactusRecipe = false;
+    }
+
+    @ModifyConstant(
+            method = "canPlayerUse",
+            allow = 1,
+            require = 1,
+            constant = @Constant(doubleValue = 64.0)
+    )
+    private static double changeReachDistance(double baseReachDistance) {
+        return Math.pow(Math.sqrt(baseReachDistance) + RugSettings.reachDistance - 4.5, 2);
     }
 }
