@@ -199,7 +199,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
         reload();
         if (isFirstLoad) {
-            server.getCommandManager().execute(server.getCommandSource(), "/datapack enable \"file/RugData\"");
+            server.getCommandManager().execute(server.getCommandSource(), "datapack enable \"file/RugData\"");
         }
     }
 
