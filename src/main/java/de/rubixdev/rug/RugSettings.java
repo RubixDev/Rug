@@ -1263,6 +1263,13 @@ public class RugSettings {
         category = { FEATURE, SURVIVAL, RUG }
     )
     public static boolean splashOxidize = false;
+
+    @Rule(
+            desc = "Sculk blocks always drop XP when destroyed",
+            extra = "Allows for fully automatic XP farms without a wither",
+            category = { SURVIVAL, TNT, RUG }
+    )
+    public static boolean sculkBlocksAlwaysDropXp = false;
 }
 
 // BUGFIX
