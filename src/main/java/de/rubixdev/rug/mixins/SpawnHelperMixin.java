@@ -1,7 +1,9 @@
 package de.rubixdev.rug.mixins;
 
+
 import com.google.common.collect.Lists;
 import de.rubixdev.rug.RugSettings;
+import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -9,8 +11,6 @@ import net.minecraft.world.SpawnHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.List;
 
 @Mixin(SpawnHelper.class)
 public class SpawnHelperMixin {
@@ -33,6 +33,7 @@ public class SpawnHelperMixin {
             Blocks.RED_NETHER_BRICKS
         );
 
-        return RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(floorBlock.getBlock()) || floorBlock.isOf(netherBricks);
+        return RugSettings.moreFortressSpawningBlocks.equals("more") && allowedBlocks.contains(floorBlock.getBlock())
+            || floorBlock.isOf(netherBricks);
     }
 }

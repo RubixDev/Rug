@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;

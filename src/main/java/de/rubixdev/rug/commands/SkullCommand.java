@@ -1,5 +1,9 @@
 package de.rubixdev.rug.commands;
 
+import static net.minecraft.command.CommandSource.suggestMatching;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
+
 import carpet.settings.SettingsManager;
 import com.google.common.collect.Sets;
 import com.mojang.brigadier.CommandDispatcher;
@@ -7,19 +11,14 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import de.rubixdev.rug.RugSettings;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
-
-import static net.minecraft.command.CommandSource.suggestMatching;
-import static net.minecraft.server.command.CommandManager.literal;
-import static net.minecraft.server.command.CommandManager.argument;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 
 public class SkullCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -41,12 +40,16 @@ public class SkullCommand {
         dispatcher.register(command);
     }
 
-    private static int execute(CommandContext<ServerCommandSource> context, int count) throws CommandSyntaxException {
+    private static int execute(CommandContext<ServerCommandSource> context, int count) {
         ServerCommandSource playerSource = context.getSource();
         ServerCommandSource source = playerSource.getServer().getCommandSource();
         CommandManager manager = playerSource.getServer().getCommandManager();
 
         ServerPlayerEntity playerEntity = playerSource.getPlayer();
+        if (playerEntity == null) {
+            context.getSource().sendError(Text.of("Command must be executed as a player"));
+            return 0;
+        }
         String playerName = playerEntity.getName().getString();
         String skullOwner = count == 0 ? playerName : context.getArgument("player", String.class);
 

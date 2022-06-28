@@ -1,13 +1,14 @@
 package de.rubixdev.rug;
 
+import static carpet.settings.RuleCategory.*;
+
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
 import de.rubixdev.rug.util.CraftingRule;
 import net.minecraft.server.command.ServerCommandSource;
 
-import static carpet.settings.RuleCategory.*;
-
+@SuppressWarnings("CanBeFinal")
 public class RugSettings {
     public static final String RUG = "rug";
     public static final String CRAFTING = "crafting";
@@ -149,16 +150,6 @@ public class RugSettings {
     )
     public static String easyHarvesting = "off";
 
-//    @Rule(
-//        desc = "Makes Netherite Scraps edible, because, let's be honest, they kinda look like chocolate",
-//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-//    )
-//    public static boolean edibleNetheriteScraps = false;
-    // edibleNetheriteScrapsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows
-    // this item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/Rug/issues/19):::
-
     @Rule(
         desc = "Players do not lose any hunger like in peaceful mode",
         category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
@@ -215,16 +206,6 @@ public class RugSettings {
     )
     public static int enderPearlDamage = 5;
 
-//    @Rule(
-//        desc = "Slime Balls are edible and give Jump Boost and Slowness",
-//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-//    )
-//    public static boolean edibleSlimeBalls = false;
-    // edibleSlimeBallsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
-    // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/Rug/issues/19):::
-
     public static class validatorReachDistance extends Validator<Double> {
 
         @Override
@@ -254,16 +235,6 @@ public class RugSettings {
     public static double reachDistance = 4.5;
     // reachDistanceAdditional: Is disabled when
     // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed:::
-
-//    @Rule(
-//        desc = "Butter is finally edible. Keep in mind 250g of pure butter are not that healthy",
-//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-//    )
-//    public static boolean edibleGoldIngots = false;
-    // edibleGoldIngotsAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
-    // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
 
@@ -310,16 +281,6 @@ public class RugSettings {
         category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
     )
     public static boolean silkTouchSpawners = false;
-
-//    @Rule(
-//        desc = "Magma Cream is edible and gives 10 seconds of Fire Resistance",
-//        extra = "Works server side only, but eating animation is only rendered if the mod is on the client too",
-//        category = { EXPERIMENTAL, FEATURE, SURVIVAL, CLIENT, RUG }
-//    )
-//    public static boolean edibleMagmaCream = false;
-    // edibleMagmaCreamAdditional: [AppleSkin](https://www.curseforge.com/minecraft/mc-mods/appleskin) always shows this
-    // item as edible with Rug installed on client, as described in
-    // [#19](https://github.com/RubixDev/Rug/issues/19):::
 
     @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(
@@ -1236,13 +1197,7 @@ public class RugSettings {
     public static boolean craftableTuff = false;
 
     @CraftingRule(
-        recipes = {
-            "dispenser.json",
-            "dropper.json",
-            "lever.json",
-            "observer.json",
-            "piston.json"
-        },
+        recipes = { "dispenser.json", "dropper.json", "lever.json", "observer.json", "piston.json" },
         recipeNamespace = "minecraft"
     )
     @Rule(
@@ -1252,16 +1207,13 @@ public class RugSettings {
     )
     public static boolean missingCobbleRecipes = false;
 
-    @Rule(
-        desc = "Copper blocks oxidize one stage when hit with a water bottle",
-        category = { FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(desc = "Copper blocks oxidize one stage when hit with a water bottle", category = { FEATURE, SURVIVAL, RUG })
     public static boolean splashOxidize = false;
 
     @Rule(
-            desc = "Sculk blocks always drop XP when destroyed",
-            extra = "Allows for fully automatic XP farms without a wither",
-            category = { SURVIVAL, TNT, RUG }
+        desc = "Sculk blocks always drop XP when destroyed",
+        extra = "Allows for fully automatic XP farms without a wither",
+        category = { SURVIVAL, TNT, RUG }
     )
     public static boolean sculkBlocksAlwaysDropXp = false;
 }

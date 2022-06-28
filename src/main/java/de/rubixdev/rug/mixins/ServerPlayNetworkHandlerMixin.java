@@ -1,7 +1,7 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
-import net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,14 +13,28 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = ServerPlayNetworkHandler.class, priority = 900)
 public class ServerPlayNetworkHandlerMixin {
-    @Shadow @Final public static double MAX_BREAK_SQUARED_DISTANCE;
+    @Shadow
+    @Final
+    public static double MAX_BREAK_SQUARED_DISTANCE;
 
-    @Redirect(method = "onPlayerInteractEntity", at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D"))
+    @Redirect(
+        method = "onPlayerInteractEntity",
+        at = @At(
+            value = "FIELD",
+            target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D"
+        )
+    )
     private double changeAttackRangeForEntities() {
         return Math.pow(Math.sqrt(MAX_BREAK_SQUARED_DISTANCE) + RugSettings.reachDistance - 4.5, 2);
     }
 
-    @Redirect(method = "onPlayerInteractBlock", at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D"))
+    @Redirect(
+        method = "onPlayerInteractBlock",
+        at = @At(
+            value = "FIELD",
+            target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D"
+        )
+    )
     private double changeAttackRangeForBlocks() {
         return Math.pow(Math.sqrt(MAX_BREAK_SQUARED_DISTANCE) + RugSettings.reachDistance - 4.5, 2);
     }

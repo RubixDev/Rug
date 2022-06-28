@@ -1,15 +1,15 @@
 package de.rubixdev.rug.util;
 
+
 import com.google.common.collect.Lists;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 public class MixinConfigPlugin implements IMixinConfigPlugin {
     @Override

@@ -1,5 +1,20 @@
 package de.rubixdev.rug;
 
+
+import carpet.CarpetExtension;
+import carpet.CarpetServer;
+import carpet.script.Module;
+import carpet.settings.ParsedRule;
+import com.google.common.base.CaseFormat;
+import com.google.common.collect.Lists;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.mojang.brigadier.CommandDispatcher;
+import de.rubixdev.rug.commands.*;
+import de.rubixdev.rug.util.CraftingRule;
+import de.rubixdev.rug.util.Logging;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,27 +28,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
-
-import carpet.script.Module;
-import com.google.common.base.CaseFormat;
-import com.google.common.collect.Lists;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.mojang.brigadier.CommandDispatcher;
-
-import de.rubixdev.rug.commands.*;
-import net.minecraft.command.CommandRegistryAccess;
-import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import carpet.CarpetExtension;
-import carpet.CarpetServer;
-import carpet.settings.ParsedRule;
-import de.rubixdev.rug.util.CraftingRule;
-import de.rubixdev.rug.util.Logging;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Block;
@@ -42,6 +36,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CocoaBlock;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.NetherWartBlock;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
@@ -60,6 +55,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class RugServer implements CarpetExtension, ModInitializer {
     public static final String VERSION = "1.3.2";
@@ -71,8 +69,6 @@ public class RugServer implements CarpetExtension, ModInitializer {
     public String version() {
         return "rug";
     }
-
-    public static void noop() {}
 
     @Override
     public void onInitialize() {
@@ -87,7 +83,10 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     @Override
-    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
+    public void registerCommands(
+        CommandDispatcher<ServerCommandSource> dispatcher,
+        CommandRegistryAccess commandBuildContext
+    ) {
         SlimeChunkCommand.register(dispatcher);
         FrameCommand.register(dispatcher);
         SkullCommand.register(dispatcher);

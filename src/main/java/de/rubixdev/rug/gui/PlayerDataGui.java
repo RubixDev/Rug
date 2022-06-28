@@ -1,5 +1,6 @@
 package de.rubixdev.rug.gui;
 
+
 import de.rubixdev.rug.RugServer;
 import eu.pb4.sgui.api.gui.SimpleGui;
 import net.minecraft.screen.ScreenHandlerType;

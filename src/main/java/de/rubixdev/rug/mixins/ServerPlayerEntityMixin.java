@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import com.mojang.authlib.GameProfile;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.damage.DamageSource;
@@ -25,7 +26,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
-    public ServerPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile gameProfile, @Nullable PlayerPublicKey publicKey) {
+    public ServerPlayerEntityMixin(
+        World world,
+        BlockPos pos,
+        float yaw,
+        GameProfile gameProfile,
+        @Nullable PlayerPublicKey publicKey
+    ) {
         super(world, pos, yaw, gameProfile, publicKey);
     }
 

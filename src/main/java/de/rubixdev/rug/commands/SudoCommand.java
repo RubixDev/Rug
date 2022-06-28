@@ -4,17 +4,15 @@ import static net.minecraft.command.CommandSource.suggestMatching;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import java.util.Collection;
-
+import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.Message;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
-
-import carpet.settings.SettingsManager;
 import de.rubixdev.rug.RugSettings;
+import java.util.Collection;
 import net.minecraft.command.argument.MessageArgumentType;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.server.MinecraftServer;
@@ -43,16 +41,20 @@ public class SudoCommand {
                         return 0;
                     }
 
-                    MessageArgumentType.SignedMessage signedMessage = MessageArgumentType.getSignedMessage(context, "message");
-                    ServerCommandSource source = context.getSource();
-                    signedMessage.decorate(source).thenAcceptAsync(
-                        decoratedMessage -> playerManager.broadcast(
-                            decoratedMessage,
-                            targetPlayer,
-                            MessageType.CHAT
-                        ),
-                        server
+                    MessageArgumentType.SignedMessage signedMessage = MessageArgumentType.getSignedMessage(
+                        context,
+                        "message"
                     );
+                    ServerCommandSource source = context.getSource();
+                    signedMessage.decorate(source)
+                        .thenAcceptAsync(
+                            decoratedMessage -> playerManager.broadcast(
+                                decoratedMessage,
+                                targetPlayer,
+                                MessageType.CHAT
+                            ),
+                            server
+                        );
                     return 1;
                 }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");

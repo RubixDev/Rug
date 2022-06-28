@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-import org.spongepowered.asm.mixin.Mixin;
 
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.AbstractBlock;
@@ -11,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(PointedDripstoneBlock.class)
 public class PointedDripstoneBlockMixin extends Block {

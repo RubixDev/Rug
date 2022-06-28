@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

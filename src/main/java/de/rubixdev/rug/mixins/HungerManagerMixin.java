@@ -1,7 +1,9 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.util.Storage;
+import java.util.Objects;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,8 +14,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Objects;
 
 @Mixin(HungerManager.class)
 public class HungerManagerMixin {

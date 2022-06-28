@@ -1,14 +1,14 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
+import java.util.Objects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.NameTagItem;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.Objects;
 
 @Mixin(NameTagItem.class)
 public abstract class NameTagItemMixin {

@@ -1,5 +1,9 @@
 package de.rubixdev.rug.commands;
 
+import static net.minecraft.command.CommandSource.suggestMatching;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
+
 import carpet.settings.SettingsManager;
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
@@ -9,6 +13,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Dynamic;
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.gui.PlayerDataGui;
+import java.util.Collection;
 import net.minecraft.command.argument.GameProfileArgumentType;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.nbt.NbtCompound;
@@ -21,12 +26,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.world.dimension.DimensionType;
-
-import java.util.Collection;
-
-import static net.minecraft.command.CommandSource.suggestMatching;
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandManager.literal;
 
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {

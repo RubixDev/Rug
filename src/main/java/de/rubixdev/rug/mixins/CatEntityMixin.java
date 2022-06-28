@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.item.ItemStack;

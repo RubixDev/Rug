@@ -1,9 +1,10 @@
 package de.rubixdev.rug.util;
 
+
+import de.rubixdev.rug.RugServer;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
-import de.rubixdev.rug.RugServer;
 
 public class Logging {
     public static void logStackTrace(Throwable e) {

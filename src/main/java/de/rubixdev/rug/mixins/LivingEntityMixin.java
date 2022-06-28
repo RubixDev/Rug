@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;

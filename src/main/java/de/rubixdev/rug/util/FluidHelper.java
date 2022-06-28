@@ -1,5 +1,6 @@
 package de.rubixdev.rug.util;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -12,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
+@SuppressWarnings("SameParameterValue")
 public class FluidHelper {
     public static void playFizzleSound(WorldAccess world, BlockPos pos) {
         world.syncWorldEvent(1501, pos, 0);

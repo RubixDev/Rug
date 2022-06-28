@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.AbstractPlantPartBlock;
 import net.minecraft.block.AbstractPlantStemBlock;
@@ -16,10 +17,10 @@ import org.spongepowered.asm.mixin.Shadow;
 public abstract class AbstractPlantStemBlockMixin extends AbstractPlantPartBlock {
 
     protected AbstractPlantStemBlockMixin(
-            Settings settings,
-            Direction growthDirection,
-            VoxelShape outlineShape,
-            boolean tickWater
+        Settings settings,
+        Direction growthDirection,
+        VoxelShape outlineShape,
+        boolean tickWater
     ) {
         super(settings, growthDirection, outlineShape, tickWater);
     }

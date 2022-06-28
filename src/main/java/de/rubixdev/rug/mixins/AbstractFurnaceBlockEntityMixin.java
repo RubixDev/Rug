@@ -1,7 +1,9 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import java.util.List;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Recipe;
@@ -12,8 +14,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.List;
-
 @Mixin(AbstractFurnaceBlockEntity.class)
 public abstract class AbstractFurnaceBlockEntityMixin {
     @Shadow
@@ -22,10 +22,7 @@ public abstract class AbstractFurnaceBlockEntityMixin {
     private static boolean isCactusRecipe;
 
     @SuppressWarnings("rawtypes")
-    @Inject(
-        method = "method_17761",
-        at = @At(value = "INVOKE", target = "java/util/List.add(Ljava/lang/Object;)Z")
-    )
+    @Inject(method = "method_17761", at = @At(value = "INVOKE", target = "java/util/List.add(Ljava/lang/Object;)Z"))
     private static void onSyntheticMethod_17761(
         List list,
         ServerWorld world,

@@ -1,5 +1,6 @@
 package de.rubixdev.rug.commands;
 
+
 import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -27,7 +28,7 @@ public class SlimeChunkCommand {
                     worldAccess.getSeed(),
                     987234911L
                 ).nextInt(10) < RugSettings.slimeChunkPercentage / 10;
-                playerEntity.sendMessage(Text.of("You are " + (isSlimeChunk ? "" : "not ") + "in a Slime Chunk"));
+                playerEntity.sendMessage(Text.of("You are " + ( isSlimeChunk ? "" : "not " ) + "in a Slime Chunk"));
                 return 1;
             });
         dispatcher.register(command);

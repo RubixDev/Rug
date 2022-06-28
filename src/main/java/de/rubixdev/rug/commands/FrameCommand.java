@@ -1,5 +1,6 @@
 package de.rubixdev.rug.commands;
 
+
 import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -7,6 +8,7 @@ import de.rubixdev.rug.RugSettings;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 
 public class FrameCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -16,6 +18,10 @@ public class FrameCommand {
                 ServerCommandSource playerSource = context.getSource();
                 ServerCommandSource source = playerSource.getServer().getCommandSource();
                 ServerPlayerEntity playerEntity = playerSource.getPlayer();
+                if (playerEntity == null) {
+                    context.getSource().sendError(Text.of("Command must be executed as a player"));
+                    return 0;
+                }
                 CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 
@@ -47,6 +53,10 @@ public class FrameCommand {
                 ServerCommandSource playerSource = context.getSource();
                 ServerCommandSource source = playerSource.getServer().getCommandSource();
                 ServerPlayerEntity playerEntity = playerSource.getPlayer();
+                if (playerEntity == null) {
+                    context.getSource().sendError(Text.of("Command must be executed as a player"));
+                    return 0;
+                }
                 CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 

@@ -1,20 +1,20 @@
 package de.rubixdev.rug.commands;
 
+
 import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import de.rubixdev.rug.RugSettings;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 public class ModsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -25,6 +25,7 @@ public class ModsCommand {
         dispatcher.register(command);
     }
 
+    @SuppressWarnings("SameReturnValue")
     private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric) {
         List<ModMetadata> installedMods = FabricLoader.getInstance()
             .getAllMods()
