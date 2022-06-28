@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 13
+Count: 12
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [cobbleCrushing](#cobblecrushing)
@@ -10,7 +10,6 @@ Count: 13
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNotchApple](#craftablenotchapple)
 - [craftableTuff](#craftabletuff)
-- [deepslateGeneration](#deepslategeneration)
 - [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [gravelCrushing](#gravelcrushing)
@@ -77,13 +76,6 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
-### deepslateGeneration
-Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed

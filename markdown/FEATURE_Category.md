@@ -132,7 +132,7 @@ Dragon Eggs will convert Cobble under them to Endstone either on set event
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
 
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
+Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`

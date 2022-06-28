@@ -20,7 +20,6 @@ Count: 70
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [craftableTuff](#craftabletuff)
-- [deepslateGeneration](#deepslategeneration)
 - [dragonDrops](#dragondrops)
 - [dragonXpDrop](#dragonxpdrop)
 - [easyBlueIceCrafting](#easyblueicecrafting)
@@ -50,6 +49,7 @@ Count: 70
 - [peacefulHunger](#peacefulhunger)
 - [playerHeadDrops](#playerheaddrops)
 - [powderToGlassSmelting](#powdertoglasssmelting)
+- [sculkBlocksAlwaysDropXp](#sculkblocksalwaysdropxp)
 - [shapelessCrafting](#shapelesscrafting)
 - [silenceMobs](#silencemobs)
 - [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
@@ -227,13 +227,6 @@ Expect a lag spike when changing the value
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
-### deepslateGeneration
-Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed
 - Type: `String`
@@ -294,7 +287,7 @@ Expect a lag spike when changing the value
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
 
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
+Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`
@@ -490,6 +483,15 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
+
+### sculkBlocksAlwaysDropXp
+Sculk blocks always drop XP when destroyed
+
+Allows for fully automatic XP farms without a wither
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`, `TNT`
 
 ### shapelessCrafting
 Bread, Paper and Shulker Boxes can be crafted in a 2x2 field

@@ -2,14 +2,13 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 30
+Count: 29
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [campSleeping](#campsleeping)
 - [concreteMixing](#concretemixing)
-- [deepslateGeneration](#deepslategeneration)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
 - [easyHarvesting](#easyharvesting)
@@ -89,13 +88,6 @@ In combination with cobbleCrushing and gravelCrushing allows for an automatic Co
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
-### deepslateGeneration
-Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
 ### dragonEggConvertsCobbleToEndstone
 Dragon Eggs will convert Cobble under them to Endstone either on set event
 - Type: `String`
@@ -116,7 +108,7 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
 
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
+Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`

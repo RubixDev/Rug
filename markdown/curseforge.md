@@ -38,7 +38,6 @@ Count: 96
 - craftableNameTags  
 - craftableNotchApple  
 - craftableTuff  
-- deepslateGeneration  
 - dragonDrops  
 - dragonEggConvertsCobbleToEndstone  
 - dragonXpDrop  
@@ -79,6 +78,7 @@ Count: 96
 - powderToGlassSmelting  
 - reachDistance  
 - redstoneLampTurnOffDelay  
+- sculkBlocksAlwaysDropXp  
 - shapelessCrafting  
 - silenceMobs  
 - silkTouchBuddingAmethysts  

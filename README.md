@@ -31,6 +31,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`FEATURE`](markdown/FEATURE_Category.md)
 - [`RENEWABLE`](markdown/RENEWABLE_Category.md)
 - [`SURVIVAL`](markdown/SURVIVAL_Category.md)
+- [`TNT`](markdown/TNT_Category.md)
 
 ## Index
 Count: 96
@@ -62,7 +63,6 @@ Count: 96
 - [craftableNameTags](#craftablenametags)
 - [craftableNotchApple](#craftablenotchapple)
 - [craftableTuff](#craftabletuff)
-- [deepslateGeneration](#deepslategeneration)
 - [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [dragonXpDrop](#dragonxpdrop)
@@ -103,6 +103,7 @@ Count: 96
 - [powderToGlassSmelting](#powdertoglasssmelting)
 - [reachDistance](#reachdistance)
 - [redstoneLampTurnOffDelay](#redstonelampturnoffdelay)
+- [sculkBlocksAlwaysDropXp](#sculkblocksalwaysdropxp)
 - [shapelessCrafting](#shapelesscrafting)
 - [silenceMobs](#silencemobs)
 - [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
@@ -372,13 +373,6 @@ Expect a lag spike when changing the value
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
-### deepslateGeneration
-Cobblestone and stone generation is replaced with cobbled deepslate and deepslate under y-level 0
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `EXPERIMENTAL`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
 ### dragonDrops
 Ender Dragon drops selected item(s) when killed
 - Type: `String`
@@ -446,7 +440,7 @@ Expect a lag spike when changing the value
 ### easyHarvesting
 Right clicking on fully grown crops harvests and immediately replants it
 
-Works on: Wheat, Potatoes, Carrots, Beetroots, Nether Warts and Cocoa Beans
+Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
 - Default value: `off`
 - Required options: `off`, `normal`, `require_hoe`
@@ -735,6 +729,15 @@ Delay in game ticks for Redstone Lamps to turn off
 - Categories: `RUG`
 - Additional notes:
   - You must choose a value from 0 to 8
+
+### sculkBlocksAlwaysDropXp
+Sculk blocks always drop XP when destroyed
+
+Allows for fully automatic XP farms without a wither
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `RUG`, `SURVIVAL`, `TNT`
 
 ### shapelessCrafting
 Bread, Paper and Shulker Boxes can be crafted in a 2x2 field
