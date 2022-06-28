@@ -50,14 +50,4 @@ public abstract class AbstractFurnaceBlockEntityMixin {
         dropExperience(world, vec3d, i, isCactusRecipe ? (float) RugSettings.cactusFurnaceXp : f);
         isCactusRecipe = false;
     }
-
-    @ModifyConstant(
-            method = "canPlayerUse",
-            allow = 1,
-            require = 1,
-            constant = @Constant(doubleValue = 64.0)
-    )
-    private static double changeReachDistance(double baseReachDistance) {
-        return Math.pow(Math.sqrt(baseReachDistance) + RugSettings.reachDistance - 4.5, 2);
-    }
 }
