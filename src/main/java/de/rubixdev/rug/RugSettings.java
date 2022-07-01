@@ -2,10 +2,12 @@ package de.rubixdev.rug;
 
 import static carpet.settings.RuleCategory.*;
 
+import carpet.settings.Condition;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
 import de.rubixdev.rug.util.CraftingRule;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.command.ServerCommandSource;
 
 @SuppressWarnings("CanBeFinal")
@@ -224,11 +226,17 @@ public class RugSettings {
         }
     }
 
+    public static class conditionReachDistance implements Condition {
+        @Override
+        public boolean isTrue() { return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes"); }
+    }
+
     @Rule(
         desc = "Reach in which you can place and break blocks. Value will be 0.5 higher in creative",
         extra = "Mod needed on server and client for this feature to work",
         strict = false,
         validate = validatorReachDistance.class,
+        condition = conditionReachDistance.class,
         options = { "0.0", "4.5", "5.0", "10.0" },
         category = { EXPERIMENTAL, CREATIVE, CLIENT, RUG }
     )
