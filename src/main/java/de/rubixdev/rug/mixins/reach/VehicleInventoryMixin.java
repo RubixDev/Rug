@@ -1,4 +1,4 @@
-package de.rubixdev.rug.mixins;
+package de.rubixdev.rug.mixins.reach;
 
 
 import de.rubixdev.rug.RugSettings;

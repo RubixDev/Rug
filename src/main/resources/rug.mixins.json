@@ -22,7 +22,6 @@
     "CreeperEntityMixin",
     "DragonEggBlockMixin",
     "EndCrystalItemMixin",
-    "EnderChestBlockEntityMixin",
     "EnderDragonEntityMixin",
     "EndermanEntityMixin",
     "EnderPearlEntityMixin",
@@ -33,7 +32,6 @@
     "FluidBlockMixin",
     "GhastEntityMixin",
     "HungerManagerMixin",
-    "InventoryReachDistanceMixins",
     "LavaFluidMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
@@ -48,28 +46,31 @@
     "PressurePlateBlockMixin",
     "RedstoneLampBlockMixin",
     "RepeaterBlockMixin",
-    "ScreenHandlerMixin",
     "SculkBlockMixin",
     "ServerPlayerEntityMixin",
     "ServerPlayerInteractionManagerMixin",
-    "ServerPlayNetworkHandlerMixin",
     "SettingsManagerMixin",
     "SlimeEntityMixin",
     "SpawnHelperMixin",
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
     "ThrownEntityMixin",
-    "VehicleInventoryMixin",
     "VillagerEntityMixin",
     "WorldMixin",
-    "ZombieEntityMixin"
+    "ZombieEntityMixin",
+    "reach.EnderChestBlockEntityMixin",
+    "reach.InventoryMixins",
+    "reach.ScreenHandlerMixin",
+    "reach.ServerPlayerInteractionManagerMixin",
+    "reach.ServerPlayNetworkHandlerMixin",
+    "reach.VehicleInventoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ClientPlayerInteractionManagerMixin",
-    "GameRendererMixin",
-    "LoomScreenMixin"
+    "LoomScreenMixin",
+    "reach.ClientPlayerInteractionManagerMixin",
+    "reach.GameRendererMixin"
   ]
 }

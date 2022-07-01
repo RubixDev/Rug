@@ -4,7 +4,6 @@ package de.rubixdev.rug.mixins;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.tag.BlockTags;
@@ -20,20 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ServerPlayerInteractionManagerMixin {
     private ServerPlayerEntity interactPlayer;
     private BlockState interactBlock;
-
-    @Redirect(
-        method = "processBlockBreakingAction",
-        at = @At(
-            value = "FIELD",
-            target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;MAX_BREAK_SQUARED_DISTANCE:D"
-        )
-    )
-    private double changeReachDistance() {
-        return Math.pow(
-            Math.sqrt(ServerPlayNetworkHandler.MAX_BREAK_SQUARED_DISTANCE) + RugSettings.reachDistance - 4.5,
-            2
-        );
-    }
 
     @Inject(method = "interactBlock", at = @At("HEAD"))
     private void getParameters(

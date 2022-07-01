@@ -1,4 +1,4 @@
-package de.rubixdev.rug.mixins;
+package de.rubixdev.rug.mixins.reach;
 
 
 import de.rubixdev.rug.RugSettings;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
         PlayerInventory.class },
     targets = { "net/minecraft/block/entity/LecternBlockEntity$1", }
 )
-public class InventoryReachDistanceMixins {
+public class InventoryMixins {
     @ModifyConstant(method = "canPlayerUse", allow = 1, require = 1, constant = @Constant(doubleValue = 64.0))
     private static double changeReachDistance(double baseReachDistance) {
         return Math.pow(Math.sqrt(baseReachDistance) + RugSettings.reachDistance - 4.5, 2);

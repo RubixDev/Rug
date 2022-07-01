@@ -23,9 +23,14 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         List<String> reachDistanceMixins = Lists.newArrayList(
-            "de.rubixdev.rug.mixins.ClientPlayerInteractionManagerMixin",
-            "de.rubixdev.rug.mixins.ServerPlayerInteractionManagerMixin",
-            "de.rubixdev.rug.mixins.ServerPlayNetworkHandlerMixin"
+            "de.rubixdev.rug.mixins.reach.ClientPlayerInteractionManagerMixin",
+            "de.rubixdev.rug.mixins.reach.EnderChestBlockEntityMixin",
+            "de.rubixdev.rug.mixins.reach.GameRendererMixin",
+            "de.rubixdev.rug.mixins.reach.InventoryMixins",
+            "de.rubixdev.rug.mixins.reach.ScreenHandlerMixin",
+            "de.rubixdev.rug.mixins.reach.ServerPlayerInteractionManagerMixin",
+            "de.rubixdev.rug.mixins.reach.ServerPlayNetworkHandlerMixin",
+            "de.rubixdev.rug.mixins.reach.VehicleInventoryMixin"
         );
 
         if (reachDistanceMixins.contains(mixinClassName)) {
