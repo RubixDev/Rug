@@ -1,11 +1,11 @@
 package de.rubixdev.rug;
 
-import static carpet.settings.RuleCategory.*;
+import static carpet.api.settings.RuleCategory.*;
 
-import carpet.settings.Condition;
-import carpet.settings.ParsedRule;
-import carpet.settings.Rule;
-import carpet.settings.Validator;
+import carpet.api.settings.CarpetRule;
+import carpet.api.settings.Rule;
+import carpet.api.settings.Rule.Condition;
+import carpet.api.settings.Validator;
 import de.rubixdev.rug.util.CraftingRule;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.command.ServerCommandSource;
@@ -17,11 +17,10 @@ public class RugSettings {
     public static final String RENEWABLE = "renewable";
 
     public static class validatorAnvilledIce extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource serverCommandSource,
-            ParsedRule<Integer> parsedRule,
+            CarpetRule<Integer> parsedRule,
             Integer newValue,
             String s
         ) {
@@ -35,60 +34,52 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Custom amount of packed ice crushed by falling anvils make one blue ice.",
         options = { "0", "4", "9" },
-        category = { FEATURE, EXPERIMENTAL, RUG },
+        categories = { FEATURE, EXPERIMENTAL, RUG },
         strict = false,
-        validate = validatorAnvilledIce.class
+        validators = validatorAnvilledIce.class
     )
     public static int anvilledBlueIce = 0;
     // anvilledBlueIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
-        desc = "Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.",
         options = { "0", "4", "9" },
-        category = { FEATURE, EXPERIMENTAL, RUG },
+        categories = { FEATURE, EXPERIMENTAL, RUG },
         strict = false,
-        validate = validatorAnvilledIce.class
+        validators = validatorAnvilledIce.class
     )
     public static int anvilledIce = 0;
     // anvilledIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
-        desc = "Custom amount of ice crushed by falling anvils make one packed ice.",
         options = { "0", "4", "9" },
-        category = { FEATURE, EXPERIMENTAL, RUG },
+        categories = { FEATURE, EXPERIMENTAL, RUG },
         strict = false,
-        validate = validatorAnvilledIce.class
+        validators = validatorAnvilledIce.class
     )
     public static int anvilledPackedIce = 0;
     // anvilledPackedIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
-    @Rule(desc = "Allows Zombified Piglins to spawn inside Nether Portals", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean zombifiedPiglinsSpawningInPortals = true;
 
-    @Rule(desc = "Reverts the fishing loot to how it was before 1.16", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean oldFishingLoot = false;
 
-    @Rule(desc = "Prevents Creepers from destroying blocks", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean noCreeperGriefing = false;
 
-    @Rule(desc = "Prevents Endermen from picking up and placing blocks", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean noEndermanGriefing = false;
 
-    @Rule(desc = "Prevents Ghasts from destroying blocks", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean noGhastGriefing = false;
 
-    @Rule(
-        desc = "Players drop their head",
-        options = { "off", "on_death", "on_killed_by_player" },
-        category = { FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(options = { "off", "on_death", "on_killed_by_player" }, categories = { FEATURE, SURVIVAL, RUG })
     public static String playerHeadDrops = "off";
     // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(
-        desc = "Ender Dragon drops selected item(s) when killed",
         options = {
             "none",
             "dragon_egg",
@@ -98,17 +89,16 @@ public class RugSettings {
             "dragon_egg,dragon_head",
             "elytra,dragon_head",
             "all" },
-        category = { FEATURE, SURVIVAL, RENEWABLE, RUG }
+        categories = { FEATURE, SURVIVAL, RENEWABLE, RUG }
     )
     public static String dragonDrops = "none";
     // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource serverCommandSource,
-            ParsedRule<Integer> parsedRule,
+            CarpetRule<Integer> parsedRule,
             Integer newValue,
             String s
         ) {
@@ -122,62 +112,45 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Shulkers always drop a given amount of shulker shells when killed",
-        category = { FEATURE, SURVIVAL, RUG },
+        categories = { FEATURE, SURVIVAL, RUG },
         options = { "0", "1", "2" },
         strict = false,
-        validate = validatorStrictShulkerShells.class
+        validators = validatorStrictShulkerShells.class
     )
     public static int strictShulkerShells = 0;
     // strictShulkerShellsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
-    @Rule(desc = "Mobs named with 'silence_me' stop making noise", category = { FEATURE, SURVIVAL, RUG })
+    @Rule(categories = { FEATURE, SURVIVAL, RUG })
     public static boolean silenceMobs = false;
     // silenceMobsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
-    @Rule(desc = "Brings back the ability to force grow certain plants using 0-ticks", category = { EXPERIMENTAL, RUG })
+    @Rule(categories = { EXPERIMENTAL, RUG })
     public static boolean zeroTickPlants = false;
 
-    @Rule(
-        desc = "Concrete powder converts to concrete blocks when on top of a filled cauldron",
-        category = { FEATURE, RUG }
-    )
+    @Rule(categories = { FEATURE, RUG })
     public static boolean concreteConvertOnCauldron = false;
 
-    @Rule(
-        desc = "Right clicking on fully grown crops harvests and immediately replants it",
-        extra = "Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines",
-        options = { "off", "normal", "require_hoe" },
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(options = { "off", "normal", "require_hoe" }, categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static String easyHarvesting = "off";
 
-    @Rule(
-        desc = "Players do not lose any hunger like in peaceful mode",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean peacefulHunger = false;
     // peacefulHungerAdditional: Suggestion by
     // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
-    @Rule(
-        desc = "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
-        extra = "Recommended using with peacefulHunger",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean foodInstantHeal = false;
     // foodInstantHealAdditional: Suggestion by
     // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
-    @Rule(desc = "Lily Pads can be placed on Cauldrons", category = { FEATURE, RUG })
+    @Rule(categories = { FEATURE, RUG })
     public static boolean lilyPadsOnCauldron = false;
 
     public static class validatorDamage extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource serverCommandSource,
-            ParsedRule<Integer> parsedRule,
+            CarpetRule<Integer> parsedRule,
             Integer newValue,
             String s
         ) {
@@ -191,29 +164,26 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "How much damage Stonecutters deal when stepping on them",
         options = { "0", "3", "4", "5" },
         strict = false,
-        validate = validatorDamage.class,
-        category = { BUGFIX, SURVIVAL, RUG }
+        validators = validatorDamage.class,
+        categories = { BUGFIX, SURVIVAL, RUG }
     )
     public static int stonecutterDamage = 0;
 
     @Rule(
-        desc = "Amount of damage dealt by Ender Pearls",
         options = { "0", "2", "3", "5" },
         strict = false,
-        validate = validatorDamage.class,
-        category = { FEATURE, SURVIVAL, RUG }
+        validators = validatorDamage.class,
+        categories = { FEATURE, SURVIVAL, RUG }
     )
     public static int enderPearlDamage = 5;
 
     public static class validatorReachDistance extends Validator<Double> {
-
         @Override
         public Double validate(
             ServerCommandSource source,
-            ParsedRule<Double> currentRule,
+            CarpetRule<Double> currentRule,
             Double newValue,
             String string
         ) {
@@ -228,28 +198,27 @@ public class RugSettings {
 
     public static class conditionReachDistance implements Condition {
         @Override
-        public boolean isTrue() { return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes"); }
+        public boolean shouldRegister() {
+            return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes");
+        }
     }
 
     @Rule(
-        desc = "Reach in which you can place and break blocks. Value will be 0.5 higher in creative",
-        extra = "Mod needed on server and client for this feature to work",
         strict = false,
-        validate = validatorReachDistance.class,
-        condition = conditionReachDistance.class,
+        validators = validatorReachDistance.class,
+        conditions = conditionReachDistance.class,
         options = { "0.0", "4.5", "5.0", "10.0" },
-        category = { EXPERIMENTAL, CREATIVE, CLIENT, RUG }
+        categories = { EXPERIMENTAL, CREATIVE, CLIENT, RUG }
     )
     public static double reachDistance = 4.5;
     // reachDistanceAdditional: Is disabled when
     // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed:::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
-
         @Override
         public Double validate(
             ServerCommandSource source,
-            ParsedRule<Double> currentRule,
+            CarpetRule<Double> currentRule,
             Double newValue,
             String string
         ) {
@@ -263,48 +232,29 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Amount of XP a Cactus smelted in a furnace gives",
-        extra = "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
         options = { "0.1", "0.2", "0.5", "1.0" },
         strict = false,
-        validate = validatorCactusFurnaceXp.class,
-        category = { BUGFIX, SURVIVAL, RUG }
+        validators = validatorCactusFurnaceXp.class,
+        categories = { BUGFIX, SURVIVAL, RUG }
     )
     public static double cactusFurnaceXp = 1.0;
 
-    @Rule(
-        desc = "Mining Farmland with a Silk Touch tool will drop itself",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean silkTouchFarmland = false;
 
-    @Rule(
-        desc = "Mining Path Blocks with a Silk Touch tool will drop itself",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean silkTouchPathBlocks = false;
 
-    @Rule(
-        desc = "Mining Spawners with a Silk Touch tool will drop itself",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean silkTouchSpawners = false;
 
     @CraftingRule(recipes = "easy_dispenser.json")
-    @Rule(
-        desc = "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyDispenserCrafting = false;
     // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(recipes = "easy_bone_block.json")
-    @Rule(
-        desc = "Bone Blocks can be crafted out of Bones",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyBoneBlockCrafting = false;
 
     @CraftingRule(
@@ -328,69 +278,46 @@ public class RugSettings {
             "warped_hyphae.json" },
         recipeNamespace = "minecraft"
     )
-    @Rule(
-        desc = "Crafting Logs to Wood gives 4 instead of 3",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean moreBarkCrafting = false;
 
     @CraftingRule(recipes = "notch_apple.json")
-    @Rule(
-        desc = "Enchanted Golden Apples can be crafted with 8 Gold Blocks again",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RENEWABLE, RUG })
     public static boolean craftableNotchApple = false;
 
     @CraftingRule(recipes = "unpackable_quartz.json")
     @Rule(
-        desc = "Quartz Blocks can be crafted into set amount of Quartz",
-        extra = "Expect a lag spike when changing the value",
         options = { "0", "4" },
         strict = false,
-        validate = validatorUnpackables.class,
-        category = { CRAFTING, SURVIVAL, RUG }
+        validators = validatorUnpackables.class,
+        categories = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableQuartz = 0;
 
     @CraftingRule(recipes = "unpackable_wool.json")
     @Rule(
-        desc = "White Wool Blocks can be crafted into set amount of String",
-        extra = "Expect a lag spike when changing the value",
         options = { "0", "4" },
         strict = false,
-        validate = validatorUnpackables.class,
-        category = { CRAFTING, SURVIVAL, RUG }
+        validators = validatorUnpackables.class,
+        categories = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableWool = 0;
 
     @CraftingRule(recipes = "unpackable_nether_wart.json")
     @Rule(
-        desc = "Nether Wart Blocks can be crafted into set amount of Nether Warts",
-        extra = "Expect a lag spike when changing the value",
         options = { "0", "9" },
         strict = false,
-        validate = validatorUnpackables.class,
-        category = { CRAFTING, SURVIVAL, RUG }
+        validators = validatorUnpackables.class,
+        categories = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableNetherWart = 0;
 
     @CraftingRule(recipes = "easy_repeater.json")
-    @Rule(
-        desc = "Repeaters can be crafted with the raw materials for Redstone Torches",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyRepeaterCrafting = false;
 
     @CraftingRule(recipes = "craftable_name_tag")
-    @Rule(
-        desc = "Name Tags can be crafted with Paper and Iron or String or both",
-        extra = "Expect a lag spike when changing the value",
-        options = { "off", "with_iron", "with_string", "with_both" },
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(options = { "off", "with_iron", "with_string", "with_both" }, categories = { CRAFTING, SURVIVAL, RUG })
     public static String craftableNameTags = "off";
 
     @CraftingRule(
@@ -400,35 +327,19 @@ public class RugSettings {
             "easy_hopper_minecart.json",
             "easy_tnt_minecart.json" }
     )
-    @Rule(
-        desc = "The special Minecarts can be crafted like normal Minecarts with the matching Block in the middle",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyMinecartsCrafting = false;
 
     @CraftingRule(recipes = "easy_chest_crafting.json")
-    @Rule(
-        desc = "Chests can be crafted out of logs",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyChestCrafting = false;
 
     @CraftingRule(recipes = "easy_stick_crafting.json")
-    @Rule(
-        desc = "Sticks can be crafted out of logs",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyStickCrafting = false;
 
     @CraftingRule(recipes = { "bread.json", "paper.json", "shulker_box.json" }, recipeNamespace = "minecraft")
-    @Rule(
-        desc = "Bread, Paper and Shulker Boxes can be crafted in a 2x2 field",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean shapelessCrafting = false;
     // shapelessCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
@@ -451,11 +362,7 @@ public class RugSettings {
             "powder_to_glass_smelting_blue_stained_glass.json",
             "powder_to_glass_smelting_black_stained_glass.json" }
     )
-    @Rule(
-        desc = "Concrete Powder can be smelted to Glass of the corresponding color",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean powderToGlassSmelting = false;
     // powderToGlassSmeltingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
@@ -577,20 +484,15 @@ public class RugSettings {
             "universal_dyeing_yellow_terracotta.json",
             "universal_dyeing_yellow_wool.json" }
     )
-    @Rule(
-        desc = "Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean universalDyeing = false;
     // universalDyeingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     public static class validatorUnpackables extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -605,51 +507,32 @@ public class RugSettings {
 
     @CraftingRule(recipes = { "unpackable_blue_ice.json", "unpackable_packed_ice.json" })
     @Rule(
-        desc = "Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly",
-        extra = "Expect a lag spike when changing the value",
         options = { "0", "3", "4", "9" },
         strict = false,
-        validate = validatorUnpackables.class,
-        category = { CRAFTING, SURVIVAL, RUG }
+        validators = validatorUnpackables.class,
+        categories = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableIce = 0;
 
     @CraftingRule(recipes = "craftable_cobweb")
-    @Rule(
-        desc = "Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area",
-        extra = "Expect a lag spike when changing the value",
-        options = { "off", "cross", "full" },
-        category = { CRAFTING, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(options = { "off", "cross", "full" }, categories = { CRAFTING, SURVIVAL, RENEWABLE, RUG })
     public static String craftableCobwebs = "off";
 
     @CraftingRule(recipes = "easy_trapped_chest_crafting.json")
-    @Rule(
-        desc = "Trapped Chests can be crafted out of logs and a Tripwire Hook",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyTrappedChestCrafting = false;
 
-    @Rule(
-        desc = "A Bow enchanted with Infinity needs the player to have an arrow in their inventory",
-        category = { EXPERIMENTAL, BUGFIX, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, BUGFIX, SURVIVAL, RUG })
     public static boolean infinityNeedsArrow = true;
 
-    @Rule(
-        desc = "Repeaters on top of Redstone Blocks multiply their delay by set amount",
-        options = { "1", "2", "3", "4" },
-        category = { EXPERIMENTAL, FEATURE, RUG }
-    )
+    @Rule(options = { "1", "2", "3", "4" }, categories = { EXPERIMENTAL, FEATURE, RUG })
     public static int longerRepeaters = 1;
 
     public static class validatorRedstoneLampTurnOffDelay extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -663,11 +546,10 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Delay in game ticks for Redstone Lamps to turn off",
         options = { "0", "4", "8" },
         strict = false,
-        validate = validatorRedstoneLampTurnOffDelay.class,
-        category = { RUG }
+        validators = validatorRedstoneLampTurnOffDelay.class,
+        categories = { RUG }
     )
     public static int redstoneLampTurnOffDelay = 4;
 
@@ -679,10 +561,8 @@ public class RugSettings {
             "craftable_horse_armor_diamond_horse_armor", }
     )
     @Rule(
-        desc = "Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces",
-        extra = "Expect a lag spike when changing the value",
         options = { "off", "vanilla_style", "with_saddle", "armor_pieces" },
-        category = { CRAFTING, SURVIVAL, RENEWABLE, RUG }
+        categories = { CRAFTING, SURVIVAL, RENEWABLE, RUG }
     )
     public static String craftableHorseArmor = "off";
 
@@ -716,37 +596,26 @@ public class RugSettings {
             "woodcutting_warped_slab.json",
             "woodcutting_warped_stairs.json" }
     )
-    @Rule(
-        desc = "The Stonecutter can be used for all wood types",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean woodcutting = false;
 
-    @Rule(
-        desc = "Honey Comb only sticks to selected Blocks",
-        extra = "Will render Ghost Blocks on the Client when mod is only Server Side",
-        options = { "both", "honey", "slime", "none" },
-        category = { EXPERIMENTAL, CLIENT, FEATURE, RUG }
-    )
+    @Rule(options = { "both", "honey", "slime", "none" }, categories = { EXPERIMENTAL, CLIENT, FEATURE, RUG })
     public static String honeyCombStickiness = "both";
     // honeyCombStickinessAdditional: [Idea from
     // DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208)
     // on the [SciCraft Discord](https://discord.gg/scicraft):::
 
     @Rule(
-        desc = "Dragon Eggs will convert Cobble under them to Endstone either on set event",
         options = { "off", "on_teleport", "on_landing", "both" },
-        category = { EXPERIMENTAL, FEATURE, RENEWABLE, RUG }
+        categories = { EXPERIMENTAL, FEATURE, RENEWABLE, RUG }
     )
     public static String dragonEggConvertsCobbleToEndstone = "off";
 
     public static class validatorThrownItemWaterDrag extends Validator<Double> {
-
         @Override
         public Double validate(
             ServerCommandSource source,
-            ParsedRule<Double> currentRule,
+            CarpetRule<Double> currentRule,
             Double newValue,
             String string
         ) {
@@ -760,21 +629,18 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents",
-        extra = "Thrown Pearl will stutter on client when mod is only on server",
         options = { "0.8", "0.9", "0.99" },
         strict = false,
-        validate = validatorThrownItemWaterDrag.class,
-        category = { EXPERIMENTAL, CLIENT, RUG }
+        validators = validatorThrownItemWaterDrag.class,
+        categories = { EXPERIMENTAL, CLIENT, RUG }
     )
     public static double enderPearlWaterDrag = 0.8;
 
     public static class validatorKelpBlockHardness extends Validator<Double> {
-
         @Override
         public Double validate(
             ServerCommandSource source,
-            ParsedRule<Double> currentRule,
+            CarpetRule<Double> currentRule,
             Double newValue,
             String string
         ) {
@@ -788,47 +654,37 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "How long Kelp Blocks take to mine in survival",
-        extra = "Any value other than 0 will behave like 0.5 for clients without this mod",
         options = { "0.0", "0.25", "0.5" },
         strict = false,
-        validate = validatorKelpBlockHardness.class,
-        category = { EXPERIMENTAL, CLIENT, SURVIVAL, RUG }
+        validators = validatorKelpBlockHardness.class,
+        categories = { EXPERIMENTAL, CLIENT, SURVIVAL, RUG }
     )
     public static double kelpBlockHardness = 0.5;
 
-    @Rule(
-        desc = "Allows players to sleep in a Bed without setting their spawn point by entering while sneaking. Requires the main hand to be empty",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean campSleeping = false;
 
     @Rule(
-        desc = "How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents",
-        extra = "Thrown Snowball will stutter on client when mod is only on server",
         options = { "0.8", "0.9", "0.99" },
         strict = false,
-        validate = validatorThrownItemWaterDrag.class,
-        category = { EXPERIMENTAL, CLIENT, RUG }
+        validators = validatorThrownItemWaterDrag.class,
+        categories = { EXPERIMENTAL, CLIENT, RUG }
     )
     public static double snowballWaterDrag = 0.8;
 
     @Rule(
-        desc = "How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents",
-        extra = "Thrown Egg will stutter on client when mod is only on server",
         options = { "0.8", "0.9", "0.99" },
         strict = false,
-        validate = validatorThrownItemWaterDrag.class,
-        category = { EXPERIMENTAL, CLIENT, RUG }
+        validators = validatorThrownItemWaterDrag.class,
+        categories = { EXPERIMENTAL, CLIENT, RUG }
     )
     public static double eggWaterDrag = 0.8;
 
     public static class validatorDragonXpDrop extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -842,39 +698,28 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Amount of XP dropped by later Dragons. The first Dragon always drops 12000",
         options = { "500", "1200", "12000" },
         strict = false,
-        validate = validatorDragonXpDrop.class,
-        category = { EXPERIMENTAL, SURVIVAL, RUG }
+        validators = validatorDragonXpDrop.class,
+        categories = { EXPERIMENTAL, SURVIVAL, RUG }
     )
     public static int dragonXpDrop = 500;
     // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171):::
 
-    @Rule(
-        desc = "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
-        extra = "off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all",
-        options = { "off", "more", "all" },
-        category = { EXPERIMENTAL, FEATURE, RUG }
-    )
+    @Rule(options = { "off", "more", "all" }, categories = { EXPERIMENTAL, FEATURE, RUG })
     public static String moreFortressSpawningBlocks = "off";
     // moreFortressSpawningBlocksAdditional: [Idea from
     // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182):::
 
     @CraftingRule(recipes = "easy_blue_ice_crafting.json")
-    @Rule(
-        desc = "Blue Ice can be crafted from Ice and Blue Dye",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean easyBlueIceCrafting = false;
 
     public static class validatorSlimeChunkPercentage extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -888,21 +733,19 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "The percentage of chunks that are Slime chunks",
         options = { "0", "10", "50", "100" },
         strict = false,
-        validate = validatorSlimeChunkPercentage.class,
-        category = { EXPERIMENTAL, RUG }
+        validators = validatorSlimeChunkPercentage.class,
+        categories = { EXPERIMENTAL, RUG }
     )
     public static int slimeChunkPercentage = 10;
     // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161):::
 
     public static class validatorMaxBannerLayers extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -916,144 +759,80 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Maximum number of layers, that can be applied to a banner",
-        extra = "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
         options = { "3", "6", "10", "12" },
         strict = false,
-        validate = validatorMaxBannerLayers.class,
-        category = { EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG }
+        validators = validatorMaxBannerLayers.class,
+        categories = { EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG }
     )
     public static int maxBannerLayers = 6;
     // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111):::
 
-    @Rule(
-        desc = "A command that shows if the current chunk is a slime chunk based on the set slimeChunkPercentage",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandSlimeChunk = "ops";
 
-    @Rule(
-        desc = "Tall Plants do not update blocks around the top part if the bottom half got broken",
-        extra = "Old Bug: MC-31038",
-        category = { EXPERIMENTAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, RUG })
     public static boolean tallPlantNoUpdate = false;
     // tallPlantNoUpdateAdditional: [Idea from
     // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185):::
 
-    @Rule(
-        desc = "A command that makes the nearest item frame in a 5 Block radius around the player, that holds an item, invisible or visible",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandFrame = "ops";
 
-    @Rule(
-        desc = "A command that gives the executing Player the Player Head of the selected Player",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandSkull = "ops";
 
-    @Rule(
-        desc = "Netherrack is generated instead of Cobblestone if a Magma Block is below",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG })
     public static boolean netherrackGeneration = false;
 
-    @Rule(
-        desc = "Basalt converts to Blackstone if next to both Lava and Water",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG })
     public static boolean basaltToBlackstoneConversion = false;
 
-    @Rule(desc = "Lava creates infinite sources like Water", category = { SURVIVAL, RENEWABLE, RUG })
+    @Rule(categories = { SURVIVAL, RENEWABLE, RUG })
     public static boolean infiniteLavaSources = false;
 
-    @Rule(
-        desc = "Basalt converts to a Lava source when placed (or moved) next to a Lava Source, Flowing Lava and a Magma Block",
-        category = { FEATURE, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { FEATURE, SURVIVAL, RENEWABLE, RUG })
     public static boolean basaltToLavaConversion = false;
 
-    @Rule(
-        desc = "A command that executes a command or sends a chat message as the selected Player",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandSudo = "ops";
 
-    @Rule(desc = "End Crystals can only be placed on Obsidian and Bedrock Blocks", category = { RUG })
+    @Rule(categories = { RUG })
     public static boolean endCrystalPlacementRestriction = true;
 
-    @Rule(
-        desc = "Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below",
-        extra = "In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean concreteMixing = false;
 
-    @Rule(
-        desc = "Cobblestone crushed by a falling Anvil will convert into Gravel",
-        extra = "Carpet-Extra's renewableSand is prioritized over this",
-        category = { FEATURE, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { FEATURE, SURVIVAL, RENEWABLE, RUG })
     public static boolean cobbleCrushing = false;
 
-    @Rule(
-        desc = "Gravel crushed by a falling Anvil will convert into Sand",
-        category = { FEATURE, SURVIVAL, RENEWABLE, RUG }
-    )
+    @Rule(categories = { FEATURE, SURVIVAL, RENEWABLE, RUG })
     public static boolean gravelCrushing = false;
 
-    @Rule(
-        desc = "A command that shows the Inventory or Ender Chest of the specified player",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandPeek = "ops";
 
-    @Rule(
-        desc = "Villagers killed by Zombies will always convert to Zombie Villagers regardless of difficulty",
-        category = { SURVIVAL, RUG }
-    )
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean villagersAlwaysConvert = false;
 
     @CraftingRule(recipes = { "blast_furnace_stone.json", "blast_furnace_smooth_stone.json" })
-    @Rule(
-        desc = "Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceStone = false;
     // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15):::
 
     @CraftingRule(recipes = "blast_furnace_glass.json")
-    @Rule(
-        desc = "Sand and Red Sand can be smelted to Glass Blocks in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceGlass = false;
 
     @CraftingRule(recipes = { "blast_furnace_smooth_sandstone.json", "blast_furnace_smooth_red_sandstone.json" })
-    @Rule(
-        desc = "Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceSmoothSandStone = false;
 
     @CraftingRule(recipes = "blast_furnace_nether_brick.json")
-    @Rule(
-        desc = "Netherrack can be smelted to Nether Brick in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceNetherBrick = false;
 
     @CraftingRule(recipes = "blast_furnace_smooth_quartz.json")
-    @Rule(
-        desc = "Quartz Blocks can be smelted to Smooth Quartz in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceSmoothQuartz = false;
 
     @CraftingRule(
@@ -1075,41 +854,25 @@ public class RugSettings {
             "blast_furnace_white_glazed_terracotta.json",
             "blast_furnace_yellow_glazed_terracotta.json" }
     )
-    @Rule(
-        desc = "Dyed Terracotta can be smelted to the corresponding Glazed Terracotta in a Blast Furnace",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean blastFurnaceGlazedTerracotta = false;
 
     @CraftingRule(recipes = "smoker_green_dye.json")
-    @Rule(
-        desc = "Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean smokerGreenDye = false;
 
     @CraftingRule(recipes = "smoker_lime_dye.json")
-    @Rule(
-        desc = "Sea Pickles can be cooked into Lime Dye in a Smoker",
-        extra = "Expect a lag spike when changing the value",
-        category = { CRAFTING, SURVIVAL, RUG }
-    )
+    @Rule(categories = { CRAFTING, SURVIVAL, RUG })
     public static boolean smokerLimeDye = false;
 
-    @Rule(
-        desc = "Mining Budding Amethysts with a Silk Touch tool will drop itself",
-        category = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG }
-    )
+    @Rule(categories = { EXPERIMENTAL, FEATURE, SURVIVAL, RUG })
     public static boolean silkTouchBuddingAmethysts = false;
 
     public static class validatorVillagersDropEmeralds extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource serverCommandSource,
-            ParsedRule<Integer> parsedRule,
+            CarpetRule<Integer> parsedRule,
             Integer newValue,
             String s
         ) {
@@ -1123,58 +886,49 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "Villagers drop between 1 and x Emeralds on death, where x is the given number",
-        category = { FEATURE, SURVIVAL, RUG },
+        categories = { FEATURE, SURVIVAL, RUG },
         options = { "0", "1", "3" },
         strict = false,
-        validate = validatorVillagersDropEmeralds.class
+        validators = validatorVillagersDropEmeralds.class
     )
     public static int villagersDropEmeralds = 0;
 
-    @Rule(
-        desc = "A command to quickly give the player the specified effect for infinite time and at max level",
-        extra = "This is basically just an alias for: `/effect give @s <effect> 999999 255 true`",
-        category = { COMMAND, RUG }
-    )
+    @Rule(categories = { COMMAND, RUG })
     public static String commandMaxEffect = "ops";
 
     @Rule(
-        desc = "Pointed Dripstones (stalagmites) deal damage when standing on them. Sneaking prevents this",
-        category = { FEATURE, SURVIVAL, RUG },
+        categories = { FEATURE, SURVIVAL, RUG },
         options = { "0", "2", "4" },
         strict = false,
-        validate = validatorDamage.class
+        validators = validatorDamage.class
     )
     public static int stalagmiteSteppingDamage = 0;
 
     @CraftingRule(recipes = "unpackable_amethysts.json")
     @Rule(
-        desc = "Amethyst Blocks can be crafted into set amount of Amethyst Shards",
-        extra = "Expect a lag spike when changing the value",
         options = { "0", "4" },
         strict = false,
-        validate = validatorUnpackables.class,
-        category = { CRAFTING, SURVIVAL, RUG }
+        validators = validatorUnpackables.class,
+        categories = { CRAFTING, SURVIVAL, RUG }
     )
     public static int unpackableAmethysts = 0;
     // unpackableAmethystsAdditional: Idea from
     // [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
 
-    @Rule(desc = "A command listing all mods installed on the server", category = { COMMAND, RUG })
+    @Rule(categories = { COMMAND, RUG })
     public static String commandMods = "true";
 
-    @Rule(desc = "Cats can also be tamed with cooked Cod and Salmon, not just with raw", category = { SURVIVAL, RUG })
+    @Rule(categories = { SURVIVAL, RUG })
     public static boolean tameCatsWithCookedFish = false;
 
-    @Rule(desc = "Item Frames inside wooden pressure plates hold them down", category = { BUGFIX, RUG })
+    @Rule(categories = { BUGFIX, RUG })
     public static boolean itemFramesActivatePressurePlates = true;
 
     public static class validatorEnderEyeDropChance extends Validator<Integer> {
-
         @Override
         public Integer validate(
             ServerCommandSource source,
-            ParsedRule<Integer> currentRule,
+            CarpetRule<Integer> currentRule,
             Integer newValue,
             String string
         ) {
@@ -1188,41 +942,28 @@ public class RugSettings {
     }
 
     @Rule(
-        desc = "The chance of Ender Eyes dropping when thrown",
-        category = { SURVIVAL, RUG },
+        categories = { SURVIVAL, RUG },
         strict = false,
-        validate = validatorEnderEyeDropChance.class,
+        validators = validatorEnderEyeDropChance.class,
         options = { "0", "50", "80", "100" }
     )
     public static int enderEyeDropChance = 80;
 
     @CraftingRule(recipes = "craftable_tuff.json")
-    @Rule(
-        desc = "Craft tuff from andesite and cobblestone",
-        extra = "Expect a lag spike when changing the value",
-        category = { SURVIVAL, CRAFTING, RENEWABLE, RUG }
-    )
+    @Rule(categories = { SURVIVAL, CRAFTING, RENEWABLE, RUG })
     public static boolean craftableTuff = false;
 
     @CraftingRule(
         recipes = { "dispenser.json", "dropper.json", "lever.json", "observer.json", "piston.json" },
         recipeNamespace = "minecraft"
     )
-    @Rule(
-        desc = "Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone",
-        extra = "Expect a lag spike when changing the value",
-        category = { SURVIVAL, CRAFTING, BUGFIX, RUG }
-    )
+    @Rule(categories = { SURVIVAL, CRAFTING, BUGFIX, RUG })
     public static boolean missingCobbleRecipes = false;
 
-    @Rule(desc = "Copper blocks oxidize one stage when hit with a water bottle", category = { FEATURE, SURVIVAL, RUG })
+    @Rule(categories = { FEATURE, SURVIVAL, RUG })
     public static boolean splashOxidize = false;
 
-    @Rule(
-        desc = "Sculk blocks always drop XP when destroyed",
-        extra = "Allows for fully automatic XP farms without a wither",
-        category = { SURVIVAL, TNT, RUG }
-    )
+    @Rule(categories = { SURVIVAL, TNT, RUG })
     public static boolean sculkBlocksAlwaysDropXp = false;
 }
 

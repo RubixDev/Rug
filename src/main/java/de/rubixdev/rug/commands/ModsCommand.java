@@ -1,7 +1,7 @@
 package de.rubixdev.rug.commands;
 
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
@@ -19,7 +19,7 @@ import net.minecraft.text.Text;
 public class ModsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("mods")
-            .requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandMods))
+            .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMods))
             .executes(ctx -> execute(ctx, false))
             .then(CommandManager.literal("showfabric").executes(ctx -> execute(ctx, true)));
         dispatcher.register(command);

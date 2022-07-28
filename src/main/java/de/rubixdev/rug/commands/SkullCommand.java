@@ -4,7 +4,7 @@ import static net.minecraft.command.CommandSource.suggestMatching;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.google.common.collect.Sets;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -23,7 +23,7 @@ import net.minecraft.text.Text;
 public class SkullCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("skull").requires(
-            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandSkull)
+            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandSkull)
         )
             .executes(context -> execute(context, 0))
             .then(
@@ -55,7 +55,7 @@ public class SkullCommand {
 
         if (count == 0) count = 1;
 
-        return manager.execute(
+        return manager.executeWithPrefix(
             source,
             "give " + playerName + " minecraft:player_head{SkullOwner:" + skullOwner + "} " + count
         );

@@ -3,30 +3,27 @@ package de.rubixdev.rug;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import carpet.api.settings.CarpetRule;
+import carpet.api.settings.RuleHelper;
 import carpet.script.Module;
-import carpet.settings.ParsedRule;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import com.mojang.brigadier.CommandDispatcher;
 import de.rubixdev.rug.commands.*;
 import de.rubixdev.rug.util.CraftingRule;
 import de.rubixdev.rug.util.Logging;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -58,6 +55,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -82,6 +80,24 @@ public class RugServer implements CarpetExtension, ModInitializer {
         LOGGER.info("Rug Mod v" + VERSION + " loaded!");
 
         CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
+    }
+
+    @Override
+    public Map<String, String> canHasTranslations(String lang) {
+        InputStream langFile = RugServer.class.getClassLoader()
+            .getResourceAsStream("assets/rug/lang/%s.json5".formatted(lang));
+        if (langFile == null) {
+            // we don't have that language
+            return Collections.emptyMap();
+        }
+        String jsonData;
+        try {
+            jsonData = IOUtils.toString(langFile, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            return Collections.emptyMap();
+        }
+        Gson gson = new GsonBuilder().setLenient().create(); // lenient allows for comments
+        return gson.fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
     }
 
     @Override
@@ -241,21 +257,21 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
         reload();
         if (isFirstLoad) {
-            server.getCommandManager().execute(server.getCommandSource(), "datapack enable \"file/RugData\"");
+            server.getCommandManager().executeWithPrefix(server.getCommandSource(), "datapack enable \"file/RugData\"");
         }
     }
 
     private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String dataPath) {
         updateCraftingRule(
-            CarpetServer.settingsManager.getRule(ruleName),
+            CarpetServer.settingsManager.getCarpetRule(ruleName),
             recipes,
             recipeNamespace,
             dataPath,
             ruleName
         );
 
-        CarpetServer.settingsManager.addRuleObserver((source, rule, s) -> {
-            if (rule.name.equals(ruleName)) {
+        CarpetServer.settingsManager.registerRuleObserver((source, rule, s) -> {
+            if (rule.name().equals(ruleName)) {
                 updateCraftingRule(rule, recipes, recipeNamespace, dataPath, ruleName);
                 reload();
             }
@@ -263,7 +279,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void updateCraftingRule(
-        ParsedRule<?> rule,
+        CarpetRule<?> rule,
         String[] recipes,
         String recipeNamespace,
         String datapackPath,
@@ -271,8 +287,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
     ) {
         ruleName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, ruleName);
 
-        if (rule.type == String.class) {
-            String value = rule.getAsString();
+        if (rule.type() == String.class) {
+            String value = RuleHelper.toRuleString(rule.value());
 
             List<String> installedRecipes = Lists.newArrayList();
             try {
@@ -320,10 +336,10 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
                 copyRecipes(tempRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName + "_" + value);
             }
-        } else if (rule.type == int.class && (Integer) rule.get() > 0) {
+        } else if (rule.type() == int.class && (Integer) rule.value() > 0) {
             copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
 
-            int value = (Integer) rule.get();
+            int value = (Integer) rule.value();
             for (String recipeName : recipes) {
                 String filePath = datapackPath + recipeNamespace + "/recipes/" + recipeName;
                 JsonObject jsonObject = readJson(filePath);
@@ -331,7 +347,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 jsonObject.getAsJsonObject("result").addProperty("count", value);
                 writeJson(jsonObject, filePath);
             }
-        } else if (rule.type == boolean.class && rule.getBoolValue()) {
+        } else if (rule.type() == boolean.class && RuleHelper.getBooleanValue(rule)) {
             copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
         } else {
             deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName, true);

@@ -3,7 +3,7 @@ package de.rubixdev.rug.commands;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
@@ -19,7 +19,7 @@ import net.minecraft.text.Text;
 public class MaxEffectCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("maxeffect").requires(
-            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandMaxEffect)
+            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandMaxEffect)
         ).then(argument("effect", StatusEffectArgumentType.statusEffect()).executes(context -> {
             ServerCommandSource source = context.getSource();
 

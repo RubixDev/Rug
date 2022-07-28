@@ -4,7 +4,7 @@ import static net.minecraft.command.CommandSource.suggestMatching;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -30,7 +30,7 @@ import net.minecraft.world.dimension.DimensionType;
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("peek").requires(
-            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandPeek)
+            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandPeek)
         )
             .then(
                 literal("inventory").then(

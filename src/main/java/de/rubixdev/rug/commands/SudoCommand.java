@@ -4,7 +4,7 @@ import static net.minecraft.command.CommandSource.suggestMatching;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.Message;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -24,7 +24,7 @@ import net.minecraft.text.Text;
 public class SudoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("sudo").requires(
-            (player) -> SettingsManager.canUseCommand(player, RugSettings.commandSudo)
+            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandSudo)
         )
             .then(
                 argument("player", StringArgumentType.word()).suggests(
@@ -46,15 +46,14 @@ public class SudoCommand {
                         "message"
                     );
                     ServerCommandSource source = context.getSource();
-                    signedMessage.decorate(source)
-                        .thenAcceptAsync(
-                            decoratedMessage -> playerManager.broadcast(
-                                decoratedMessage,
-                                targetPlayer,
-                                MessageType.CHAT
-                            ),
-                            server
-                        );
+                    signedMessage.decorate(
+                        source,
+                        decoratedMessage -> playerManager.broadcast(
+                            decoratedMessage,
+                            targetPlayer,
+                            MessageType.params(MessageType.CHAT, source)
+                        )
+                    );
                     return 1;
                 }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
                     String targetPlayerName = StringArgumentType.getString(context, "player");

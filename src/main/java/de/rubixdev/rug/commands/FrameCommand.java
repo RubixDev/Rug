@@ -1,7 +1,7 @@
 package de.rubixdev.rug.commands;
 
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import de.rubixdev.rug.RugSettings;
@@ -13,7 +13,7 @@ import net.minecraft.text.Text;
 public class FrameCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("frame")
-            .requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandFrame))
+            .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandFrame))
             .then(CommandManager.literal("hide").executes((context) -> {
                 ServerCommandSource playerSource = context.getSource();
                 ServerCommandSource source = playerSource.getServer().getCommandSource();
@@ -25,24 +25,24 @@ public class FrameCommand {
                 CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 
-                manager.execute(
+                manager.executeWithPrefix(
                     source,
                     "execute at " + playerName + " run tag @e[type=minecraft:item_frame,distance=..5] remove hasItem"
                 );
-                manager.execute(
+                manager.executeWithPrefix(
                     source,
                     "execute at "
                         + playerName
                         + " run tag @e[type=minecraft:item_frame,distance=..5,nbt={Item:{}}] add hasItem"
                 );
-                manager.execute(
+                manager.executeWithPrefix(
                     source,
                     "execute at "
                         + playerName
                         + " as @e[type=item_frame,distance=..5,tag=hasItem,limit=1,sort=nearest,nbt={Fixed:0b,Invisible:0b}]"
                         + " run data merge entity @s {Invisible:1b,Fixed:1b}"
                 );
-                manager.execute(
+                manager.executeWithPrefix(
                     source,
                     "execute at " + playerName + " run tag @e[type=minecraft:item_frame,distance=..5] remove hasItem"
                 );
@@ -60,7 +60,7 @@ public class FrameCommand {
                 CommandManager manager = playerSource.getServer().getCommandManager();
                 String playerName = playerEntity.getName().getString();
 
-                manager.execute(
+                manager.executeWithPrefix(
                     source,
                     "execute at "
                         + playerName

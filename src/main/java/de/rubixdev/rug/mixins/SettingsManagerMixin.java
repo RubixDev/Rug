@@ -1,7 +1,7 @@
 package de.rubixdev.rug.mixins;
 
 
-import carpet.settings.SettingsManager;
+import carpet.api.settings.SettingsManager;
 import carpet.utils.Messenger;
 import carpet.utils.Translations;
 import de.rubixdev.rug.RugServer;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class SettingsManagerMixin {
     @Inject(
         method = "listAllSettings",
-        at = @At(value = "INVOKE", target = "Lcarpet/settings/SettingsManager;getCategories()Ljava/lang/Iterable;"),
+        at = @At(value = "INVOKE", target = "Lcarpet/api/settings/SettingsManager;getCategories()Ljava/lang/Iterable;"),
         remap = false
     )
     private void printRugVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {

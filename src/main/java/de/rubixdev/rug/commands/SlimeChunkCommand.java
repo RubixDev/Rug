@@ -1,7 +1,7 @@
 package de.rubixdev.rug.commands;
 
 
-import carpet.settings.SettingsManager;
+import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import de.rubixdev.rug.RugSettings;
@@ -16,7 +16,7 @@ import net.minecraft.world.StructureWorldAccess;
 public class SlimeChunkCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("slimechunk")
-            .requires((player) -> SettingsManager.canUseCommand(player, RugSettings.commandSlimeChunk))
+            .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandSlimeChunk))
             .executes(c -> {
                 ServerPlayerEntity playerEntity = c.getSource().getPlayer();
                 if (playerEntity == null) return 0;
