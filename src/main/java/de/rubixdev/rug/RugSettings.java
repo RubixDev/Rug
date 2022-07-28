@@ -965,6 +965,9 @@ public class RugSettings {
 
     @Rule(categories = { SURVIVAL, TNT, RUG })
     public static boolean sculkBlocksAlwaysDropXp = false;
+
+    @Rule(categories = { CREATIVE, SURVIVAL, RUG })
+    public static boolean snowMelting = true;
 }
 
 // BUGFIX

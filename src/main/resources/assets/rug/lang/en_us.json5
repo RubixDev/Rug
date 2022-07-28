@@ -197,6 +197,7 @@
   // snowballWaterDrag
   "carpet.rule.snowballWaterDrag.desc": "How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents",
   "carpet.rule.snowballWaterDrag.extra.0": "Thrown Snowball will stutter on client when mod is only on server",
+  "carpet.rule.snowMelting.desc": "Whether snow can melt",
   // splashOxidize
   "carpet.rule.splashOxidize.desc": "Copper blocks oxidize one stage when hit with a water bottle",
   // stalagmiteSteppingDamage

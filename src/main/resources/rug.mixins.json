@@ -51,6 +51,7 @@
     "ServerPlayerInteractionManagerMixin",
     "SettingsManagerMixin",
     "SlimeEntityMixin",
+    "SnowBlockMixin",
     "SpawnHelperMixin",
     "StoneCutterBlockMixin",
     "SugarCaneBlockMixin",
