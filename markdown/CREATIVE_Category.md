@@ -2,8 +2,9 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 1
+Count: 2
 - [reachDistance](#reachdistance)
+- [snowMelting](#snowmelting)
 
 ## Rules in CREATIVE Category
 
@@ -18,3 +19,10 @@ Mod needed on server and client for this feature to work
 - Additional notes:
   - You must choose a value from 0 to 100
   - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
+
+### snowMelting
+Whether snow can melt
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `CREATIVE`, `RUG`, `SURVIVAL`

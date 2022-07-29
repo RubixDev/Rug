@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 70
+Count: 71
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [blastFurnaceGlass](#blastfurnaceglass)
@@ -58,6 +58,7 @@ Count: 70
 - [silkTouchSpawners](#silktouchspawners)
 - [smokerGreenDye](#smokergreendye)
 - [smokerLimeDye](#smokerlimedye)
+- [snowMelting](#snowmelting)
 - [splashOxidize](#splashoxidize)
 - [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
 - [stonecutterDamage](#stonecutterdamage)
@@ -558,6 +559,13 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### snowMelting
+Whether snow can melt
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `CREATIVE`, `RUG`, `SURVIVAL`
 
 ### splashOxidize
 Copper blocks oxidize one stage when hit with a water bottle

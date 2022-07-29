@@ -9,7 +9,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues) (preferred) or here in the comments.
 
 ## List of implemented Rules
-Count: 96  
+Count: 97  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -88,6 +88,7 @@ Count: 96
 - slimeChunkPercentage  
 - smokerGreenDye  
 - smokerLimeDye  
+- snowMelting  
 - snowballWaterDrag  
 - splashOxidize  
 - stalagmiteSteppingDamage  

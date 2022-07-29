@@ -34,7 +34,7 @@ Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-ca
 - [`TNT`](markdown/TNT_Category.md)
 
 ## Index
-Count: 96
+Count: 97
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -113,6 +113,7 @@ Count: 96
 - [slimeChunkPercentage](#slimechunkpercentage)
 - [smokerGreenDye](#smokergreendye)
 - [smokerLimeDye](#smokerlimedye)
+- [snowMelting](#snowmelting)
 - [snowballWaterDrag](#snowballwaterdrag)
 - [splashOxidize](#splashoxidize)
 - [stalagmiteSteppingDamage](#stalagmitesteppingdamage)
@@ -814,6 +815,13 @@ Expect a lag spike when changing the value
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
+
+### snowMelting
+Whether snow can melt
+- Type: `boolean`
+- Default value: `true`
+- Required options: `true`, `false`
+- Categories: `CREATIVE`, `RUG`, `SURVIVAL`
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
