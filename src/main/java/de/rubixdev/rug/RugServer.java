@@ -58,6 +58,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nullable;
 
 public class RugServer implements CarpetExtension, ModInitializer {
     public static final String VERSION = "1.3.5";
@@ -172,30 +173,38 @@ public class RugServer implements CarpetExtension, ModInitializer {
                     pos,
                     removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState()
                 );
-            } else if (List.of(
-                Blocks.SUGAR_CANE,
-                Blocks.CACTUS,
-                Blocks.BAMBOO,
-                Blocks.KELP_PLANT,
-                Blocks.TWISTING_VINES_PLANT
-            ).contains(state.getBlock()) && allowsHarvestFromTop) {
-                if (!harvestStemPlant(pos, world, state.getBlock(), Direction.UP)) return ActionResult.PASS;
-            } else if (state.isOf(Blocks.KELP) && allowsHarvestFromTop) {
-                if (!harvestStemPlant(pos, world, Blocks.KELP_PLANT, Direction.UP)) return ActionResult.PASS;
-            } else if (state.isOf(Blocks.TWISTING_VINES) && allowsHarvestFromTop) {
-                if (!harvestStemPlant(pos, world, Blocks.TWISTING_VINES_PLANT, Direction.UP)) return ActionResult.PASS;
-            } else if (List.of(Blocks.WEEPING_VINES_PLANT, Blocks.CAVE_VINES_PLANT).contains(state.getBlock())
-                && allowsHarvestFromBottom) {
-                    if (!harvestStemPlant(pos, world, state.getBlock(), Direction.DOWN)) return ActionResult.PASS;
-                } else if (state.isOf(Blocks.WEEPING_VINES) && allowsHarvestFromBottom) {
-                    if (!harvestStemPlant(pos, world, Blocks.WEEPING_VINES_PLANT, Direction.DOWN))
-                        return ActionResult.PASS;
-                } else if (state.isOf(Blocks.CAVE_VINES) && allowsHarvestFromBottom) {
-                    if (!harvestStemPlant(pos, world, Blocks.CAVE_VINES_PLANT, Direction.DOWN))
-                        return ActionResult.PASS;
-                } else {
+            } else if (List.of(Blocks.KELP, Blocks.KELP_PLANT).contains(state.getBlock()) && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, Blocks.KELP_PLANT, Blocks.KELP, Direction.UP))
                     return ActionResult.PASS;
-                }
+            } else if (List.of(Blocks.TWISTING_VINES, Blocks.TWISTING_VINES_PLANT).contains(state.getBlock())
+                && allowsHarvestFromTop) {
+                    if (!harvestStemPlant(pos, world, Blocks.TWISTING_VINES_PLANT, Blocks.TWISTING_VINES, Direction.UP))
+                        return ActionResult.PASS;
+                } else if (List.of(Blocks.WEEPING_VINES, Blocks.WEEPING_VINES_PLANT).contains(state.getBlock())
+                    && allowsHarvestFromBottom) {
+                        if (!harvestStemPlant(
+                            pos,
+                            world,
+                            Blocks.WEEPING_VINES_PLANT,
+                            Blocks.WEEPING_VINES,
+                            Direction.DOWN
+                        )) return ActionResult.PASS;
+                    } else if (List.of(Blocks.CAVE_VINES, Blocks.CAVE_VINES_PLANT).contains(state.getBlock())
+                        && allowsHarvestFromBottom) {
+                            if (!harvestStemPlant(
+                                pos,
+                                world,
+                                Blocks.CAVE_VINES_PLANT,
+                                Blocks.CAVE_VINES,
+                                Direction.DOWN
+                            )) return ActionResult.PASS;
+                        } else if (List.of(Blocks.SUGAR_CANE, Blocks.CACTUS, Blocks.BAMBOO).contains(state.getBlock())
+                            && allowsHarvestFromTop) {
+                                if (!harvestStemPlant(pos, world, state.getBlock(), null, Direction.UP))
+                                    return ActionResult.PASS;
+                            } else {
+                                return ActionResult.PASS;
+                            }
 
             if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
                 tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
@@ -205,7 +214,13 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    private boolean harvestStemPlant(BlockPos pos, World world, Block stem, Direction growDirection) {
+    private boolean harvestStemPlant(
+        BlockPos pos,
+        World world,
+        Block stem,
+        @Nullable Block end,
+        Direction growDirection
+    ) {
         int count = 1;
         BlockPos root = pos.offset(growDirection.getOpposite());
         while (world.getBlockState(root).isOf(stem)) {
@@ -213,7 +228,11 @@ public class RugServer implements CarpetExtension, ModInitializer {
             root = root.offset(growDirection.getOpposite());
         }
 
-        if (count == 1 && !world.getBlockState(pos.offset(growDirection)).isOf(stem)) { return false; }
+        if (count == 1
+            && !world.getBlockState(pos.offset(growDirection)).isOf(stem)
+            && !world.getBlockState(pos.offset(growDirection)).isOf(end)) {
+            return false;
+        }
         world.breakBlock(root.offset(growDirection, 2), true);
         return true;
     }
