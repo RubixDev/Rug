@@ -1,6 +1,5 @@
 package de.rubixdev.rug.util;
 
-
 import de.rubixdev.rug.RugServer;
 import java.util.Collections;
 import java.util.IdentityHashMap;
@@ -31,12 +30,7 @@ public class Logging {
     }
 
     private static void logEnclosedStackTrace(
-        Throwable e,
-        StackTraceElement[] enclosingTrace,
-        String caption,
-        String prefix,
-        Set<Throwable> dejaVu
-    ) {
+            Throwable e, StackTraceElement[] enclosingTrace, String caption, String prefix, Set<Throwable> dejaVu) {
         if (dejaVu.contains(e)) {
             RugServer.LOGGER.error(prefix + caption + "[CIRCULAR REFERENCE: " + e + "]");
         } else {

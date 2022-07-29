@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins.reach;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
@@ -20,7 +19,9 @@ public class GameRendererMixin {
     @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 1, constant = @Constant(doubleValue = 6.0))
     private double changeCreativeAttackRange(double baseReachDistance) {
         ClientPlayerInteractionManager manager = this.client.interactionManager;
-        if (manager == null) { return RugSettings.reachDistance + 1.5; }
+        if (manager == null) {
+            return RugSettings.reachDistance + 1.5;
+        }
         return manager.getReachDistance() + 1;
     }
 

@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins.reach;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BrewingStandBlockEntity;
@@ -11,13 +10,15 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(
-    value = {
-        AbstractFurnaceBlockEntity.class,
-        BrewingStandBlockEntity.class,
-        LootableContainerBlockEntity.class,
-        PlayerInventory.class },
-    targets = { "net/minecraft/block/entity/LecternBlockEntity$1", }
-)
+        value = {
+            AbstractFurnaceBlockEntity.class,
+            BrewingStandBlockEntity.class,
+            LootableContainerBlockEntity.class,
+            PlayerInventory.class
+        },
+        targets = {
+            "net/minecraft/block/entity/LecternBlockEntity$1",
+        })
 public class InventoryMixins {
     @ModifyConstant(method = "canPlayerUse", allow = 1, require = 1, constant = @Constant(doubleValue = 64.0))
     private static double changeReachDistance(double baseReachDistance) {

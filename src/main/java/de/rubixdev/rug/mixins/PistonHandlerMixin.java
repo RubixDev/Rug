@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,28 +19,25 @@ public abstract class PistonHandlerMixin {
 
     @Inject(method = "isAdjacentBlockStuck", at = @At("HEAD"), cancellable = true)
     private static void onIsAdjacentBlockStuck(
-        BlockState state,
-        BlockState adjacentState,
-        CallbackInfoReturnable<Boolean> cir
-    ) {
+            BlockState state, BlockState adjacentState, CallbackInfoReturnable<Boolean> cir) {
         switch (RugSettings.honeyCombStickiness) {
             case "honey":
-                if (( adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.SLIME_BLOCK) )
-                    || ( state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.SLIME_BLOCK) )) {
+                if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.SLIME_BLOCK))
+                        || (state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.SLIME_BLOCK))) {
                     cir.setReturnValue(false);
                 }
                 break;
 
             case "slime":
-                if (( adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.HONEY_BLOCK) )
-                    || ( state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.HONEY_BLOCK) )) {
+                if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.HONEY_BLOCK))
+                        || (state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.HONEY_BLOCK))) {
                     cir.setReturnValue(false);
                 }
                 break;
 
             case "none":
-                if (( adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(state) )
-                    || ( state.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(adjacentState) )) {
+                if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(state))
+                        || (state.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(adjacentState))) {
                     cir.setReturnValue(false);
                 }
                 break;

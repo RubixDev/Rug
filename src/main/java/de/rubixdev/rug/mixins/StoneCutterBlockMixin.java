@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -21,7 +20,7 @@ public class StoneCutterBlockMixin extends Block {
     @SuppressWarnings("deprecation")
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (RugSettings.stonecutterDamage > 0 && !( entity instanceof ItemEntity )) {
+        if (RugSettings.stonecutterDamage > 0 && !(entity instanceof ItemEntity)) {
             entity.damage(DamageSource.GENERIC, RugSettings.stonecutterDamage);
         }
     }

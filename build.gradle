@@ -91,6 +91,6 @@ spotless {
     java {
         importOrder()
         removeUnusedImports()
-        eclipse().configFile('eclipse-prefs.xml')
+        palantirJavaFormat()
     }
 }

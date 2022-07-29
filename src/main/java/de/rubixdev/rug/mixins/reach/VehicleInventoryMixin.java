@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins.reach;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.vehicle.VehicleInventory;
 import org.spongepowered.asm.mixin.Mixin;

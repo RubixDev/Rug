@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.client.gui.screen.ingame.LoomScreen;
 import org.spongepowered.asm.mixin.Mixin;

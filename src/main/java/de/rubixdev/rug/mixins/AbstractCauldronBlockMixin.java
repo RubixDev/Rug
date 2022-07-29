@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,23 +20,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractCauldronBlock.class)
 public class AbstractCauldronBlockMixin {
     @Inject(
-        method = "onUse",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;",
-            shift = At.Shift.AFTER
-        ),
-        cancellable = true
-    )
+            method = "onUse",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;",
+                            shift = At.Shift.AFTER),
+            cancellable = true)
     private void onOnUse(
-        BlockState state,
-        World world,
-        BlockPos pos,
-        PlayerEntity player,
-        Hand hand,
-        BlockHitResult hit,
-        CallbackInfoReturnable<ActionResult> cir
-    ) {
+            BlockState state,
+            World world,
+            BlockPos pos,
+            PlayerEntity player,
+            Hand hand,
+            BlockHitResult hit,
+            CallbackInfoReturnable<ActionResult> cir) {
         Item item = player.getStackInHand(hand).getItem();
         if (RugSettings.lilyPadsOnCauldron && item == Items.LILY_PAD && state.get(LeveledCauldronBlock.LEVEL) == 3) {
             if (world.getBlockState(pos.up()).isOf(Blocks.AIR)) {

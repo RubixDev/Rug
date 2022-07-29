@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.OreBlock;
@@ -18,12 +17,7 @@ public class SculkBlockMixin extends OreBlock {
 
     @Override
     public void onStacksDropped(
-        BlockState state,
-        ServerWorld world,
-        BlockPos pos,
-        ItemStack stack,
-        boolean dropExperience
-    ) {
+            BlockState state, ServerWorld world, BlockPos pos, ItemStack stack, boolean dropExperience) {
         super.onStacksDropped(state, world, pos, stack, dropExperience || RugSettings.sculkBlocksAlwaysDropXp);
     }
 }

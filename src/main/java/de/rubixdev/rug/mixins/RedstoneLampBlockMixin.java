@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,22 +28,21 @@ public class RedstoneLampBlockMixin {
     }
 
     @Inject(
-        method = "neighborUpdate",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/World;createAndScheduleBlockTick(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V"
-        ),
-        cancellable = true
-    )
+            method = "neighborUpdate",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/world/World;createAndScheduleBlockTick(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V"),
+            cancellable = true)
     private void onNeighborUpdate(
-        BlockState state,
-        World world,
-        BlockPos pos,
-        Block block,
-        BlockPos fromPos,
-        boolean notify,
-        CallbackInfo ci
-    ) {
+            BlockState state,
+            World world,
+            BlockPos pos,
+            Block block,
+            BlockPos fromPos,
+            boolean notify,
+            CallbackInfo ci) {
         if (RugSettings.redstoneLampTurnOffDelay == 0 && state.get(LIT) && !world.isReceivingRedstonePower(pos)) {
             world.setBlockState(pos, state.cycle(LIT), 2);
             ci.cancel();

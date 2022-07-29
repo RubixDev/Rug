@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.fluid.LavaFluid;
 import org.spongepowered.asm.mixin.Mixin;

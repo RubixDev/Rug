@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.util.FluidHelper;
 import net.minecraft.block.BlockState;
@@ -36,23 +35,18 @@ public abstract class WorldMixin {
     @SuppressWarnings("MixinAnnotationTarget")
     @Shadow(remap = false)
     public abstract boolean setBlockStateWithBlockEntity(
-        BlockPos blockPos_1,
-        BlockState blockState_1,
-        BlockEntity newBlockEntity,
-        int int_1
-    );
+            BlockPos blockPos_1, BlockState blockState_1, BlockEntity newBlockEntity, int int_1);
 
     private boolean shouldOverwrite;
     private boolean lowerWasFirst;
 
     @Inject(method = "breakBlock", at = @At("HEAD"))
     private void testForBlock(
-        BlockPos pos,
-        boolean drop,
-        Entity breakingEntity,
-        int maxUpdateDepth,
-        CallbackInfoReturnable<Boolean> cir
-    ) {
+            BlockPos pos,
+            boolean drop,
+            Entity breakingEntity,
+            int maxUpdateDepth,
+            CallbackInfoReturnable<Boolean> cir) {
         BlockState blockState = this.getBlockState(pos);
 
         boolean isUpperHalf = isTallPlant(blockState) && blockState.get(TallPlantBlock.HALF) == DoubleBlockHalf.UPPER;
@@ -77,24 +71,18 @@ public abstract class WorldMixin {
 
     private boolean isTallPlant(BlockState blockState) {
         return blockState.isIn(BlockTags.TALL_FLOWERS)
-            || blockState.isOf(Blocks.TALL_GRASS)
-            || blockState.isOf(Blocks.LARGE_FERN);
+                || blockState.isOf(Blocks.TALL_GRASS)
+                || blockState.isOf(Blocks.LARGE_FERN);
     }
 
     @Inject(
-        method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;II)Z",
-        at = @At("HEAD"),
-        cancellable = true
-    )
+            method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;II)Z",
+            at = @At("HEAD"),
+            cancellable = true)
     private void convertBasalt(
-        BlockPos pos,
-        BlockState state,
-        int flags,
-        int maxUpdateDepth,
-        CallbackInfoReturnable<Boolean> cir
-    ) {
+            BlockPos pos, BlockState state, int flags, int maxUpdateDepth, CallbackInfoReturnable<Boolean> cir) {
         if (state.isOf(Blocks.BASALT)) {
-            BlockState prevState = ( (BlockView) this ).getBlockState(pos);
+            BlockState prevState = ((BlockView) this).getBlockState(pos);
             if (FluidHelper.shouldConvertToLava((BlockView) this, pos)) {
                 if (prevState.isOf(Blocks.LAVA) && prevState.getFluidState().isStill()) {
                     cir.setReturnValue(false);
@@ -102,42 +90,28 @@ public abstract class WorldMixin {
                 }
 
                 FluidHelper.playFizzleSound((WorldAccess) this, pos);
-                ( (WorldAccess) this ).playSound(
-                    null,
-                    pos,
-                    SoundEvents.ITEM_BUCKET_EMPTY_LAVA,
-                    SoundCategory.BLOCKS,
-                    1.0F,
-                    1.0F
-                );
+                ((WorldAccess) this)
+                        .playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 cir.setReturnValue(this.setBlockState(pos, Blocks.LAVA.getDefaultState(), flags, maxUpdateDepth));
             }
         }
     }
 
-    @SuppressWarnings({ "MixinAnnotationTarget", "UnresolvedMixinReference" })
+    @SuppressWarnings({"MixinAnnotationTarget", "UnresolvedMixinReference"})
     @Inject(method = "setBlockStateWithBlockEntity", at = @At("HEAD"), cancellable = true, remap = false)
     private void convertBasalt(
-        BlockPos pos,
-        BlockState state,
-        BlockEntity newBlockEntity,
-        int flags,
-        CallbackInfoReturnable<Boolean> cir
-    ) {
+            BlockPos pos,
+            BlockState state,
+            BlockEntity newBlockEntity,
+            int flags,
+            CallbackInfoReturnable<Boolean> cir) {
         if (state.isOf(Blocks.BASALT)) {
             if (FluidHelper.shouldConvertToLava((BlockView) this, pos)) {
                 FluidHelper.playFizzleSound((WorldAccess) this, pos);
-                ( (WorldAccess) this ).playSound(
-                    null,
-                    pos,
-                    SoundEvents.ITEM_BUCKET_EMPTY_LAVA,
-                    SoundCategory.BLOCKS,
-                    1.0F,
-                    1.0F
-                );
+                ((WorldAccess) this)
+                        .playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 cir.setReturnValue(
-                    this.setBlockStateWithBlockEntity(pos, Blocks.LAVA.getDefaultState(), newBlockEntity, flags)
-                );
+                        this.setBlockStateWithBlockEntity(pos, Blocks.LAVA.getDefaultState(), newBlockEntity, flags));
             }
         }
     }

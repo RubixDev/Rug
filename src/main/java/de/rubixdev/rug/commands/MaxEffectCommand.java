@@ -18,44 +18,38 @@ import net.minecraft.text.Text;
 
 public class MaxEffectCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("maxeffect").requires(
-            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandMaxEffect)
-        ).then(argument("effect", StatusEffectArgumentType.statusEffect()).executes(context -> {
-            ServerCommandSource source = context.getSource();
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("maxeffect")
+                .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMaxEffect))
+                .then(argument("effect", StatusEffectArgumentType.statusEffect())
+                        .executes(context -> {
+                            ServerCommandSource source = context.getSource();
 
-            ServerPlayerEntity player = source.getPlayer();
-            StatusEffect effect = StatusEffectArgumentType.getStatusEffect(context, "effect");
+                            ServerPlayerEntity player = source.getPlayer();
+                            StatusEffect effect = StatusEffectArgumentType.getStatusEffect(context, "effect");
 
-            boolean success = false;
+                            boolean success = false;
 
-            if (player instanceof LivingEntity) {
-                StatusEffectInstance statusEffectInstance = new StatusEffectInstance(
-                    effect,
-                    effect.isInstant() ? 999999 : ( 999999 * 20 ),
-                    255,
-                    false,
-                    false
-                );
-                success = ( player ).addStatusEffect(statusEffectInstance, source.getEntity());
-            }
+                            if (player instanceof LivingEntity) {
+                                StatusEffectInstance statusEffectInstance = new StatusEffectInstance(
+                                        effect, effect.isInstant() ? 999999 : (999999 * 20), 255, false, false);
+                                success = (player).addStatusEffect(statusEffectInstance, source.getEntity());
+                            }
 
+                            if (!success) {
+                                throw new SimpleCommandExceptionType(Text.translatable("commands.effect.give.failed"))
+                                        .create();
+                            }
 
-            if (!success) {
-                throw new SimpleCommandExceptionType(Text.translatable("commands.effect.give.failed")).create();
-            }
+                            source.sendFeedback(
+                                    Text.translatable(
+                                            "commands.effect.give.success.single",
+                                            effect.getName(),
+                                            player.getDisplayName(),
+                                            999999),
+                                    true);
 
-            source.sendFeedback(
-                Text.translatable(
-                    "commands.effect.give.success.single",
-                    effect.getName(),
-                    player.getDisplayName(),
-                    999999
-                ),
-                true
-            );
-
-            return 1;
-        }));
+                            return 1;
+                        }));
         dispatcher.register(command);
     }
 }

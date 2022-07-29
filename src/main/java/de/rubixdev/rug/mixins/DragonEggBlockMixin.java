@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,16 +14,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(DragonEggBlock.class)
 public class DragonEggBlockMixin {
     @Inject(
-        method = "teleport",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"
-        )
-    )
+            method = "teleport",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"))
     private void onTeleport(BlockState state, World world, BlockPos pos, CallbackInfo ci) {
         String rugSetting = RugSettings.dragonEggConvertsCobbleToEndstone;
-        if (( rugSetting.equals("both") || rugSetting.equals("on_teleport") )
-            && world.getBlockState(pos.down()).isOf(Blocks.COBBLESTONE)) {
+        if ((rugSetting.equals("both") || rugSetting.equals("on_teleport"))
+                && world.getBlockState(pos.down()).isOf(Blocks.COBBLESTONE)) {
             world.setBlockState(pos.down(), Blocks.END_STONE.getDefaultState(), 3);
         }
     }

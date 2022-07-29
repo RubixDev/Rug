@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,7 +21,7 @@ public class FallingBlockMixin {
 
     private static boolean isTallPlant(BlockState blockState) {
         return blockState.isIn(BlockTags.TALL_FLOWERS)
-            || blockState.isOf(Blocks.TALL_GRASS)
-            || blockState.isOf(Blocks.LARGE_FERN);
+                || blockState.isOf(Blocks.TALL_GRASS)
+                || blockState.isOf(Blocks.LARGE_FERN);
     }
 }

@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
@@ -22,29 +21,27 @@ public class ServerPlayerInteractionManagerMixin {
 
     @Inject(method = "interactBlock", at = @At("HEAD"))
     private void getParameters(
-        ServerPlayerEntity player,
-        World world,
-        ItemStack stack,
-        Hand hand,
-        BlockHitResult hitResult,
-        CallbackInfoReturnable<ActionResult> cir
-    ) {
+            ServerPlayerEntity player,
+            World world,
+            ItemStack stack,
+            Hand hand,
+            BlockHitResult hitResult,
+            CallbackInfoReturnable<ActionResult> cir) {
         interactPlayer = player;
         interactBlock = world.getBlockState(hitResult.getBlockPos());
     }
 
     @ModifyVariable(
-        method = "interactBlock",
-        at = @At(
-            value = "INVOKE_ASSIGN",
-            target = "Lnet/minecraft/server/network/ServerPlayerEntity;shouldCancelInteraction()Z"
-        )
-    )
+            method = "interactBlock",
+            at =
+                    @At(
+                            value = "INVOKE_ASSIGN",
+                            target = "Lnet/minecraft/server/network/ServerPlayerEntity;shouldCancelInteraction()Z"))
     private boolean allowSneakRightClick(boolean original) {
         if (RugSettings.campSleeping
-            && interactBlock.isIn(BlockTags.BEDS)
-            && interactPlayer.isSneaking()
-            && interactPlayer.getMainHandStack().isEmpty()) {
+                && interactBlock.isIn(BlockTags.BEDS)
+                && interactPlayer.isSneaking()
+                && interactPlayer.getMainHandStack().isEmpty()) {
             return false;
         }
         return original;

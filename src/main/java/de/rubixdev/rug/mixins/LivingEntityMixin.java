@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -41,8 +40,8 @@ public abstract class LivingEntityMixin extends Entity {
         Entity dyingEntity = this;
 
         if (dyingEntity.getType().equals(EntityType.SHULKER)
-            && RugSettings.strictShulkerShells > 0
-            && dyingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+                && RugSettings.strictShulkerShells > 0
+                && dyingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
             ItemStack stack = new ItemStack(Items.SHULKER_SHELL);
             stack.setCount(RugSettings.strictShulkerShells);
             dyingEntity.dropStack(stack);

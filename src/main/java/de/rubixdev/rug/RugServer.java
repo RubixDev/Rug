@@ -1,6 +1,5 @@
 package de.rubixdev.rug;
 
-
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.api.settings.CarpetRule;
@@ -85,8 +84,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public Map<String, String> canHasTranslations(String lang) {
-        InputStream langFile = RugServer.class.getClassLoader()
-            .getResourceAsStream("assets/rug/lang/%s.json5".formatted(lang));
+        InputStream langFile =
+                RugServer.class.getClassLoader().getResourceAsStream("assets/rug/lang/%s.json5".formatted(lang));
         if (langFile == null) {
             // we don't have that language
             return Collections.emptyMap();
@@ -103,9 +102,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public void registerCommands(
-        CommandDispatcher<ServerCommandSource> dispatcher,
-        CommandRegistryAccess commandBuildContext
-    ) {
+            CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         SlimeChunkCommand.register(dispatcher);
         FrameCommand.register(dispatcher);
         SkullCommand.register(dispatcher);
@@ -131,7 +128,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     public void onServerLoaded(MinecraftServer server) {
         minecraftServer = server;
 
-        UseBlockCallback.EVENT.register(( (player, world, hand, hitResult) -> {
+        UseBlockCallback.EVENT.register(((player, world, hand, hitResult) -> {
             if (RugSettings.easyHarvesting.equals("off") || world.isClient() || hand != Hand.MAIN_HAND) {
                 return ActionResult.PASS;
             }
@@ -140,28 +137,22 @@ public class RugServer implements CarpetExtension, ModInitializer {
             BlockState state = world.getBlockState(pos);
             Block block = state.getBlock();
             ItemStack tool = player != null ? player.getStackInHand(hand) : ItemStack.EMPTY;
-            if (RugSettings.easyHarvesting.equals("require_hoe") && !( tool.getItem() instanceof HoeItem )) {
+            if (RugSettings.easyHarvesting.equals("require_hoe") && !(tool.getItem() instanceof HoeItem)) {
                 return ActionResult.PASS;
             }
-            boolean allowsHarvestFromTop = RugSettings.easyHarvesting.equals("require_hoe")
-                || hitResult.getSide() != Direction.UP;
-            boolean allowsHarvestFromBottom = RugSettings.easyHarvesting.equals("require_hoe")
-                || hitResult.getSide() != Direction.DOWN;
+            boolean allowsHarvestFromTop =
+                    RugSettings.easyHarvesting.equals("require_hoe") || hitResult.getSide() != Direction.UP;
+            boolean allowsHarvestFromBottom =
+                    RugSettings.easyHarvesting.equals("require_hoe") || hitResult.getSide() != Direction.DOWN;
 
             if (isMature(state)) {
-                List<ItemStack> droppedItems = Block.getDroppedStacks(
-                    state,
-                    (ServerWorld) world,
-                    pos,
-                    null,
-                    player,
-                    tool
-                );
+                List<ItemStack> droppedItems =
+                        Block.getDroppedStacks(state, (ServerWorld) world, pos, null, player, tool);
                 boolean removedSeed = false;
                 for (ItemStack itemStack : droppedItems) {
                     if (!removedSeed) {
                         Item item = itemStack.getItem();
-                        if (item instanceof BlockItem && ( (BlockItem) item ).getBlock() == block) {
+                        if (item instanceof BlockItem && ((BlockItem) item).getBlock() == block) {
                             itemStack.decrement(1);
                             removedSeed = true;
                         }
@@ -170,57 +161,40 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 }
 
                 world.setBlockState(
-                    pos,
-                    removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState()
-                );
+                        pos, removedSeed ? state.with(getAgeProperty(block), 0) : Blocks.AIR.getDefaultState());
             } else if (List.of(Blocks.KELP, Blocks.KELP_PLANT).contains(state.getBlock()) && allowsHarvestFromTop) {
                 if (!harvestStemPlant(pos, world, Blocks.KELP_PLANT, Blocks.KELP, Direction.UP))
                     return ActionResult.PASS;
-            } else if (List.of(Blocks.TWISTING_VINES, Blocks.TWISTING_VINES_PLANT).contains(state.getBlock())
-                && allowsHarvestFromTop) {
-                    if (!harvestStemPlant(pos, world, Blocks.TWISTING_VINES_PLANT, Blocks.TWISTING_VINES, Direction.UP))
-                        return ActionResult.PASS;
-                } else if (List.of(Blocks.WEEPING_VINES, Blocks.WEEPING_VINES_PLANT).contains(state.getBlock())
+            } else if (List.of(Blocks.TWISTING_VINES, Blocks.TWISTING_VINES_PLANT)
+                            .contains(state.getBlock())
+                    && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, Blocks.TWISTING_VINES_PLANT, Blocks.TWISTING_VINES, Direction.UP))
+                    return ActionResult.PASS;
+            } else if (List.of(Blocks.WEEPING_VINES, Blocks.WEEPING_VINES_PLANT).contains(state.getBlock())
                     && allowsHarvestFromBottom) {
-                        if (!harvestStemPlant(
-                            pos,
-                            world,
-                            Blocks.WEEPING_VINES_PLANT,
-                            Blocks.WEEPING_VINES,
-                            Direction.DOWN
-                        )) return ActionResult.PASS;
-                    } else if (List.of(Blocks.CAVE_VINES, Blocks.CAVE_VINES_PLANT).contains(state.getBlock())
-                        && allowsHarvestFromBottom) {
-                            if (!harvestStemPlant(
-                                pos,
-                                world,
-                                Blocks.CAVE_VINES_PLANT,
-                                Blocks.CAVE_VINES,
-                                Direction.DOWN
-                            )) return ActionResult.PASS;
-                        } else if (List.of(Blocks.SUGAR_CANE, Blocks.CACTUS, Blocks.BAMBOO).contains(state.getBlock())
-                            && allowsHarvestFromTop) {
-                                if (!harvestStemPlant(pos, world, state.getBlock(), null, Direction.UP))
-                                    return ActionResult.PASS;
-                            } else {
-                                return ActionResult.PASS;
-                            }
+                if (!harvestStemPlant(pos, world, Blocks.WEEPING_VINES_PLANT, Blocks.WEEPING_VINES, Direction.DOWN))
+                    return ActionResult.PASS;
+            } else if (List.of(Blocks.CAVE_VINES, Blocks.CAVE_VINES_PLANT).contains(state.getBlock())
+                    && allowsHarvestFromBottom) {
+                if (!harvestStemPlant(pos, world, Blocks.CAVE_VINES_PLANT, Blocks.CAVE_VINES, Direction.DOWN))
+                    return ActionResult.PASS;
+            } else if (List.of(Blocks.SUGAR_CANE, Blocks.CACTUS, Blocks.BAMBOO).contains(state.getBlock())
+                    && allowsHarvestFromTop) {
+                if (!harvestStemPlant(pos, world, state.getBlock(), null, Direction.UP)) return ActionResult.PASS;
+            } else {
+                return ActionResult.PASS;
+            }
 
             if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
                 tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
             }
             return ActionResult.SUCCESS;
-        } ));
+        }));
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private boolean harvestStemPlant(
-        BlockPos pos,
-        World world,
-        Block stem,
-        @Nullable Block end,
-        Direction growDirection
-    ) {
+            BlockPos pos, World world, Block stem, @Nullable Block end, Direction growDirection) {
         int count = 1;
         BlockPos root = pos.offset(growDirection.getOpposite());
         while (world.getBlockState(root).isOf(stem)) {
@@ -229,8 +203,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
 
         if (count == 1
-            && !world.getBlockState(pos.offset(growDirection)).isOf(stem)
-            && !world.getBlockState(pos.offset(growDirection)).isOf(end)) {
+                && !world.getBlockState(pos.offset(growDirection)).isOf(stem)
+                && !world.getBlockState(pos.offset(growDirection)).isOf(end)) {
             return false;
         }
         world.breakBlock(root.offset(growDirection, 2), true);
@@ -260,19 +234,17 @@ public class RugServer implements CarpetExtension, ModInitializer {
         }
 
         copyFile(
-            "assets/rug/RugDataStorage/rug/advancements/root.json",
-            datapackPath + "data/rug/advancements/root.json"
-        );
+                "assets/rug/RugDataStorage/rug/advancements/root.json",
+                datapackPath + "data/rug/advancements/root.json");
 
         for (Field f : RugSettings.class.getDeclaredFields()) {
             CraftingRule craftingRule = f.getAnnotation(CraftingRule.class);
             if (craftingRule == null) continue;
             registerCraftingRule(
-                craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
-                craftingRule.recipes(),
-                craftingRule.recipeNamespace(),
-                datapackPath + "data/"
-            );
+                    craftingRule.name().isEmpty() ? f.getName() : craftingRule.name(),
+                    craftingRule.recipes(),
+                    craftingRule.recipeNamespace(),
+                    datapackPath + "data/");
         }
         reload();
         if (isFirstLoad) {
@@ -282,12 +254,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     private void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace, String dataPath) {
         updateCraftingRule(
-            CarpetServer.settingsManager.getCarpetRule(ruleName),
-            recipes,
-            recipeNamespace,
-            dataPath,
-            ruleName
-        );
+                CarpetServer.settingsManager.getCarpetRule(ruleName), recipes, recipeNamespace, dataPath, ruleName);
 
         CarpetServer.settingsManager.registerRuleObserver((source, rule, s) -> {
             if (rule.name().equals(ruleName)) {
@@ -298,12 +265,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void updateCraftingRule(
-        CarpetRule<?> rule,
-        String[] recipes,
-        String recipeNamespace,
-        String datapackPath,
-        String ruleName
-    ) {
+            CarpetRule<?> rule, String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
         ruleName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, ruleName);
 
         if (rule.type() == String.class) {
@@ -312,14 +274,14 @@ public class RugServer implements CarpetExtension, ModInitializer {
             List<String> installedRecipes = Lists.newArrayList();
             try {
                 Stream<Path> fileStream = Files.list(new File(datapackPath + recipeNamespace, "recipes").toPath());
-                fileStream.forEach(( path -> {
+                fileStream.forEach((path -> {
                     for (String recipeName : recipes) {
                         String fileName = path.getFileName().toString();
                         if (fileName.startsWith(recipeName)) {
                             installedRecipes.add(fileName);
                         }
                     }
-                } ));
+                }));
                 fileStream.close();
             } catch (IOException e) {
                 Logging.logStackTrace(e);
@@ -332,12 +294,12 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 try {
                     Stream<Path> fileStream = Files.list(new File(datapackPath, "rug/advancements").toPath());
                     String finalRuleName = ruleName;
-                    fileStream.forEach(( path -> {
+                    fileStream.forEach((path -> {
                         String fileName = path.getFileName().toString().replace(".json", "");
                         if (fileName.startsWith(finalRuleName)) {
                             installedAdvancements.add(fileName);
                         }
-                    } ));
+                    }));
                     fileStream.close();
                 } catch (IOException e) {
                     Logging.logStackTrace(e);
@@ -376,9 +338,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private void copyRecipes(String[] recipes, String recipeNamespace, String datapackPath, String ruleName) {
         for (String recipeName : recipes) {
             copyFile(
-                "assets/rug/RugDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
-                datapackPath + recipeNamespace + "/recipes/" + recipeName
-            );
+                    "assets/rug/RugDataStorage/" + recipeNamespace + "/recipes/" + recipeName,
+                    datapackPath + recipeNamespace + "/recipes/" + recipeName);
         }
         if (recipeNamespace.equals("rug")) {
             writeAdvancement(datapackPath, ruleName, recipes);
@@ -386,12 +347,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private void deleteRecipes(
-        String[] recipes,
-        String recipeNamespace,
-        String datapackPath,
-        String ruleName,
-        boolean removeAdvancement
-    ) {
+            String[] recipes, String recipeNamespace, String datapackPath, String ruleName, boolean removeAdvancement) {
         for (String recipeName : recipes) {
             try {
                 Files.deleteIfExists(new File(datapackPath + recipeNamespace + "/recipes", recipeName).toPath());
@@ -406,9 +362,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     private void writeAdvancement(String datapackPath, String ruleName, String[] recipes) {
         copyFile(
-            "assets/rug/RugDataStorage/rug/advancements/recipe_rule.json",
-            datapackPath + "rug/advancements/" + ruleName + ".json"
-        );
+                "assets/rug/RugDataStorage/rug/advancements/recipe_rule.json",
+                datapackPath + "rug/advancements/" + ruleName + ".json");
 
         JsonObject advancementJson = readJson(datapackPath + "rug/advancements/" + ruleName + ".json");
         assert advancementJson != null;
@@ -460,19 +415,23 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private static boolean isMature(BlockState state) {
         Block block = state.getBlock();
         if (block instanceof CropBlock) {
-            return ( (CropBlock) block ).isMature(state);
+            return ((CropBlock) block).isMature(state);
         } else if (block instanceof NetherWartBlock) {
             return state.get(NetherWartBlock.AGE) == 3;
-        } else if (block instanceof CocoaBlock) { return state.get(CocoaBlock.AGE) == 2; }
+        } else if (block instanceof CocoaBlock) {
+            return state.get(CocoaBlock.AGE) == 2;
+        }
         return false;
     }
 
     private static IntProperty getAgeProperty(Block block) {
         if (block instanceof CropBlock) {
-            return ( (CropBlock) block ).getAgeProperty();
+            return ((CropBlock) block).getAgeProperty();
         } else if (block instanceof NetherWartBlock) {
             return NetherWartBlock.AGE;
-        } else if (block instanceof CocoaBlock) { return CocoaBlock.AGE; }
+        } else if (block instanceof CocoaBlock) {
+            return CocoaBlock.AGE;
+        }
         return null;
     }
 
@@ -492,7 +451,8 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     public static void savePlayerData(ServerPlayerEntity player) {
-        File playerDataDir = minecraftServer.getSavePath(WorldSavePath.PLAYERDATA).toFile();
+        File playerDataDir =
+                minecraftServer.getSavePath(WorldSavePath.PLAYERDATA).toFile();
         try {
             NbtCompound compoundTag = player.writeNbt(new NbtCompound());
             File file = File.createTempFile(player.getUuidAsString() + "-", ".dat", playerDataDir);

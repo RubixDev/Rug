@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -21,12 +20,12 @@ public abstract class VillagerEntityMixin extends Entity {
     }
 
     @Inject(
-        method = "onDeath",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/entity/damage/DamageSource;getAttacker()Lnet/minecraft/entity/Entity;"
-        )
-    )
+            method = "onDeath",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/entity/damage/DamageSource;getAttacker()Lnet/minecraft/entity/Entity;"))
     private void dropEmeralds(DamageSource source, CallbackInfo ci) {
         if (RugSettings.villagersDropEmeralds != 0) {
             dropStack(new ItemStack(Items.EMERALD, random.nextInt(RugSettings.villagersDropEmeralds) + 1));

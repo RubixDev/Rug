@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.util.Storage;
 import net.minecraft.block.BlockState;
@@ -28,7 +27,7 @@ public class RepeaterBlockMixin {
     private int getModifiedDelay(BlockState state) {
         int defaultDelay = state.get(DELAY) * 2;
         if (RugSettings.longerRepeaters > 1
-            && Storage.world.getBlockState(Storage.blockPos.down()).isOf(Blocks.REDSTONE_BLOCK)) {
+                && Storage.world.getBlockState(Storage.blockPos.down()).isOf(Blocks.REDSTONE_BLOCK)) {
             return defaultDelay * RugSettings.longerRepeaters;
         } else {
             return defaultDelay;

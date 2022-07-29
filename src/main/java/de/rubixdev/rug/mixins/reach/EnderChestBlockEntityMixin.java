@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins.reach;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.entity.EnderChestBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

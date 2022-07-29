@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -23,13 +22,12 @@ public class SlimeEntityMixin {
 
     @Inject(method = "canSpawn", at = @At("HEAD"))
     private static void getParams(
-        EntityType<SlimeEntity> type,
-        WorldAccess world,
-        SpawnReason spawnReason,
-        BlockPos pos,
-        net.minecraft.util.math.random.Random random,
-        CallbackInfoReturnable<Boolean> cir
-    ) {
+            EntityType<SlimeEntity> type,
+            WorldAccess world,
+            SpawnReason spawnReason,
+            BlockPos pos,
+            net.minecraft.util.math.random.Random random,
+            CallbackInfoReturnable<Boolean> cir) {
         blockPos = pos;
         worldAccess = world;
     }
@@ -39,10 +37,8 @@ public class SlimeEntityMixin {
     private static boolean overwriteChance(boolean original) {
         ChunkPos chunkPos = new ChunkPos(blockPos);
         return ChunkRandom.getSlimeRandom(
-            chunkPos.x,
-            chunkPos.z,
-            ( (StructureWorldAccess) worldAccess ).getSeed(),
-            987234911L
-        ).nextInt(10) < RugSettings.slimeChunkPercentage / 10;
+                                chunkPos.x, chunkPos.z, ((StructureWorldAccess) worldAccess).getSeed(), 987234911L)
+                        .nextInt(10)
+                < RugSettings.slimeChunkPercentage / 10;
     }
 }

@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.util.Storage;
 import net.minecraft.block.BlockState;
@@ -21,23 +20,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerEntityMixin {
 
     @Redirect(
-        method = "tickMovement",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;"
-        )
-    )
+            method = "tickMovement",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;"))
     private Difficulty onTickMovement(World world) {
         return RugSettings.peacefulHunger ? Difficulty.PEACEFUL : world.getDifficulty();
     }
 
     @Redirect(
-        method = "tickMovement",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"
-        )
-    )
+            method = "tickMovement",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean onTickMovement(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
         return !RugSettings.foodInstantHeal && gameRules.getBoolean(rule);
     }
@@ -49,8 +46,8 @@ public class PlayerEntityMixin {
 
     @Inject(method = "canHarvest", at = @At("HEAD"), cancellable = true)
     private void onCanHarvest(BlockState block, CallbackInfoReturnable<Boolean> cir) {
-        if (( RugSettings.silkTouchSpawners && block.isOf(Blocks.SPAWNER) )
-            || ( RugSettings.silkTouchBuddingAmethysts && block.isOf(Blocks.BUDDING_AMETHYST) )) {
+        if ((RugSettings.silkTouchSpawners && block.isOf(Blocks.SPAWNER))
+                || (RugSettings.silkTouchBuddingAmethysts && block.isOf(Blocks.BUDDING_AMETHYST))) {
             cir.setReturnValue(true);
         }
     }

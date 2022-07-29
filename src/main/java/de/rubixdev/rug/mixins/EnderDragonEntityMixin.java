@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -23,13 +22,13 @@ public abstract class EnderDragonEntityMixin extends Entity {
     }
 
     @Inject(
-        method = "updatePostDeath",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V",
-            ordinal = 1
-        )
-    )
+            method = "updatePostDeath",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V",
+                            ordinal = 1))
     private void onUpdatePostDeath(CallbackInfo ci) {
         String rugSetting = RugSettings.dragonDrops;
         if (!rugSetting.equals("none") && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {

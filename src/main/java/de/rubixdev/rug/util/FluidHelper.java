@@ -1,6 +1,5 @@
 package de.rubixdev.rug.util;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -21,15 +20,15 @@ public class FluidHelper {
 
     public static boolean shouldConvertToBlackstone(BlockView world, BlockPos pos) {
         return RugSettings.basaltToBlackstoneConversion
-            && isFluidAdjacent(FluidTags.WATER, world, pos)
-            && isFluidAdjacent(FluidTags.LAVA, world, pos);
+                && isFluidAdjacent(FluidTags.WATER, world, pos)
+                && isFluidAdjacent(FluidTags.LAVA, world, pos);
     }
 
     public static boolean shouldConvertToLava(BlockView world, BlockPos pos) {
         return RugSettings.basaltToLavaConversion
-            && isFlowingFluidAdjacent(FluidTags.LAVA, world, pos)
-            && isStillFluidAdjacent(FluidTags.LAVA, world, pos)
-            && isBlockAdjacent(Blocks.MAGMA_BLOCK, world, pos);
+                && isFlowingFluidAdjacent(FluidTags.LAVA, world, pos)
+                && isStillFluidAdjacent(FluidTags.LAVA, world, pos)
+                && isBlockAdjacent(Blocks.MAGMA_BLOCK, world, pos);
     }
 
     private static boolean isBlockAdjacent(Block block, BlockView world, BlockPos pos) {
@@ -43,9 +42,9 @@ public class FluidHelper {
         for (Direction direction : Direction.values()) {
             FluidState fluidState = world.getFluidState(pos.offset(direction));
             if (fluidState.isIn(fluid)
-                && ( ( type == FluidFlowType.STILL && fluidState.isStill() )
-                    || ( type == FluidFlowType.FLOWING && !fluidState.isStill() )
-                    || ( type == FluidFlowType.ANY ) )) {
+                    && ((type == FluidFlowType.STILL && fluidState.isStill())
+                            || (type == FluidFlowType.FLOWING && !fluidState.isStill())
+                            || (type == FluidFlowType.ANY))) {
 
                 return true;
             }

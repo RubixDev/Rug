@@ -23,51 +23,51 @@ import net.minecraft.text.Text;
 
 public class SudoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> command = literal("sudo").requires(
-            (player) -> CommandHelper.canUseCommand(player, RugSettings.commandSudo)
-        )
-            .then(
-                argument("player", StringArgumentType.word()).suggests(
-                    ( (context, builder) -> suggestMatching(getPlayers(context.getSource()), builder) )
-                ).then(literal("chat").then(argument("message", MessageArgumentType.message()).executes(context -> {
-                    String targetPlayerName = StringArgumentType.getString(context, "player");
+        LiteralArgumentBuilder<ServerCommandSource> command = literal("sudo")
+                .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandSudo))
+                .then(argument("player", StringArgumentType.word())
+                        .suggests(((context, builder) -> suggestMatching(getPlayers(context.getSource()), builder)))
+                        .then(literal("chat")
+                                .then(argument("message", MessageArgumentType.message())
+                                        .executes(context -> {
+                                            String targetPlayerName = StringArgumentType.getString(context, "player");
 
-                    MinecraftServer server = context.getSource().getServer();
-                    PlayerManager playerManager = server.getPlayerManager();
-                    ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
+                                            MinecraftServer server =
+                                                    context.getSource().getServer();
+                                            PlayerManager playerManager = server.getPlayerManager();
+                                            ServerPlayerEntity targetPlayer = playerManager.getPlayer(targetPlayerName);
 
-                    if (targetPlayer == null) {
-                        context.getSource().sendError(Text.of("Targeted Player could not be found"));
-                        return 0;
-                    }
+                                            if (targetPlayer == null) {
+                                                context.getSource()
+                                                        .sendError(Text.of("Targeted Player could not be found"));
+                                                return 0;
+                                            }
 
-                    MessageArgumentType.SignedMessage signedMessage = MessageArgumentType.getSignedMessage(
-                        context,
-                        "message"
-                    );
-                    ServerCommandSource source = context.getSource();
-                    signedMessage.decorate(
-                        source,
-                        decoratedMessage -> playerManager.broadcast(
-                            decoratedMessage,
-                            targetPlayer,
-                            MessageType.params(MessageType.CHAT, source)
-                        )
-                    );
-                    return 1;
-                }))).then(literal("command").redirect(dispatcher.getRoot(), context -> {
-                    String targetPlayerName = StringArgumentType.getString(context, "player");
-                    MinecraftServer server = context.getSource().getServer();
-                    ServerPlayerEntity player = server.getPlayerManager().getPlayer(targetPlayerName);
+                                            MessageArgumentType.SignedMessage signedMessage =
+                                                    MessageArgumentType.getSignedMessage(context, "message");
+                                            ServerCommandSource source = context.getSource();
+                                            signedMessage.decorate(
+                                                    source,
+                                                    decoratedMessage -> playerManager.broadcast(
+                                                            decoratedMessage,
+                                                            targetPlayer,
+                                                            MessageType.params(MessageType.CHAT, source)));
+                                            return 1;
+                                        })))
+                        .then(literal("command").redirect(dispatcher.getRoot(), context -> {
+                            String targetPlayerName = StringArgumentType.getString(context, "player");
+                            MinecraftServer server = context.getSource().getServer();
+                            ServerPlayerEntity player =
+                                    server.getPlayerManager().getPlayer(targetPlayerName);
 
-                    if (player == null) {
-                        Message errorMessage = Text.of("Targeted player could not be found");
-                        throw new CommandSyntaxException(new SimpleCommandExceptionType(errorMessage), errorMessage);
-                    }
+                            if (player == null) {
+                                Message errorMessage = Text.of("Targeted player could not be found");
+                                throw new CommandSyntaxException(
+                                        new SimpleCommandExceptionType(errorMessage), errorMessage);
+                            }
 
-                    return player.getCommandSource();
-                }))
-            );
+                            return player.getCommandSource();
+                        })));
         dispatcher.register(command);
     }
 

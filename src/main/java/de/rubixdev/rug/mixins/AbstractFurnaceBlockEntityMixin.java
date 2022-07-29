@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import java.util.List;
@@ -24,25 +23,19 @@ public abstract class AbstractFurnaceBlockEntityMixin {
     @SuppressWarnings("rawtypes")
     @Inject(method = "method_17761", at = @At(value = "INVOKE", target = "java/util/List.add(Ljava/lang/Object;)Z"))
     private static void onSyntheticMethod_17761(
-        List list,
-        ServerWorld world,
-        Vec3d pos,
-        Object2IntMap.Entry entry,
-        Recipe recipe,
-        CallbackInfo ci
-    ) {
+            List list, ServerWorld world, Vec3d pos, Object2IntMap.Entry entry, Recipe recipe, CallbackInfo ci) {
         if (recipe.getOutput().getItem() == Items.GREEN_DYE) {
             isCactusRecipe = true;
         }
     }
 
     @Redirect(
-        method = "method_17761",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/block/entity/AbstractFurnaceBlockEntity;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;IF)V"
-        )
-    )
+            method = "method_17761",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/block/entity/AbstractFurnaceBlockEntity;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;IF)V"))
     private static void onSyntheticMethod_17761(ServerWorld world, Vec3d vec3d, int i, float f) {
         dropExperience(world, vec3d, i, isCactusRecipe ? (float) RugSettings.cactusFurnaceXp : f);
         isCactusRecipe = false;

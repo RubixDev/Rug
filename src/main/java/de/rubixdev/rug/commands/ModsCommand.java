@@ -1,6 +1,5 @@
 package de.rubixdev.rug.commands;
 
-
 import carpet.utils.CommandHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -19,30 +18,27 @@ import net.minecraft.text.Text;
 public class ModsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> command = CommandManager.literal("mods")
-            .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMods))
-            .executes(ctx -> execute(ctx, false))
-            .then(CommandManager.literal("showfabric").executes(ctx -> execute(ctx, true)));
+                .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMods))
+                .executes(ctx -> execute(ctx, false))
+                .then(CommandManager.literal("showfabric").executes(ctx -> execute(ctx, true)));
         dispatcher.register(command);
     }
 
     @SuppressWarnings("SameReturnValue")
     private static int execute(CommandContext<ServerCommandSource> context, boolean showFabric) {
-        List<ModMetadata> installedMods = FabricLoader.getInstance()
-            .getAllMods()
-            .stream()
-            .map(ModContainer::getMetadata)
-            .sorted(Comparator.comparing(ModMetadata::getName))
-            .filter(
-                mod -> !mod.getId().equals("minecraft")
-                    && !mod.getId().equals("java")
-                    && ( showFabric || !mod.getName().toLowerCase().startsWith("fabric") )
-            )
-            .toList();
+        List<ModMetadata> installedMods = FabricLoader.getInstance().getAllMods().stream()
+                .map(ModContainer::getMetadata)
+                .sorted(Comparator.comparing(ModMetadata::getName))
+                .filter(mod -> !mod.getId().equals("minecraft")
+                        && !mod.getId().equals("java")
+                        && (showFabric || !mod.getName().toLowerCase().startsWith("fabric")))
+                .toList();
 
         String chatMessageJson = "[\"Mods (" + installedMods.size() + "):\\n    \",";
         List<String> modJsons = new ArrayList<>();
         for (ModMetadata mod : installedMods) {
-            modJsons.add(getJsonForMod(mod.getName(), mod.getDescription(), mod.getVersion().getFriendlyString()));
+            modJsons.add(getJsonForMod(
+                    mod.getName(), mod.getDescription(), mod.getVersion().getFriendlyString()));
         }
         chatMessageJson += String.join(",\"\\n    \",", modJsons) + "]";
 
@@ -68,11 +64,11 @@ public class ModsCommand {
             {
                 "text": " %s",
                 "italic": true
-            }""".formatted(
-            modName,
-            modName.toLowerCase().startsWith("fabric") ? "gold" : "light_purple",
-            modDescription,
-            modVersion
-        );
+            }"""
+                .formatted(
+                        modName,
+                        modName.toLowerCase().startsWith("fabric") ? "gold" : "light_purple",
+                        modDescription,
+                        modVersion);
     }
 }

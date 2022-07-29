@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
@@ -15,8 +14,8 @@ public class LilyPadBlockMixin {
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
     private void onCanPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (RugSettings.lilyPadsOnCauldron
-            && floor.getBlock() == Blocks.CAULDRON
-            && floor.get(LeveledCauldronBlock.LEVEL) == 3) {
+                && floor.getBlock() == Blocks.CAULDRON
+                && floor.get(LeveledCauldronBlock.LEVEL) == 3) {
             cir.setReturnValue(true);
         }
     }

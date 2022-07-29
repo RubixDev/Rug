@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import com.mojang.authlib.GameProfile;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.entity.damage.DamageSource;
@@ -27,12 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     public ServerPlayerEntityMixin(
-        World world,
-        BlockPos pos,
-        float yaw,
-        GameProfile gameProfile,
-        @Nullable PlayerPublicKey publicKey
-    ) {
+            World world, BlockPos pos, float yaw, GameProfile gameProfile, @Nullable PlayerPublicKey publicKey) {
         super(world, pos, yaw, gameProfile, publicKey);
     }
 
@@ -40,36 +34,35 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     public abstract ServerWorld getWorld();
 
     @Inject(
-        method = "onDeath",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"
-        )
-    )
+            method = "onDeath",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"))
     private void onOnDeath(DamageSource damageSource, CallbackInfo ci) {
-        if (( RugSettings.playerHeadDrops.equals("on_killed_by_player")
-            && damageSource.getAttacker() instanceof PlayerEntity )
-            || ( RugSettings.playerHeadDrops.equals("on_death") )) {
+        if ((RugSettings.playerHeadDrops.equals("on_killed_by_player")
+                        && damageSource.getAttacker() instanceof PlayerEntity)
+                || (RugSettings.playerHeadDrops.equals("on_death"))) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
             stack.getOrCreateNbt()
-                .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
+                    .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
             this.dropStack(stack);
         }
     }
 
     @Inject(method = "setSpawnPoint", at = @At("HEAD"), cancellable = true)
     private void onSetSpawnPoint(
-        RegistryKey<World> dimension,
-        BlockPos pos,
-        float angle,
-        boolean spawnPointSet,
-        boolean bl,
-        CallbackInfo ci
-    ) {
+            RegistryKey<World> dimension,
+            BlockPos pos,
+            float angle,
+            boolean spawnPointSet,
+            boolean bl,
+            CallbackInfo ci) {
         if (RugSettings.campSleeping
-            && bl
-            && this.isSneaking()
-            && this.getWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
+                && bl
+                && this.isSneaking()
+                && this.getWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
             ci.cancel();
         }
     }

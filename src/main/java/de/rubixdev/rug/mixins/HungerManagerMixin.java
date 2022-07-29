@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import de.rubixdev.rug.util.Storage;
 import java.util.Objects;
@@ -18,13 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(HungerManager.class)
 public class HungerManagerMixin {
     @Redirect(
-        method = "update",
-        at = @At(
-            value = "FIELD",
-            target = "Lnet/minecraft/entity/player/HungerManager;foodLevel:I",
-            opcode = Opcodes.PUTFIELD
-        )
-    )
+            method = "update",
+            at =
+                    @At(
+                            value = "FIELD",
+                            target = "Lnet/minecraft/entity/player/HungerManager;foodLevel:I",
+                            opcode = Opcodes.PUTFIELD))
     private void onUpdate(HungerManager hungerManager, int value) {
         if (!RugSettings.peacefulHunger) {
             hungerManager.setFoodLevel(value);
@@ -32,12 +30,11 @@ public class HungerManagerMixin {
     }
 
     @Redirect(
-        method = "update",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"
-        )
-    )
+            method = "update",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean onUpdate(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
         if (RugSettings.foodInstantHeal) {
             return false;

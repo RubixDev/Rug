@@ -1,6 +1,5 @@
 package de.rubixdev.rug.mixins;
 
-
 import de.rubixdev.rug.RugSettings;
 import java.util.Optional;
 import net.minecraft.block.*;
@@ -22,20 +21,20 @@ public abstract class PotionEntityMixin extends ThrownEntity {
     }
 
     @Inject(
-        method = "onBlockHit",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/entity/projectile/thrown/PotionEntity;extinguishFire(Lnet/minecraft/util/math/BlockPos;)V",
-            ordinal = 0
-        )
-    )
+            method = "onBlockHit",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/entity/projectile/thrown/PotionEntity;extinguishFire(Lnet/minecraft/util/math/BlockPos;)V",
+                            ordinal = 0))
     private void ageCopper(BlockHitResult blockHitResult, CallbackInfo ci) {
         BlockPos blockPos = blockHitResult.getBlockPos();
         BlockState blockState = this.world.getBlockState(blockPos);
         Block block = blockState.getBlock();
 
         if (block instanceof Oxidizable && RugSettings.splashOxidize) {
-            Optional<BlockState> oxidized = ( (Oxidizable) block ).getDegradationResult(blockState);
+            Optional<BlockState> oxidized = ((Oxidizable) block).getDegradationResult(blockState);
             oxidized.ifPresent(state -> this.world.setBlockState(blockPos, state));
         }
     }
