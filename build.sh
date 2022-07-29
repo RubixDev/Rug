@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 ./update_version.py
-./generate_readmes.py
+./gen_md.py
 ./gradlew build
