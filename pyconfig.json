@@ -1,6 +1,7 @@
 {
     "mainClass": "src/main/java/de/rubixdev/rug/RugServer.java",
     "carpetSettingsClass": "src/main/java/de/rubixdev/rug/RugSettings.java",
+    "languageFile": "src/main/resources/assets/rug/lang/en_us.json5",
     "mainCategory": "RUG",
     "readmeHeader": "markdown/README-header.md",
     "curseForgeHeader": "markdown/CurseForge-header.md"
