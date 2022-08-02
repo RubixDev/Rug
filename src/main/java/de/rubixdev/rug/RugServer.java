@@ -317,7 +317,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
                 copyRecipes(tempRecipes.toArray(new String[0]), recipeNamespace, datapackPath, ruleName + "_" + value);
             }
-        } else if (rule.type() == int.class && (Integer) rule.value() > 0) {
+        } else if (rule.type() == Integer.class && (Integer) rule.value() > 0) {
             copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
 
             int value = (Integer) rule.value();
@@ -328,7 +328,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 jsonObject.getAsJsonObject("result").addProperty("count", value);
                 writeJson(jsonObject, filePath);
             }
-        } else if (rule.type() == boolean.class && RuleHelper.getBooleanValue(rule)) {
+        } else if (rule.type() == Boolean.class && RuleHelper.getBooleanValue(rule)) {
             copyRecipes(recipes, recipeNamespace, datapackPath, ruleName);
         } else {
             deleteRecipes(recipes, recipeNamespace, datapackPath, ruleName, true);
