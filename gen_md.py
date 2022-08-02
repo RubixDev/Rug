@@ -7,7 +7,7 @@ import json
 with open('pyconfig.json', 'r') as config_file:
     SETTINGS: dict[str, any] = json.load(config_file)
 
-with open('src/main/resources/assets/rug/lang/en_us.json5', 'r') as lang_file:
+with open(SETTINGS['languageFile'], 'r') as lang_file:
     # Remove lines with comments
     contents: str = re.compile(
         r'^\s*//.*$', re.MULTILINE).sub('', lang_file.read())
@@ -167,6 +167,7 @@ def write_files(rules: list[Rule]):
             category_readme.write(out[:-1])
 
     curseforge_list(rules)
+    modrinth_list(rules)
 
 
 def list_rules(rules: list[Rule], rule_headline: str) -> str:
@@ -190,6 +191,17 @@ def curseforge_list(rules: list[Rule]):
     with open('markdown/curseforge.md', 'w') as curse_file:
         print('\nWriting curseforge.md')
         curse_file.write(out)
+
+
+def modrinth_list(rules: list[Rule]):
+    with open(SETTINGS['modrinthHeader'], 'r') as header_file:
+        out: str = header_file.read()
+    out += f'Count: {len(rules)}\n'
+    for rule in rules:
+        out += f'- {rule.name}\n'
+    with open('markdown/modrinth.md', 'w') as modrinth_file:
+        print('\nWriting modrinth.md')
+        modrinth_file.write(out)
 
 
 if __name__ == '__main__':

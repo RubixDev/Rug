@@ -2,7 +2,7 @@
 
 [![Fabric API](https://raw.githubusercontent.com/RubixDev/Rug/1.17/fabric-api.png)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 
-Extension Mod for [gnembon's fabric-carpet](https://github.com/gnembon/fabric-carpet) with some more features
+Extension for [gnembon's Carpet Mod](https://www.curseforge.com/minecraft/mc-mods/carpet) adding loads more rules
 
 **Visit the [GitHub page](https://github.com/RubixDev/Rug) for a more detailed explanation of all features.**
 

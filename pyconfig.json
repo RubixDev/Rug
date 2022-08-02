@@ -4,5 +4,6 @@
     "languageFile": "src/main/resources/assets/rug/lang/en_us.json5",
     "mainCategory": "RUG",
     "readmeHeader": "markdown/README-header.md",
-    "curseForgeHeader": "markdown/CurseForge-header.md"
+    "curseForgeHeader": "markdown/CurseForge-header.md",
+    "modrinthHeader": "markdown/Modrinth-header.md"
 }
