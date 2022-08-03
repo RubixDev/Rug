@@ -35,7 +35,6 @@ public class RugSettings {
             strict = false,
             validators = validatorAnvilledIce.class)
     public static int anvilledBlueIce = 0;
-    // anvilledBlueIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
             options = {"0", "4", "9"},
@@ -43,7 +42,6 @@ public class RugSettings {
             strict = false,
             validators = validatorAnvilledIce.class)
     public static int anvilledIce = 0;
-    // anvilledIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(
             options = {"0", "4", "9"},
@@ -51,7 +49,6 @@ public class RugSettings {
             strict = false,
             validators = validatorAnvilledIce.class)
     public static int anvilledPackedIce = 0;
-    // anvilledPackedIceAdditional: From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114):::
 
     @Rule(categories = {SURVIVAL, RUG})
     public static boolean zombifiedPiglinsSpawningInPortals = true;
@@ -72,7 +69,6 @@ public class RugSettings {
             options = {"off", "on_death", "on_killed_by_player"},
             categories = {FEATURE, SURVIVAL, RUG})
     public static String playerHeadDrops = "off";
-    // playerHeadDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(
             options = {
@@ -87,7 +83,6 @@ public class RugSettings {
             },
             categories = {FEATURE, SURVIVAL, RENEWABLE, RUG})
     public static String dragonDrops = "none";
-    // dragonDropsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     public static class validatorStrictShulkerShells extends Validator<Integer> {
         @Override
@@ -108,11 +103,9 @@ public class RugSettings {
             strict = false,
             validators = validatorStrictShulkerShells.class)
     public static int strictShulkerShells = 0;
-    // strictShulkerShellsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(categories = {FEATURE, SURVIVAL, RUG})
     public static boolean silenceMobs = false;
-    // silenceMobsAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/):::
 
     @Rule(categories = {EXPERIMENTAL, RUG})
     public static boolean zeroTickPlants = false;
@@ -127,13 +120,9 @@ public class RugSettings {
 
     @Rule(categories = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean peacefulHunger = false;
-    // peacefulHungerAdditional: Suggestion by
-    // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
     @Rule(categories = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean foodInstantHeal = false;
-    // foodInstantHealAdditional: Suggestion by
-    // [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper):::
 
     @Rule(categories = {FEATURE, RUG})
     public static boolean lilyPadsOnCauldron = false;
@@ -197,9 +186,6 @@ public class RugSettings {
             options = {"0.0", "4.5", "5.0", "10.0"},
             categories = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
     public static double reachDistance = 4.5;
-    // reachDistanceAdditional: Is disabled when
-    // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or
-    // [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed:::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
         @Override
@@ -233,7 +219,6 @@ public class RugSettings {
     @CraftingRule(recipes = "easy_dispenser.json")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyDispenserCrafting = false;
-    // easyDispenserCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(recipes = "easy_bone_block.json")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
@@ -324,7 +309,6 @@ public class RugSettings {
             recipeNamespace = "minecraft")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean shapelessCrafting = false;
-    // shapelessCraftingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(
             recipes = {
@@ -347,7 +331,6 @@ public class RugSettings {
             })
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean powderToGlassSmelting = false;
-    // powderToGlassSmeltingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     @CraftingRule(
             recipes = {
@@ -469,7 +452,6 @@ public class RugSettings {
             })
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean universalDyeing = false;
-    // universalDyeingAdditional: Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/):::
 
     public static class validatorUnpackables extends Validator<Integer> {
         @Override
@@ -579,9 +561,6 @@ public class RugSettings {
             options = {"both", "honey", "slime", "none"},
             categories = {EXPERIMENTAL, CLIENT, FEATURE, RUG})
     public static String honeyCombStickiness = "both";
-    // honeyCombStickinessAdditional: [Idea from
-    // DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208)
-    // on the [SciCraft Discord](https://discord.gg/scicraft):::
 
     @Rule(
             options = {"off", "on_teleport", "on_landing", "both"},
@@ -664,14 +643,11 @@ public class RugSettings {
             validators = validatorDragonXpDrop.class,
             categories = {EXPERIMENTAL, SURVIVAL, RUG})
     public static int dragonXpDrop = 500;
-    // dragonXpDropAdditional: [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171):::
 
     @Rule(
             options = {"off", "more", "all"},
             categories = {EXPERIMENTAL, FEATURE, RUG})
     public static String moreFortressSpawningBlocks = "off";
-    // moreFortressSpawningBlocksAdditional: [Idea from
-    // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182):::
 
     @CraftingRule(recipes = "easy_blue_ice_crafting.json")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
@@ -696,7 +672,6 @@ public class RugSettings {
             validators = validatorSlimeChunkPercentage.class,
             categories = {EXPERIMENTAL, RUG})
     public static int slimeChunkPercentage = 10;
-    // slimeChunkPercentageAdditional: [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161):::
 
     public static class validatorMaxBannerLayers extends Validator<Integer> {
         @Override
@@ -717,15 +692,12 @@ public class RugSettings {
             validators = validatorMaxBannerLayers.class,
             categories = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG})
     public static int maxBannerLayers = 6;
-    // maxBannerLayersAdditional: [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111):::
 
     @Rule(categories = {COMMAND, RUG})
     public static String commandSlimeChunk = "ops";
 
     @Rule(categories = {EXPERIMENTAL, RUG})
     public static boolean tallPlantNoUpdate = false;
-    // tallPlantNoUpdateAdditional: [Idea from
-    // DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185):::
 
     @Rule(categories = {COMMAND, RUG})
     public static String commandFrame = "ops";
@@ -769,7 +741,6 @@ public class RugSettings {
     @CraftingRule(recipes = {"blast_furnace_stone.json", "blast_furnace_smooth_stone.json"})
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceStone = false;
-    // blastFurnaceStoneAdditional: [Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15):::
 
     @CraftingRule(recipes = "blast_furnace_glass.json")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
@@ -857,8 +828,6 @@ public class RugSettings {
             validators = validatorUnpackables.class,
             categories = {CRAFTING, SURVIVAL, RUG})
     public static int unpackableAmethysts = 0;
-    // unpackableAmethystsAdditional: Idea from
-    // [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79):::
 
     @Rule(categories = {COMMAND, RUG})
     public static String commandMods = "true";

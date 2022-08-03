@@ -351,7 +351,7 @@ Amount of damage dealt by Ender Pearls
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
 
-Recommended using with peacefulHunger
+Recommended to combine with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`

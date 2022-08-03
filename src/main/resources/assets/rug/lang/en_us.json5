@@ -1,10 +1,13 @@
 {
   // anvilledBlueIce
   "carpet.rule.anvilledBlueIce.desc": "Custom amount of packed ice crushed by falling anvils make one blue ice.",
+  "carpet.rule.anvilledBlueIce.additional": "From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)",
   // anvilledIce
   "carpet.rule.anvilledIce.desc": "Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.",
+  "carpet.rule.anvilledIce.additional": "From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)",
   // anvilledPackedIce
   "carpet.rule.anvilledPackedIce.desc": "Custom amount of ice crushed by falling anvils make one packed ice.",
+  "carpet.rule.anvilledPackedIce.additional": "From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)",
   // basaltToBlackstoneConversion
   "carpet.rule.basaltToBlackstoneConversion.desc": "Basalt converts to Blackstone if next to both Lava and Water",
   // basaltToLavaConversion
@@ -27,6 +30,7 @@
   // blastFurnaceStone
   "carpet.rule.blastFurnaceStone.desc": "Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace",
   "carpet.rule.blastFurnaceStone.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.blastFurnaceStone.additional": "[Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15)",
   // cactusFurnaceXp
   "carpet.rule.cactusFurnaceXp.desc": "Amount of XP a Cactus smelted in a furnace gives",
   "carpet.rule.cactusFurnaceXp.extra.0": "1 XP per Cactus seems to be a bug, as in Bedrock Edition it's only 0.2, which fits more in line with other items",
@@ -72,10 +76,12 @@
   "carpet.rule.craftableTuff.extra.0": "Expect a lag spike when changing the value",
   // dragonDrops
   "carpet.rule.dragonDrops.desc": "Ender Dragon drops selected item(s) when killed",
+  "carpet.rule.dragonDrops.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)",
   // dragonEggConvertsCobbleToEndstone
   "carpet.rule.dragonEggConvertsCobbleToEndstone.desc": "Dragon Eggs will convert Cobble under them to Endstone either on set event",
   // dragonXpDrop
   "carpet.rule.dragonXpDrop.desc": "Amount of XP dropped by later Dragons. The first Dragon always drops 12000",
+  "carpet.rule.dragonXpDrop.additional": "[Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)",
   // easyBlueIceCrafting
   "carpet.rule.easyBlueIceCrafting.desc": "Blue Ice can be crafted from Ice and Blue Dye",
   "carpet.rule.easyBlueIceCrafting.extra.0": "Expect a lag spike when changing the value",
@@ -88,6 +94,7 @@
   // easyDispenserCrafting
   "carpet.rule.easyDispenserCrafting.desc": "Dispensers can be crafted in full stacks with a dropper plus the raw materials of a bow",
   "carpet.rule.easyDispenserCrafting.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.easyDispenserCrafting.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)",
   // easyHarvesting
   "carpet.rule.easyHarvesting.desc": "Right clicking on fully grown crops harvests and immediately replants it",
   "carpet.rule.easyHarvesting.extra.0": "Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines",
@@ -117,12 +124,14 @@
   "carpet.rule.enderPearlWaterDrag.extra.0": "Thrown Pearl will stutter on client when mod is only on server",
   // foodInstantHeal
   "carpet.rule.foodInstantHeal.desc": "Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off",
-  "carpet.rule.foodInstantHeal.extra.0": "Recommended using with peacefulHunger",
+  "carpet.rule.foodInstantHeal.extra.0": "Recommended to combine with peacefulHunger",
+  "carpet.rule.foodInstantHeal.additional": "Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)",
   // gravelCrushing
   "carpet.rule.gravelCrushing.desc": "Gravel crushed by a falling Anvil will convert into Sand",
   // honeyCombStickiness
   "carpet.rule.honeyCombStickiness.desc": "Honey Comb only sticks to selected Blocks",
   "carpet.rule.honeyCombStickiness.extra.0": "Will render Ghost Blocks on the Client when mod is only Server Side",
+  "carpet.rule.honeyCombStickiness.additional": "[Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)",
   // infiniteLavaSources
   "carpet.rule.infiniteLavaSources.desc": "Lava creates infinite sources like Water",
   // infinityNeedsArrow
@@ -139,6 +148,7 @@
   // maxBannerLayers
   "carpet.rule.maxBannerLayers.desc": "Maximum number of layers, that can be applied to a banner",
   "carpet.rule.maxBannerLayers.extra.0": "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
+  "carpet.rule.maxBannerLayers.additional": "[Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)",
   // missingCobbleRecipes
   "carpet.rule.missingCobbleRecipes.desc": "Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone",
   "carpet.rule.missingCobbleRecipes.extra.0": "Expect a lag spike when changing the value",
@@ -148,6 +158,7 @@
   // moreFortressSpawningBlocks
   "carpet.rule.moreFortressSpawningBlocks.desc": "What blocks Fortress mobs can spawn on inside the bigger Bounding Box",
   "carpet.rule.moreFortressSpawningBlocks.extra.0": "off: nether bricks only / more: (red) nether bricks, netherrack, soul sand/soil, packed/blue ice, gravel, magma blocks / all: all",
+  "carpet.rule.moreFortressSpawningBlocks.additional": "[Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/182)",
   // netherrackGeneration
   "carpet.rule.netherrackGeneration.desc": "Netherrack is generated instead of Cobblestone if a Magma Block is below",
   // noCreeperGriefing
@@ -160,14 +171,18 @@
   "carpet.rule.oldFishingLoot.desc": "Reverts the fishing loot to how it was before 1.16",
   // peacefulHunger
   "carpet.rule.peacefulHunger.desc": "Players do not lose any hunger like in peaceful mode",
+  "carpet.rule.peacefulHunger.additional": "Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)",
   // playerHeadDrops
   "carpet.rule.playerHeadDrops.desc": "Players drop their head",
+  "carpet.rule.playerHeadDrops.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)",
   // powderToGlassSmelting
   "carpet.rule.powderToGlassSmelting.desc": "Concrete Powder can be smelted to Glass of the corresponding color",
   "carpet.rule.powderToGlassSmelting.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.powderToGlassSmelting.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)",
   // reachDistance
   "carpet.rule.reachDistance.desc": "Reach in which you can place and break blocks. Value will be 0.5 higher in creative",
   "carpet.rule.reachDistance.extra.0": "Mod needed on server and client for this feature to work",
+  "carpet.rule.reachDistance.additional": "Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed",
   // redstoneLampTurnOffDelay
   "carpet.rule.redstoneLampTurnOffDelay.desc": "Delay in game ticks for Redstone Lamps to turn off",
   // sculkBlocksAlwaysDropXp
@@ -176,8 +191,10 @@
   // shapelessCrafting
   "carpet.rule.shapelessCrafting.desc": "Bread, Paper and Shulker Boxes can be crafted in a 2x2 field",
   "carpet.rule.shapelessCrafting.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.shapelessCrafting.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)",
   // silenceMobs
   "carpet.rule.silenceMobs.desc": "Mobs named with 'silence_me' stop making noise",
+  "carpet.rule.silenceMobs.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)",
   // silkTouchBuddingAmethysts
   "carpet.rule.silkTouchBuddingAmethysts.desc": "Mining Budding Amethysts with a Silk Touch tool will drop itself",
   // silkTouchFarmland
@@ -188,6 +205,7 @@
   "carpet.rule.silkTouchSpawners.desc": "Mining Spawners with a Silk Touch tool will drop itself",
   // slimeChunkPercentage
   "carpet.rule.slimeChunkPercentage.desc": "The percentage of chunks that are Slime chunks",
+  "carpet.rule.slimeChunkPercentage.additional": "[Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)",
   // smokerGreenDye
   "carpet.rule.smokerGreenDye.desc": "Cacti can be cooked into Green Dye in a Smoker. XP override of cactusFurnaceXp still applies",
   "carpet.rule.smokerGreenDye.extra.0": "Expect a lag spike when changing the value",
@@ -206,17 +224,21 @@
   "carpet.rule.stonecutterDamage.desc": "How much damage Stonecutters deal when stepping on them",
   // strictShulkerShells
   "carpet.rule.strictShulkerShells.desc": "Shulkers always drop a given amount of shulker shells when killed",
+  "carpet.rule.strictShulkerShells.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/datapacks/)",
   // tallPlantNoUpdate
   "carpet.rule.tallPlantNoUpdate.desc": "Tall Plants do not update blocks around the top part if the bottom half got broken",
   "carpet.rule.tallPlantNoUpdate.extra.0": "Old Bug: MC-31038",
+  "carpet.rule.tallPlantNoUpdate.additional": "[Idea from DragonEggBedrockBreaking](https://github.com/gnembon/carpet-extra/issues/185)",
   // tameCatsWithCookedFish
   "carpet.rule.tameCatsWithCookedFish.desc": "Cats can also be tamed with cooked Cod and Salmon, not just with raw",
   // universalDyeing
   "carpet.rule.universalDyeing.desc": "Allows to dye already dyed things and clean Glass, Glass Panes and Terracotta with a Water Bucket in the Crafting Table",
   "carpet.rule.universalDyeing.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.universalDyeing.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)",
   // unpackableAmethysts
   "carpet.rule.unpackableAmethysts.desc": "Amethyst Blocks can be crafted into set amount of Amethyst Shards",
   "carpet.rule.unpackableAmethysts.extra.0": "Expect a lag spike when changing the value",
+  "carpet.rule.unpackableAmethysts.additional": "Idea from [NAPPUS](https://github.com/MultiCoreNetwork/carpet-redcraft-addons/issues/79)",
   // unpackableIce
   "carpet.rule.unpackableIce.desc": "Blue Ice and Packed Ice can be crafted into set amount of Packed Ice and Normal Ice accordingly",
   "carpet.rule.unpackableIce.extra.0": "Expect a lag spike when changing the value",

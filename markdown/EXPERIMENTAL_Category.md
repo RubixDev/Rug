@@ -43,7 +43,7 @@ Custom amount of packed ice crushed by falling anvils make one blue ice.
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+  - From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)
 
 ### anvilledIce
 Custom amount of frosted ice crushed by falling anvils make one ice. Allows for new type of ice farm.
@@ -53,7 +53,7 @@ Custom amount of frosted ice crushed by falling anvils make one ice. Allows for 
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+  - From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)
 
 ### anvilledPackedIce
 Custom amount of ice crushed by falling anvils make one packed ice.
@@ -63,7 +63,7 @@ Custom amount of ice crushed by falling anvils make one packed ice.
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 32
-  - From [QuickCarpet](https://github.com/DeadlyMC/QuickCarpet114)
+  - From [QuickCarpet](https://github.com/QuickCarpet/QuickCarpet)
 
 ### basaltToBlackstoneConversion
 Basalt converts to Blackstone if next to both Lava and Water
@@ -139,7 +139,7 @@ Thrown Pearl will stutter on client when mod is only on server
 ### foodInstantHeal
 Food heals hearts not hunger like in the first MC versions and naturalRegeneration is off
 
-Recommended using with peacefulHunger
+Recommended to combine with peacefulHunger
 - Type: `boolean`
 - Default value: `false`
 - Required options: `true`, `false`
@@ -232,7 +232,7 @@ Mod needed on server and client for this feature to work
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
-  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
+  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### silkTouchBuddingAmethysts
 Mining Budding Amethysts with a Silk Touch tool will drop itself

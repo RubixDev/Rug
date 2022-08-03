@@ -13,15 +13,16 @@ with open(SETTINGS['languageFile'], 'r') as lang_file:
         r'^\s*//.*$', re.MULTILINE).sub('', lang_file.read())
     descriptions_raw: dict[str, any] = json.loads(contents)
 # DESCRIPTIONS has following structure:
-# { "ruleName": { "desc": "...", "extra": ["...", "..."] } }
+# { "ruleName": { "desc": "...", "extra": ["...", "..."], "additional": "..." } }
 DESCRIPTIONS: dict[str, dict] = {}
 for k, v in descriptions_raw.items():
     rule_name = re.compile(
-        r'carpet\.rule\.(\w+)\.(?:desc|extra\.\d+)').search(k).group(1)
+        r'carpet\.rule\.(\w+)\.(?:desc|extra\.\d+|additional)').search(k).group(1)
     if rule_name not in DESCRIPTIONS.keys():
         DESCRIPTIONS[rule_name] = {
             'desc': '',
             'extra': [],
+            'additional': None,
         }
     if k.endswith('.desc'):
         DESCRIPTIONS[rule_name]['desc'] = v
@@ -30,6 +31,8 @@ for k, v in descriptions_raw.items():
         while len(DESCRIPTIONS[rule_name]['extra']) <= index:
             DESCRIPTIONS[rule_name]['extra'].append('')
         DESCRIPTIONS[rule_name]['extra'][index] = v
+    elif k.endswith('.additional'):
+        DESCRIPTIONS[rule_name]['additional'] = v
     else:
         print(f'\x1b[1;33mWarning: unknown key {k} in language file\x1b[0m')
 
@@ -99,6 +102,7 @@ def read_rules() -> list[Rule]:
 
         rule.desc = DESCRIPTIONS[rule.name]['desc']
         rule.extra = DESCRIPTIONS[rule.name]['extra']
+        rule.additional = DESCRIPTIONS[rule.name]['additional']
         if 'options' in attr_dict.keys():
             rule.options = [re.sub(r'\s|\n', '', option)[
                 1:-1] for option in re.compile(r',\s|,\n').split(attr_dict['options'][1:-1])]
@@ -115,11 +119,6 @@ def read_rules() -> list[Rule]:
             validator: str = attr_dict['validators'].replace('.class', '')
             rule.restriction = settings_string.split(
                 f'class {validator} extends')[1].split('"')[1]
-        found_additional: list[str] = settings_string.split(
-            f'// {rule.name}Additional: ')
-        if len(found_additional) > 1:
-            rule.additional = re.sub(
-                r'\n\s+?//\s?', ' ', found_additional[1].split(':::')[0])
 
         rules.append(rule)
         print(f'Successfully parsed {rule.name}')

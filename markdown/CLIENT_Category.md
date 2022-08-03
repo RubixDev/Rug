@@ -79,7 +79,7 @@ Mod needed on server and client for this feature to work
 - Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
 - Additional notes:
   - You must choose a value from 0 to 100
-  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed
+  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
