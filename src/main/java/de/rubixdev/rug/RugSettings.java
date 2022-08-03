@@ -178,10 +178,15 @@ public class RugSettings {
         }
     }
 
+    public static boolean shouldApplyReachDistance() {
+        return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes")
+                && !FabricLoader.getInstance().isModLoaded("pehkui");
+    }
+
     public static class conditionReachDistance implements Condition {
         @Override
         public boolean shouldRegister() {
-            return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes");
+            return shouldApplyReachDistance();
         }
     }
 
@@ -193,7 +198,8 @@ public class RugSettings {
             categories = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
     public static double reachDistance = 4.5;
     // reachDistanceAdditional: Is disabled when
-    // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) is installed:::
+    // [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or
+    // [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed:::
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
         @Override

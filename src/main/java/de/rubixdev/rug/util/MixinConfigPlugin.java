@@ -1,11 +1,9 @@
 package de.rubixdev.rug.util;
 
 import com.google.common.collect.Lists;
+import de.rubixdev.rug.RugSettings;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -32,8 +30,7 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
                 "de.rubixdev.rug.mixins.reach.VehicleInventoryMixin");
 
         if (reachDistanceMixins.contains(mixinClassName)) {
-            Optional<ModContainer> container = FabricLoader.getInstance().getModContainer("reach-entity-attributes");
-            return container.isEmpty();
+            return RugSettings.shouldApplyReachDistance();
         }
         return true;
     }
