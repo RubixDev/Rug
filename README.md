@@ -21,7 +21,7 @@ Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) a
 
 [![CarpetGamerules](https://github-readme-stats.vercel.app/api/pin/?username=RubixDev&repo=CarpetGamerules&theme=dracula&show_owner=true)](https://github.com/RubixDev/CarpetGamerules)
 
-[![CarpetConfigCreator](https://github-readme-stats.vercel.app/api/pin/?username=RubixDev&repo=CarpetConfigCreator&theme=dracula&show_owner=true)](https://github.com/RubixDev/CarpetConfigCreator)
+[![carpet-config-creator](https://github-readme-stats.vercel.app/api/pin/?username=RubixDev&repo=CarpetConfigCreator&theme=dracula&show_owner=true)](https://github.com/RubixDev/carpet-config-creator)
 ## Lists of Categories
 - [`BUGFIX`](markdown/BUGFIX_Category.md)
 - [`CLIENT`](markdown/CLIENT_Category.md)
