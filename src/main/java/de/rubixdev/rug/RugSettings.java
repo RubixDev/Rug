@@ -876,6 +876,9 @@ public class RugSettings {
 
     @Rule(categories = {CREATIVE, SURVIVAL, RUG})
     public static boolean snowMelting = true;
+
+    @Rule(categories = {CREATIVE, RUG})
+    public static boolean waterInNether = false;
 }
 
 // BUGFIX

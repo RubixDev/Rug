@@ -261,5 +261,7 @@
   // zeroTickPlants
   "carpet.rule.zeroTickPlants.desc": "Brings back the ability to force grow certain plants using 0-ticks",
   // zombifiedPiglinsSpawningInPortals
-  "carpet.rule.zombifiedPiglinsSpawningInPortals.desc": "Allows Zombified Piglins to spawn inside Nether Portals"
+  "carpet.rule.zombifiedPiglinsSpawningInPortals.desc": "Allows Zombified Piglins to spawn inside Nether Portals",
+  // waterInNether
+  "carpet.rule.waterInNether.desc": "Allow water placing and ice melting in ultrawarm dimensions"
 }
