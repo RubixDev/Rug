@@ -34,7 +34,6 @@
     "GhastEntityMixin",
     "HungerManagerMixin",
     "IceBlockMixin",
-    "LavaFluidMixin",
     "LilyPadBlockMixin",
     "LivingEntityMixin",
     "MobSpawnerBlockEntityMixin",
