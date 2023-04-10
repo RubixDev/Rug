@@ -102,13 +102,13 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public void registerCommands(
-            CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
+            CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
         SlimeChunkCommand.register(dispatcher);
         FrameCommand.register(dispatcher);
         SkullCommand.register(dispatcher);
         SudoCommand.register(dispatcher);
         PeekCommand.register(dispatcher);
-        MaxEffectCommand.register(dispatcher);
+        MaxEffectCommand.register(dispatcher, registryAccess);
         ModsCommand.register(dispatcher);
     }
 

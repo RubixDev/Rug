@@ -43,15 +43,13 @@ public class SudoCommand {
                                                 return 0;
                                             }
 
-                                            MessageArgumentType.SignedMessage signedMessage =
-                                                    MessageArgumentType.getSignedMessage(context, "message");
-                                            ServerCommandSource source = context.getSource();
-                                            signedMessage.decorate(
-                                                    source,
-                                                    decoratedMessage -> playerManager.broadcast(
-                                                            decoratedMessage,
-                                                            targetPlayer,
-                                                            MessageType.params(MessageType.CHAT, source)));
+                                            MessageArgumentType.getSignedMessage(context, "message", signedMessage -> {
+                                                ServerCommandSource source = context.getSource();
+                                                playerManager.broadcast(
+                                                        signedMessage,
+                                                        targetPlayer,
+                                                        MessageType.params(MessageType.CHAT, source));
+                                            });
                                             return 1;
                                         })))
                         .then(literal("command").redirect(dispatcher.getRoot(), context -> {

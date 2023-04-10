@@ -9,7 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FallingBlockEntity;
-import net.minecraft.tag.BlockTags;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
@@ -39,7 +39,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true)
     private void onTick(CallbackInfo ci, Block block, BlockPos pos) {
-        BlockPos posBelow = new BlockPos(this.getX(), this.getY() - 0.06, this.getZ());
+        BlockPos posBelow = this.getBlockPos().down();
         BlockState blockStateBelow = world.getBlockState(posBelow);
         Block blockBelow = blockStateBelow.getBlock();
 

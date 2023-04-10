@@ -8,24 +8,30 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import de.rubixdev.rug.RugSettings;
-import net.minecraft.command.argument.StatusEffectArgumentType;
+import net.minecraft.command.CommandRegistryAccess;
+import net.minecraft.command.argument.RegistryEntryArgumentType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
 public class MaxEffectCommand {
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public static void register(
+            CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
         LiteralArgumentBuilder<ServerCommandSource> command = literal("maxeffect")
                 .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMaxEffect))
-                .then(argument("effect", StatusEffectArgumentType.statusEffect())
+                .then(argument(
+                                "effect",
+                                RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.STATUS_EFFECT))
                         .executes(context -> {
                             ServerCommandSource source = context.getSource();
 
                             ServerPlayerEntity player = source.getPlayer();
-                            StatusEffect effect = StatusEffectArgumentType.getStatusEffect(context, "effect");
+                            StatusEffect effect = RegistryEntryArgumentType.getStatusEffect(context, "effect")
+                                    .value();
 
                             boolean success = false;
 

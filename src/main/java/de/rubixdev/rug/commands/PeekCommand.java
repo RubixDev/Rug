@@ -56,7 +56,7 @@ public class PeekCommand {
         ServerPlayerEntity executingPlayer = source.getPlayer();
 
         if (targetPlayer == null) {
-            targetPlayer = playerManager.createPlayer(targetPlayerProfile, null);
+            targetPlayer = playerManager.createPlayer(targetPlayerProfile);
             NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
 
             if (targetPlayerData == null) {

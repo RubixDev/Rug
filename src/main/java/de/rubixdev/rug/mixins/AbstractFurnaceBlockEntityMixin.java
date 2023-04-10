@@ -20,11 +20,15 @@ public abstract class AbstractFurnaceBlockEntityMixin {
 
     private static boolean isCactusRecipe;
 
-    @SuppressWarnings("rawtypes")
     @Inject(method = "method_17761", at = @At(value = "INVOKE", target = "java/util/List.add(Ljava/lang/Object;)Z"))
     private static void onSyntheticMethod_17761(
-            List list, ServerWorld world, Vec3d pos, Object2IntMap.Entry entry, Recipe recipe, CallbackInfo ci) {
-        if (recipe.getOutput().getItem() == Items.GREEN_DYE) {
+            List<?> list,
+            ServerWorld world,
+            Vec3d pos,
+            Object2IntMap.Entry<?> entry,
+            Recipe<?> recipe,
+            CallbackInfo ci) {
+        if (recipe.getOutput(world.getRegistryManager()).getItem() == Items.GREEN_DYE) {
             isCactusRecipe = true;
         }
     }

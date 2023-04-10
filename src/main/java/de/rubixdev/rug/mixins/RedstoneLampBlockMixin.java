@@ -33,7 +33,7 @@ public class RedstoneLampBlockMixin {
                     @At(
                             value = "INVOKE",
                             target =
-                                    "Lnet/minecraft/world/World;createAndScheduleBlockTick(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V"),
+                                    "Lnet/minecraft/world/World;scheduleBlockTick(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;I)V"),
             cancellable = true)
     private void onNeighborUpdate(
             BlockState state,

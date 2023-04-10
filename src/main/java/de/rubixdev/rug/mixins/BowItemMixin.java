@@ -19,9 +19,9 @@ public class BowItemMixin {
                     @At(
                             value = "INVOKE",
                             target =
-                                    "Lnet/minecraft/entity/player/PlayerEntity;getArrowType(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;"))
+                                    "Lnet/minecraft/entity/player/PlayerEntity;getProjectileType(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;"))
     private ItemStack onUse(PlayerEntity playerEntity, ItemStack stack) {
-        ItemStack arrowType = playerEntity.getArrowType(stack);
+        ItemStack arrowType = playerEntity.getProjectileType(stack);
         if (!RugSettings.infinityNeedsArrow
                 && arrowType.isEmpty()
                 && EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0) {

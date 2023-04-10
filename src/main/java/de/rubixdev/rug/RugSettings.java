@@ -711,9 +711,6 @@ public class RugSettings {
     @Rule(categories = {EXPERIMENTAL, FEATURE, SURVIVAL, RENEWABLE, RUG})
     public static boolean basaltToBlackstoneConversion = false;
 
-    @Rule(categories = {SURVIVAL, RENEWABLE, RUG})
-    public static boolean infiniteLavaSources = false;
-
     @Rule(categories = {FEATURE, SURVIVAL, RENEWABLE, RUG})
     public static boolean basaltToLavaConversion = false;
 
