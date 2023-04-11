@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class GameRendererMixin {
     @Shadow
     @Final
-    private MinecraftClient client;
+    MinecraftClient client;
 
     @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 1, constant = @Constant(doubleValue = 6.0))
     private double changeCreativeAttackRange(double baseReachDistance) {

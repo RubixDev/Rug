@@ -21,26 +21,24 @@ public abstract class PistonHandlerMixin {
     private static void onIsAdjacentBlockStuck(
             BlockState state, BlockState adjacentState, CallbackInfoReturnable<Boolean> cir) {
         switch (RugSettings.honeyCombStickiness) {
-            case "honey":
+            case "honey" -> {
                 if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.SLIME_BLOCK))
                         || (state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.SLIME_BLOCK))) {
                     cir.setReturnValue(false);
                 }
-                break;
-
-            case "slime":
+            }
+            case "slime" -> {
                 if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && state.isOf(Blocks.HONEY_BLOCK))
                         || (state.isOf(Blocks.HONEYCOMB_BLOCK) && adjacentState.isOf(Blocks.HONEY_BLOCK))) {
                     cir.setReturnValue(false);
                 }
-                break;
-
-            case "none":
+            }
+            case "none" -> {
                 if ((adjacentState.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(state))
                         || (state.isOf(Blocks.HONEYCOMB_BLOCK) && isBlockSticky(adjacentState))) {
                     cir.setReturnValue(false);
                 }
-                break;
+            }
         }
     }
 }
