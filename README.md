@@ -84,7 +84,6 @@ Count: 97
 - [foodInstantHeal](#foodinstantheal)
 - [gravelCrushing](#gravelcrushing)
 - [honeyCombStickiness](#honeycombstickiness)
-- [infiniteLavaSources](#infinitelavasources)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [itemFramesActivatePressurePlates](#itemframesactivatepressureplates)
 - [kelpBlockHardness](#kelpblockhardness)
@@ -130,6 +129,7 @@ Count: 97
 - [unpackableWool](#unpackablewool)
 - [villagersAlwaysConvert](#villagersalwaysconvert)
 - [villagersDropEmeralds](#villagersdropemeralds)
+- [waterInNether](#waterinnether)
 - [woodcutting](#woodcutting)
 - [zeroTickPlants](#zerotickplants)
 - [zombifiedPiglinsSpawningInPortals](#zombifiedpiglinsspawninginportals)
@@ -560,13 +560,6 @@ Will render Ghost Blocks on the Client when mod is only Server Side
 - Additional notes:
   - [Idea from DragonEggBedrockBreaking#0034](https://discord.com/channels/211786369951989762/573613501164159016/816793720011358208) on the [SciCraft Discord](https://discord.gg/scicraft)
 
-### infiniteLavaSources
-Lava creates infinite sources like Water
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
-
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in their inventory
 - Type: `boolean`
@@ -970,6 +963,13 @@ Villagers drop between 1 and x Emeralds on death, where x is the given number
 - Categories: `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - You must choose a value from 0 to 5
+
+### waterInNether
+Allow water placing and ice melting in ultrawarm dimensions
+- Type: `boolean`
+- Default value: `false`
+- Required options: `true`, `false`
+- Categories: `CREATIVE`, `RUG`
 
 ### woodcutting
 The Stonecutter can be used for all wood types

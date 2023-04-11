@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 71
+Count: 70
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [blastFurnaceGlass](#blastfurnaceglass)
@@ -35,7 +35,6 @@ Count: 71
 - [enderPearlDamage](#enderpearldamage)
 - [foodInstantHeal](#foodinstantheal)
 - [gravelCrushing](#gravelcrushing)
-- [infiniteLavaSources](#infinitelavasources)
 - [infinityNeedsArrow](#infinityneedsarrow)
 - [kelpBlockHardness](#kelpblockhardness)
 - [maxBannerLayers](#maxbannerlayers)
@@ -365,13 +364,6 @@ Gravel crushed by a falling Anvil will convert into Sand
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
-### infiniteLavaSources
-Lava creates infinite sources like Water
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### infinityNeedsArrow
 A Bow enchanted with Infinity needs the player to have an arrow in their inventory

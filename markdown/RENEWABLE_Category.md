@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 12
+Count: 11
 - [basaltToBlackstoneConversion](#basalttoblackstoneconversion)
 - [basaltToLavaConversion](#basalttolavaconversion)
 - [cobbleCrushing](#cobblecrushing)
@@ -13,7 +13,6 @@ Count: 12
 - [dragonDrops](#dragondrops)
 - [dragonEggConvertsCobbleToEndstone](#dragoneggconvertscobbletoendstone)
 - [gravelCrushing](#gravelcrushing)
-- [infiniteLavaSources](#infinitelavasources)
 - [netherrackGeneration](#netherrackgeneration)
 
 ## Rules in RENEWABLE Category
@@ -99,13 +98,6 @@ Gravel crushed by a falling Anvil will convert into Sand
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `FEATURE`, `RENEWABLE`, `RUG`, `SURVIVAL`
-
-### infiniteLavaSources
-Lava creates infinite sources like Water
-- Type: `boolean`
-- Default value: `false`
-- Required options: `true`, `false`
-- Categories: `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### netherrackGeneration
 Netherrack is generated instead of Cobblestone if a Magma Block is below

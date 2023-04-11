@@ -58,7 +58,6 @@ Count: 97
 - foodInstantHeal  
 - gravelCrushing  
 - honeyCombStickiness  
-- infiniteLavaSources  
 - infinityNeedsArrow  
 - itemFramesActivatePressurePlates  
 - kelpBlockHardness  
@@ -104,6 +103,7 @@ Count: 97
 - unpackableWool  
 - villagersAlwaysConvert  
 - villagersDropEmeralds  
+- waterInNether  
 - woodcutting  
 - zeroTickPlants  
 - zombifiedPiglinsSpawningInPortals  
