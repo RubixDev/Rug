@@ -143,8 +143,8 @@ jobs:
           name: "[${{ steps.getbranchinfo.outputs.display-version }}] Rug v${{ needs.get-properties.outputs.mod-version }}"
           version: ${{ needs.get-properties.outputs.mod-version }}+${{ steps.getbranchinfo.outputs.modrinth-mc-version }}
           changelog: "${{ github.event.release.body }}"
-          # fabric-api:required, cloth-config:optional, modmenu:optional
-          relations: P7dR8mSH:required,9s6osm5g:optional,mOgUt4GM:optional
+          # fabric-api:required, carpet:required
+          relations: P7dR8mSH:required,TQTTVgYE:required
           game_versions: ${{ steps.getbranchinfo.outputs.modrinth-versions }}
           release_type: ${{ needs.get-properties.outputs.release-type }}
           loaders: fabric
