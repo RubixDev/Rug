@@ -30,12 +30,12 @@ public abstract class PotionEntityMixin extends ThrownEntity {
                             ordinal = 0))
     private void ageCopper(BlockHitResult blockHitResult, CallbackInfo ci) {
         BlockPos blockPos = blockHitResult.getBlockPos();
-        BlockState blockState = this.world.getBlockState(blockPos);
+        BlockState blockState = this.getWorld().getBlockState(blockPos);
         Block block = blockState.getBlock();
 
         if (block instanceof Oxidizable && RugSettings.splashOxidize) {
             Optional<BlockState> oxidized = ((Oxidizable) block).getDegradationResult(blockState);
-            oxidized.ifPresent(state -> this.world.setBlockState(blockPos, state));
+            oxidized.ifPresent(state -> this.getWorld().setBlockState(blockPos, state));
         }
     }
 }

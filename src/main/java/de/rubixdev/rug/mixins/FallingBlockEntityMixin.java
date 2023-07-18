@@ -40,62 +40,68 @@ public abstract class FallingBlockEntityMixin extends Entity {
             cancellable = true)
     private void onTick(CallbackInfo ci, Block block, BlockPos pos) {
         BlockPos posBelow = this.getBlockPos().down();
-        BlockState blockStateBelow = world.getBlockState(posBelow);
+        BlockState blockStateBelow = getWorld().getBlockState(posBelow);
         Block blockBelow = blockStateBelow.getBlock();
 
         if (this.block.isIn(BlockTags.ANVIL)) {
             if (blockBelow == Blocks.FROSTED_ICE && RugSettings.anvilledIce > 0) {
                 if (++frostedIceCount < RugSettings.anvilledIce) {
-                    world.breakBlock(posBelow, false);
-                    onGround = false;
+                    getWorld().breakBlock(posBelow, false);
+                    setOnGround(false);
                     ci.cancel();
                 } else {
-                    world.breakBlock(posBelow, false);
-                    world.setBlockState(posBelow, Blocks.ICE.getDefaultState(), 3);
+                    getWorld().breakBlock(posBelow, false);
+                    getWorld().setBlockState(posBelow, Blocks.ICE.getDefaultState(), 3);
                 }
             } else if (blockBelow == Blocks.ICE && RugSettings.anvilledPackedIce > 0) {
                 if (++iceCount < RugSettings.anvilledPackedIce) {
-                    world.breakBlock(posBelow, false);
-                    onGround = false;
+                    getWorld().breakBlock(posBelow, false);
+                    setOnGround(false);
                     ci.cancel();
                 } else {
-                    world.breakBlock(posBelow, false);
-                    world.setBlockState(posBelow, Blocks.PACKED_ICE.getDefaultState(), 3);
+                    getWorld().breakBlock(posBelow, false);
+                    getWorld().setBlockState(posBelow, Blocks.PACKED_ICE.getDefaultState(), 3);
                 }
             } else if (blockBelow == Blocks.PACKED_ICE && RugSettings.anvilledBlueIce > 0) {
                 if (++packedIceCount < RugSettings.anvilledBlueIce) {
-                    world.breakBlock(posBelow, false);
-                    onGround = false;
+                    getWorld().breakBlock(posBelow, false);
+                    setOnGround(false);
                     ci.cancel();
                 } else {
-                    world.breakBlock(posBelow, false);
-                    world.setBlockState(posBelow, Blocks.BLUE_ICE.getDefaultState(), 3);
+                    getWorld().breakBlock(posBelow, false);
+                    getWorld().setBlockState(posBelow, Blocks.BLUE_ICE.getDefaultState(), 3);
                 }
             } else if (blockBelow == Blocks.COBBLESTONE && RugSettings.cobbleCrushing) {
-                world.breakBlock(posBelow, false);
-                world.setBlockState(posBelow, Blocks.GRAVEL.getDefaultState(), 3);
+                getWorld().breakBlock(posBelow, false);
+                getWorld().setBlockState(posBelow, Blocks.GRAVEL.getDefaultState(), 3);
             } else if (blockBelow == Blocks.GRAVEL && RugSettings.gravelCrushing) {
-                world.breakBlock(posBelow, false);
-                world.setBlockState(posBelow, Blocks.SAND.getDefaultState(), 3);
+                getWorld().breakBlock(posBelow, false);
+                getWorld().setBlockState(posBelow, Blocks.SAND.getDefaultState(), 3);
             }
         } else if (this.block.isOf(Blocks.DRAGON_EGG)) {
             String rugSetting = RugSettings.dragonEggConvertsCobbleToEndstone;
             if (blockBelow == Blocks.COBBLESTONE && (rugSetting.equals("both") || rugSetting.equals("on_landing"))) {
-                world.breakBlock(posBelow, false);
-                world.setBlockState(posBelow, Blocks.END_STONE.getDefaultState(), 3);
+                getWorld().breakBlock(posBelow, false);
+                getWorld().setBlockState(posBelow, Blocks.END_STONE.getDefaultState(), 3);
             }
         } else if ((this.block.isOf(Blocks.SAND) && blockStateBelow.isOf(Blocks.GRAVEL))
                 || (this.block.isOf(Blocks.GRAVEL) && blockStateBelow.isOf(Blocks.SAND))) {
-            BlockState concreteBlock = world.getBlockState(posBelow.down());
+            BlockState concreteBlock = getWorld().getBlockState(posBelow.down());
             if (isConcrete(concreteBlock) && RugSettings.concreteMixing) {
-                world.syncWorldEvent(
-                        WorldEvents.BLOCK_BROKEN, posBelow, Block.getRawIdFromState(Blocks.SAND.getDefaultState()));
-                world.syncWorldEvent(
-                        WorldEvents.BLOCK_BROKEN, posBelow, Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState()));
+                getWorld()
+                        .syncWorldEvent(
+                                WorldEvents.BLOCK_BROKEN,
+                                posBelow,
+                                Block.getRawIdFromState(Blocks.SAND.getDefaultState()));
+                getWorld()
+                        .syncWorldEvent(
+                                WorldEvents.BLOCK_BROKEN,
+                                posBelow,
+                                Block.getRawIdFromState(Blocks.GRAVEL.getDefaultState()));
 
                 Block powderBlock = getCorrespondingPowder(concreteBlock);
                 assert powderBlock != null;
-                world.setBlockState(posBelow, powderBlock.getDefaultState(), 3);
+                getWorld().setBlockState(posBelow, powderBlock.getDefaultState(), 3);
                 this.discard();
                 ci.cancel();
             }

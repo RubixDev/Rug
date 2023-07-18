@@ -31,7 +31,7 @@ public abstract class EnderDragonEntityMixin extends Entity {
                             ordinal = 1))
     private void onUpdatePostDeath(CallbackInfo ci) {
         String rugSetting = RugSettings.dragonDrops;
-        if (!rugSetting.equals("none") && this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+        if (!rugSetting.equals("none") && this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
             boolean dropAll = rugSetting.equals("all");
 
             if (rugSetting.contains("elytra") || dropAll) {

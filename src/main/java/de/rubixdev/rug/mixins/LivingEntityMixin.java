@@ -41,7 +41,7 @@ public abstract class LivingEntityMixin extends Entity {
 
         if (dyingEntity.getType().equals(EntityType.SHULKER)
                 && RugSettings.strictShulkerShells > 0
-                && dyingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+                && dyingEntity.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
             ItemStack stack = new ItemStack(Items.SHULKER_SHELL);
             stack.setCount(RugSettings.strictShulkerShells);
             dyingEntity.dropStack(stack);

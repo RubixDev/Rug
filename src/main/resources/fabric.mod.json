@@ -26,6 +26,7 @@
   "mixins": [
     "rug.mixins.json"
   ],
+  "accessWidener": "rug.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.6",

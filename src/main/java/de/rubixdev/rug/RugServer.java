@@ -26,12 +26,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CocoaBlock;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.NetherWartBlock;
+import net.minecraft.block.*;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
@@ -457,8 +452,13 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private static IntProperty getAgeProperty(Block block) {
-        if (block instanceof CropBlock) {
-            return ((CropBlock) block).getAgeProperty();
+        // UPDATE: check for new classes overriding CropBlock.getAgeProperty()
+        if (block instanceof BeetrootsBlock) {
+            return BeetrootsBlock.AGE;
+        } else if (block instanceof TorchflowerBlock) {
+            return TorchflowerBlock.AGE;
+        } else if (block instanceof CropBlock) {
+            return CropBlock.AGE;
         } else if (block instanceof NetherWartBlock) {
             return NetherWartBlock.AGE;
         } else if (block instanceof CocoaBlock) {

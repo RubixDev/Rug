@@ -47,7 +47,7 @@ public class MaxEffectCommand {
                             }
 
                             source.sendFeedback(
-                                    Text.translatable(
+                                    () -> Text.translatable(
                                             "commands.effect.give.success.single",
                                             effect.getName(),
                                             player.getDisplayName(),

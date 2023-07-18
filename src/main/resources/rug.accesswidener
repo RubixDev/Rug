@@ -1,0 +1,3 @@
+accessWidener v1 named
+
+accessible method net/minecraft/entity/Entity setWorld (Lnet/minecraft/world/World;)V
