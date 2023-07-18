@@ -876,6 +876,26 @@ public class RugSettings {
 
     @Rule(categories = {CREATIVE, RUG})
     public static boolean waterInNether = false;
+
+    public static class validatorMinecartMaxSpeedMultiplier extends Validator<Double> {
+        @Override
+        public Double validate(
+                ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 0.25 && newValue <= 4 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value between 0.25 and 4.0";
+        }
+    }
+
+    @Rule(
+            categories = {EXPERIMENTAL, RUG},
+            strict = false,
+            options = {"0.5", "1.0", "2.0", "4.0"},
+            validators = validatorMinecartMaxSpeedMultiplier.class)
+    public static double minecartMaxSpeedMultiplier = 1.0;
 }
 
 // BUGFIX

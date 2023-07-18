@@ -149,6 +149,8 @@
   "carpet.rule.maxBannerLayers.desc": "Maximum number of layers, that can be applied to a banner",
   "carpet.rule.maxBannerLayers.extra.0": "This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers",
   "carpet.rule.maxBannerLayers.additional": "[Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)",
+  // minecartMaxSpeedMultiplier
+  "carpet.rule.minecartMaxSpeedMultiplier.desc": "Maximum minecart speed multiplier",
   // missingCobbleRecipes
   "carpet.rule.missingCobbleRecipes.desc": "Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone",
   "carpet.rule.missingCobbleRecipes.extra.0": "Expect a lag spike when changing the value",
