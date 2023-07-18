@@ -52,4 +52,16 @@ public class SettingsManagerMixin {
         if (instance == null) return null;
         return instance.getCommandSource();
     }
+
+    @Redirect(
+            method = "disableBooleanCommands",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/server/MinecraftServer;getCommandSource()Lnet/minecraft/server/command/ServerCommandSource;"))
+    private ServerCommandSource catchNullServer2(MinecraftServer instance) {
+        if (instance == null) return null;
+        return instance.getCommandSource();
+    }
 }
