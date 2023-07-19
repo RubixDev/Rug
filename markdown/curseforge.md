@@ -9,7 +9,7 @@ Extension for [gnembon's Carpet Mod](https://www.curseforge.com/minecraft/mc-mod
 If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues) (preferred) or here in the comments.
 
 ## List of implemented Rules
-Count: 97  
+Count: 98  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -64,6 +64,7 @@ Count: 97
 - lilyPadsOnCauldron  
 - longerRepeaters  
 - maxBannerLayers  
+- minecartMaxSpeedMultiplier  
 - missingCobbleRecipes  
 - moreBarkCrafting  
 - moreFortressSpawningBlocks  

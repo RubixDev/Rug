@@ -35,7 +35,7 @@ Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) a
 - [`TNT`](markdown/TNT_Category.md)
 
 ## Index
-Count: 97
+Count: 98
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -90,6 +90,7 @@ Count: 97
 - [lilyPadsOnCauldron](#lilypadsoncauldron)
 - [longerRepeaters](#longerrepeaters)
 - [maxBannerLayers](#maxbannerlayers)
+- [minecartMaxSpeedMultiplier](#minecartmaxspeedmultiplier)
 - [missingCobbleRecipes](#missingcobblerecipes)
 - [moreBarkCrafting](#morebarkcrafting)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
@@ -610,6 +611,15 @@ This only works for clients with this mod installed and the Banner tooltips neve
 - Additional notes:
   - You must choose a value from 3 to 16
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
+### minecartMaxSpeedMultiplier
+Maximum minecart speed multiplier
+- Type: `double`
+- Default value: `1.0`
+- Suggested options: `0.5`, `1.0`, `2.0`, `4.0`
+- Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value between 0.25 and 4.0
 
 ### missingCobbleRecipes
 Adds missing recipes for allowing blackstone and cobbled deepslate in place of cobblestone

@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 29
+Count: 30
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -20,6 +20,7 @@ Count: 29
 - [kelpBlockHardness](#kelpblockhardness)
 - [longerRepeaters](#longerrepeaters)
 - [maxBannerLayers](#maxbannerlayers)
+- [minecartMaxSpeedMultiplier](#minecartmaxspeedmultiplier)
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [netherrackGeneration](#netherrackgeneration)
 - [peacefulHunger](#peacefulhunger)
@@ -194,6 +195,15 @@ This only works for clients with this mod installed and the Banner tooltips neve
 - Additional notes:
   - You must choose a value from 3 to 16
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
+
+### minecartMaxSpeedMultiplier
+Maximum minecart speed multiplier
+- Type: `double`
+- Default value: `1.0`
+- Suggested options: `0.5`, `1.0`, `2.0`, `4.0`
+- Categories: `EXPERIMENTAL`, `RUG`
+- Additional notes:
+  - You must choose a value between 0.25 and 4.0
 
 ### moreFortressSpawningBlocks
 What blocks Fortress mobs can spawn on inside the bigger Bounding Box

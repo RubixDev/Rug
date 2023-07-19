@@ -7,7 +7,7 @@ Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) a
 **Visit the [GitHub page](https://github.com/RubixDev/Rug) for a more detailed explanation of all features.**
 
 ## List of implemented Rules
-Count: 97
+Count: 98
 - anvilledBlueIce
 - anvilledIce
 - anvilledPackedIce
@@ -62,6 +62,7 @@ Count: 97
 - lilyPadsOnCauldron
 - longerRepeaters
 - maxBannerLayers
+- minecartMaxSpeedMultiplier
 - missingCobbleRecipes
 - moreBarkCrafting
 - moreFortressSpawningBlocks
