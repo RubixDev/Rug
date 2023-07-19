@@ -25,6 +25,8 @@ public class MinecraftServerMixin {
             boolean safeMode,
             FeatureSet enabledFeatures,
             CallbackInfoReturnable<DataConfiguration> cir) {
+        // if no session exists yet (still in world creation screen), then do nothing
+        if (Storage.session == null) return;
         // make Carpet load the config file early
         CarpetServer.settingsManager.attachServer(null);
         // initialize `RugData` datapack

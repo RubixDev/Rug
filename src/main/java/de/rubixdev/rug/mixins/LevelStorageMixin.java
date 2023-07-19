@@ -13,4 +13,10 @@ public class LevelStorageMixin {
     private void storeSession(String directoryName, CallbackInfoReturnable<LevelStorage.Session> cir) {
         Storage.session = cir.getReturnValue();
     }
+
+    @Inject(method = "createSessionWithoutSymlinkCheck", at = @At("RETURN"))
+    private void storeSessionWithoutSymlinkCheck(
+            String directoryName, CallbackInfoReturnable<LevelStorage.Session> cir) {
+        Storage.session = cir.getReturnValue();
+    }
 }
