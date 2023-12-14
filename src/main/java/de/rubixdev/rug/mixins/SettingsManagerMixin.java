@@ -1,11 +1,16 @@
 package de.rubixdev.rug.mixins;
 
+import carpet.api.settings.CarpetRule;
 import carpet.api.settings.SettingsManager;
 import carpet.utils.Messenger;
 import carpet.utils.Translations;
 import de.rubixdev.rug.RugServer;
 import de.rubixdev.rug.util.Storage;
 import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.WorldSavePath;
@@ -63,5 +68,17 @@ public class SettingsManagerMixin {
     private ServerCommandSource catchNullServer2(MinecraftServer instance) {
         if (instance == null) return null;
         return instance.getCommandSource();
+    }
+
+    @Redirect(
+            method = "loadConfigurationFromConf",
+            at = @At(value = "INVOKE", target = "Ljava/util/Map;values()Ljava/util/Collection;"),
+            remap = false)
+    private Collection<CarpetRule<?>> skipReset(Map<String, CarpetRule<?>> instance) {
+        // Skip resetting rules to default to allow reading from both carpet.conf and rug.conf.
+        // We are only allowed to do this because carpet.conf will always be read first, which already
+        // resets all rules to their defaults. (Otherwise settings could persist between worlds)
+        // TODO: this assumes that no Rug rules are overwritten by another extension in the CarpetServer.settingsManager
+        return (Object) this == RugServer.settingsManager ? Collections.emptyList() : instance.values();
     }
 }

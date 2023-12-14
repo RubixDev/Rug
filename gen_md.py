@@ -30,7 +30,7 @@ with open(LANGUAGE_FILE, 'r') as lang_file:
 DESCRIPTIONS: dict[str, dict] = {}
 for k, v in descriptions_raw.items():
     rule_name = (
-        re.compile(r'carpet\.rule\.(\w+)\.(?:desc|extra\.\d+|additional)')
+        re.compile(r'rug\.rule\.(\w+)\.(?:desc|extra\.\d+|additional)')
         .search(k)
         .group(1)
     )

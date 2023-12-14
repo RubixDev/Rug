@@ -27,8 +27,9 @@ public class MinecraftServerMixin {
             CallbackInfoReturnable<DataConfiguration> cir) {
         // if no session exists yet (still in world creation screen), then do nothing
         if (Storage.session == null) return;
-        // make Carpet load the config file early
+        // make Carpet load the config file(s) early
         CarpetServer.settingsManager.attachServer(null);
+        RugServer.settingsManager.attachServer(null);
         // initialize `RugData` datapack
         RugServer.initializeRugData(Storage.session.getDirectory(WorldSavePath.DATAPACKS));
     }

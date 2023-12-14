@@ -4,6 +4,7 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.api.settings.CarpetRule;
 import carpet.api.settings.RuleHelper;
+import carpet.api.settings.SettingsManager;
 import carpet.script.Module;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
@@ -19,10 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -58,10 +56,10 @@ import org.jetbrains.annotations.Nullable;
 
 public class RugServer implements CarpetExtension, ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Rug");
-
     public static final String MOD_ID = "rug";
-//    public static final String MOD_NAME;
+    public static final String MOD_NAME;
     public static final String MOD_VERSION;
+    public static SettingsManager settingsManager;
 
     private static MinecraftServer minecraftServer;
     private static Path datapackPath;
@@ -71,9 +69,9 @@ public class RugServer implements CarpetExtension, ModInitializer {
                 .getModContainer(MOD_ID)
                 .orElseThrow(RuntimeException::new)
                 .getMetadata();
-//        MOD_NAME = metadata.getName();
+        MOD_NAME = metadata.getName();
         MOD_VERSION = metadata.getVersion().getFriendlyString();
-//        settingsManager = new SettingsManager(MOD_VERSION, MOD_ID, MOD_NAME);
+        settingsManager = new SettingsManager(MOD_VERSION, MOD_ID, MOD_NAME);
     }
 
     @Override
@@ -87,9 +85,16 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     @Override
+    public SettingsManager extensionSettingsManager() {
+        return settingsManager;
+    }
+
+    @Override
     public void onGameStarted() {
         LOGGER.info("Rug Mod v" + MOD_VERSION + " loaded!");
 
+        // load rules into both settings managers
+        settingsManager.parseSettingsClass(RugSettings.class);
         CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
     }
 
@@ -107,8 +112,17 @@ public class RugServer implements CarpetExtension, ModInitializer {
         } catch (IOException e) {
             return Collections.emptyMap();
         }
-        Gson gson = new Gson();
-        return gson.fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
+
+        // create translation keys for both Carpet and Rug settingsManagers
+        Map<String, String> map = new Gson().fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
+        Map<String, String> map2 = new HashMap<>();
+        map.forEach((key, value) -> {
+            map2.put(key, value);
+            if(key.startsWith("rug.rule.")) {
+                map2.put(key.replace("rug.rule.", "carpet.rule."), value);
+            }
+        });
+        return map2;
     }
 
     @Override
@@ -268,7 +282,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
             if (craftingRule == null) continue;
             String ruleName = craftingRule.name().isEmpty() ? f.getName() : craftingRule.name();
             updateCraftingRule(
-                    CarpetServer.settingsManager.getCarpetRule(ruleName),
+                    settingsManager.getCarpetRule(ruleName),
                     craftingRule.recipes(),
                     craftingRule.recipeNamespace(),
                     ruleName);
@@ -276,14 +290,16 @@ public class RugServer implements CarpetExtension, ModInitializer {
     }
 
     private static void registerCraftingRule(String ruleName, String[] recipes, String recipeNamespace) {
-        updateCraftingRule(CarpetServer.settingsManager.getCarpetRule(ruleName), recipes, recipeNamespace, ruleName);
+        updateCraftingRule(settingsManager.getCarpetRule(ruleName), recipes, recipeNamespace, ruleName);
 
-        CarpetServer.settingsManager.registerRuleObserver((source, rule, s) -> {
+        SettingsManager.RuleObserver observer = (source, rule, s) -> {
             if (rule.name().equals(ruleName)) {
                 updateCraftingRule(rule, recipes, recipeNamespace, ruleName);
                 reload();
             }
-        });
+        };
+        settingsManager.registerRuleObserver(observer);
+        CarpetServer.settingsManager.registerRuleObserver(observer);
     }
 
     private static void updateCraftingRule(
