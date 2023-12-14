@@ -1,14 +1,14 @@
-# Rug Mod
+# Rug
 
-[![Fabric API](https://raw.githubusercontent.com/RubixDev/Rug/1.17/fabric-api.png)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
+[![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_vector.svg)](https://modrinth.com/mod/fabric-api)
 
-Extension for [gnembon's Carpet Mod](https://www.curseforge.com/minecraft/mc-mods/carpet) adding loads more rules
+Extension for [gnembon's Carpet Mod](https://modrinth.com/mod/carpet) adding loads more rules
 
 **Visit the [GitHub page](https://github.com/RubixDev/Rug) for a more detailed explanation of all features.**
 
-If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues) (preferred) or here in the comments.
+If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues).
 
-## List of implemented Rules
+## List of available Settings
 Count: 98  
 - anvilledBlueIce  
 - anvilledIce  

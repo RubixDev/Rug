@@ -1,12 +1,14 @@
-# Rug Mod
+# Rug
 
-[![Fabric API](https://raw.githubusercontent.com/RubixDev/Rug/1.17/fabric-api.png)](https://modrinth.com/mod/fabric-api)
+[![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_vector.svg)](https://modrinth.com/mod/fabric-api)
 
-Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) adding loads more rules
+Extension for [gnembon's Carpet Mod](https://modrinth.com/mod/carpet) adding loads more rules
 
 **Visit the [GitHub page](https://github.com/RubixDev/Rug) for a more detailed explanation of all features.**
 
-## List of implemented Rules
+If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues).
+
+## List of available settings
 Count: 98
 - anvilledBlueIce
 - anvilledIce

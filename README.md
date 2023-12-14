@@ -1,4 +1,4 @@
-# Rug Mod for Fabric
+# Rug
 
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/VishnYFF?style=for-the-badge&logo=modrinth&label=Modrinth%20Downloads&color=00af5c)](https://modrinth.com/mod/rug)
 [![GitHub Downloads](https://img.shields.io/github/downloads/RubixDev/Rug/total?style=for-the-badge&logo=github&label=GitHub%20Downloads&color=753fc7)](https://github.com/RubixDev/Rug/releases)
@@ -6,7 +6,7 @@
 
 ![Icon](src/main/resources/assets/rug/icon.png)
 
-[![Fabric API](fabric-api.png)](https://modrinth.com/mod/fabric-api)
+[![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/requires/fabric-api_vector.svg)](https://modrinth.com/mod/fabric-api)
 
 Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) adding loads more rules
 
