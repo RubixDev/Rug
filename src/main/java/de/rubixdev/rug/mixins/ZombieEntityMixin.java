@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(ZombieEntity.class)
+@Mixin(value = ZombieEntity.class, priority = 990)
 public class ZombieEntityMixin {
     @Redirect(
             method = "onKilledOther",
@@ -17,7 +17,7 @@ public class ZombieEntityMixin {
                             value = "INVOKE",
                             target =
                                     "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;"),
-            require = 0 // Compatability with minitweaks
+            require = 0 // Compatability with minitweaks and VillagerTweaks
             )
     private Difficulty allowConversion(ServerWorld world) {
         if (RugSettings.villagersAlwaysConvert && world.getDifficulty() != Difficulty.PEACEFUL) {
