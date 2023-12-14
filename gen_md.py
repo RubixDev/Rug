@@ -17,7 +17,7 @@ CURSEFORGE_HEADER = './markdown/CurseForge-header.md'
 MODRINTH_HEADER = './markdown/Modrinth-header.md'
 
 if not os.path.isfile(LANGUAGE_FILE):
-    subprocess.Popen(['./gradlew', f':{main_version}:build'])
+    subprocess.Popen(['./gradlew', f':{main_version}:build']).wait()
 
 with open(LANGUAGE_FILE, 'r') as lang_file:
     # Remove lines with comments

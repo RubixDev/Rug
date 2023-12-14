@@ -1,13 +1,8 @@
 # Rug Mod for Fabric
 
-[![GitHub all releases](https://img.shields.io/github/downloads/RubixDev/Rug/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases)
-[![GitHub release (latest by date)](https://img.shields.io/github/downloads/RubixDev/Rug/latest/total?style=for-the-badge)](https://github.com/RubixDev/Rug/releases/latest)
-[![License](https://img.shields.io/github/license/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/issues?q=is%3Aissue+is%3Aclosed)
-[![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug/files)
-[![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug)
-[![Modrinth](https://img.shields.io/modrinth/dt/rug?label=Modrinth%20downloads&style=for-the-badge)](https://modrinth.com/mod/rug)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/VishnYFF?style=for-the-badge&logo=modrinth&label=Modrinth%20Downloads&color=00af5c)](https://modrinth.com/mod/rug)
+[![GitHub Downloads](https://img.shields.io/github/downloads/RubixDev/Rug/total?style=for-the-badge&logo=github&label=GitHub%20Downloads&color=753fc7)](https://github.com/RubixDev/Rug/releases)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/449938?style=for-the-badge&logo=curseforge&label=CurseForge%20Downloads&color=e04e14)](https://www.curseforge.com/minecraft/mc-mods/Rug/files)
 
 ![Icon](src/main/resources/assets/rug/icon.png)
 
