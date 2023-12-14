@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -25,8 +26,11 @@ public abstract class FallingBlockEntityMixin extends Entity {
     @Shadow
     private BlockState block;
 
+    @Unique
     private int frostedIceCount;
+    @Unique
     private int iceCount;
+    @Unique
     private int packedIceCount;
 
     public FallingBlockEntityMixin(EntityType<?> type, World world) {
@@ -108,6 +112,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
         }
     }
 
+    @Unique
     private boolean isConcrete(BlockState blockState) {
         List<BlockState> concreteBlocks = Lists.newArrayList(
                 Blocks.WHITE_CONCRETE.getDefaultState(),
@@ -130,6 +135,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
         return concreteBlocks.contains(blockState);
     }
 
+    @Unique
     private Block getCorrespondingPowder(BlockState concreteBlock) {
         if (concreteBlock.isOf(Blocks.WHITE_CONCRETE)) {
             return Blocks.WHITE_CONCRETE_POWDER;

@@ -48,8 +48,9 @@ public class SkullCommand {
 
         if (count == 0) count = 1;
 
-        return manager.executeWithPrefix(
+        manager.executeWithPrefix(
                 source, "give " + playerName + " minecraft:player_head{SkullOwner:" + skullOwner + "} " + count);
+        return 1;
     }
 
     private static Collection<String> getPlayers(ServerCommandSource source) {

@@ -2,13 +2,13 @@
   "required": true,
   "minVersion": "0.8",
   "package": "de.rubixdev.rug.mixins",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "{{COMPATIBILITY_LEVEL}}",
   "plugin": "de.rubixdev.rug.util.MixinConfigPlugin",
   "mixins": [
     "AbsractBlockStateMixin",
     "AbstractBlockMixin",
     "AbstractCauldronBlockMixin",
-    "AbstractFurnaceBlockEntityMixin",
+    "AbstractCookingRecipeMixin",
     "AbstractMinecartEntityMixin",
     "AbstractPlantStemBlockMixin",
     "AbstractPressurePlateBlockMixin",
@@ -74,12 +74,12 @@
     "reach.ServerPlayNetworkHandlerMixin",
     "reach.VehicleInventoryMixin"
   ],
-  "injectors": {
-    "defaultRequire": 1
-  },
   "client": [
     "LoomScreenMixin",
     "reach.ClientPlayerInteractionManagerMixin",
     "reach.GameRendererMixin"
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

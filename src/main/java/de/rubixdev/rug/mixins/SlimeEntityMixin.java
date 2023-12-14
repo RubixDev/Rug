@@ -10,6 +10,7 @@ import net.minecraft.util.math.random.ChunkRandom;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -17,7 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SlimeEntity.class)
 public class SlimeEntityMixin {
+    @Unique
     private static BlockPos blockPos;
+    @Unique
     private static WorldAccess worldAccess;
 
     @Inject(method = "canSpawn", at = @At("HEAD"))

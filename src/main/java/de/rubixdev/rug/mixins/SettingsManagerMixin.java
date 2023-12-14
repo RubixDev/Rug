@@ -26,7 +26,7 @@ public class SettingsManagerMixin {
             remap = false)
     private void printRugVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
         Messenger.m(
-                source, "g Rug Mod ", "g " + Translations.tr("ui.version", "version") + ": ", "g " + RugServer.VERSION);
+                source, "g Rug Mod ", "g " + Translations.tr("ui.version", "version") + ": ", "g " + RugServer.MOD_VERSION);
     }
 
     @Redirect(

@@ -285,7 +285,7 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it
+Right-clicking on fully grown crops harvests and immediately replants it
 
 Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`

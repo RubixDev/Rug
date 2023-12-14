@@ -10,7 +10,6 @@ import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.RegistryEntryArgumentType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.RegistryKeys;
@@ -35,7 +34,7 @@ public class MaxEffectCommand {
 
                             boolean success = false;
 
-                            if (player instanceof LivingEntity) {
+                            if (player != null) {
                                 StatusEffectInstance statusEffectInstance = new StatusEffectInstance(
                                         effect, effect.isInstant() ? 999999 : (999999 * 20), 255, false, false);
                                 success = (player).addStatusEffect(statusEffectInstance, source.getEntity());
@@ -50,8 +49,8 @@ public class MaxEffectCommand {
                                     () -> Text.translatable(
                                             "commands.effect.give.success.single",
                                             effect.getName(),
-                                            player.getDisplayName(),
-                                            999999),
+                                            player.getDisplayName()
+                                    ),
                                     true);
 
                             return 1;

@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,7 +38,9 @@ public abstract class WorldMixin {
     public abstract boolean setBlockStateWithBlockEntity(
             BlockPos blockPos_1, BlockState blockState_1, BlockEntity newBlockEntity, int int_1);
 
+    @Unique
     private boolean shouldOverwrite;
+    @Unique
     private boolean lowerWasFirst;
 
     @Inject(method = "breakBlock", at = @At("HEAD"))
@@ -69,6 +72,7 @@ public abstract class WorldMixin {
         }
     }
 
+    @Unique
     private boolean isTallPlant(BlockState blockState) {
         return blockState.isIn(BlockTags.TALL_FLOWERS)
                 || blockState.isOf(Blocks.TALL_GRASS)

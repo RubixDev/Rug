@@ -2,12 +2,24 @@
 
 import re
 import json
+import subprocess
+import os
 
 
-with open('pyconfig.json', 'r') as config_file:
-    SETTINGS: dict[str, any] = json.load(config_file)
+with open('./versions/mainProject', 'r') as mp_file:
+    main_version = mp_file.read()
 
-with open(SETTINGS['languageFile'], 'r') as lang_file:
+SETTINGS_FILE = 'src/main/java/de/rubixdev/rug/RugSettings.java'
+LANGUAGE_FILE = f'versions/{main_version}/build/resources/main/assets/rug/lang/en_us.json'
+MAIN_CATEGORY = 'RUG'
+README_HEADER = './markdown/README-header.md'
+CURSEFORGE_HEADER = './markdown/CurseForge-header.md'
+MODRINTH_HEADER = './markdown/Modrinth-header.md'
+
+if not os.path.isfile(LANGUAGE_FILE):
+    subprocess.Popen(['./gradlew', f':{main_version}:build'])
+
+with open(LANGUAGE_FILE, 'r') as lang_file:
     # Remove lines with comments
     contents: str = re.compile(r'^\s*//.*$', re.MULTILINE).sub(
         '', lang_file.read()
@@ -84,7 +96,7 @@ class Rule:
 
 
 def read_rules() -> list[Rule]:
-    with open(SETTINGS['carpetSettingsClass'], 'r') as settings_file:
+    with open(SETTINGS_FILE, 'r') as settings_file:
         print('Reading settings file\n')
         settings_string = settings_file.read()
     raw_rules: list[str] = [
@@ -132,10 +144,9 @@ def read_rules() -> list[Rule]:
             .replace(' ', '')
             .split(',')
         ]
-        main_category: str = SETTINGS['mainCategory']
-        if main_category not in rule.categories:
+        if MAIN_CATEGORY not in rule.categories:
             print(
-                f'\033[1;31m{main_category} category is missing in {rule.name}!\033[22m Exiting...\033[0m'
+                f'\033[1;31m{MAIN_CATEGORY} category is missing in {rule.name}!\033[22m Exiting...\033[0m'
             )
             return []
         if 'validators' in attr_dict.keys():
@@ -151,7 +162,7 @@ def read_rules() -> list[Rule]:
 
 
 def write_files(rules: list[Rule]):
-    with open(SETTINGS['readmeHeader'], 'r') as header_file:
+    with open(README_HEADER, 'r') as header_file:
         print('Reading header file')
         out: str = header_file.read()
 
@@ -168,7 +179,7 @@ def write_files(rules: list[Rule]):
     all_categories = [
         category
         for category in all_categories
-        if category.upper() != SETTINGS['mainCategory']
+        if category.upper() != MAIN_CATEGORY
     ]
     all_categories.sort()
 
@@ -218,7 +229,7 @@ def list_rules(rules: list[Rule], rule_headline: str) -> str:
 
 
 def curseforge_list(rules: list[Rule]):
-    with open(SETTINGS['curseForgeHeader'], 'r') as header_file:
+    with open(CURSEFORGE_HEADER, 'r') as header_file:
         out: str = header_file.read()
     out += f'Count: {len(rules)}  \n'
     for rule in rules:
@@ -229,7 +240,7 @@ def curseforge_list(rules: list[Rule]):
 
 
 def modrinth_list(rules: list[Rule]):
-    with open(SETTINGS['modrinthHeader'], 'r') as header_file:
+    with open(MODRINTH_HEADER, 'r') as header_file:
         out: str = header_file.read()
     out += f'Count: {len(rules)}\n'
     for rule in rules:

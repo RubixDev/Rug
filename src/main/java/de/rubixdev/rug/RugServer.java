@@ -26,6 +26,8 @@ import java.util.Map;
 import java.util.stream.Stream;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.block.*;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.item.BlockItem;
@@ -55,15 +57,28 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 
 public class RugServer implements CarpetExtension, ModInitializer {
-    public static final String VERSION = "1.4.4";
     public static final Logger LOGGER = LogManager.getLogger("Rug");
+
+    public static final String MOD_ID = "rug";
+//    public static final String MOD_NAME;
+    public static final String MOD_VERSION;
 
     private static MinecraftServer minecraftServer;
     private static Path datapackPath;
 
+    static {
+        ModMetadata metadata = FabricLoader.getInstance()
+                .getModContainer(MOD_ID)
+                .orElseThrow(RuntimeException::new)
+                .getMetadata();
+//        MOD_NAME = metadata.getName();
+        MOD_VERSION = metadata.getVersion().getFriendlyString();
+//        settingsManager = new SettingsManager(MOD_VERSION, MOD_ID, MOD_NAME);
+    }
+
     @Override
     public String version() {
-        return "rug";
+        return MOD_ID;
     }
 
     @Override
@@ -73,7 +88,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public void onGameStarted() {
-        LOGGER.info("Rug Mod v" + VERSION + " loaded!");
+        LOGGER.info("Rug Mod v" + MOD_VERSION + " loaded!");
 
         CarpetServer.settingsManager.parseSettingsClass(RugSettings.class);
     }
@@ -81,7 +96,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     @Override
     public Map<String, String> canHasTranslations(String lang) {
         InputStream langFile =
-                RugServer.class.getClassLoader().getResourceAsStream("assets/rug/lang/%s.json5".formatted(lang));
+                RugServer.class.getClassLoader().getResourceAsStream("assets/rug/lang/%s.json".formatted(lang));
         if (langFile == null) {
             // we don't have that language
             return Collections.emptyMap();
@@ -92,7 +107,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         } catch (IOException e) {
             return Collections.emptyMap();
         }
-        Gson gson = new GsonBuilder().setLenient().create(); // lenient allows for comments
+        Gson gson = new Gson();
         return gson.fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
     }
 
@@ -415,7 +430,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
             FileReader reader = new FileReader(file);
             return JsonParser.parseReader(reader).getAsJsonObject();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Logging.logStackTrace(e);
         }
         return null;
     }
@@ -487,10 +502,18 @@ public class RugServer implements CarpetExtension, ModInitializer {
         try {
             NbtCompound compoundTag = player.writeNbt(new NbtCompound());
             File file = File.createTempFile(player.getUuidAsString() + "-", ".dat", playerDataDir);
-            NbtIo.writeCompressed(compoundTag, file);
+            //#if MC >= 12004
+            NbtIo.writeCompressed(compoundTag, file.toPath());
+            //#else
+            //$$ NbtIo.writeCompressed(compoundTag, file);
+            //#endif
             File file2 = new File(playerDataDir, player.getUuidAsString() + ".dat");
             File file3 = new File(playerDataDir, player.getUuidAsString() + ".dat_old");
-            Util.backupAndReplace(file2, file, file3);
+            //#if MC >= 12004
+            Util.backupAndReplace(file2.toPath(), file.toPath(), file3.toPath());
+            //#else
+            //$$ Util.backupAndReplace(file2, file, file3);
+            //#endif
         } catch (Exception ignored) {
             LOGGER.warn("Failed to save player data for " + player.getName().getString());
         }

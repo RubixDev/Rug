@@ -10,10 +10,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
@@ -56,4 +53,16 @@ public class PlayerEntityMixin {
     private boolean ignoreHunger(boolean original) {
         return RugSettings.foodInstantHeal || original;
     }
+
+    //#if MC >= 12004
+    @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 4.5f))
+    private static float changeReachDistanceSurvival(final float baseReachDistance) {
+        return (float) RugSettings.reachDistance;
+    }
+
+    @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 5.0f))
+    private static float changeReachDistanceCreative(final float baseReachDistance) {
+        return (float) RugSettings.reachDistance + 0.5f;
+    }
+    //#endif
 }

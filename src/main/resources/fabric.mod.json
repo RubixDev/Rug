@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "rug",
+  "id": "${id}",
   "version": "${version}",
 
-  "name": "Rug",
+  "name": "${name}",
   "description": "Extension Mod for gnembon's fabric-carpet with some more features",
   "authors": [
     "RubixDev"
@@ -14,7 +14,7 @@
     "issues": "https://github.com/RubixDev/Rug/issues"
   },
 
-  "license": "GPL-2.0-only",
+  "license": "GPL-3.0-only",
   "icon": "assets/rug/icon.png",
 
   "environment": "*",
@@ -30,12 +30,9 @@
 
   "depends": {
     "fabricloader": ">=0.14.6",
-    "fabric": "*",
-    "carpet": ">=1.4.83",
-    "minecraft": ">=1.19.1",
-    "java": ">=17"
-  },
-  "suggests": {
+    "minecraft": "${minecraft_dependency}",
+    "fabric-api": "*",
+    "carpet": "${carpet_dependency}"
   },
   "custom": {
     "modmenu": {

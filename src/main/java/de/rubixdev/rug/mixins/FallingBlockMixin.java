@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.registry.tag.BlockTags;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -19,6 +20,7 @@ public class FallingBlockMixin {
         }
     }
 
+    @Unique
     private static boolean isTallPlant(BlockState blockState) {
         return blockState.isIn(BlockTags.TALL_FLOWERS)
                 || blockState.isOf(Blocks.TALL_GRASS)

@@ -9,6 +9,7 @@ import net.minecraft.state.property.IntProperty;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -24,6 +25,7 @@ public class RepeaterBlockMixin {
         cir.setReturnValue(getModifiedDelay(state));
     }
 
+    @Unique
     private int getModifiedDelay(BlockState state) {
         int defaultDelay = state.get(DELAY) * 2;
         if (RugSettings.longerRepeaters > 1

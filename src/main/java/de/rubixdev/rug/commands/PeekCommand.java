@@ -26,6 +26,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.world.dimension.DimensionType;
+//#if MC >= 12002
+import net.minecraft.network.packet.c2s.common.SyncedClientOptions;
+//#endif
 
 public class PeekCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -56,7 +59,11 @@ public class PeekCommand {
         ServerPlayerEntity executingPlayer = source.getPlayer();
 
         if (targetPlayer == null) {
-            targetPlayer = playerManager.createPlayer(targetPlayerProfile);
+            //#if MC >= 12002
+            targetPlayer = playerManager.createPlayer(targetPlayerProfile, SyncedClientOptions.createDefault());
+            //#else
+            //$$ targetPlayer = playerManager.createPlayer(targetPlayerProfile);
+            //#endif
             NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
 
             if (targetPlayerData == null) {
@@ -85,7 +92,7 @@ public class PeekCommand {
     public static void showInventory(ServerPlayerEntity executingPlayer, ServerPlayerEntity targetPlayer) {
         PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X5, executingPlayer, targetPlayer);
         invScreen.setTitle(
-                Text.of("Inventory of " + targetPlayer.getDisplayName().getString()));
+                Text.of("Inventory of " + targetPlayer.getNameForScoreboard()));
         for (int slot = 0; slot < executingPlayer.getInventory().size(); slot++) {
             invScreen.setSlotRedirect(slot, new Slot(targetPlayer.getInventory(), slot, 0, 0));
         }
@@ -97,7 +104,7 @@ public class PeekCommand {
 
         PlayerDataGui invScreen = new PlayerDataGui(ScreenHandlerType.GENERIC_9X3, executingPlayer, targetPlayer);
         invScreen.setTitle(
-                Text.of("EnderChest of " + targetPlayer.getDisplayName().getString()));
+                Text.of("EnderChest of " + targetPlayer.getNameForScoreboard()));
         for (int slot = 0; slot < targetEnderChest.size(); slot++) {
             invScreen.setSlotRedirect(slot, new Slot(targetEnderChest, slot, 0, 0));
         }

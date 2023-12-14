@@ -14,7 +14,7 @@ Count: 7
 ## Rules in CLIENT Category
 
 ### eggWaterDrag
-How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Eggs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Egg will stutter on client when mod is only on server
 - Type: `double`
@@ -25,7 +25,7 @@ Thrown Egg will stutter on client when mod is only on server
   - You must choose a value from 0.5 to 0.99
 
 ### enderPearlWaterDrag
-How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Ender Pearls can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Pearl will stutter on client when mod is only on server
 - Type: `double`
@@ -82,7 +82,7 @@ Mod needed on server and client for this feature to work
   - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### snowballWaterDrag
-How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Snowballs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Snowball will stutter on client when mod is only on server
 - Type: `double`

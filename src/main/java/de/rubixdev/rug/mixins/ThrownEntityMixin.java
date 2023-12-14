@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(ThrownEntity.class)
 public class ThrownEntityMixin {
-    @SuppressWarnings("ConstantConditions")
     @ModifyConstant(method = "tick", constant = @Constant(floatValue = 0.8F))
     private float onTick(final float baseValue) {
         if ((Object) this instanceof EnderPearlEntity) {

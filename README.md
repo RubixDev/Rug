@@ -7,13 +7,15 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/RubixDev/Rug?style=for-the-badge)](https://github.com/RubixDev/Rug/issues?q=is%3Aissue+is%3Aclosed)
 [![CurseForge Total Downloads](http://cf.way2muchnoise.eu/full_449938_downloads.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug/files)
 [![CurseForge All Versions](http://cf.way2muchnoise.eu/versions/For%20MC_449938_all.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/Rug)
-[![Modrinth](https://img.shields.io/modrinth/dt/rug?color=%231bd96a&label=Modrinth%20downloads&style=for-the-badge)](https://modrinth.com/mod/rug)
+[![Modrinth](https://img.shields.io/modrinth/dt/rug?label=Modrinth%20downloads&style=for-the-badge)](https://modrinth.com/mod/rug)
 
 ![Icon](src/main/resources/assets/rug/icon.png)
 
 [![Fabric API](fabric-api.png)](https://modrinth.com/mod/fabric-api)
 
 Extension for [gnembon's Carpet Mod](https://github.com/gnembon/fabric-carpet) adding loads more rules
+
+The project setup is based off of [Fallen-Breath's template](https://github.com/Fallen-Breath/fabric-mod-template/tree/1d9aa976108c9883738593633e79788a19a537ac).
 
 ## Related Mods and Tools
 
@@ -441,7 +443,7 @@ Expect a lag spike when changing the value
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it
+Right-clicking on fully grown crops harvests and immediately replants it
 
 Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
@@ -486,7 +488,7 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 
 ### eggWaterDrag
-How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Eggs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Egg will stutter on client when mod is only on server
 - Type: `double`
@@ -522,7 +524,7 @@ Amount of damage dealt by Ender Pearls
   - You must choose a value from 0 to 10
 
 ### enderPearlWaterDrag
-How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Ender Pearls can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Pearl will stutter on client when mod is only on server
 - Type: `double`
@@ -828,7 +830,7 @@ Whether snow can melt
 - Categories: `CREATIVE`, `RUG`, `SURVIVAL`
 
 ### snowballWaterDrag
-How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Snowballs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Snowball will stutter on client when mod is only on server
 - Type: `double`

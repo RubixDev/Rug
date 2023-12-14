@@ -107,7 +107,7 @@ Amount of XP dropped by later Dragons. The first Dragon always drops 12000
   - [Idea from Neubulae](https://github.com/gnembon/carpet-extra/issues/171)
 
 ### easyHarvesting
-Right clicking on fully grown crops harvests and immediately replants it
+Right-clicking on fully grown crops harvests and immediately replants it
 
 Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp and twisting, weeping and cave vines
 - Type: `String`
@@ -116,7 +116,7 @@ Works on all crops, nether warts, cocoa beans, sugarcane, cacti, bamboo, kelp an
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 
 ### eggWaterDrag
-How fast thrown Eggs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Eggs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Egg will stutter on client when mod is only on server
 - Type: `double`
@@ -127,7 +127,7 @@ Thrown Egg will stutter on client when mod is only on server
   - You must choose a value from 0.5 to 0.99
 
 ### enderPearlWaterDrag
-How fast thrown Ender Pearls can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Ender Pearls can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Pearl will stutter on client when mod is only on server
 - Type: `double`
@@ -283,7 +283,7 @@ The percentage of chunks that are Slime chunks
   - [Idea from Philipp766](https://github.com/gnembon/carpet-extra/issues/161)
 
 ### snowballWaterDrag
-How fast thrown Snowballs can travel under water. 0.99 is the default for above water and for Tridents
+How fast thrown Snowballs can travel underwater. 0.99 is the default for above water and for Tridents
 
 Thrown Snowball will stutter on client when mod is only on server
 - Type: `double`
