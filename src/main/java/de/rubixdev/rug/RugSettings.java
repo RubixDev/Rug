@@ -897,6 +897,28 @@ public class RugSettings {
             options = {"0.5", "1.0", "2.0", "4.0"},
             validators = validatorMinecartMaxSpeedMultiplier.class)
     public static double minecartMaxSpeedMultiplier = 1.0;
+
+    //#if MC >= 12004
+    public static class validatorBulbDelay extends Validator<Integer> {
+        @Override
+        public Integer validate(
+                ServerCommandSource source, CarpetRule<Integer> currentRule, Integer newValue, String string) {
+            return newValue >= 0 && newValue <= 10 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 0 to 10";
+        }
+    }
+
+    @Rule(
+            categories = {RUG},
+            strict = false,
+            options = {"0", "1", "2"},
+            validators = validatorBulbDelay.class)
+    public static int bulbDelay = 0;
+    //#endif
 }
 
 // BUGFIX

@@ -38,6 +38,10 @@ rug:
       extra:
         '0': Expect a lag spike when changing the value
       additional: '[Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15)'
+    bulbDelay:
+      desc: Delay in ticks before Copper Bulbs switch their state
+      extra:
+        '0': Setting to `1` reintroduces behavior from 23w43a
     cactusFurnaceXp:
       desc: Amount of XP a Cactus smelted in a furnace gives
       extra:

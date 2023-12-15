@@ -20,6 +20,7 @@
     "BlockMixin",
     "BowItemMixin",
     "BucketItemMixin",
+    "BulbBlockMixin",
     "CactusBlockMixin",
     "CatEntityMixin",
     "ChorusFlowerBlockMixin",

@@ -11,6 +11,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+//#if MC >= 12004
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.random.Random;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+//#endif
 
 @Mixin(AbstractBlock.class)
 public class AbstractBlockMixin {
@@ -28,4 +33,9 @@ public class AbstractBlockMixin {
             FluidHelper.playFizzleSound(world, pos);
         }
     }
+
+    //#if MC >= 12004
+    @Inject(method = "scheduledTick", at = @At("HEAD"))
+    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {}
+    //#endif
 }
