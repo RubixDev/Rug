@@ -919,6 +919,26 @@ public class RugSettings {
             validators = validatorBulbDelay.class)
     public static int bulbDelay = 0;
     //#endif
+
+    public static class validatorCopperUnderwaterOxidationMultiplier extends Validator<Double> {
+        @Override
+        public Double validate(
+                ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
+            return newValue >= 1 && newValue <= 100 ? newValue : null;
+        }
+
+        @Override
+        public String description() {
+            return "You must choose a value from 1 to 100";
+        }
+    }
+
+    @Rule(
+            categories = {RUG},
+            strict = false,
+            options = {"1", "2", "5", "10"},
+            validators = validatorCopperUnderwaterOxidationMultiplier.class)
+    public static double copperUnderwaterOxidationMultiplier = 1;
 }
 
 // BUGFIX

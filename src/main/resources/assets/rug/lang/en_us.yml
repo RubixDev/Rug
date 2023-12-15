@@ -74,6 +74,8 @@ rug:
       desc: Sand falling on Gravel (or the other way around) with a Concrete Block below will blend to Concrete Powder colored like the Concrete Block below
       extra:
         '0': In combination with cobbleCrushing and gravelCrushing allows for an automatic Concrete generator
+    copperUnderwaterOxidationMultiplier:
+      desc: How much more likely copper blocks are to oxidize when touching water on at least three sides
     craftableCobwebs:
       desc: Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area
       extra:
