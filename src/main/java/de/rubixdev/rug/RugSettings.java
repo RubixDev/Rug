@@ -169,7 +169,8 @@ public class RugSettings {
 
     public static boolean shouldApplyReachDistance() {
         return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes")
-                && !FabricLoader.getInstance().isModLoaded("pehkui");
+                && !FabricLoader.getInstance().isModLoaded("pehkui")
+                && !FabricLoader.getInstance().isModLoaded("carpet-org-addition");
     }
 
     public static class conditionReachDistance implements Condition {
