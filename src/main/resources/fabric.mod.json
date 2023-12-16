@@ -32,7 +32,7 @@
     "fabricloader": ">=0.14.6",
     "minecraft": "${minecraft_dependency}",
     "fabric-api": "*",
-    "carpet": "${carpet_dependency}"
+    "carpet": ">=${carpet_dependency}"
   },
   "custom": {
     "modmenu": {
