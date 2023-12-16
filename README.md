@@ -32,7 +32,7 @@ The project setup is based off of [Fallen-Breath's template](https://github.com/
 - [`TNT`](markdown/TNT_Category.md)
 
 ## Index
-Count: 98
+Count: 100
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -44,6 +44,7 @@ Count: 98
 - [blastFurnaceSmoothQuartz](#blastfurnacesmoothquartz)
 - [blastFurnaceSmoothSandStone](#blastfurnacesmoothsandstone)
 - [blastFurnaceStone](#blastfurnacestone)
+- [bulbDelay](#bulbdelay)
 - [cactusFurnaceXp](#cactusfurnacexp)
 - [campSleeping](#campsleeping)
 - [cobbleCrushing](#cobblecrushing)
@@ -56,6 +57,7 @@ Count: 98
 - [commandSudo](#commandsudo)
 - [concreteConvertOnCauldron](#concreteconvertoncauldron)
 - [concreteMixing](#concretemixing)
+- [copperUnderwaterOxidationMultiplier](#copperunderwateroxidationmultiplier)
 - [craftableCobwebs](#craftablecobwebs)
 - [craftableHorseArmor](#craftablehorsearmor)
 - [craftableNameTags](#craftablenametags)
@@ -234,6 +236,17 @@ Expect a lag spike when changing the value
 - Additional notes:
   - [Suggestion from Philipp766](https://github.com/RubixDev/Rug/issues/15)
 
+### bulbDelay
+Delay in ticks before Copper Bulbs switch their state
+
+Setting to `1` reintroduces behavior from 23w43a
+- Type: `int`
+- Default value: `0`
+- Suggested options: `0`, `1`, `2`
+- Categories: `RUG`
+- Additional notes:
+  - You must choose a value from 0 to 10
+
 ### cactusFurnaceXp
 Amount of XP a Cactus smelted in a furnace gives
 
@@ -327,6 +340,15 @@ In combination with cobbleCrushing and gravelCrushing allows for an automatic Co
 - Default value: `false`
 - Required options: `true`, `false`
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
+
+### copperUnderwaterOxidationMultiplier
+How much more likely copper blocks are to oxidize when touching water on at least three sides
+- Type: `double`
+- Default value: `1`
+- Suggested options: `1`, `2`, `5`, `10`
+- Categories: `RUG`
+- Additional notes:
+  - You must choose a value from 1 to 100
 
 ### craftableCobwebs
 Cobwebs can be crafted with 5 Strings in a cross pattern or with a 3x3 full area
