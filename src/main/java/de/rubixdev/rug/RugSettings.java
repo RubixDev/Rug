@@ -687,10 +687,22 @@ public class RugSettings {
         }
     }
 
+    public static boolean shouldApplyBannerLayers() {
+        return !FabricLoader.getInstance().isModLoaded("infinite_banner_stack");
+    }
+
+    public static class conditionMaxBannerLayers implements Condition {
+        @Override
+        public boolean shouldRegister() {
+            return shouldApplyBannerLayers();
+        }
+    }
+
     @Rule(
             options = {"3", "6", "10", "12"},
             strict = false,
             validators = validatorMaxBannerLayers.class,
+            conditions = conditionMaxBannerLayers.class,
             categories = {EXPERIMENTAL, SURVIVAL, CLIENT, CRAFTING, RUG})
     public static int maxBannerLayers = 6;
 

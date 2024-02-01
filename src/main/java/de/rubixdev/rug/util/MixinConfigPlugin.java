@@ -28,9 +28,15 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
                 "de.rubixdev.rug.mixins.reach.ServerPlayerInteractionManagerMixin",
                 "de.rubixdev.rug.mixins.reach.ServerPlayNetworkHandlerMixin",
                 "de.rubixdev.rug.mixins.reach.VehicleInventoryMixin");
+        List<String> bannerLayersMixins = Lists.newArrayList(
+                "de.rubixdev.rug.mixins.BannerDuplicateRecipeMixin",
+                "de.rubixdev.rug.mixins.BannerItemMixin",
+                "de.rubixdev.rug.mixins.LoomScreenHandlerMixin");
 
         if (reachDistanceMixins.contains(mixinClassName)) {
             return RugSettings.shouldApplyReachDistance();
+        } else if (bannerLayersMixins.contains(mixinClassName)) {
+            return RugSettings.shouldApplyBannerLayers();
         }
         return true;
     }

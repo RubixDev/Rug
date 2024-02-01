@@ -6,9 +6,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(BannerItem.class)
+@Mixin(value = BannerItem.class, priority = 990)
 public class BannerItemMixin {
-    @ModifyConstant(method = "appendBannerTooltip", constant = @Constant(intValue = 6))
+    @ModifyConstant(method = "appendBannerTooltip", constant = @Constant(intValue = 6), require = 0)
     private static int overwriteMaxLayers(final int original) {
         return RugSettings.maxBannerLayers;
     }

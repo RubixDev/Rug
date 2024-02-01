@@ -185,6 +185,7 @@ rug:
       desc: Maximum number of layers, that can be applied to a banner
       extra:
         '0': This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
+        '1': Is disabled when [Infinite Banner Patterns](https://modrinth.com/mod/infinite-banner-patterns) is installed
       additional: '[Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)'
     minecartMaxSpeedMultiplier:
       desc: Maximum minecart speed multiplier
@@ -226,7 +227,7 @@ rug:
       desc: Reach in which you can place and break blocks. Value will be 0.5 higher in creative
       extra:
         '0': Mod needed on server and client for this feature to work
-      additional: Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
+        '1': Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
     redstoneLampTurnOffDelay:
       desc: Delay in game ticks for Redstone Lamps to turn off
     sculkBlocksAlwaysDropXp:
