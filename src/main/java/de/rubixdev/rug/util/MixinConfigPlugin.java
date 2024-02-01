@@ -31,6 +31,7 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
         List<String> bannerLayersMixins = Lists.newArrayList(
                 "de.rubixdev.rug.mixins.BannerDuplicateRecipeMixin",
                 "de.rubixdev.rug.mixins.BannerItemMixin",
+                "de.rubixdev.rug.mixins.LoomScreenMixin",
                 "de.rubixdev.rug.mixins.LoomScreenHandlerMixin");
 
         if (reachDistanceMixins.contains(mixinClassName)) {
