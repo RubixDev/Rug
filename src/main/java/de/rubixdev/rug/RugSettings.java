@@ -229,21 +229,24 @@ public class RugSettings {
             recipes = {
                 "acacia_wood.json",
                 "birch_wood.json",
+                "cherry_wood.json",
                 "crimson_hyphae.json",
                 "dark_oak_wood.json",
                 "jungle_wood.json",
                 "mangrove_wood.json",
                 "oak_wood.json",
                 "spruce_wood.json",
+                "warped_hyphae.json",
                 "stripped_acacia_wood.json",
                 "stripped_birch_wood.json",
+                "stripped_cherry_wood.json",
                 "stripped_crimson_hyphae.json",
                 "stripped_dark_oak_wood.json",
                 "stripped_jungle_wood.json",
+                "stripped_mangrove_wood.json",
                 "stripped_oak_wood.json",
                 "stripped_spruce_wood.json",
-                "stripped_warped_hyphae.json",
-                "warped_hyphae.json"
+                "stripped_warped_hyphae.json"
             },
             recipeNamespace = "minecraft")
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
@@ -533,6 +536,9 @@ public class RugSettings {
                 "woodcutting_birch_fence.json",
                 "woodcutting_birch_slab.json",
                 "woodcutting_birch_stairs.json",
+                "woodcutting_cherry_fence.json",
+                "woodcutting_cherry_slab.json",
+                "woodcutting_cherry_stairs.json",
                 "woodcutting_crimson_fence.json",
                 "woodcutting_crimson_slab.json",
                 "woodcutting_crimson_stairs.json",
