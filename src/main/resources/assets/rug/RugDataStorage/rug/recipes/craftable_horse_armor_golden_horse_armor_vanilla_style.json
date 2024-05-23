@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "# #",
-        "###",
-        "# #"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:gold_ingot"
-        }
-    },
-    "result": {
-        "item": "minecraft:golden_horse_armor",
-        "count": 1
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot"
     }
+  },
+  "pattern": [
+    "# #",
+    "###",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:golden_horse_armor"
+  },
+  "type": "minecraft:crafting_shaped"
 }

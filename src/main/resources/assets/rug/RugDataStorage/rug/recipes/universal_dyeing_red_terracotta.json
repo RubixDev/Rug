@@ -1,10 +1,5 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    "###",
-    "#O#",
-    "###"
-  ],
+  "group": "universal_dyeing_terracotta",
   "key": {
     "#": [
       {
@@ -57,9 +52,14 @@
       "item": "minecraft:red_dye"
     }
   },
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
   "result": {
-    "item": "minecraft:red_terracotta",
-    "count": 8
+    "count": 8,
+    "id": "minecraft:red_terracotta"
   },
-  "group": "universal_dyeing_terracotta"
+  "type": "crafting_shaped"
 }

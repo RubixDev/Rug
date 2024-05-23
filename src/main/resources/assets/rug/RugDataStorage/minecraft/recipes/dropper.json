@@ -1,5 +1,4 @@
 {
-  "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
       "tag": "minecraft:stone_crafting_materials"
@@ -14,6 +13,7 @@
     "#R#"
   ],
   "result": {
-    "item": "minecraft:dropper"
-  }
+    "id": "minecraft:dropper"
+  },
+  "type": "minecraft:crafting_shaped"
 }

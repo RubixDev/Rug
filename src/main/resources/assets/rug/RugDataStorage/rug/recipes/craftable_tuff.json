@@ -1,9 +1,4 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#C",
-    "C#"
-  ],
   "key": {
     "#": {
       "item": "minecraft:andesite"
@@ -12,8 +7,13 @@
       "item": "minecraft:cobblestone"
     }
   },
+  "pattern": [
+    "#C",
+    "C#"
+  ],
   "result": {
-    "item": "minecraft:tuff",
-    "count": 2
-  }
+    "count": 2,
+    "id": "minecraft:tuff"
+  },
+  "type": "minecraft:crafting_shaped"
 }

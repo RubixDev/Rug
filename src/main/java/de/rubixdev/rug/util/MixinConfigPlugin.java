@@ -35,7 +35,11 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
                 "de.rubixdev.rug.mixins.LoomScreenHandlerMixin");
 
         if (reachDistanceMixins.contains(mixinClassName)) {
-            return RugSettings.shouldApplyReachDistance();
+            //#if MC >= 12006
+            return false;
+            //#else
+            //$$ return RugSettings.shouldApplyReachDistance();
+            //#endif
         } else if (bannerLayersMixins.contains(mixinClassName)) {
             return RugSettings.shouldApplyBannerLayers();
         }

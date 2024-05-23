@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:packed_ice"
-        }
-    ],
-    "result": {
-        "item": "minecraft:ice",
-        "count": 9
+  "ingredients": [
+    {
+      "item": "minecraft:packed_ice"
     }
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:ice"
+  },
+  "type": "minecraft:crafting_shapeless"
 }

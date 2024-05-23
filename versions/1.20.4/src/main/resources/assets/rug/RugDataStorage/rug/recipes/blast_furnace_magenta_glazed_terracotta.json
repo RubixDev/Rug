@@ -1,0 +1,10 @@
+{
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "glazed_terracotta",
+  "ingredient": {
+    "item": "minecraft:magenta_terracotta"
+  },
+  "result": "minecraft:magenta_glazed_terracotta",
+  "type": "minecraft:blasting"
+}

@@ -1,10 +1,5 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    "###",
-    "#O#",
-    "###"
-  ],
+  "group": "universal_dyeing_concrete_powder",
   "key": {
     "#": [
       {
@@ -57,9 +52,14 @@
       "item": "minecraft:yellow_dye"
     }
   },
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
   "result": {
-    "item": "minecraft:yellow_concrete_powder",
-    "count": 8
+    "count": 8,
+    "id": "minecraft:yellow_concrete_powder"
   },
-  "group": "universal_dyeing_concrete_powder"
+  "type": "crafting_shaped"
 }

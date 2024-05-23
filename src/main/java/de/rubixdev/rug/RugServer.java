@@ -54,6 +54,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 
+//#if MC >= 12006
+import net.minecraft.entity.LivingEntity;
+//#endif
+
 public class RugServer implements CarpetExtension, ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Rug");
     public static final String MOD_ID = "rug";
@@ -91,7 +95,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     @Override
     public void onGameStarted() {
-        LOGGER.info("Rug Mod v" + MOD_VERSION + " loaded!");
+        LOGGER.info("Rug Mod v{} loaded!", MOD_VERSION);
 
         // load rules into both settings managers
         settingsManager.parseSettingsClass(RugSettings.class);
@@ -210,7 +214,15 @@ public class RugServer implements CarpetExtension, ModInitializer {
             }
 
             if (RugSettings.easyHarvesting.equals("require_hoe") && player != null) {
-                tool.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                tool.damage(
+                        1,
+                        player,
+                        //#if MC >= 12006
+                        LivingEntity.getSlotForHand(hand)
+                        //#else
+                        //$$ p -> p.sendToolBreakStatus(hand)
+                        //#endif
+                );
             }
             return ActionResult.SUCCESS;
         }));
@@ -464,7 +476,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     private static void reload() {
         ResourcePackManager resourcePackManager = minecraftServer.getDataPackManager();
         resourcePackManager.scanPacks();
-        Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledNames());
+        Collection<String> collection = Lists.newArrayList(resourcePackManager.getEnabledIds());
         collection.add("RugData");
 
         ReloadCommand.tryReloadDataPacks(collection, minecraftServer.getCommandSource());
@@ -507,7 +519,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
         } catch (IOException e) {
             Logging.logStackTrace(e);
         } catch (NullPointerException e) {
-            LOGGER.error("Resource '" + resourcePath + "' is null:");
+            LOGGER.error("Resource '{}' is null:", resourcePath);
             Logging.logStackTrace(e);
         }
     }
@@ -531,7 +543,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
             //$$ Util.backupAndReplace(file2, file, file3);
             //#endif
         } catch (Exception ignored) {
-            LOGGER.warn("Failed to save player data for " + player.getName().getString());
+            LOGGER.warn("Failed to save player data for {}", player.getName().getString());
         }
     }
 }

@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:amethyst_block"
-        }
-    ],
-    "result": {
-        "item": "minecraft:amethyst_shard",
-        "count": 4
+  "ingredients": [
+    {
+      "item": "minecraft:amethyst_block"
     }
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:amethyst_shard"
+  },
+  "type": "minecraft:crafting_shapeless"
 }

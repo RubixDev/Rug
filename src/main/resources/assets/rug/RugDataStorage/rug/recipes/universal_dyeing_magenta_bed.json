@@ -1,9 +1,4 @@
 {
-  "type": "crafting_shapeless",
-  "result": {
-    "item": "minecraft:magenta_bed",
-    "count": 1
-  },
   "group": "universal_dyeing_bed",
   "ingredients": [
     [
@@ -53,5 +48,10 @@
     {
       "item": "minecraft:magenta_dye"
     }
-  ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:magenta_bed"
+  },
+  "type": "crafting_shapeless"
 }

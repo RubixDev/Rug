@@ -1,0 +1,10 @@
+{
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "powder_to_glass",
+  "ingredient": {
+    "item": "minecraft:light_gray_concrete_powder"
+  },
+  "result": "minecraft:light_gray_stained_glass",
+  "type": "smelting"
+}

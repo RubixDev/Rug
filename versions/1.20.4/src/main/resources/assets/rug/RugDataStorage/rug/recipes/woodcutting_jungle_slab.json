@@ -1,0 +1,8 @@
+{
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": "minecraft:jungle_slab",
+  "type": "minecraft:stonecutting"
+}

@@ -1,9 +1,4 @@
 {
-  "type": "crafting_shapeless",
-  "result": {
-    "item": "minecraft:blue_wool",
-    "count": 1
-  },
   "group": "universal_dyeing_wool",
   "ingredients": [
     [
@@ -56,5 +51,10 @@
     {
       "item": "minecraft:blue_dye"
     }
-  ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:blue_wool"
+  },
+  "type": "crafting_shapeless"
 }

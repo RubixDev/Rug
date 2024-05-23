@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "###",
-        "#D#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:ice"
-        },
-        "D": {
-            "item": "minecraft:blue_dye"
-        }
+  "key": {
+    "#": {
+      "item": "minecraft:ice"
     },
-    "result": {
-        "item": "minecraft:blue_ice",
-        "count": 8
+    "D": {
+      "item": "minecraft:blue_dye"
     }
+  },
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:blue_ice"
+  },
+  "type": "minecraft:crafting_shaped"
 }

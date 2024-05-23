@@ -19,6 +19,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 12006
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+//#endif
+
 @Mixin(Block.class)
 public abstract class BlockMixin {
     @Shadow
@@ -41,8 +46,7 @@ public abstract class BlockMixin {
             Entity entity,
             ItemStack stack,
             CallbackInfo ci) {
-        boolean usesSilkTouch = EnchantmentHelper.get(stack).containsKey(Enchantments.SILK_TOUCH)
-                && stack.getItem() != Items.ENCHANTED_BOOK;
+        boolean usesSilkTouch = EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0;
 
         if (RugSettings.silkTouchFarmland && state.isOf(Blocks.FARMLAND) && usesSilkTouch) {
             dropStack(world, pos, new ItemStack(Items.FARMLAND));
@@ -55,12 +59,13 @@ public abstract class BlockMixin {
             ci.cancel();
         } else if (RugSettings.silkTouchSpawners && state.isOf(Blocks.SPAWNER) && usesSilkTouch) {
             ItemStack newStack = new ItemStack(Items.SPAWNER);
-            NbtCompound tag = blockEntity.createNbt();
-            tag.remove("id");
-            tag.remove("x");
-            tag.remove("y");
-            tag.remove("z");
-            newStack.setSubNbt("BlockEntityTag", tag);
+            //#if MC >= 12006
+            NbtCompound tag = blockEntity.createNbtWithId(world.getRegistryManager());
+            NbtComponent.set(DataComponentTypes.BLOCK_ENTITY_DATA, newStack, tag);
+            //#else
+            //$$ NbtCompound tag = blockEntity.createNbt();
+            //$$ newStack.setSubNbt("BlockEntityTag", tag);
+            //#endif
             dropStack(world, pos, newStack);
             ci.cancel();
         }

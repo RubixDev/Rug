@@ -1,0 +1,20 @@
+{
+  "group": "minecart",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "pattern": [
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:hopper_minecart"
+  },
+  "type": "minecraft:crafting_shaped"
+}

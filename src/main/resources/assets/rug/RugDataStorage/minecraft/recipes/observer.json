@@ -1,5 +1,4 @@
 {
-  "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
       "tag": "minecraft:stone_crafting_materials"
@@ -17,6 +16,7 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:observer"
-  }
+    "id": "minecraft:observer"
+  },
+  "type": "minecraft:crafting_shaped"
 }

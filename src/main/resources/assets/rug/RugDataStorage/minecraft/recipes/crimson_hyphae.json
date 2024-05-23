@@ -1,17 +1,17 @@
 {
-  "type": "crafting_shaped",
   "group": "bark",
-  "pattern": [
-    "##",
-    "##"
-  ],
   "key": {
     "#": {
       "item": "minecraft:crimson_stem"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "minecraft:crimson_hyphae",
-    "count": 4
-  }
+    "count": 4,
+    "id": "minecraft:crimson_hyphae"
+  },
+  "type": "crafting_shaped"
 }

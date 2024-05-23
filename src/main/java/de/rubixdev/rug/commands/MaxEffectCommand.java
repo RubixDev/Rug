@@ -9,13 +9,19 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.command.argument.RegistryEntryArgumentType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+
+//#if MC >= 12006
+import net.minecraft.command.argument.RegistryEntryReferenceArgumentType;
+//#else
+//$$ import net.minecraft.command.argument.RegistryEntryArgumentType;
+//#endif
 
 public class MaxEffectCommand {
     public static void register(
@@ -24,19 +30,30 @@ public class MaxEffectCommand {
                 .requires((player) -> CommandHelper.canUseCommand(player, RugSettings.commandMaxEffect))
                 .then(argument(
                                 "effect",
-                                RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.STATUS_EFFECT))
+                                //#if MC >= 12006
+                                RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.STATUS_EFFECT))
+                                //#else
+                                //$$ RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.STATUS_EFFECT))
+                                //#endif
                         .executes(context -> {
                             ServerCommandSource source = context.getSource();
 
                             ServerPlayerEntity player = source.getPlayer();
-                            StatusEffect effect = RegistryEntryArgumentType.getStatusEffect(context, "effect")
-                                    .value();
+                            //#if MC >= 12006
+                            RegistryEntry.Reference<StatusEffect> effect = RegistryEntryReferenceArgumentType.getStatusEffect(context, "effect");
+                            int seconds = -1;
+                            Text effectName = effect.value().getName();
+                            //#else
+                            //$$ StatusEffect effect = RegistryEntryArgumentType.getStatusEffect(context, "effect").value();
+                            //$$ int seconds = effect.isInstant() ? 999999 : (999999 * 20);
+                            //$$ Text effectName = effect.getName();
+                            //#endif
 
                             boolean success = false;
 
                             if (player != null) {
                                 StatusEffectInstance statusEffectInstance = new StatusEffectInstance(
-                                        effect, effect.isInstant() ? 999999 : (999999 * 20), 255, false, false);
+                                        effect, seconds, 255, false, false);
                                 success = (player).addStatusEffect(statusEffectInstance, source.getEntity());
                             }
 
@@ -48,7 +65,7 @@ public class MaxEffectCommand {
                             source.sendFeedback(
                                     () -> Text.translatable(
                                             "commands.effect.give.success.single",
-                                            effect.getName(),
+                                            effectName,
                                             player.getDisplayName()
                                     ),
                                     true);

@@ -43,7 +43,12 @@ public class ModsCommand {
         chatMessageJson += String.join(",\"\\n    \",", modJsons) + "]";
 
         String finalChatMessageJson = chatMessageJson;
-        context.getSource().sendFeedback(() -> Text.Serialization.fromJson(finalChatMessageJson), false);
+        context.getSource().sendFeedback(() -> Text.Serialization.fromJson(
+                finalChatMessageJson
+                //#if MC > 12006
+                , context.getSource().getRegistryManager()
+                //#endif
+        ), false);
         return 1;
     }
 

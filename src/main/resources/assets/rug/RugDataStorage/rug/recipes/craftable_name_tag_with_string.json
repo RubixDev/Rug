@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  S",
-        " P ",
-        "P  "
-    ],
-    "key": {
-        "P": {
-            "item": "minecraft:paper"
-        },
-        "S": {
-            "item": "minecraft:string"
-        }
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
     },
-    "result": {
-        "item": "minecraft:name_tag",
-        "count": 1
+    "S": {
+      "item": "minecraft:string"
     }
+  },
+  "pattern": [
+    "  S",
+    " P ",
+    "P  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:name_tag"
+  },
+  "type": "minecraft:crafting_shaped"
 }

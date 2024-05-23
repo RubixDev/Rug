@@ -154,39 +154,41 @@ public class RugSettings {
             categories = {FEATURE, SURVIVAL, RUG})
     public static int enderPearlDamage = 5;
 
-    public static class validatorReachDistance extends Validator<Double> {
-        @Override
-        public Double validate(
-                ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
-            return newValue >= 0 && newValue <= 100 ? newValue : null;
-        }
-
-        @Override
-        public String description() {
-            return "You must choose a value from 0 to 100";
-        }
-    }
-
-    public static boolean shouldApplyReachDistance() {
-        return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes")
-                && !FabricLoader.getInstance().isModLoaded("pehkui")
-                && !FabricLoader.getInstance().isModLoaded("carpet-org-addition");
-    }
-
-    public static class conditionReachDistance implements Condition {
-        @Override
-        public boolean shouldRegister() {
-            return shouldApplyReachDistance();
-        }
-    }
-
-    @Rule(
-            strict = false,
-            validators = validatorReachDistance.class,
-            conditions = conditionReachDistance.class,
-            options = {"0.0", "4.5", "5.0", "10.0"},
-            categories = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
-    public static double reachDistance = 4.5;
+    //#if MC < 12006
+    //$$ public static class validatorReachDistance extends Validator<Double> {
+    //$$     @Override
+    //$$     public Double validate(
+    //$$             ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
+    //$$         return newValue >= 0 && newValue <= 100 ? newValue : null;
+    //$$     }
+    //$$
+    //$$     @Override
+    //$$     public String description() {
+    //$$         return "You must choose a value from 0 to 100";
+    //$$     }
+    //$$ }
+    //$$
+    //$$ public static boolean shouldApplyReachDistance() {
+    //$$     return !FabricLoader.getInstance().isModLoaded("reach-entity-attributes")
+    //$$             && !FabricLoader.getInstance().isModLoaded("pehkui")
+    //$$             && !FabricLoader.getInstance().isModLoaded("carpet-org-addition");
+    //$$ }
+    //$$
+    //$$ public static class conditionReachDistance implements Condition {
+    //$$     @Override
+    //$$     public boolean shouldRegister() {
+    //$$         return shouldApplyReachDistance();
+    //$$     }
+    //$$ }
+    //$$
+    //$$ @Rule(
+    //$$         strict = false,
+    //$$         validators = validatorReachDistance.class,
+    //$$         conditions = conditionReachDistance.class,
+    //$$         options = {"0.0", "4.5", "5.0", "10.0"},
+    //$$         categories = {EXPERIMENTAL, CREATIVE, CLIENT, RUG})
+    //$$ public static double reachDistance = 4.5;
+    //#endif
 
     public static class validatorCactusFurnaceXp extends Validator<Double> {
         @Override

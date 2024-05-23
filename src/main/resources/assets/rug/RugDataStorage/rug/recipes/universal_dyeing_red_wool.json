@@ -1,9 +1,4 @@
 {
-  "type": "crafting_shapeless",
-  "result": {
-    "item": "minecraft:red_wool",
-    "count": 1
-  },
   "group": "universal_dyeing_wool",
   "ingredients": [
     [
@@ -56,5 +51,10 @@
     {
       "item": "minecraft:red_dye"
     }
-  ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:red_wool"
+  },
+  "type": "crafting_shapeless"
 }

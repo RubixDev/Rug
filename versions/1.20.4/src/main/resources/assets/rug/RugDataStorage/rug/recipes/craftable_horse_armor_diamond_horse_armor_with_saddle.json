@@ -1,0 +1,20 @@
+{
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    }
+  },
+  "pattern": [
+    "  #",
+    "###",
+    "#S#"
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:diamond_horse_armor"
+  },
+  "type": "minecraft:crafting_shaped"
+}

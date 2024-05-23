@@ -9,8 +9,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+//#if MC >= 12006
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+//#else
+//$$ import org.spongepowered.asm.mixin.injection.ModifyArg;
+//#endif
 
 @Mixin(CatEntity.class)
 public class CatEntityMixin {
@@ -25,16 +30,23 @@ public class CatEntityMixin {
         }
     }
 
-    @ModifyArg(
-            method = "initGoals",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/entity/passive/CatEntity$TemptGoal;<init>(Lnet/minecraft/entity/passive/CatEntity;DLnet/minecraft/recipe/Ingredient;Z)V"),
-            index = 2)
-    private Ingredient allowCookedFish(Ingredient original) {
-        if (RugSettings.tameCatsWithCookedFish) return NEW_INGREDIENT;
-        return original;
+    //#if MC >= 12006
+    @ModifyExpressionValue(method = "method_58365", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isIn(Lnet/minecraft/registry/tag/TagKey;)Z"))
+    private static boolean allowCookedFish(boolean original, ItemStack stack) {
+        return original || (RugSettings.tameCatsWithCookedFish && (stack.isOf(Items.COOKED_COD) || stack.isOf(Items.COOKED_SALMON)));
     }
+    //#else
+    //$$ @ModifyArg(
+    //$$         method = "initGoals",
+    //$$         at =
+    //$$                 @At(
+    //$$                         value = "INVOKE",
+    //$$                         target =
+    //$$                                 "Lnet/minecraft/entity/passive/CatEntity$TemptGoal;<init>(Lnet/minecraft/entity/passive/CatEntity;DLnet/minecraft/recipe/Ingredient;Z)V"),
+    //$$         index = 2)
+    //$$ private Ingredient allowCookedFish(Ingredient original) {
+    //$$     if (RugSettings.tameCatsWithCookedFish) return NEW_INGREDIENT;
+    //$$     return original;
+    //$$ }
+    //#endif
 }

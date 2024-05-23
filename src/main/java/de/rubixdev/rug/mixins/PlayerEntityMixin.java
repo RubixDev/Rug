@@ -54,15 +54,15 @@ public class PlayerEntityMixin {
         return RugSettings.foodInstantHeal || original;
     }
 
-    //#if MC >= 12004
-    @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 4.5f))
-    private static float changeReachDistanceSurvival(final float baseReachDistance) {
-        return (float) RugSettings.reachDistance;
-    }
-
-    @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 5.0f))
-    private static float changeReachDistanceCreative(final float baseReachDistance) {
-        return (float) RugSettings.reachDistance + 0.5f;
-    }
+    //#if MC >= 12004 && MC < 12006
+    //$$ @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 4.5f))
+    //$$ private static float changeReachDistanceSurvival(final float baseReachDistance) {
+    //$$     return (float) RugSettings.reachDistance;
+    //$$ }
+    //$$
+    //$$ @ModifyConstant(method = "getReachDistance", require = 1, allow = 1, constant = @Constant(floatValue = 5.0f))
+    //$$ private static float changeReachDistanceCreative(final float baseReachDistance) {
+    //$$     return (float) RugSettings.reachDistance + 0.5f;
+    //$$ }
     //#endif
 }

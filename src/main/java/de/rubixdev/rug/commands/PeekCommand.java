@@ -64,7 +64,11 @@ public class PeekCommand {
             //#else
             //$$ targetPlayer = playerManager.createPlayer(targetPlayerProfile);
             //#endif
-            NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer);
+            NbtCompound targetPlayerData = playerManager.loadPlayerData(targetPlayer)
+                    //#if MC >= 12006
+                    .orElse(null)
+                    //#endif
+                    ;
 
             if (targetPlayerData == null) {
                 source.sendError(Text.of("Targeted player's data could not be found. Was he ever in this world?"));

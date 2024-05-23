@@ -1,23 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " IS",
-        " PI",
-        "P  "
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "P": {
-            "item": "minecraft:paper"
-        },
-        "S": {
-            "item": "minecraft:string"
-        }
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
     },
-    "result": {
-        "item": "minecraft:name_tag",
-        "count": 1
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:string"
     }
+  },
+  "pattern": [
+    " IS",
+    " PI",
+    "P  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:name_tag"
+  },
+  "type": "minecraft:crafting_shaped"
 }

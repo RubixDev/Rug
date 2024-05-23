@@ -1,10 +1,5 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    "###",
-    "#O#",
-    "###"
-  ],
+  "group": "universal_dyeing_glazed_terracotta",
   "key": {
     "#": [
       {
@@ -57,9 +52,14 @@
       "item": "minecraft:lime_dye"
     }
   },
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
   "result": {
-    "item": "minecraft:lime_glazed_terracotta",
-    "count": 8
+    "count": 8,
+    "id": "minecraft:lime_glazed_terracotta"
   },
-  "group": "universal_dyeing_glazed_terracotta"
+  "type": "crafting_shaped"
 }

@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:quartz_block"
-        }
-    ],
-    "result": {
-        "item": "minecraft:quartz",
-        "count": 4
+  "ingredients": [
+    {
+      "item": "minecraft:quartz_block"
     }
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:quartz"
+  },
+  "type": "minecraft:crafting_shapeless"
 }

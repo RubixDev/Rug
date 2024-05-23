@@ -1,0 +1,17 @@
+{
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:bone_block"
+  },
+  "type": "minecraft:crafting_shaped"
+}

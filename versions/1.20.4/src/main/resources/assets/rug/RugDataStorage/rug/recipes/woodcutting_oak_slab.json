@@ -1,0 +1,8 @@
+{
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": "minecraft:oak_slab",
+  "type": "minecraft:stonecutting"
+}

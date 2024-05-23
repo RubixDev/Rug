@@ -39,7 +39,9 @@ dependencies {
 String MIXIN_CONFIG_PATH = 'rug.mixins.json'
 String LANG_DIR = 'assets/rug/lang'
 JavaVersion JAVA_COMPATIBILITY
-if (mcVersion >= 11800) {
+if (mcVersion >= 12005) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_21
+} else if (mcVersion >= 11800) {
     JAVA_COMPATIBILITY = JavaVersion.VERSION_17
 } else if (mcVersion >= 11700) {
     JAVA_COMPATIBILITY = JavaVersion.VERSION_16

@@ -1,0 +1,10 @@
+{
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "powder_to_glass",
+  "ingredient": {
+    "item": "minecraft:purple_concrete_powder"
+  },
+  "result": "minecraft:purple_stained_glass",
+  "type": "smelting"
+}

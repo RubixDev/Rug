@@ -1,5 +1,4 @@
 {
-  "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
       "tag": "minecraft:stone_crafting_materials"
@@ -20,6 +19,7 @@
     "#R#"
   ],
   "result": {
-    "item": "minecraft:piston"
-  }
+    "id": "minecraft:piston"
+  },
+  "type": "minecraft:crafting_shaped"
 }

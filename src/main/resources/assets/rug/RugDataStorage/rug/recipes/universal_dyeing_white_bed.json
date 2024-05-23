@@ -1,9 +1,4 @@
 {
-  "type": "crafting_shapeless",
-  "result": {
-    "item": "minecraft:white_bed",
-    "count": 1
-  },
   "group": "universal_dyeing_bed",
   "ingredients": [
     [
@@ -56,5 +51,10 @@
     {
       "item": "minecraft:white_dye"
     }
-  ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:white_bed"
+  },
+  "type": "crafting_shapeless"
 }

@@ -1,23 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " /S",
-        "/DS",
-        " /S"
-    ],
-    "key": {
-        "/": {
-            "item": "minecraft:stick"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "D": {
-            "item": "minecraft:dropper"
-        }
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
     },
-    "result": {
-        "item": "minecraft:dispenser",
-        "count": 1
+    "D": {
+      "item": "minecraft:dropper"
+    },
+    "S": {
+      "item": "minecraft:string"
     }
+  },
+  "pattern": [
+    " /S",
+    "/DS",
+    " /S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:dispenser"
+  },
+  "type": "minecraft:crafting_shaped"
 }

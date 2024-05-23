@@ -1,23 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  A",
-        "###",
-        ". ."
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:leather"
-        },
-        "A": {
-            "item": "minecraft:leather_helmet"
-        },
-        ".": {
-            "item": "minecraft:leather_boots"
-        }
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
     },
-    "result": {
-        "item": "minecraft:leather_horse_armor",
-        "count": 1
+    ".": {
+      "item": "minecraft:leather_boots"
+    },
+    "A": {
+      "item": "minecraft:leather_helmet"
     }
+  },
+  "pattern": [
+    "  A",
+    "###",
+    ". ."
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:leather_horse_armor"
+  },
+  "type": "minecraft:crafting_shaped"
 }

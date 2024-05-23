@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "# #",
-        "###",
-        "# #"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:leather"
-        }
-    },
-    "result": {
-        "item": "minecraft:leather_horse_armor",
-        "count": 1
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
     }
+  },
+  "pattern": [
+    "# #",
+    "###",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:leather_horse_armor"
+  },
+  "type": "minecraft:crafting_shaped"
 }

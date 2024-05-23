@@ -1,10 +1,5 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    "###",
-    "#O#",
-    "###"
-  ],
+  "group": "universal_dyeing_stained_glass_pane",
   "key": {
     "#": [
       {
@@ -57,9 +52,14 @@
       "item": "minecraft:magenta_dye"
     }
   },
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
   "result": {
-    "item": "minecraft:magenta_stained_glass_pane",
-    "count": 8
+    "count": 8,
+    "id": "minecraft:magenta_stained_glass_pane"
   },
-  "group": "universal_dyeing_stained_glass_pane"
+  "type": "crafting_shaped"
 }

@@ -6,8 +6,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -17,6 +15,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+//#if MC >= 12006
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ProfileComponent;
+//#else
+//$$ import net.minecraft.nbt.NbtCompound;
+//$$ import net.minecraft.nbt.NbtHelper;
+//#endif
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
@@ -36,8 +42,12 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
                         && damageSource.getAttacker() instanceof PlayerEntity)
                 || (RugSettings.playerHeadDrops.equals("on_death"))) {
             ItemStack stack = new ItemStack(Items.PLAYER_HEAD);
-            stack.getOrCreateNbt()
-                    .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
+            //#if MC >= 12006
+            stack.set(DataComponentTypes.PROFILE, new ProfileComponent(this.getGameProfile()));
+            //#else
+            //$$ stack.getOrCreateNbt()
+            //$$         .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
+            //#endif
             this.dropStack(stack);
         }
     }

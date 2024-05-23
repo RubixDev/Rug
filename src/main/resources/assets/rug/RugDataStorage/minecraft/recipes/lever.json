@@ -1,5 +1,4 @@
 {
-  "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
       "tag": "minecraft:stone_crafting_materials"
@@ -13,6 +12,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:lever"
-  }
+    "id": "minecraft:lever"
+  },
+  "type": "minecraft:crafting_shaped"
 }

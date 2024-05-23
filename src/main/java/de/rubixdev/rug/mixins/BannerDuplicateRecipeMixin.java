@@ -18,7 +18,11 @@ public class BannerDuplicateRecipeMixin {
 
     @ModifyConstant(
             method =
-                    "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;",
+                    //#if MC >= 12006
+                    "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/RegistryWrapper$WrapperLookup;)Lnet/minecraft/item/ItemStack;",
+                    //#else
+                    //$$ "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;",
+                    //#endif
             constant = @Constant(intValue = 6),
             require = 0)
     private int craft_overwriteMaxLayers(final int original) {

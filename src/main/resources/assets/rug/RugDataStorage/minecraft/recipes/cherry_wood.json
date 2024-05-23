@@ -1,17 +1,17 @@
 {
-  "type": "crafting_shaped",
   "group": "bark",
-  "pattern": [
-    "##",
-    "##"
-  ],
   "key": {
     "#": {
       "item": "minecraft:cherry_log"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "minecraft:cherry_wood",
-    "count": 4
-  }
+    "count": 4,
+    "id": "minecraft:cherry_wood"
+  },
+  "type": "crafting_shaped"
 }

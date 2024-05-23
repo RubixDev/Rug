@@ -1,0 +1,8 @@
+{
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:acacia_planks"
+  },
+  "result": "minecraft:acacia_stairs",
+  "type": "minecraft:stonecutting"
+}
