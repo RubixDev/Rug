@@ -1,11 +1,9 @@
 package de.rubixdev.rug.mixins;
 
 import de.rubixdev.rug.RugSettings;
-import de.rubixdev.rug.util.Storage;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -34,11 +32,6 @@ public class PlayerEntityMixin {
                             target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean onTickMovement(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
         return !RugSettings.foodInstantHeal && gameRules.getBoolean(rule);
-    }
-
-    @Inject(method = "eatFood", at = @At("HEAD"))
-    private void savePlayer(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
-        Storage.player = (PlayerEntity) (Object) this;
     }
 
     @Inject(method = "canHarvest", at = @At("HEAD"), cancellable = true)

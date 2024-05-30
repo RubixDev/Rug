@@ -1,15 +1,17 @@
 package de.rubixdev.rug.mixins;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.rubixdev.rug.RugSettings;
-import de.rubixdev.rug.util.Storage;
 import net.minecraft.entity.player.HungerManager;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.GameRules;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //#if MC >= 12006
@@ -22,48 +24,54 @@ import net.minecraft.component.type.FoodComponent;
 
 @Mixin(HungerManager.class)
 public class HungerManagerMixin {
-    @Redirect(
+    @Unique private int pendingHealing = 0;
+
+    @WrapOperation(
             method = "update",
             at =
                     @At(
                             value = "FIELD",
                             target = "Lnet/minecraft/entity/player/HungerManager;foodLevel:I",
                             opcode = Opcodes.PUTFIELD))
-    private void onUpdate(HungerManager hungerManager, int value) {
+    private void dontSetFoodLevel(HungerManager instance, int value, Operation<Void> original) {
         if (!RugSettings.peacefulHunger) {
-            hungerManager.setFoodLevel(value);
+            original.call(instance, value);
         }
     }
 
-    @Redirect(
+    @ModifyExpressionValue(
             method = "update",
             at =
-                    @At(
-                            value = "INVOKE",
-                            target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
-    private boolean onUpdate(GameRules gameRules, GameRules.Key<GameRules.BooleanRule> rule) {
-        if (RugSettings.foodInstantHeal) {
-            return false;
-        } else {
-            return gameRules.getBoolean(rule);
-        }
+            @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+    private boolean noNaturalRegen(boolean original) {
+        return original && !RugSettings.foodInstantHeal;
     }
 
     @Inject(method = "eat", at = @At("HEAD"), cancellable = true)
     //#if MC >= 12006
-    private void onEat(ItemStack stack, CallbackInfo ci) {
+    private void instantHeal(ItemStack stack, CallbackInfo ci) {
         FoodComponent foodComponent = stack.get(DataComponentTypes.FOOD);
         if (RugSettings.foodInstantHeal && foodComponent != null) {
-            Storage.player.heal(foodComponent.nutrition());
+            pendingHealing += foodComponent.nutrition();
             ci.cancel();
         }
     }
     //#else
-    //$$ private void onEat(Item item, ItemStack stack, CallbackInfo ci) {
+    //$$ private void instantHeal(Item item, ItemStack stack, CallbackInfo ci) {
     //$$     if (RugSettings.foodInstantHeal && item.isFood()) {
-    //$$         Storage.player.heal(Objects.requireNonNull(item.getFoodComponent()).getHunger());
+    //$$         pendingHealing += Objects.requireNonNull(item.getFoodComponent()).getHunger();
     //$$         ci.cancel();
     //$$     }
     //$$ }
     //#endif
+
+    @Inject(method = "update", at = @At("HEAD"))
+    private void applyPendingHealing(PlayerEntity player, CallbackInfo ci) {
+        if (pendingHealing > 0) {
+            player.heal(pendingHealing);
+            pendingHealing = 0;
+        }
+    }
 }
