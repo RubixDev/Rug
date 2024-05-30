@@ -1,9 +1,0 @@
-{
-  "cookingtime": 100,
-  "experience": 1,
-  "ingredient": {
-    "item": "minecraft:cactus"
-  },
-  "result": "minecraft:green_dye",
-  "type": "minecraft:smoking"
-}

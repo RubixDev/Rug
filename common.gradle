@@ -13,6 +13,9 @@ repositories {
     maven { url 'https://masa.dy.fi/maven' }
     // SGUI
     maven { url 'https://maven.nucleoid.xyz' }
+    // BRRP
+//    maven { url 'https://raw.githubusercontent.com/SolidBlock-cn/mvn-repo/main' }
+    maven { url 'https://api.modrinth.com/maven' }
 }
 
 // https://github.com/FabricMC/fabric-loader/issues/783
@@ -34,6 +37,7 @@ dependencies {
     modImplementation include("eu.pb4:sgui:${project.sgui_version}")
 //    include(modImplementation("me.fallenbreath:conditional-mixin:${project.conditionalmixin_version}"))
 //    include(annotationProcessor(implementation("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")))
+    modImplementation "maven.modrinth:brrp:${project.brrp_version}"
 }
 
 String MIXIN_CONFIG_PATH = 'rug.mixins.json'

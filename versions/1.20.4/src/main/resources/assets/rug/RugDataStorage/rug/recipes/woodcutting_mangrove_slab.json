@@ -1,8 +1,0 @@
-{
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:mangrove_planks"
-  },
-  "result": "minecraft:mangrove_slab",
-  "type": "minecraft:stonecutting"
-}

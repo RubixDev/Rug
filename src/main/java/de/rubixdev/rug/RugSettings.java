@@ -219,46 +219,23 @@ public class RugSettings {
     @Rule(categories = {EXPERIMENTAL, FEATURE, SURVIVAL, RUG})
     public static boolean silkTouchSpawners = false;
 
-    @CraftingRule(recipes = "easy_dispenser.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyDispenserCrafting = false;
 
-    @CraftingRule(recipes = "easy_bone_block.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyBoneBlockCrafting = false;
 
-    @CraftingRule(
-            recipes = {
-                "acacia_wood.json",
-                "birch_wood.json",
-                "cherry_wood.json",
-                "crimson_hyphae.json",
-                "dark_oak_wood.json",
-                "jungle_wood.json",
-                "mangrove_wood.json",
-                "oak_wood.json",
-                "spruce_wood.json",
-                "warped_hyphae.json",
-                "stripped_acacia_wood.json",
-                "stripped_birch_wood.json",
-                "stripped_cherry_wood.json",
-                "stripped_crimson_hyphae.json",
-                "stripped_dark_oak_wood.json",
-                "stripped_jungle_wood.json",
-                "stripped_mangrove_wood.json",
-                "stripped_oak_wood.json",
-                "stripped_spruce_wood.json",
-                "stripped_warped_hyphae.json"
-            },
-            recipeNamespace = "minecraft")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean moreBarkCrafting = false;
 
-    @CraftingRule(recipes = "notch_apple.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RENEWABLE, RUG})
     public static boolean craftableNotchApple = false;
 
-    @CraftingRule(recipes = "unpackable_quartz.json")
+    @CraftingRule
     @Rule(
             options = {"0", "4"},
             strict = false,
@@ -266,7 +243,7 @@ public class RugSettings {
             categories = {CRAFTING, SURVIVAL, RUG})
     public static int unpackableQuartz = 0;
 
-    @CraftingRule(recipes = "unpackable_wool.json")
+    @CraftingRule
     @Rule(
             options = {"0", "4"},
             strict = false,
@@ -274,7 +251,7 @@ public class RugSettings {
             categories = {CRAFTING, SURVIVAL, RUG})
     public static int unpackableWool = 0;
 
-    @CraftingRule(recipes = "unpackable_nether_wart.json")
+    @CraftingRule
     @Rule(
             options = {"0", "9"},
             strict = false,
@@ -282,180 +259,37 @@ public class RugSettings {
             categories = {CRAFTING, SURVIVAL, RUG})
     public static int unpackableNetherWart = 0;
 
-    @CraftingRule(recipes = "easy_repeater.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyRepeaterCrafting = false;
 
-    @CraftingRule(recipes = "craftable_name_tag")
+    @CraftingRule
     @Rule(
             options = {"off", "with_iron", "with_string", "with_both"},
             categories = {CRAFTING, SURVIVAL, RUG})
     public static String craftableNameTags = "off";
 
-    @CraftingRule(
-            recipes = {
-                "easy_chest_minecart.json",
-                "easy_furnace_minecart.json",
-                "easy_hopper_minecart.json",
-                "easy_tnt_minecart.json"
-            })
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyMinecartsCrafting = false;
 
-    @CraftingRule(recipes = "easy_chest_crafting.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyChestCrafting = false;
 
-    @CraftingRule(recipes = "easy_stick_crafting.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyStickCrafting = false;
 
-    @CraftingRule(
-            recipes = {"bread.json", "paper.json", "shulker_box.json"},
-            recipeNamespace = "minecraft")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean shapelessCrafting = false;
 
-    @CraftingRule(
-            recipes = {
-                "powder_to_glass_smelting_yellow_stained_glass.json",
-                "powder_to_glass_smelting_white_stained_glass.json",
-                "powder_to_glass_smelting_red_stained_glass.json",
-                "powder_to_glass_smelting_purple_stained_glass.json",
-                "powder_to_glass_smelting_pink_stained_glass.json",
-                "powder_to_glass_smelting_orange_stained_glass.json",
-                "powder_to_glass_smelting_magenta_stained_glass.json",
-                "powder_to_glass_smelting_lime_stained_glass.json",
-                "powder_to_glass_smelting_light_gray_stained_glass.json",
-                "powder_to_glass_smelting_light_blue_stained_glass.json",
-                "powder_to_glass_smelting_green_stained_glass.json",
-                "powder_to_glass_smelting_gray_stained_glass.json",
-                "powder_to_glass_smelting_cyan_stained_glass.json",
-                "powder_to_glass_smelting_brown_stained_glass.json",
-                "powder_to_glass_smelting_blue_stained_glass.json",
-                "powder_to_glass_smelting_black_stained_glass.json"
-            })
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean powderToGlassSmelting = false;
 
-    @CraftingRule(
-            recipes = {
-                "universal_dyeing_black_bed.json",
-                "universal_dyeing_black_concrete_powder.json",
-                "universal_dyeing_black_glazed_terracotta.json",
-                "universal_dyeing_black_stained_glass.json",
-                "universal_dyeing_black_stained_glass_pane.json",
-                "universal_dyeing_black_terracotta.json",
-                "universal_dyeing_black_wool.json",
-                "universal_dyeing_blue_bed.json",
-                "universal_dyeing_blue_concrete_powder.json",
-                "universal_dyeing_blue_glazed_terracotta.json",
-                "universal_dyeing_blue_stained_glass.json",
-                "universal_dyeing_blue_stained_glass_pane.json",
-                "universal_dyeing_blue_terracotta.json",
-                "universal_dyeing_blue_wool.json",
-                "universal_dyeing_brown_bed.json",
-                "universal_dyeing_brown_concrete_powder.json",
-                "universal_dyeing_brown_glazed_terracotta.json",
-                "universal_dyeing_brown_stained_glass.json",
-                "universal_dyeing_brown_stained_glass_pane.json",
-                "universal_dyeing_brown_terracotta.json",
-                "universal_dyeing_brown_wool.json",
-                "universal_dyeing_cyan_bed.json",
-                "universal_dyeing_cyan_concrete_powder.json",
-                "universal_dyeing_cyan_glazed_terracotta.json",
-                "universal_dyeing_cyan_stained_glass.json",
-                "universal_dyeing_cyan_stained_glass_pane.json",
-                "universal_dyeing_cyan_terracotta.json",
-                "universal_dyeing_cyan_wool.json",
-                "universal_dyeing_glass.json",
-                "universal_dyeing_glass_pane.json",
-                "universal_dyeing_gray_bed.json",
-                "universal_dyeing_gray_concrete_powder.json",
-                "universal_dyeing_gray_glazed_terracotta.json",
-                "universal_dyeing_gray_stained_glass.json",
-                "universal_dyeing_gray_stained_glass_pane.json",
-                "universal_dyeing_gray_terracotta.json",
-                "universal_dyeing_gray_wool.json",
-                "universal_dyeing_green_bed.json",
-                "universal_dyeing_green_concrete_powder.json",
-                "universal_dyeing_green_glazed_terracotta.json",
-                "universal_dyeing_green_stained_glass.json",
-                "universal_dyeing_green_stained_glass_pane.json",
-                "universal_dyeing_green_terracotta.json",
-                "universal_dyeing_green_wool.json",
-                "universal_dyeing_light_blue_bed.json",
-                "universal_dyeing_light_blue_concrete_powder.json",
-                "universal_dyeing_light_blue_glazed_terracotta.json",
-                "universal_dyeing_light_blue_stained_glass.json",
-                "universal_dyeing_light_blue_stained_glass_pane.json",
-                "universal_dyeing_light_blue_terracotta.json",
-                "universal_dyeing_light_blue_wool.json",
-                "universal_dyeing_light_gray_bed.json",
-                "universal_dyeing_light_gray_concrete_powder.json",
-                "universal_dyeing_light_gray_glazed_terracotta.json",
-                "universal_dyeing_light_gray_stained_glass.json",
-                "universal_dyeing_light_gray_stained_glass_pane.json",
-                "universal_dyeing_light_gray_terracotta.json",
-                "universal_dyeing_light_gray_wool.json",
-                "universal_dyeing_lime_bed.json",
-                "universal_dyeing_lime_concrete_powder.json",
-                "universal_dyeing_lime_glazed_terracotta.json",
-                "universal_dyeing_lime_stained_glass.json",
-                "universal_dyeing_lime_stained_glass_pane.json",
-                "universal_dyeing_lime_terracotta.json",
-                "universal_dyeing_lime_wool.json",
-                "universal_dyeing_magenta_bed.json",
-                "universal_dyeing_magenta_concrete_powder.json",
-                "universal_dyeing_magenta_glazed_terracotta.json",
-                "universal_dyeing_magenta_stained_glass.json",
-                "universal_dyeing_magenta_stained_glass_pane.json",
-                "universal_dyeing_magenta_terracotta.json",
-                "universal_dyeing_magenta_wool.json",
-                "universal_dyeing_orange_bed.json",
-                "universal_dyeing_orange_concrete_powder.json",
-                "universal_dyeing_orange_glazed_terracotta.json",
-                "universal_dyeing_orange_stained_glass.json",
-                "universal_dyeing_orange_stained_glass_pane.json",
-                "universal_dyeing_orange_terracotta.json",
-                "universal_dyeing_orange_wool.json",
-                "universal_dyeing_pink_bed.json",
-                "universal_dyeing_pink_concrete_powder.json",
-                "universal_dyeing_pink_glazed_terracotta.json",
-                "universal_dyeing_pink_stained_glass.json",
-                "universal_dyeing_pink_stained_glass_pane.json",
-                "universal_dyeing_pink_terracotta.json",
-                "universal_dyeing_pink_wool.json",
-                "universal_dyeing_purple_bed.json",
-                "universal_dyeing_purple_concrete_powder.json",
-                "universal_dyeing_purple_glazed_terracotta.json",
-                "universal_dyeing_purple_stained_glass.json",
-                "universal_dyeing_purple_stained_glass_pane.json",
-                "universal_dyeing_purple_terracotta.json",
-                "universal_dyeing_purple_wool.json",
-                "universal_dyeing_red_bed.json",
-                "universal_dyeing_red_concrete_powder.json",
-                "universal_dyeing_red_glazed_terracotta.json",
-                "universal_dyeing_red_stained_glass.json",
-                "universal_dyeing_red_stained_glass_pane.json",
-                "universal_dyeing_red_terracotta.json",
-                "universal_dyeing_red_wool.json",
-                "universal_dyeing_terracotta.json",
-                "universal_dyeing_white_bed.json",
-                "universal_dyeing_white_concrete_powder.json",
-                "universal_dyeing_white_glazed_terracotta.json",
-                "universal_dyeing_white_stained_glass.json",
-                "universal_dyeing_white_stained_glass_pane.json",
-                "universal_dyeing_white_terracotta.json",
-                "universal_dyeing_white_wool.json",
-                "universal_dyeing_yellow_bed.json",
-                "universal_dyeing_yellow_concrete_powder.json",
-                "universal_dyeing_yellow_glazed_terracotta.json",
-                "universal_dyeing_yellow_stained_glass.json",
-                "universal_dyeing_yellow_stained_glass_pane.json",
-                "universal_dyeing_yellow_terracotta.json",
-                "universal_dyeing_yellow_wool.json"
-            })
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean universalDyeing = false;
 
@@ -472,7 +306,7 @@ public class RugSettings {
         }
     }
 
-    @CraftingRule(recipes = {"unpackable_blue_ice.json", "unpackable_packed_ice.json"})
+    @CraftingRule
     @Rule(
             options = {"0", "3", "4", "9"},
             strict = false,
@@ -480,13 +314,13 @@ public class RugSettings {
             categories = {CRAFTING, SURVIVAL, RUG})
     public static int unpackableIce = 0;
 
-    @CraftingRule(recipes = "craftable_cobweb")
+    @CraftingRule
     @Rule(
             options = {"off", "cross", "full"},
             categories = {CRAFTING, SURVIVAL, RENEWABLE, RUG})
     public static String craftableCobwebs = "off";
 
-    @CraftingRule(recipes = "easy_trapped_chest_crafting.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyTrappedChestCrafting = false;
 
@@ -518,51 +352,13 @@ public class RugSettings {
             categories = {RUG})
     public static int redstoneLampTurnOffDelay = 4;
 
-    @CraftingRule(
-            recipes = {
-                "craftable_horse_armor_leather_horse_armor",
-                "craftable_horse_armor_iron_horse_armor",
-                "craftable_horse_armor_golden_horse_armor",
-                "craftable_horse_armor_diamond_horse_armor",
-            })
+    @CraftingRule
     @Rule(
             options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
             categories = {CRAFTING, SURVIVAL, RENEWABLE, RUG})
     public static String craftableHorseArmor = "off";
 
-    @CraftingRule(
-            recipes = {
-                "woodcutting_acacia_fence.json",
-                "woodcutting_acacia_slab.json",
-                "woodcutting_acacia_stairs.json",
-                "woodcutting_birch_fence.json",
-                "woodcutting_birch_slab.json",
-                "woodcutting_birch_stairs.json",
-                "woodcutting_cherry_fence.json",
-                "woodcutting_cherry_slab.json",
-                "woodcutting_cherry_stairs.json",
-                "woodcutting_crimson_fence.json",
-                "woodcutting_crimson_slab.json",
-                "woodcutting_crimson_stairs.json",
-                "woodcutting_dark_oak_fence.json",
-                "woodcutting_dark_oak_slab.json",
-                "woodcutting_dark_oak_stairs.json",
-                "woodcutting_jungle_fence.json",
-                "woodcutting_jungle_slab.json",
-                "woodcutting_jungle_stairs.json",
-                "woodcutting_mangrove_fence.json",
-                "woodcutting_mangrove_slab.json",
-                "woodcutting_mangrove_stairs.json",
-                "woodcutting_oak_fence.json",
-                "woodcutting_oak_slab.json",
-                "woodcutting_oak_stairs.json",
-                "woodcutting_spruce_fence.json",
-                "woodcutting_spruce_slab.json",
-                "woodcutting_spruce_stairs.json",
-                "woodcutting_warped_fence.json",
-                "woodcutting_warped_slab.json",
-                "woodcutting_warped_stairs.json"
-            })
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean woodcutting = false;
 
@@ -658,7 +454,7 @@ public class RugSettings {
             categories = {EXPERIMENTAL, FEATURE, RUG})
     public static String moreFortressSpawningBlocks = "off";
 
-    @CraftingRule(recipes = "easy_blue_ice_crafting.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean easyBlueIceCrafting = false;
 
@@ -756,53 +552,35 @@ public class RugSettings {
     @Rule(categories = {SURVIVAL, RUG})
     public static boolean villagersAlwaysConvert = false;
 
-    @CraftingRule(recipes = {"blast_furnace_stone.json", "blast_furnace_smooth_stone.json"})
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceStone = false;
 
-    @CraftingRule(recipes = "blast_furnace_glass.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceGlass = false;
 
-    @CraftingRule(recipes = {"blast_furnace_smooth_sandstone.json", "blast_furnace_smooth_red_sandstone.json"})
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceSmoothSandStone = false;
 
-    @CraftingRule(recipes = "blast_furnace_nether_brick.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceNetherBrick = false;
 
-    @CraftingRule(recipes = "blast_furnace_smooth_quartz.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceSmoothQuartz = false;
 
-    @CraftingRule(
-            recipes = {
-                "blast_furnace_black_glazed_terracotta.json",
-                "blast_furnace_blue_glazed_terracotta.json",
-                "blast_furnace_brown_glazed_terracotta.json",
-                "blast_furnace_cyan_glazed_terracotta.json",
-                "blast_furnace_gray_glazed_terracotta.json",
-                "blast_furnace_green_glazed_terracotta.json",
-                "blast_furnace_light_blue_glazed_terracotta.json",
-                "blast_furnace_light_gray_glazed_terracotta.json",
-                "blast_furnace_lime_glazed_terracotta.json",
-                "blast_furnace_magenta_glazed_terracotta.json",
-                "blast_furnace_orange_glazed_terracotta.json",
-                "blast_furnace_pink_glazed_terracotta.json",
-                "blast_furnace_purple_glazed_terracotta.json",
-                "blast_furnace_red_glazed_terracotta.json",
-                "blast_furnace_white_glazed_terracotta.json",
-                "blast_furnace_yellow_glazed_terracotta.json"
-            })
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean blastFurnaceGlazedTerracotta = false;
 
-    @CraftingRule(recipes = "smoker_green_dye.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean smokerGreenDye = false;
 
-    @CraftingRule(recipes = "smoker_lime_dye.json")
+    @CraftingRule
     @Rule(categories = {CRAFTING, SURVIVAL, RUG})
     public static boolean smokerLimeDye = false;
 
@@ -839,7 +617,7 @@ public class RugSettings {
             validators = validatorDamage.class)
     public static int stalagmiteSteppingDamage = 0;
 
-    @CraftingRule(recipes = "unpackable_amethysts.json")
+    @CraftingRule
     @Rule(
             options = {"0", "4"},
             strict = false,
@@ -876,13 +654,11 @@ public class RugSettings {
             options = {"0", "50", "80", "100"})
     public static int enderEyeDropChance = 80;
 
-    @CraftingRule(recipes = "craftable_tuff.json")
+    @CraftingRule
     @Rule(categories = {SURVIVAL, CRAFTING, RENEWABLE, RUG})
     public static boolean craftableTuff = false;
 
-    @CraftingRule(
-            recipes = {"dispenser.json", "dropper.json", "lever.json", "observer.json", "piston.json"},
-            recipeNamespace = "minecraft")
+    @CraftingRule
     @Rule(categories = {SURVIVAL, CRAFTING, BUGFIX, RUG})
     public static boolean missingCobbleRecipes = false;
 
