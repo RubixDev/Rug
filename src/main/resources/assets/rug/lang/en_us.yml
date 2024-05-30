@@ -81,7 +81,7 @@ rug:
       extra:
         '0': Expect a lag spike when changing the value
     craftableHorseArmor:
-      desc: Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+      desc: Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks), with armor_pieces, or with wool (like in 13w16a)
       extra:
         '0': Expect a lag spike when changing the value
     craftableNameTags:

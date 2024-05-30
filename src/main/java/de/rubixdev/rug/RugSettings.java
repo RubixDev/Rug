@@ -354,7 +354,7 @@ public class RugSettings {
 
     @CraftingRule
     @Rule(
-            options = {"off", "vanilla_style", "with_saddle", "armor_pieces"},
+            options = {"off", "vanilla_style", "with_saddle", "armor_pieces", "with_wool"},
             categories = {CRAFTING, SURVIVAL, RENEWABLE, RUG})
     public static String craftableHorseArmor = "off";
 

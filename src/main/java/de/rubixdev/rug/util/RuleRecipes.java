@@ -300,6 +300,12 @@ public class RuleRecipes {
                     builder.input('.', material.getValue().getMiddle());
                     builder.input('A', material.getValue().getRight());
                 }
+                if (RugSettings.craftableHorseArmor.equals("with_wool")) {
+                    builder.pattern("  #");
+                    builder.pattern("#W#");
+                    builder.pattern("###");
+                    builder.input('W', ItemTags.WOOL);
+                }
                 pack.addRecipeAndAdvancement(new Identifier(MOD_ID, "craftable_horse_armor_" + itemId(material.getKey()).getPath()), builder);
             }
         }
