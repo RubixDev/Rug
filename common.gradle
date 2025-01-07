@@ -72,10 +72,6 @@ loom {
 //    }
 }
 
-remapJar {
-    remapperIsolation = true
-}
-
 String versionSuffix = ''
 // detect github action environment variables
 // https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables

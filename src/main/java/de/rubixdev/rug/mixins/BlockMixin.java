@@ -24,6 +24,10 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 //#endif
 
+//#if MC >= 122101
+import net.minecraft.registry.RegistryKeys;
+//#endif
+
 @Mixin(Block.class)
 public abstract class BlockMixin {
     @Shadow
@@ -46,7 +50,11 @@ public abstract class BlockMixin {
             Entity entity,
             ItemStack stack,
             CallbackInfo ci) {
-        boolean usesSilkTouch = EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0;
+        //#if MC >= 12101
+        boolean usesSilkTouch = EnchantmentHelper.getLevel(world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH), stack) > 0;
+        //#else
+        //$$ boolean usesSilkTouch = EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0;
+        //#endif
 
         if (RugSettings.silkTouchFarmland && state.isOf(Blocks.FARMLAND) && usesSilkTouch) {
             dropStack(world, pos, new ItemStack(Items.FARMLAND));

@@ -45,7 +45,7 @@ public class ModsCommand {
         String finalChatMessageJson = chatMessageJson;
         context.getSource().sendFeedback(() -> Text.Serialization.fromJson(
                 finalChatMessageJson
-                //#if MC > 12006
+                //#if MC >= 12006
                 , context.getSource().getRegistryManager()
                 //#endif
         ), false);

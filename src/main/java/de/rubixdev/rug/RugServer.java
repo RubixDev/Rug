@@ -40,6 +40,8 @@ import org.jetbrains.annotations.Nullable;
 import pers.solid.brrp.v1.api.RuntimeResourcePack;
 import pers.solid.brrp.v1.fabric.api.RRPCallback;
 
+import static de.rubixdev.rug.util.Utils.id;
+
 //#if MC >= 12006
 import net.minecraft.entity.LivingEntity;
 //#endif
@@ -52,7 +54,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
     public static SettingsManager settingsManager;
 
     private static MinecraftServer minecraftServer;
-    private static final RuntimeResourcePack PACK = RuntimeResourcePack.create(new Identifier(MOD_ID, "recipes"));
+    private static final RuntimeResourcePack PACK = RuntimeResourcePack.create(id("recipes"));
 
     static {
         ModMetadata metadata = FabricLoader.getInstance()

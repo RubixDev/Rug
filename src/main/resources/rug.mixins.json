@@ -18,7 +18,6 @@
     "BannerItemMixin",
     "BlockItemMixin",
     "BlockMixin",
-    "BowItemMixin",
     "BucketItemMixin",
     "BulbBlockMixin",
     "CactusBlockMixin",

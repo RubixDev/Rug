@@ -31,12 +31,16 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     }
 
     @Inject(
-            method = "onDeath",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"))
+        method = "onDeath",
+        at = @At(
+            value = "INVOKE",
+            //#if MC >= 12101
+            target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/damage/DamageSource;)V"
+            //#else
+            //$$ target = "Lnet/minecraft/server/network/ServerPlayerEntity;drop(Lnet/minecraft/entity/damage/DamageSource;)V"
+            //#endif
+        )
+    )
     private void onOnDeath(DamageSource damageSource, CallbackInfo ci) {
         if ((RugSettings.playerHeadDrops.equals("on_killed_by_player")
                         && damageSource.getAttacker() instanceof PlayerEntity)

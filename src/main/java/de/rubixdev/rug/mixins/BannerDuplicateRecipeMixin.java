@@ -9,7 +9,11 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(value = BannerDuplicateRecipe.class, priority = 990)
 public class BannerDuplicateRecipeMixin {
     @ModifyConstant(
-            method = "matches(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/world/World;)Z",
+            //#if MC >= 12101
+            method = "matches(Lnet/minecraft/recipe/input/CraftingRecipeInput;Lnet/minecraft/world/World;)Z",
+            //#else
+            //$$ method = "matches(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/world/World;)Z",
+            //#endif
             constant = @Constant(intValue = 6),
             require = 0)
     private int matches_overwriteMaxLayers(final int original) {
@@ -17,12 +21,13 @@ public class BannerDuplicateRecipeMixin {
     }
 
     @ModifyConstant(
-            method =
-                    //#if MC >= 12006
-                    "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/RegistryWrapper$WrapperLookup;)Lnet/minecraft/item/ItemStack;",
-                    //#else
-                    //$$ "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;",
-                    //#endif
+            //#if MC >= 12101
+            method = "craft(Lnet/minecraft/recipe/input/CraftingRecipeInput;Lnet/minecraft/registry/RegistryWrapper$WrapperLookup;)Lnet/minecraft/item/ItemStack;",
+            //#elseif MC >= 12006
+            //$$ method = "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/RegistryWrapper$WrapperLookup;)Lnet/minecraft/item/ItemStack;",
+            //#else
+            //$$ method = "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;",
+            //#endif
             constant = @Constant(intValue = 6),
             require = 0)
     private int craft_overwriteMaxLayers(final int original) {

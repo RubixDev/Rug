@@ -17,8 +17,8 @@ import pers.solid.brrp.v1.api.RuntimeResourcePack;
 
 import java.util.Map;
 
-import static de.rubixdev.rug.RugServer.MOD_ID;
 import static de.rubixdev.rug.util.ItemMaps.*;
+import static de.rubixdev.rug.util.Utils.id;
 
 //#if MC >= 12002
 import net.minecraft.advancement.Advancement;
@@ -58,7 +58,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyDispenserCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_dispenser"),
+                    id("easy_dispenser"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, Items.DISPENSER)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern(" /S")
@@ -72,7 +72,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyBoneBlockCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_bone_block"),
+                    id("easy_bone_block"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BONE_BLOCK, 3)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("###")
@@ -91,7 +91,7 @@ public class RuleRecipes {
 
         if (RugSettings.craftableNotchApple) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "notch_apple"),
+                    id("notch_apple"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Items.ENCHANTED_GOLDEN_APPLE)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("###")
@@ -111,7 +111,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyRepeaterCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_repeater"),
+                    id("easy_repeater"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, Items.REPEATER)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("* *")
@@ -146,7 +146,7 @@ public class RuleRecipes {
                 builder.input('I', Items.IRON_INGOT);
                 builder.input('S', Items.STRING);
             }
-            pack.addRecipeAndAdvancement(new Identifier(MOD_ID, "craftable_name_tag"), builder);
+            pack.addRecipeAndAdvancement(id("craftable_name_tag"), builder);
         }
 
         if (RugSettings.easyMinecartsCrafting) {
@@ -158,7 +158,7 @@ public class RuleRecipes {
             );
             for (Map.Entry<Item, Item> minecartType : minecarts.entrySet()) {
                 pack.addRecipeAndAdvancement(
-                        new Identifier(MOD_ID, "easy_" + itemId(minecartType.getValue()).getPath()),
+                        id("easy_" + itemId(minecartType.getValue()).getPath()),
                         ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, minecartType.getValue())
                                 .criterion("tick", TickCriterion.Conditions.createTick())
                                 .group("minecart")
@@ -172,7 +172,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyChestCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_chest"),
+                    id("easy_chest"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CHEST, 4)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("###")
@@ -184,7 +184,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyTrappedChestCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_trapped_chest"),
+                    id("easy_trapped_chest"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, Items.TRAPPED_CHEST, 4)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("###")
@@ -197,7 +197,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyStickCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_stick"),
+                    id("easy_stick"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 16)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("#")
@@ -227,7 +227,7 @@ public class RuleRecipes {
                 Item input = CONCRETE_POWDERS.get(color);
                 Item output = STAINED_GLASSES.get(color);
                 pack.addRecipeAndAdvancement(
-                        new Identifier(MOD_ID, "powder_to_glass_smelting_" + itemId(output).getPath()),
+                        id("powder_to_glass_smelting_" + itemId(output).getPath()),
                         CookingRecipeJsonBuilder.createSmelting(
                                         Ingredient.ofItems(input),
                                         RecipeCategory.MISC,
@@ -268,7 +268,7 @@ public class RuleRecipes {
                 builder.pattern("###");
                 builder.pattern("###");
             }
-            pack.addRecipeAndAdvancement(new Identifier(MOD_ID, "craftable_cobweb"), builder);
+            pack.addRecipeAndAdvancement(id("craftable_cobweb"), builder);
         }
 
         if (!RugSettings.craftableHorseArmor.equals("off")) {
@@ -306,7 +306,7 @@ public class RuleRecipes {
                     builder.pattern("###");
                     builder.input('W', ItemTags.WOOL);
                 }
-                pack.addRecipeAndAdvancement(new Identifier(MOD_ID, "craftable_horse_armor_" + itemId(material.getKey()).getPath()), builder);
+                pack.addRecipeAndAdvancement(id("craftable_horse_armor_" + itemId(material.getKey()).getPath()), builder);
             }
         }
 
@@ -317,18 +317,18 @@ public class RuleRecipes {
                 Item slab = SLABS.get(woodType);
                 Item stairs = STAIRS.get(woodType);
                 pack.addRecipeAndAdvancement(
-                        new Identifier(MOD_ID, "woodcutting_" + itemId(fence).getPath()),
-                        SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, fence)
+                        id("woodcutting_" + itemId(fence).getPath()),
+                        StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, fence)
                                 .criterion("tick", TickCriterion.Conditions.createTick())
                 );
                 pack.addRecipeAndAdvancement(
-                        new Identifier(MOD_ID, "woodcutting_" + itemId(slab).getPath()),
-                        SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, slab, 2)
+                        id("woodcutting_" + itemId(slab).getPath()),
+                        StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, slab, 2)
                                 .criterion("tick", TickCriterion.Conditions.createTick())
                 );
                 pack.addRecipeAndAdvancement(
-                        new Identifier(MOD_ID, "woodcutting_" + itemId(stairs).getPath()),
-                        SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, stairs)
+                        id("woodcutting_" + itemId(stairs).getPath()),
+                        StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(planks), RecipeCategory.MISC, stairs)
                                 .criterion("tick", TickCriterion.Conditions.createTick())
                 );
             });
@@ -336,7 +336,7 @@ public class RuleRecipes {
 
         if (RugSettings.easyBlueIceCrafting) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "easy_blue_ice"),
+                    id("easy_blue_ice"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BLUE_ICE, 8)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("###")
@@ -363,7 +363,7 @@ public class RuleRecipes {
 
         if (RugSettings.craftableTuff) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "craftable_tuff"),
+                    id("craftable_tuff"),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.TUFF, 2)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .pattern("#C")
@@ -440,7 +440,7 @@ public class RuleRecipes {
     private static void unpackable(RuntimeResourcePack pack, int count, Item input, Item output) {
         if (count != 0) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "unpackable_" + itemId(input).getPath()),
+                    id("unpackable_" + itemId(input).getPath()),
                     ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, output, count)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .input(input)
@@ -451,7 +451,7 @@ public class RuleRecipes {
     private static void universalDyeingShapeless(RuntimeResourcePack pack, Map<DyeColor, Item> map, String group) {
         for (Map.Entry<DyeColor, Item> entry : map.entrySet()) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "universal_dyeing_" + itemId(entry.getValue()).getPath()),
+                    id("universal_dyeing_" + itemId(entry.getValue()).getPath()),
                     ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, entry.getValue())
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .group("universal_dyeing_" + group)
@@ -464,7 +464,7 @@ public class RuleRecipes {
     private static void universalDyeingRing(RuntimeResourcePack pack, Map<DyeColor, Item> map, String group) {
         for (Map.Entry<DyeColor, Item> entry : map.entrySet()) {
             pack.addRecipeAndAdvancement(
-                    new Identifier(MOD_ID, "universal_dyeing_" + itemId(entry.getValue()).getPath()),
+                    id("universal_dyeing_" + itemId(entry.getValue()).getPath()),
                     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, entry.getValue(), 8)
                             .criterion("tick", TickCriterion.Conditions.createTick())
                             .group("universal_dyeing_" + group)
@@ -479,7 +479,7 @@ public class RuleRecipes {
 
     private static void universalUnDyeing(RuntimeResourcePack pack, Map<DyeColor, Item> map, Item output) {
         pack.addRecipeAndAdvancement(
-                new Identifier(MOD_ID, "universal_dyeing_" + itemId(output).getPath()),
+                id("universal_dyeing_" + itemId(output).getPath()),
                 ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 8)
                         .criterion("tick", TickCriterion.Conditions.createTick())
                         .pattern("###")
@@ -497,7 +497,7 @@ public class RuleRecipes {
     private static void blasting(RuntimeResourcePack pack, boolean enabled, Ingredient input, Item output) {
         if (!enabled) return;
         pack.addRecipeAndAdvancement(
-                new Identifier(MOD_ID, "blast_furnace_" + itemId(output).getPath()),
+                id("blast_furnace_" + itemId(output).getPath()),
                 CookingRecipeJsonBuilder.createBlasting(
                                 input,
                                 RecipeCategory.MISC,
@@ -512,7 +512,7 @@ public class RuleRecipes {
     private static void smoking(RuntimeResourcePack pack, boolean enabled, Item input, Item output, float exp) {
         if (!enabled) return;
         pack.addRecipeAndAdvancement(
-                new Identifier(MOD_ID, "smoker_" + itemId(output).getPath()),
+                id("smoker_" + itemId(output).getPath()),
                 CookingRecipeJsonBuilder.createSmoking(
                                 Ingredient.ofItems(input),
                                 RecipeCategory.MISC,

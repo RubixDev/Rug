@@ -1,13 +1,13 @@
 plugins {
     id 'maven-publish'
-    id 'fabric-loom' version '1.6-SNAPSHOT' apply false
+    id 'fabric-loom' version '1.9-SNAPSHOT' apply false
 
     // https://github.com/ReplayMod/preprocessor
     // https://github.com/Fallen-Breath/preprocessor
-    id 'com.replaymod.preprocess' version '88169fc'
+    id 'com.replaymod.preprocess' version '9d21b334'
 
     // https://github.com/Fallen-Breath/yamlang
-    id 'me.fallenbreath.yamlang' version '1.3.1' apply false
+    id 'me.fallenbreath.yamlang' version '1.4.0' apply false
 }
 
 preprocess {
@@ -15,7 +15,9 @@ preprocess {
     def mc1202 = createNode('1.20.2'  , 1_20_02, 'yarn')
     def mc1204 = createNode('1.20.4'  , 1_20_04, 'yarn')
     def mc1206 = createNode('1.20.6'  , 1_20_06, 'yarn')
+    def mc1211 = createNode('1.21.1'  , 1_21_01, 'yarn')
 
+    mc1211.link(mc1206, null)
     mc1206.link(mc1204, file('versions/mapping-1.20.6-1.20.4.txt'))
     mc1204.link(mc1202, file('versions/mapping-1.20.4-1.20.2.txt'))
     mc1202.link(mc120, file('versions/mapping-1.20.2-1.20.1.txt'))

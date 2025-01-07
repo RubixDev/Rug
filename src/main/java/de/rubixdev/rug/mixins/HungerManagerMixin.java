@@ -50,14 +50,21 @@ public class HungerManagerMixin {
     }
 
     @Inject(method = "eat", at = @At("HEAD"), cancellable = true)
-    //#if MC >= 12006
-    private void instantHeal(ItemStack stack, CallbackInfo ci) {
-        FoodComponent foodComponent = stack.get(DataComponentTypes.FOOD);
-        if (RugSettings.foodInstantHeal && foodComponent != null) {
+    //#if MC >= 12101
+    private void instantHeal(FoodComponent foodComponent, CallbackInfo ci) {
+        if (RugSettings.foodInstantHeal) {
             pendingHealing += foodComponent.nutrition();
             ci.cancel();
         }
     }
+    //#elseif MC >= 12006
+    //$$ private void instantHeal(ItemStack stack, CallbackInfo ci) {
+    //$$     FoodComponent foodComponent = stack.get(DataComponentTypes.FOOD);
+    //$$     if (RugSettings.foodInstantHeal && foodComponent != null) {
+    //$$         pendingHealing += foodComponent.nutrition();
+    //$$         ci.cancel();
+    //$$     }
+    //$$ }
     //#else
     //$$ private void instantHeal(Item item, ItemStack stack, CallbackInfo ci) {
     //$$     if (RugSettings.foodInstantHeal && item.isFood()) {
