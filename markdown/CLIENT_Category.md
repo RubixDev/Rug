@@ -2,13 +2,12 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 7
+Count: 6
 - [eggWaterDrag](#eggwaterdrag)
 - [enderPearlWaterDrag](#enderpearlwaterdrag)
 - [honeyCombStickiness](#honeycombstickiness)
 - [kelpBlockHardness](#kelpblockhardness)
 - [maxBannerLayers](#maxbannerlayers)
-- [reachDistance](#reachdistance)
 - [snowballWaterDrag](#snowballwaterdrag)
 
 ## Rules in CLIENT Category
@@ -60,7 +59,8 @@ Any value other than 0 will behave like 0.5 for clients without this mod
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
 
-This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+Is disabled when [Infinite Banner Patterns](https://modrinth.com/mod/infinite-banner-patterns) is installed
 - Type: `int`
 - Default value: `6`
 - Suggested options: `3`, `6`, `10`, `12`
@@ -68,18 +68,6 @@ This only works for clients with this mod installed and the Banner tooltips neve
 - Additional notes:
   - You must choose a value from 3 to 16
   - [Idea from SouthernPixel](https://github.com/gnembon/carpet-extra/issues/111)
-
-### reachDistance
-Reach in which you can place and break blocks. Value will be 0.5 higher in creative
-
-Mod needed on server and client for this feature to work
-- Type: `double`
-- Default value: `4.5`
-- Suggested options: `0.0`, `4.5`, `5.0`, `10.0`
-- Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 100
-  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### snowballWaterDrag
 How fast thrown Snowballs can travel underwater. 0.99 is the default for above water and for Tridents

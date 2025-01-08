@@ -32,7 +32,7 @@ The project setup is based off of [Fallen-Breath's template](https://github.com/
 - [`TNT`](markdown/TNT_Category.md)
 
 ## Index
-Count: 100
+Count: 99
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -101,7 +101,6 @@ Count: 100
 - [peacefulHunger](#peacefulhunger)
 - [playerHeadDrops](#playerheaddrops)
 - [powderToGlassSmelting](#powdertoglasssmelting)
-- [reachDistance](#reachdistance)
 - [redstoneLampTurnOffDelay](#redstonelampturnoffdelay)
 - [sculkBlocksAlwaysDropXp](#sculkblocksalwaysdropxp)
 - [shapelessCrafting](#shapelesscrafting)
@@ -360,12 +359,12 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
-Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks), with armor_pieces, or with wool (like in 13w16a)
 
 Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
-- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
+- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`, `with_wool`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
@@ -622,7 +621,8 @@ Repeaters on top of Redstone Blocks multiply their delay by set amount
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
 
-This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+Is disabled when [Infinite Banner Patterns](https://modrinth.com/mod/infinite-banner-patterns) is installed
 - Type: `int`
 - Default value: `6`
 - Suggested options: `3`, `6`, `10`, `12`
@@ -732,18 +732,6 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)
-
-### reachDistance
-Reach in which you can place and break blocks. Value will be 0.5 higher in creative
-
-Mod needed on server and client for this feature to work
-- Type: `double`
-- Default value: `4.5`
-- Suggested options: `0.0`, `4.5`, `5.0`, `10.0`
-- Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 100
-  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### redstoneLampTurnOffDelay
 Delay in game ticks for Redstone Lamps to turn off

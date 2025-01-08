@@ -105,12 +105,12 @@ Expect a lag spike when changing the value
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableHorseArmor
-Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks) or with armor_pieces
+Horse Armor can be crafted in vanilla_style (H-shape), with_saddle (like in VanillaTweaks), with armor_pieces, or with wool (like in 13w16a)
 
 Expect a lag spike when changing the value
 - Type: `String`
 - Default value: `off`
-- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`
+- Required options: `off`, `vanilla_style`, `with_saddle`, `armor_pieces`, `with_wool`
 - Categories: `CRAFTING`, `RENEWABLE`, `RUG`, `SURVIVAL`
 
 ### craftableNameTags
@@ -217,7 +217,8 @@ Expect a lag spike when changing the value
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
 
-This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+Is disabled when [Infinite Banner Patterns](https://modrinth.com/mod/infinite-banner-patterns) is installed
 - Type: `int`
 - Default value: `6`
 - Suggested options: `3`, `6`, `10`, `12`

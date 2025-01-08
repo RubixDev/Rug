@@ -9,7 +9,7 @@ Extension for [gnembon's Carpet Mod](https://modrinth.com/mod/carpet) adding loa
 If you encounter any issues, please let me know on [GitHub](https://github.com/RubixDev/Rug/issues).
 
 ## List of available Settings
-Count: 100  
+Count: 99  
 - anvilledBlueIce  
 - anvilledIce  
 - anvilledPackedIce  
@@ -78,7 +78,6 @@ Count: 100
 - peacefulHunger  
 - playerHeadDrops  
 - powderToGlassSmelting  
-- reachDistance  
 - redstoneLampTurnOffDelay  
 - sculkBlocksAlwaysDropXp  
 - shapelessCrafting  

@@ -2,7 +2,7 @@
 
 For a list of all implemented Rules go [here](../README.md)
 ## Index
-Count: 30
+Count: 29
 - [anvilledBlueIce](#anvilledblueice)
 - [anvilledIce](#anvilledice)
 - [anvilledPackedIce](#anvilledpackedice)
@@ -24,7 +24,6 @@ Count: 30
 - [moreFortressSpawningBlocks](#morefortressspawningblocks)
 - [netherrackGeneration](#netherrackgeneration)
 - [peacefulHunger](#peacefulhunger)
-- [reachDistance](#reachdistance)
 - [silkTouchBuddingAmethysts](#silktouchbuddingamethysts)
 - [silkTouchFarmland](#silktouchfarmland)
 - [silkTouchPathBlocks](#silktouchpathblocks)
@@ -187,7 +186,8 @@ Repeaters on top of Redstone Blocks multiply their delay by set amount
 ### maxBannerLayers
 Maximum number of layers, that can be applied to a banner
 
-This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers
+This only works for clients with this mod installed and the Banner tooltips never show more than 6 layers  
+Is disabled when [Infinite Banner Patterns](https://modrinth.com/mod/infinite-banner-patterns) is installed
 - Type: `int`
 - Default value: `6`
 - Suggested options: `3`, `6`, `10`, `12`
@@ -231,18 +231,6 @@ Players do not lose any hunger like in peaceful mode
 - Categories: `EXPERIMENTAL`, `FEATURE`, `RUG`, `SURVIVAL`
 - Additional notes:
   - Suggestion by [real_zockerhopper](https://www.curseforge.com/members/real_zockerhopper)
-
-### reachDistance
-Reach in which you can place and break blocks. Value will be 0.5 higher in creative
-
-Mod needed on server and client for this feature to work
-- Type: `double`
-- Default value: `4.5`
-- Suggested options: `0.0`, `4.5`, `5.0`, `10.0`
-- Categories: `CLIENT`, `CREATIVE`, `EXPERIMENTAL`, `RUG`
-- Additional notes:
-  - You must choose a value from 0 to 100
-  - Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed
 
 ### silkTouchBuddingAmethysts
 Mining Budding Amethysts with a Silk Touch tool will drop itself
