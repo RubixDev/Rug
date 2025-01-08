@@ -51,7 +51,7 @@ public abstract class BlockMixin {
             ItemStack stack,
             CallbackInfo ci) {
         //#if MC >= 12101
-        boolean usesSilkTouch = EnchantmentHelper.getLevel(world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH), stack) > 0;
+        boolean usesSilkTouch = EnchantmentHelper.getLevel(world.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH), stack) > 0;
         //#else
         //$$ boolean usesSilkTouch = EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0;
         //#endif

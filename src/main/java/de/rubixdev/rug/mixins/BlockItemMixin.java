@@ -61,17 +61,20 @@ public abstract class BlockItemMixin {
         }
     }
 
-    @Redirect(
-            method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target = "Lnet/minecraft/util/ActionResult;success(Z)Lnet/minecraft/util/ActionResult;"))
-    private ActionResult onPlace(boolean swingHand) {
-        if (isValidLilyPad) {
-            return ActionResult.success(true);
-        } else {
-            return ActionResult.success(swingHand);
-        }
-    }
+    // TODO: rewrite this entire mixin
+    //#if MC < 12103
+    //$$ @Redirect(
+    //$$         method = "place(Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/util/ActionResult;",
+    //$$         at =
+    //$$                 @At(
+    //$$                         value = "INVOKE",
+    //$$                         target = "Lnet/minecraft/util/ActionResult;success(Z)Lnet/minecraft/util/ActionResult;"))
+    //$$ private ActionResult onPlace(boolean swingHand) {
+    //$$     if (isValidLilyPad) {
+    //$$         return ActionResult.success(true);
+    //$$     } else {
+    //$$         return ActionResult.success(swingHand);
+    //$$     }
+    //$$ }
+    //#endif
 }

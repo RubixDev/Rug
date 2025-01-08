@@ -18,32 +18,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 //#if MC >= 12006
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ItemActionResult;
+//#endif
+
+//#if MC >= 12006 && < 12103
+//$$ import net.minecraft.util.ItemActionResult;
 //#else
-//$$ import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResult;
 //#endif
 
 @Mixin(AbstractCauldronBlock.class)
 public class AbstractCauldronBlockMixin {
-    //#if MC >= 12006
     @Inject(
+            //#if MC >= 12006
             method = "onUseWithItem",
+            //#else
+            //$$ method = "onUse",
+            //#endif
             at =
             @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;",
                     shift = At.Shift.AFTER),
             cancellable = true)
-    //#else
-    //$$ @Inject(
-    //$$         method = "onUse",
-    //$$         at =
-    //$$                 @At(
-    //$$                         value = "INVOKE",
-    //$$                         target = "Lnet/minecraft/item/ItemStack;getItem()Lnet/minecraft/item/Item;",
-    //$$                         shift = At.Shift.AFTER),
-    //$$         cancellable = true)
-    //#endif
     private void onOnUse(
             //#if MC >= 12006
             ItemStack stack,
@@ -54,10 +50,10 @@ public class AbstractCauldronBlockMixin {
             PlayerEntity player,
             Hand hand,
             BlockHitResult hit,
-            //#if MC >= 12006
-            CallbackInfoReturnable<ItemActionResult> cir
+            //#if MC >= 12006 && MC < 12103
+            //$$ CallbackInfoReturnable<ItemActionResult> cir
             //#else
-            //$$ CallbackInfoReturnable<ActionResult> cir
+            CallbackInfoReturnable<ActionResult> cir
             //#endif
     ) {
         Item item = player.getStackInHand(hand).getItem();
@@ -71,10 +67,10 @@ public class AbstractCauldronBlockMixin {
                     player.getStackInHand(hand).decrement(1);
                 }
 
-                //#if MC >= 12006
-                cir.setReturnValue(ItemActionResult.SUCCESS);
+                //#if MC >= 12006 && MC < 12103
+                //$$ cir.setReturnValue(ItemActionResult.SUCCESS);
                 //#else
-                //$$ cir.setReturnValue(ActionResult.SUCCESS);
+                cir.setReturnValue(ActionResult.SUCCESS);
                 //#endif
             }
         }

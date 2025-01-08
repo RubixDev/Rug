@@ -24,8 +24,29 @@ import net.minecraft.component.type.ProfileComponent;
 //$$ import net.minecraft.nbt.NbtHelper;
 //#endif
 
+//#if MC >= 12103
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.Difficulty;
+import org.spongepowered.asm.mixin.Shadow;
+//#endif
+
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
+    //#if MC >= 12103
+    @Shadow public abstract ServerWorld getServerWorld();
+
+    @ModifyExpressionValue(method = "tickHunger", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;"))
+    private Difficulty peacefulHunger(Difficulty original) {
+        return RugSettings.peacefulHunger ? Difficulty.PEACEFUL : original;
+    }
+
+    @ModifyExpressionValue(method = "tickHunger", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+    private boolean foodInstantHeal(boolean original) {
+        return !RugSettings.foodInstantHeal && original;
+    }
+    //#endif
+
     public ServerPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile gameProfile) {
         super(world, pos, yaw, gameProfile);
     }
@@ -52,7 +73,11 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
             //$$ stack.getOrCreateNbt()
             //$$         .put("SkullOwner", NbtHelper.writeGameProfile(new NbtCompound(), this.getGameProfile()));
             //#endif
-            this.dropStack(stack);
+            //#if MC >= 12103
+            this.dropStack(getServerWorld(), stack);
+            //#else
+            //$$ this.dropStack(stack);
+            //#endif
         }
     }
 

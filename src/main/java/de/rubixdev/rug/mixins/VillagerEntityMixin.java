@@ -13,6 +13,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 12103
+import net.minecraft.server.world.ServerWorld;
+//#endif
+
 @Mixin(VillagerEntity.class)
 public abstract class VillagerEntityMixin extends Entity {
     public VillagerEntityMixin(EntityType<?> type, World world) {
@@ -27,8 +31,14 @@ public abstract class VillagerEntityMixin extends Entity {
                             target =
                                     "Lnet/minecraft/entity/damage/DamageSource;getAttacker()Lnet/minecraft/entity/Entity;"))
     private void dropEmeralds(DamageSource source, CallbackInfo ci) {
-        if (RugSettings.villagersDropEmeralds != 0) {
-            dropStack(new ItemStack(Items.EMERALD, random.nextInt(RugSettings.villagersDropEmeralds) + 1));
+        //#if MC >= 12103
+        if (RugSettings.villagersDropEmeralds != 0 && getWorld() instanceof ServerWorld world) {
+            dropStack(world, new ItemStack(Items.EMERALD, random.nextInt(RugSettings.villagersDropEmeralds) + 1));
         }
+        //#else
+        //$$ if (RugSettings.villagersDropEmeralds != 0) {
+        //$$     dropStack(new ItemStack(Items.EMERALD, random.nextInt(RugSettings.villagersDropEmeralds) + 1));
+        //$$ }
+        //#endif
     }
 }
