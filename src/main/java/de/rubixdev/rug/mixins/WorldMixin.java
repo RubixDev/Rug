@@ -88,15 +88,11 @@ public abstract class WorldMixin {
         if (state.isOf(Blocks.BASALT)) {
             BlockState prevState = ((BlockView) this).getBlockState(pos);
             if (FluidHelper.shouldConvertToLava((BlockView) this, pos)) {
-                if (prevState.isOf(Blocks.LAVA) && prevState.getFluidState().isStill()) {
-                    cir.setReturnValue(false);
-                    return;
-                }
-
                 FluidHelper.playFizzleSound((WorldAccess) this, pos);
                 ((WorldAccess) this)
                         .playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                cir.setReturnValue(this.setBlockState(pos, Blocks.LAVA.getDefaultState(), flags, maxUpdateDepth));
+                boolean couldPlace = this.setBlockState(pos, Blocks.LAVA.getDefaultState(), flags, maxUpdateDepth);
+                cir.setReturnValue(couldPlace || prevState.isOf(Blocks.LAVA) && prevState.getFluidState().isStill());
             }
         }
     }
